@@ -6,6 +6,7 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-redux": "^4.4.5",
+    "react-router": "^4.1.1",
     "redux": "^3.5.2"
   },
   "devDependencies": {
