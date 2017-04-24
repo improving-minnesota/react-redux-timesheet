@@ -1,29 +1,29 @@
 import React, { Component } from 'react';
-import * as BS from 'react-bootstrap';
+import {Navbar, Nav, NavItem} from 'react-bootstrap';
 import {LinkContainer} from 'react-router-bootstrap';
 
 class NavBar extends Component {
   render() {
     return (
-      <BS.Navbar>
-        <BS.Navbar.Header>
-          <BS.Navbar.Brand>
-            <a href="#">Timesheetz</a>
-          </BS.Navbar.Brand>
-        </BS.Navbar.Header>
-        <BS.Nav>
-          <LinkContainer to="/home">
-            <BS.NavItem eventKey={1}>Home</BS.NavItem>
+      <Navbar>
+        <Navbar.Header>
+          <Navbar.Brand>
+            Timesheetz
+          </Navbar.Brand>
+        </Navbar.Header>
+        <Nav>
+          <LinkContainer to="/projects">
+            <NavItem eventKey={1}>Projects</NavItem>
           </LinkContainer>
-          <LinkContainer to="/book">
-            <BS.NavItem eventKey={2}>Book Inv</BS.NavItem>
+          <LinkContainer to="/employees">
+            <NavItem eventKey={2}>Employees</NavItem>
           </LinkContainer>
-          <LinkContainer to="/book">
-            <BS.NavItem eventKey={2}>Book Inv</BS.NavItem>
+          <LinkContainer to="/timesheets">
+            <NavItem eventKey={3}>Timesheets</NavItem>
           </LinkContainer>
 
-        </BS.Nav>
-      </BS.Navbar>
+        </Nav>
+      </Navbar>
     );
   }
 }
