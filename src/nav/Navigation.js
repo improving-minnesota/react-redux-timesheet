@@ -21,7 +21,6 @@ class NavBar extends Component {
           <LinkContainer to="/timesheets">
             <NavItem eventKey={3}>Timesheets</NavItem>
           </LinkContainer>
-
         </Nav>
       </Navbar>
     );

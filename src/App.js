@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import Hello from './hello/Hello';
+import Projects from './projects/Projects';
+import Employees from './employees/Employees';
+import Timesheets from './timesheets/Timesheets';
 import Navigation from './nav/Navigation';
 import {BrowserRouter} from 'react-router-dom';
 import {Route, IndexRoute} from 'react-router';
@@ -13,13 +15,9 @@ class App extends Component {
           <Navigation/>
           <Route path={"/"}>
             <div>
-              <Route path={"/projects"} component={Hello}/>
-              <Route path={"/employees"} component={Hello}/>
-              <Route path={"/timesheets"} render={() => (
-                <p className="App-intro">
-                  To get started, edit <code>src/App.js</code> and save to reload.
-                </p>
-              )}/>
+              <Route path={"/projects"} component={Projects}/>
+              <Route path={"/employees"} component={Employees}/>
+              <Route path={"/timesheets"} component={Timesheets}/>
             </div>
           </Route>
 
