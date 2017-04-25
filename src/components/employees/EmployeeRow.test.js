@@ -5,8 +5,15 @@ import ReactTestUtils from 'react-dom/test-utils';
 
 describe('Employee Row Component: ', function () {
 
-  it('implement me', function () {
-    expect(true).toBe(true);
+  let employeeRow;
+
+  beforeEach(() =>{
+    const employee = {};
+    employeeRow = ReactTestUtils.renderIntoDocument(<EmployeeRow employee={employee} />);
+  });
+
+  it('should instantiate the Employee Component', function () {
+    expect(ReactTestUtils.isCompositeComponent(employeeRow)).toBe(true);
   });
 
 });

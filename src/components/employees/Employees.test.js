@@ -5,8 +5,14 @@ import ReactTestUtils from 'react-dom/test-utils';
 
 describe('Employees Component: ', function () {
 
-  it('implement me', function () {
-    expect(true).toBe(true);
+  let employees;
+
+  beforeEach(() =>{
+    employees = ReactTestUtils.renderIntoDocument(<Employees/>);
+  });
+
+  it('should instantiate the Employee Component', function () {
+    expect(ReactTestUtils.isCompositeComponent(employees)).toBe(true);
   });
 
 });
