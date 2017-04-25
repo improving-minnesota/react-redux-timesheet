@@ -8,12 +8,4 @@ class EmployeeTable extends Component {
   render() {return (<div />);}
 }
 
-EmployeeTable.defaultProps = {
-  employees: new Array()
-};
-
-EmployeeTable.propTypes = {
-  employees: React.PropTypes.array.isRequired
-};
-
 export default EmployeeTable;
