@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import ProjectTable from './ProjectTable';
 import {PageHeader, Grid, Row, Col} from 'react-bootstrap';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as ProjectActions from '../../actions/ProjectActionCreator';
 
 class Projects extends Component {
 
@@ -31,4 +34,20 @@ class Projects extends Component {
   }
 }
 
-export default Projects;
+function mapStateToProps(state) {
+  return {
+    projects: state.projects
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(ProjectActions, dispatch)
+  };
+}
+
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Projects);
