@@ -1,20 +1,36 @@
 import React from 'react';
 import Hello from './Hello';
-import ReactTestUtils from 'react-dom/test-utils';
-
+import renderer from 'react-test-renderer';
 
 describe('Hello World:', function () {
 
-  let hello;
+ 
+    it('should render with default text', function () {
 
-  beforeEach(() =>{
-    hello = ReactTestUtils.renderIntoDocument(<Hello/>);
-  });
+        const component = renderer.create(
+                <Hello/>
+        );
 
-  it('should instantiate the Hello World', function () {
-    expect(ReactTestUtils.isCompositeComponent(hello)).toBe(true);
-  });
+        let stringVal = JSON.stringify(component);
+        expect(stringVal).toMatch(/Howdy/);
+        expect(stringVal).toMatch(/Partner/);
+   
+    });
+
+    it('should render with our props', function () {
+
+        const component = renderer.create(
+                <Hello friend="Fred"/>
+        );
+
+        let stringVal = JSON.stringify(component);
+        expect(stringVal).toMatch(/Howdy/);
+        expect(stringVal).toMatch(/Fred/);
+
+    });
+
 
 });
+
 
 
