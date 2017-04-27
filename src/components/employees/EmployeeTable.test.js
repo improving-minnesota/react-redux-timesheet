@@ -1,19 +1,32 @@
 import React from 'react';
 import EmployeeTable from './EmployeeTable';
-import ReactTestUtils from 'react-dom/test-utils';
+import renderer from 'react-test-renderer';
 
 
 describe('Employee Table Component: ', function () {
 
-  let employeeTable;
 
-  beforeEach(() =>{
-    const employees = [{}, {}];
-    employeeTable = ReactTestUtils.renderIntoDocument(<EmployeeTable employees={employees} />);
-  });
+    it('should instantiate the Employee Component', function () {
 
-  it('should instantiate the Employee Component', function () {
-    expect(ReactTestUtils.isCompositeComponent(employeeTable)).toBe(true);
+        
+        const employees = [{username:'fflintstone',
+                          'email':'fred.flintstone@slatequarry.com',
+                          'firstName':'Fred',
+                          'lastName':'Flintstone',
+                          'admin':true
+                         }]
+
+
+
+        const component = renderer.create(
+                <EmployeeTable employess={employees}/>
+        );
+
+        let stringVal = JSON.stringify(component);
+        expect(stringVal).toMatch(/table/);
+        expect(stringVal).toMatch(/Admin/);
+
+
   });
 
 });

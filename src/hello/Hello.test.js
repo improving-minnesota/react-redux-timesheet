@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer';
 
 describe('Hello World:', function () {
 
- 
+
     it('should render with default text', function () {
 
         const component = renderer.create(
