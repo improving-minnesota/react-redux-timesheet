@@ -6,7 +6,7 @@ import renderer from 'react-test-renderer';
 describe('Employee Table Component: ', function () {
 
 
-    it('should instantiate the Employee Row', function () {
+    it('should instantiate the Employee Table', function () {
 
         
         const employees = [{username:'fflintstone',
