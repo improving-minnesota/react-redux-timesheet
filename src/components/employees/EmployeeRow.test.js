@@ -5,7 +5,7 @@ import renderer from 'react-test-renderer';
 describe('Employee Row Component: ', function () {
 
 
-    it('should instantiate the Employee Component', function () {
+    it('should instantiate the Employee Row Component', function () {
 
         const employee = {username:'fflintstone',
                           'email':'fred.flintstone@slatequarry.com',
