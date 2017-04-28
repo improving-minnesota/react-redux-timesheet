@@ -14,7 +14,7 @@ describe('Hello World:', function () {
         let stringVal = JSON.stringify(component);
         expect(stringVal).toMatch(/Howdy/);
         expect(stringVal).toMatch(/Partner/);
-   
+
     });
 
     it('should render with our props', function () {
