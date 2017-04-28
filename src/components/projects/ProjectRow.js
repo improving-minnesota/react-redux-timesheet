@@ -6,11 +6,11 @@ class ProjectRow extends Component {
   handleClick(project) {
     if(project.deleted){
       project.deleted = false;
-      this.props.actions.restoreProject(project);
+      this.props.actions.restoreProject(project).then(this.props.actions.listProjects);
     }
     else{
       project.deleted = true;
-      this.props.actions.removeProject(project);
+      this.props.actions.removeProject(project).then(this.props.actions.listProjects);
     }
   }
 

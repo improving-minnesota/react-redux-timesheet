@@ -6,9 +6,11 @@ class TimesheetTable extends Component {
   render() {
     let key = 1;
 
+    const actions = this.props.actions;
+
     let timesheetRows = this.props.timesheets.map(function (timesheet) {
       return (
-        <TimesheetRow timesheet={timesheet} key={++key} />
+        <TimesheetRow timesheet={timesheet} key={++key} actions={actions}/>
       );
     });
 
@@ -20,6 +22,7 @@ class TimesheetTable extends Component {
           <th>End Date</th>
           <th>Name</th>
           <th>Description</th>
+          <th>Delete</th>
         </tr>
         </thead>
         <tbody>

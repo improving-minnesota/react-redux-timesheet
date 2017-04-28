@@ -1,6 +1,6 @@
 import * as ProjectActionTypes from '../actions/ProjectActionTypes';
 
-export default (state = {projects: []}, action) => {
+export default (state = {projects: [], project: {}}, action) => {
   switch (action.type) {
     case ProjectActionTypes.LIST:
       return Object.assign({}, state, {projects: action.projects});

@@ -2,7 +2,7 @@ import * as ProjectActionTypes from './ProjectActionTypes';
 import Axios from 'axios';
 
 
-const apiUrl = 'http://localhost:3001/api/projects';
+const apiUrl = 'http://localhost:3000/api/projects';
 
 const url = (projectId) => {
 
@@ -19,6 +19,7 @@ export const listProjects = () => {
     return Axios.get(url())
       .then(response => {
         dispatch(list(response.data));
+        console.log('Projects retrieved.');
       })
       .catch(error => {
         console.log('Error attempting to retrieve projects.');
@@ -56,7 +57,7 @@ export const updateProject = (project) => {
 export const removeProject = (project) => {
   return (dispatch) => {
     project.deleted = true;
-    debugger;
+
     return Axios.put(url(project._id), project)
       .then(function (res) {
         dispatch(get(res.data));
