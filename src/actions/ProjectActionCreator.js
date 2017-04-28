@@ -1,62 +1,114 @@
 import * as ProjectActionTypes from './ProjectActionTypes';
 import Axios from 'axios';
 
-const apiUrl = "http://localhost:3001/api/projects"
 
-export const fetchProjects = () => {
+const apiUrl = 'http://localhost:3001/api/projects';
+
+const url = (projectId) => {
+
+  let url = apiUrl;
+  if (projectId) {
+    url += '/' + projectId;
+  }
+
+  return url;
+}
+
+export const listProjects = () => {
   return (dispatch) => {
-    // Returns a promise
-    return Axios.get(apiUrl)
+    return Axios.get(url())
       .then(response => {
-        // Dispatch another action
-        // to consume data
-        dispatch(list(response.data))
+        dispatch(list(response.data));
       })
       .catch(error => {
-        throw(error);
+        console.log('Error attempting to retrieve projects.');
       });
   };
 }
 
-export function list (projects) {
+export const getProject = (id) => {
+  return (dispatch) => {
+    return Axios.get(url(id))
+      .then(function (res) {
+        dispatch(get(res.data));
+        return true;
+      })
+      .catch(function (x) {
+        console.log('There was an error getting the project');
+      });
+  }
+}
+
+export const updateProject = (project) => {
+  return (dispatch) => {
+    return Axios.put(url(project._id), project)
+      .then(function (res) {
+        dispatch(get(res.data));
+        console.log('Project : ' + project.name + ', updated.');
+        return true;
+      })
+      .catch(function (x) {
+        console.log('There was an error updating project.');
+      });
+  }
+}
+
+export const removeProject = (project) => {
+  return (dispatch) => {
+    project.deleted = true;
+    debugger;
+    return Axios.put(url(project._id), project)
+      .then(function (res) {
+        dispatch(get(res.data));
+        console.log('Project : ' + res.data.name + ', was deleted.');
+        return true;
+      })
+      .catch(function (x) {
+        console.log('Error attempting to delete project.');
+      });
+  }
+}
+
+export const restoreProject = (project) => {
+  return (dispatch) => {
+    project.deleted = false;
+
+    return Axios.put(url(project._id), project)
+      .then(function (res) {
+        dispatch(get(res.data))
+        console.log('Project : ' + res.data.name + ', was restored.');
+        return true;
+      })
+      .catch(function (x) {
+        console.log('Error attempting to restore project.');
+      });
+  }
+}
+
+export const createProject = (project) => {
+  return (dispatch) => {
+    return Axios.put(url(), project)
+      .then(function (res) {
+        dispatch(get(res.data))
+        console.log('Project : ' + res.data.name + ', created.');
+        return true;
+      })
+      .catch(function (x) {
+        console.log('There was an error creating project.');
+      });
+  }
+}
+
+export function list(projects) {
   return {
     type: ProjectActionTypes.LIST,
     projects: projects
   }
 }
 
-export function get(id) {
+export function get(project) {
   return {
     type: ProjectActionTypes.GET,
-    project: {_id: id}
-  }
-}
-
-export function create(project) {
-  return {
-    type: ProjectActionTypes.CREATE,
     project: project
   }
 }
-
-export function update(project) {
-  return {
-    type: ProjectActionTypes.UPDATE,
-    project: project
-  }
-}
-
-export function remove(project) {
-  return {
-    type: ProjectActionTypes.DELETE,
-    project: project
-  }
-}
-
-export function restore(project) {
-  return {
-    type: ProjectActionTypes.RESTORE,
-    project: project
-  }
-}
-

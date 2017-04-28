@@ -9,14 +9,7 @@ class Projects extends Component {
 
   constructor(props) {
     super(props);
-
-    const projects = [
-      {"id": 1, "name": "Project1", "description": "This is your first project", deleted: true},
-      {"id": 2, "name": "Project2", "description": "This is your second project"},
-      {"id": 3, "name": "Project3", "description": "This is the third project"}
-    ];
-
-    props.actions.fetchProjects();
+    props.actions.listProjects();
   }
 
   render() {
