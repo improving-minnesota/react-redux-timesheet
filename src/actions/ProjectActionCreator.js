@@ -1,46 +1,62 @@
 import * as ProjectActionTypes from './ProjectActionTypes';
+import Axios from 'axios';
 
-module.exports = {
+const apiUrl = "http://localhost:3001/api/projects"
 
-  list: function (query) {
-    return {
-      actionType: ProjectActionTypes.LIST,
-      query: query
-    }
-  },
+export const fetchProjects = () => {
+  return (dispatch) => {
+    // Returns a promise
+    return Axios.get(apiUrl)
+      .then(response => {
+        // Dispatch another action
+        // to consume data
+        dispatch(list(response.data))
+      })
+      .catch(error => {
+        throw(error);
+      });
+  };
+}
 
-  get: function (id) {
-    return {
-      actionType: ProjectActionTypes.GET,
-      project: {_id: id}
-    }
-  },
-
-  create: function (project) {
-    return {
-      actionType: ProjectActionTypes.CREATE,
-      project: project
-    }
-  },
-
-  update: function (project) {
-    return {
-      actionType: ProjectActionTypes.UPDATE,
-      project: project
-    }
-  },
-
-  remove: function (project) {
-    return {
-      actionType: ProjectActionTypes.DELETE,
-      project: project
-    }
-  },
-
-  restore: function (project) {
-    return {
-      actionType: ProjectActionTypes.RESTORE,
-      project: project
-    }
+export function list (projects) {
+  return {
+    type: ProjectActionTypes.LIST,
+    projects: projects
   }
-};
+}
+
+export function get(id) {
+  return {
+    type: ProjectActionTypes.GET,
+    project: {_id: id}
+  }
+}
+
+export function create(project) {
+  return {
+    type: ProjectActionTypes.CREATE,
+    project: project
+  }
+}
+
+export function update(project) {
+  return {
+    type: ProjectActionTypes.UPDATE,
+    project: project
+  }
+}
+
+export function remove(project) {
+  return {
+    type: ProjectActionTypes.DELETE,
+    project: project
+  }
+}
+
+export function restore(project) {
+  return {
+    type: ProjectActionTypes.RESTORE,
+    project: project
+  }
+}
+

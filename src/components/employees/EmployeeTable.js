@@ -7,7 +7,6 @@ class EmployeeTable extends Component {
     let key = 1;
 
     let employeeRows = this.props.employees.map(function (employee) {
-      debugger;
       return (
         <EmployeeRow employee={employee} key={++key} />
       );

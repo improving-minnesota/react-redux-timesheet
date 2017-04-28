@@ -6,10 +6,11 @@ class ProjectTable extends Component {
   render() {
     let key = 1;
 
+    const actions = this.props.actions;
+
     let projectRows = this.props.projects.map(function (project) {
-      debugger;
       return (
-        <ProjectRow project={project} key={++key} />
+        <ProjectRow project={project} key={++key} actions={actions}/>
       );
     });
 
@@ -19,6 +20,7 @@ class ProjectTable extends Component {
         <tr>
           <th>Name</th>
           <th>Description</th>
+          <th>Delete</th>
         </tr>
         </thead>
         <tbody>
@@ -30,11 +32,13 @@ class ProjectTable extends Component {
 }
 
 ProjectTable.defaultProps = {
-  projects: new Array()
+  projects: new Array(),
+  actions: {}
 };
 
 ProjectTable.propTypes = {
-  projects: React.PropTypes.array.isRequired
+  projects: React.PropTypes.array.isRequired,
+  actions: React.PropTypes.object.isRequired
 };
 
 export default ProjectTable;

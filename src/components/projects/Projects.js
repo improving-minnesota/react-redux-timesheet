@@ -9,15 +9,14 @@ class Projects extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      pageConfig: {
-        data: [
-          {"name": "Project1", "description": "This is your first project"},
-          {"name": "Project2", "description": "This is your second project"},
-          {"name": "Project3", "description": "This is the third project"}
-        ]
-      }
-    };
+
+    const projects = [
+      {"id": 1, "name": "Project1", "description": "This is your first project", deleted: true},
+      {"id": 2, "name": "Project2", "description": "This is your second project"},
+      {"id": 3, "name": "Project3", "description": "This is the third project"}
+    ];
+
+    props.actions.fetchProjects();
   }
 
   render() {
@@ -27,7 +26,7 @@ class Projects extends Component {
           <PageHeader>Projects</PageHeader>
         </Row>
         <Row>
-          <ProjectTable projects={this.state.pageConfig.data}/>
+          <ProjectTable projects={this.props.projects} actions={this.props.actions}/>
         </Row>
       </Grid>
     );
@@ -36,7 +35,7 @@ class Projects extends Component {
 
 function mapStateToProps(state) {
   return {
-    projects: state.projects
+    projects: state.projects.projects
   }
 }
 
