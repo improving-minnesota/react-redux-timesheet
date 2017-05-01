@@ -1,5 +1,5 @@
 import React from 'react';
-import EmployeeRow from './EmployeeTable';
+import EmployeeRow from './EmployeeRow';
 import renderer from 'react-test-renderer';
 
 
