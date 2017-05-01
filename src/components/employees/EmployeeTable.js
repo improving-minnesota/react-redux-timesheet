@@ -6,9 +6,11 @@ class EmployeeTable extends Component {
   render() {
     let key = 1;
 
+    const actions = this.props.actions;
+
     let employeeRows = this.props.employees.map(function (employee) {
       return (
-        <EmployeeRow employee={employee} key={++key} />
+        <EmployeeRow employee={employee} key={++key} actions={actions} />
       );
     });
 
@@ -21,6 +23,7 @@ class EmployeeTable extends Component {
           <th>First Name</th>
           <th>Last Name</th>
           <th>Admin</th>
+          <th>Delete</th>
         </tr>
         </thead>
         <tbody>

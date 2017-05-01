@@ -1,11 +1,11 @@
-import * as ProjectActionTypes from '../actions/ProjectActionTypes';
+import * as EmployeeActionTypes from '../actions/EmployeeActionTypes';
 
-export default (state = {projects: [], project: {}}, action) => {
+export default (state = {employees: [], employee: {}}, action) => {
   switch (action.type) {
-    case ProjectActionTypes.LIST:
-      return Object.assign({}, state, {projects: action.projects});
-    case ProjectActionTypes.GET:
-      return Object.assign({}, state, {project: action.project});
+    case EmployeeActionTypes.LIST:
+      return Object.assign({}, state, {employees: action.employees});
+    case EmployeeActionTypes.GET:
+      return Object.assign({}, state, {employee: action.employee});
 
     default:
       return state;
