@@ -8,12 +8,12 @@ const mockStore = configureStore();
 describe('Employees Component: ', function () {
 
   it('should instantiate the Employee Component', function () {
-      const component = renderer.create(
-              <Employees store={mockStore}/>
-      );
+    const component = renderer.create(
+      <Employees store={mockStore}/>
+    );
 
-      let stringVal = JSON.stringify(component);
-      expect(stringVal).toMatch(/Employees/);
+    let stringVal = JSON.stringify(component);
+    expect(stringVal).toMatch(/Employees/);
 
   });
 
