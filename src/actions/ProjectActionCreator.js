@@ -2,7 +2,7 @@ import * as ProjectActionTypes from './ProjectActionTypes';
 import Axios from 'axios';
 
 
-const apiUrl = 'http://localhost:3000/api/projects';
+const apiUrl = '/api/projects';
 
 const url = (projectId) => {
 
@@ -14,15 +14,15 @@ const url = (projectId) => {
   return url;
 }
 
-export const listProjects = () => {
-  return (dispatch) => {
+export function listProjects(){
+  return function (dispatch) {
     return Axios.get(url())
       .then(response => {
         dispatch(list(response.data));
         console.log('Projects retrieved.');
       })
       .catch(error => {
-        console.log('Error attempting to retrieve projects.');
+        console.log('Error attempting to retrieve projects.', error);
       });
   };
 }

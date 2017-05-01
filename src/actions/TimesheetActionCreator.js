@@ -2,7 +2,7 @@ import * as TimesheetActionTypes from './TimesheetActionTypes';
 import Axios from 'axios';
 
 
-const apiUrl = 'http://localhost:3000/api/users/all/timesheets';
+const apiUrl = '/api/users/all/timesheets';
 
 const url = (timesheetId) => {
 
