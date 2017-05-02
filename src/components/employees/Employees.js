@@ -17,6 +17,8 @@ class Employees extends Component {
   render() {
     return (
       <Grid>
+        {/* TODO - Add a button to open the create employee route */}
+
         <Row>
           <PageHeader>Employees</PageHeader>
         </Row>
