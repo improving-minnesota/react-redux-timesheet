@@ -1,22 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import renderer from 'react-test-renderer';
-import configureStore from './store/configure-store';
+import ReactShallowRenderer from 'react-test-renderer/shallow';
 
 it('renders with our expected text', () => {
 
-    const mockStore = configureStore();
-
-    const component = renderer.create(
-            <App store={mockStore}/>
+    //Shallow renderer to avoid integration testing all subcomponents
+    const renderer = new ReactShallowRenderer();
+    renderer.render(
+            <App/>
     );
 
+    const result = renderer.getRenderOutput();
 
-    let stringVal = JSON.stringify(component);
-    expect(stringVal).toMatch(/Employees/);
-
-
+    let stringVal = JSON.stringify(result);
+    expect(stringVal).toMatch(/employees\/:user_id\/timesheets/);
 
 });
 
