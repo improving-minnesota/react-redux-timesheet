@@ -15,8 +15,8 @@ it('renders with our expected text', () => {
 
     let stringVal = JSON.stringify(component);
     expect(stringVal).toMatch(/Employees/);
-    
 
-    
+
+
 });
 

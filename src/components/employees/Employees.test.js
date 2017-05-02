@@ -12,9 +12,18 @@ describe('Employees Component: ', function () {
       <Employees store={mockStore}/>
     );
 
-    let stringVal = JSON.stringify(component);
-    expect(stringVal).toMatch(/Employees/);
+      const stringVal = JSON.stringify(component);
+      expect(stringVal).toMatch(/Employees/);
 
+  });
+
+  it('should contain a correct employee', function () {
+    const component = renderer.create(
+        <Employees/>
+    );
+
+    const stringVal = JSON.stringify(component);
+    expect(stringVal).toMatch(/admin@mixtape.com/);
   });
 
 });
