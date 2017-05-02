@@ -1,6 +1,6 @@
 import React from 'react';
 import EmployeeTable from './EmployeeTable';
-import ReactTestUtils from 'react-dom/test-utils';
+import renderer from 'react-test-renderer';
 
 
 describe('Employee Table Component: ', function () {
