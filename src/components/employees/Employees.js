@@ -9,6 +9,8 @@ class Employees extends Component {
 
   constructor(props) {
     super(props);
+
+    //Replaces the previously hard-coded state assignment
     props.actions.listEmployees();
   }
 
