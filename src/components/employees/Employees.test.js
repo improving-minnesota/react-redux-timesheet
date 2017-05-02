@@ -1,6 +1,5 @@
 import React from 'react';
 import Employees from './Employees';
-import ReactTestUtils from 'react-dom/test-utils';
 import renderer from 'react-test-renderer';
 
 
