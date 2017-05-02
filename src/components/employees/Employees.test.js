@@ -12,8 +12,8 @@ describe('Employees Component: ', function () {
       <Employees store={mockStore}/>
     );
 
-    let stringVal = JSON.stringify(component);
-    expect(stringVal).toMatch(/Employees/);
+      const stringVal = JSON.stringify(component);
+      expect(stringVal).toMatch(/Employees/);
 
   });
 

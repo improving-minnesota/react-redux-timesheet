@@ -8,7 +8,7 @@ describe('Employee Table Component: ', function () {
 
     it('should instantiate the Employee Table', function () {
 
-        
+
         const employees = [{username:'fflintstone',
                           'email':'fred.flintstone@slatequarry.com',
                           'firstName':'Fred',
@@ -19,12 +19,12 @@ describe('Employee Table Component: ', function () {
 
 
         const component = renderer.create(
-                <EmployeeTable employess={employees}/>
+                <EmployeeTable employees={employees}/>
         );
 
         let stringVal = JSON.stringify(component);
         expect(stringVal).toMatch(/table/);
-        expect(stringVal).toMatch(/Admin/);
+        expect(stringVal).toMatch(/Flintstone/);
 
 
   });
