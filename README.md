@@ -1,8 +1,8 @@
 ## React Redux Timesheet workshop ##
 
 This is the frontend project code for the [React Redux Workshop](http://objectpartners.github.io/react-redux-workshop)
-Labs are at https://github.com/objectpartners/react-redux-workshop/tree/master/labs
-Backend API code is at https://github.com/objectpartners/react-redux-api
+- Labs are at https://github.com/objectpartners/react-redux-workshop/tree/master/labs
+- Backend API code is at https://github.com/objectpartners/react-redux-api
 
 ## Standard Create React App documentation ##
 
