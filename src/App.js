@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Projects from './components/projects/Projects';
+import ProjectsDetail from './components/projects/ProjectsDetail';
+import ProjectsCreate from './components/projects/ProjectsCreate';
 import Employees from './components/employees/Employees';
 import Timesheets from './components/timesheets/Timesheets';
 import Navigation from './components/nav/Navigation';
@@ -14,7 +16,10 @@ class App extends Component {
           <Navigation/>
           <Route path={"/"}>
             <Switch>
-              <Route path="/projects" component={Projects}/>
+              <Route exact path="/projects" component={Projects}/>
+              <Route path='/projects/detail/:_id'  component={ProjectsDetail} />
+              <Route path='/projects/create'       component={ProjectsCreate} />
+
               <Route exact path="/employees" component={Employees}/>
               <Route path="/employees/:user_id/timesheets" component={Timesheets}/>
               <Redirect to="/employees"/>

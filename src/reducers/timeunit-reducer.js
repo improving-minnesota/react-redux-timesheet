@@ -1,10 +1,10 @@
-import * as TimeunitActionTypes from '../actions/TimeunitActionTypes';
+import * as TimeUnitActionTypes from '../actions/TimeUnitActionTypes';
 
 export default (state = {timeunits: [], timeunit: {}}, action) => {
   switch (action.type) {
-    case TimeunitActionTypes.LIST:
+    case TimeUnitActionTypes.LIST:
       return Object.assign({}, state, {timeunits: action.timeunits});
-    case TimeunitActionTypes.GET:
+    case TimeUnitActionTypes.GET:
       return Object.assign({}, state, {timeunit: action.timeunit});
 
     default:
