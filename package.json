@@ -4,22 +4,22 @@
   "private": true,
   "proxy": "http://localhost:3001",
   "dependencies": {
-    "axios": "^0.16.1",
-    "react": "^15.5.4",
-    "react-bootstrap": "^0.30.10",
-    "react-dom": "^15.5.4",
-    "react-redux": "^4.4.5",
-    "react-router": "^4.1.1",
-    "react-router-bootstrap": "^0.24.2",
-    "react-router-dom": "^4.1.1",
-    "redux": "^3.5.2",
-    "redux-thunk": "^2.2.0"
+    "axios": "0.16.x",
+    "react": "15.5.x",
+    "react-bootstrap": "0.30.x",
+    "react-dom": "15.5.x",
+    "react-redux": "4.4.x",
+    "react-router": "4.1.x",
+    "react-router-bootstrap": "0.24.x",
+    "react-router-dom": "4.1.x",
+    "redux": "3.6.x",
+    "redux-thunk": "2.2.x"
   },
   "devDependencies": {
-    "moxios": "^0.4.0",
+    "moxios": "0.4.x",
     "react-scripts": "0.9.5",
-    "react-test-renderer": "^15.5.4",
-    "redux-mock-store": "^1.2.3"
+    "react-test-renderer": "15.5.x",
+    "redux-mock-store": "1.2.x"
   },
   "scripts": {
     "start": "react-scripts start",
