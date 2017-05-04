@@ -14,6 +14,15 @@ class EmployeeRow extends Component {
     }
   }
 
+  showDetail(employee) {
+    if(employee.deleted) {
+      console.log('You cannot edit a deleted employee.');
+      return;
+    }
+
+    this.context.router.history.push('/employees/detail/' + employee._id);
+  }
+
   render() {
     const employee = this.props.employee;
 
@@ -24,7 +33,7 @@ class EmployeeRow extends Component {
 
     const button = (
       <Button
-        onClick={() => {this.handleClick(employee)}}
+        onClick={(e) => {this.handleClick(employee); e.stopPropagation();}}
         bsStyle={employee.deleted ? 'success' : 'danger'}
       >
         {employee.deleted ? 'Restore' : 'Delete'}
@@ -32,7 +41,7 @@ class EmployeeRow extends Component {
 
 
     return (
-      <tr className={rowClass}>
+      <tr className={rowClass} onClick={() => {this.showDetail(employee)}}>
         <td>{employee.username}</td>
         <td>{employee.email}</td>
         <td>{employee.firstName}</td>
@@ -47,6 +56,10 @@ class EmployeeRow extends Component {
 
 EmployeeRow.propTypes = {
   employee: React.PropTypes.object.isRequired
+};
+
+EmployeeRow.contextTypes = {
+  router: React.PropTypes.object
 };
 
 export default EmployeeRow;

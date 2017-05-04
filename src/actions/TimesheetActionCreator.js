@@ -88,7 +88,7 @@ export const restoreTimesheet = (timesheet) => {
 
 export const createTimesheet = (timesheet) => {
   return (dispatch) => {
-    return Axios.put(url(), timesheet)
+    return Axios.post(url(), timesheet)
       .then(function (res) {
         dispatch(get(res.data))
         console.log('Timesheet : ' + res.data.name + ', created.');
