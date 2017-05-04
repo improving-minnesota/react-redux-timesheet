@@ -5,8 +5,6 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as TimeunitActions from '../../actions/TimeUnitActionCreator';
 
-//TODO: Jeff left off here --- lots of work todo still
-
 class Timeunits extends Component {
 
   constructor(props) {
@@ -20,8 +18,13 @@ class Timeunits extends Component {
         <Row>
           <PageHeader>Timeunits</PageHeader>
         </Row>
+        <div className="pull-right">
+          {/*<LinkContainer to="/projects/create">
+            <Button bsStyle="primary">Create Project</Button>
+          </LinkContainer>*/}
+        </div>
         <Row>
-          <TimeunitTable timeunits={this.props.timeunits} actions={this.props.actions}/>
+          <TimeunitTable timeunits={this.props.timeunits} timesheet={this.props.timesheet} actions={this.props.actions}/>
         </Row>
       </Grid>
     );

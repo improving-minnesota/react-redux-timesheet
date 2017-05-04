@@ -13,14 +13,15 @@ class TimesheetsDetail extends Component {
     super(props);
 
     const id = props.match.params._id;
-    props.actions.getTimesheet(id);
+    const userId = props.match.params.user_id;
+    props.actions.getTimesheet(id, userId);
 
     this.handleSave = this.handleSave.bind(this);
   }
 
   handleSave(timesheet){
     this.props.actions.updateTimesheet(timesheet).then(() => {
-      this.props.history.push('/timesheets');
+      this.props.history.push(`/employees/all/timesheets`);
     });
   }
 
@@ -34,7 +35,7 @@ class TimesheetsDetail extends Component {
           {/*TODO: timesheetForm goes here*/}
         </Row>
         <Row>
-          {/*<Timeunits timesheet={this.props.timesheet} actions={this.props.actions}/>*/}
+          <Timeunits timesheet={this.props.timesheet} actions={this.props.actions}/>
         </Row>
       </Grid>
     );

@@ -21,7 +21,7 @@ class TimesheetRow extends Component {
       return;
     }
 
-    this.props.history.push('/employees/all/timesheets/detail/' + timesheet._id);
+    this.props.history.push('/employees/' + this.props.timesheet.user_id + '/timesheets/detail/' + timesheet._id);
   }
 
   render() {
