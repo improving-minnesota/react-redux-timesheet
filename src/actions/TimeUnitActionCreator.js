@@ -1,4 +1,4 @@
-import * as TimeunitActionTypes from './TimeunitActionTypes';
+import * as TimeunitActionTypes from './TimeUnitActionTypes';
 import Axios from 'axios';
 
 

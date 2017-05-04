@@ -29,7 +29,7 @@ class App extends Component {
 
               <Route exact path="/employees/:user_id/timesheets" component={Timesheets}/>
               <Route path='/employees/:user_id/timesheets/detail/:_id' component={TimesheetsDetail} />
-              
+
               <Redirect to="/employees"/>
             </Switch>
           </Route>
