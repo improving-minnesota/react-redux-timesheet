@@ -1,8 +1,14 @@
-import people from './people-reducer.js';
-import {combineReducers} from 'redux';
+import {combineReducers} from "redux";
+import projects from './project-reducer';
+import timesheets from './timesheet-reducer';
+import employees from './employee-reducer';
+import timeunits from './timeunit-reducer';
 
 const rootReducer = combineReducers({
-  people
+  projects: projects,
+  timesheets: timesheets,
+  employees: employees,
+  timeunits: timeunits
 });
 
 export default rootReducer;
