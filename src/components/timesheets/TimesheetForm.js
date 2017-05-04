@@ -32,10 +32,10 @@ class TimesheetForm extends Component {
 
   componentWillReceiveProps(nextProps) {
     this.state = {
-      name: {value: nextProps.project.name, valid: null},
-      description: {value: nextProps.project.description, valid: null},
-      beginDate: {value: nextProps.project.beginDate, valid: null},
-      endDate: {value: nextProps.project.endDate, valid: null}
+      name: {value: nextProps.timesheet.name, valid: null},
+      description: {value: nextProps.timesheet.description, valid: null},
+      beginDate: {value: nextProps.timesheet.beginDate, valid: null},
+      endDate: {value: nextProps.timesheet.endDate, valid: null}
     };
   }
 
@@ -46,7 +46,8 @@ class TimesheetForm extends Component {
         description: this.state.description.value,
         beginDate: this.state.beginDate.value,
         endDate: this.state.endDate.value,
-        _id: this.props.project._id
+        user_id: this.props.timesheet.user_id,
+        _id: this.props.timesheet._id
       });
     }
   }
@@ -155,7 +156,7 @@ class TimesheetForm extends Component {
           <FormControl
             type="text"
             value={this.state.beginDate.value}
-            placeholder="MM/DD/YYYY"
+            placeholder="YYYY-MM-DD"
             onChange={(e) => this.handleBeginDateChange(e.target.value)}
           />
           <FormControl.Feedback />
@@ -169,7 +170,7 @@ class TimesheetForm extends Component {
           <FormControl
             type="text"
             value={this.state.endDate.value}
-            placeholder="MM/DD/YYYY"
+            placeholder="YYYY-MM-DD"
             onChange={(e) => this.handleEndDateChange(e.target.value)}
           />
           <FormControl.Feedback />

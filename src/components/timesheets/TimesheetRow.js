@@ -32,7 +32,7 @@ class TimesheetRow extends Component {
 
     const button = (
       <Button
-        onClick={() => {this.handleClick(this.props.timesheet)}}
+        onClick={(e) => {this.handleClick(this.props.timesheet); e.stopPropagation();}}
         bsStyle={this.props.timesheet.deleted ? 'success' : 'danger'}
       >
         {this.props.timesheet.deleted ? 'Restore' : 'Delete'}
