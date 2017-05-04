@@ -4,8 +4,9 @@ import {Button} from 'react-bootstrap';
 import {PageHeader, Grid, Row, Col} from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import Timeunits from '../timeunits/Timeunits'
 import * as TimesheetActions from '../../actions/TimesheetActionCreator';
+import Timeunits from '../timeunits/Timeunits'
+import TimesheetForm from './TimesheetForm';
 
 class TimesheetsDetail extends Component {
 
@@ -32,7 +33,7 @@ class TimesheetsDetail extends Component {
           <PageHeader>Timesheet Detail</PageHeader>
         </Row>
         <Row>
-          {/*TODO: timesheetForm goes here*/}
+          <TimesheetForm timesheet={this.props.timesheet} actions={this.props.actions} handleSave={this.handleSave}/>
         </Row>
         <Row>
           <Timeunits timesheet={this.props.timesheet} actions={this.props.actions}/>

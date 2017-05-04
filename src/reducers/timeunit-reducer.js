@@ -1,4 +1,4 @@
-import * as TimeunitActionTypes from '../actions/TimeUnitActionTypes';
+import * as TimeunitActionTypes from '../actions/TimeunitActionTypes';
 
 export default (state = {timeunits: [], timeunit: {}}, action) => {
   switch (action.type) {
