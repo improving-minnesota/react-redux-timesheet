@@ -3,7 +3,7 @@ import TimeunitTable from './TimeunitTable';
 import {PageHeader, Grid, Row, Col} from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as TimeunitActions from '../../actions/TimeUnitActionCreator';
+import * as TimeunitActions from '../../actions/TimeunitActionCreator';
 
 class Timeunits extends Component {
 
