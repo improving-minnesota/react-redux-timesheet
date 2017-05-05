@@ -8,6 +8,7 @@ import EmployeesDetail from './components/employees/EmployeesDetail';
 import EmployeesCreate from './components/employees/EmployeesCreate';
 import Timesheets from './components/timesheets/Timesheets';
 import TimesheetsDetail from './components/timesheets/TimesheetsDetail';
+import TimeunitsCreate from './components/timeunits/TimeunitsCreate';
 import Navigation from './components/nav/Navigation';
 import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
 
@@ -28,7 +29,9 @@ class App extends Component {
               <Route path='/employees/create' component={EmployeesCreate} />
 
               <Route exact path="/employees/:user_id/timesheets" component={Timesheets}/>
-              <Route path='/employees/:user_id/timesheets/detail/:_id' component={TimesheetsDetail} />
+              <Route exact path='/employees/:user_id/timesheets/detail/:_id' component={TimesheetsDetail} />
+
+              <Route path='/employees/:user_id/timesheets/detail/:timesheet_id/timeunits/create' component={TimeunitsCreate} />
 
               <Redirect to="/employees"/>
             </Switch>

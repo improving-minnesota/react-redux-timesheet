@@ -2,28 +2,24 @@ import React, { Component } from 'react';
 import {Button, FormGroup, ControlLabel, FormControl} from 'react-bootstrap';
 import {LinkContainer} from 'react-router-bootstrap';
 
-class TimesheetForm extends Component {
+class TimeunitForm extends Component {
   constructor(props){
     super(props);
 
     this.state = {
-      name: {value: null, valid: null},
-      description: {value: null, valid: null},
-      beginDate: {value: null, valid: null},
-      endDate: {value: null, valid: null}
+      project: {value: null, valid: null},
+      dateWorked: {value: null, valid: null},
+      hoursWorked: {value: null, valid: null}
     };
 
-    this.handleNameChange = this.handleNameChange.bind(this);
-    this.getNameValidationState = this.getNameValidationState.bind(this);
+    this.handleProjectChange = this.handleProjectChange.bind(this);
+    this.getProjectValidationState = this.getProjectValidationState.bind(this);
 
-    this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
-    this.getDescriptionValidationState = this.getDescriptionValidationState.bind(this);
+    this.handleDateWorkedChange = this.handleDateWorkedChange.bind(this);
+    this.getDateWorkedValidationState = this.getDateWorkedValidationState.bind(this);
 
-    this.handleBeginDateChange = this.handleBeginDateChange.bind(this);
-    this.getBeginDateValidationState = this.getBeginDateValidationState.bind(this);
-
-    this.handleEndDateChange = this.handleEndDateChange.bind(this);
-    this.getEndDateValidationState = this.getEndDateValidationState.bind(this);
+    this.handleHoursWorkedChange = this.handleHoursWorkedChange.bind(this);
+    this.getHoursWorkedValidationState = this.getHoursWorkedValidationState.bind(this);
 
     this.validateAll = this.validateAll.bind(this);
 
@@ -32,88 +28,71 @@ class TimesheetForm extends Component {
 
   componentWillReceiveProps(nextProps) {
     this.state = {
-      name: {value: nextProps.timesheet.name, valid: null},
-      description: {value: nextProps.timesheet.description, valid: null},
-      beginDate: {value: nextProps.timesheet.beginDate, valid: null},
-      endDate: {value: nextProps.timesheet.endDate, valid: null}
+      project: {value: nextProps.timeunit.project, valid: null},
+      dateWorked: {value: nextProps.timeunit.dateWorked, valid: null},
+      hoursWorked: {value: nextProps.timeunit.hoursWorked, valid: null}
     };
   }
 
   handleSave(){
     if(this.validateAll()) {
       this.props.handleSave({
-        name: this.state.name.value,
-        description: this.state.description.value,
-        beginDate: this.state.beginDate.value,
-        endDate: this.state.endDate.value,
-        user_id: this.props.timesheet.user_id,
-        _id: this.props.timesheet._id
+        project: this.state.project.value,
+        dateWorked: this.state.dateWorked.value,
+        hoursWorked: this.state.hoursWorked.value,
+        timesheet_id: this.props.timesheet._id,
+        _id: this.props.timeunit._id
       });
     }
   }
 
-  getDescriptionValidationState() {
+  getProjectValidationState() {
     if (!this.state) return;
-    if (this.state.description.valid === true) return 'success';
-    else if (this.state.description.valid === false) return 'error';
+    if (this.state.project.valid === true) return 'success';
+    else if (this.state.project.valid === false) return 'error';
   }
 
-  handleDescriptionChange(value) {
+  handleProjectChange(value) {
     let isValid = false;
     if(value){
       isValid = true;
     }
-    return this.setState({ description: {value: value, valid: isValid }});
+    return this.setState({ project: {value: value, valid: isValid }});
   }
 
-  getNameValidationState() {
+  getDateWorkedValidationState() {
     if (!this.state) return;
-    if (this.state.name.valid === true) return 'success';
-    else if (this.state.name.valid === false) return 'error';
+    if (this.state.dateWorked.valid === true) return 'success';
+    else if (this.state.dateWorked.valid === false) return 'error';
   }
 
-  handleNameChange(value) {
+  handleDateWorkedChange(value) {
     let isValid = false;
     if(value){
       isValid = true;
     }
-    return this.setState({ name: {value: value, valid: isValid }});
+    return this.setState({ dateWorked: {value: value, valid: isValid }});
   }
 
-  getBeginDateValidationState() {
+  getHoursWorkedValidationState() {
     if (!this.state) return;
-    if (this.state.beginDate.valid === true) return 'success';
-    else if (this.state.beginDate.valid === false) return 'error';
+    if (this.state.hoursWorked.valid === true) return 'success';
+    else if (this.state.hoursWorked.valid === false) return 'error';
   }
 
-  handleBeginDateChange(value) {
+  handleHoursWorkedChange(value) {
     let isValid = false;
     if(value){
       isValid = true;
     }
-    return this.setState({ beginDate: {value: value, valid: isValid }});
-  }
-
-  getEndDateValidationState() {
-    if (!this.state) return;
-    if (this.state.endDate.valid === true) return 'success';
-    else if (this.state.endDate.valid === false) return 'error';
-  }
-
-  handleEndDateChange(value) {
-    let isValid = false;
-    if(value){
-      isValid = true;
-    }
-    return this.setState({ endDate: {value: value, valid: isValid }});
+    return this.setState({ hoursWorked: {value: value, valid: isValid }});
   }
 
   validateAll(){
     return (
-      this.state.name.value
-      && this.state.description.value
-      && this.state.beginDate.value
-      && this.state.endDate.value
+      this.state.project.value
+      && this.state.dateWorked.value
+      && this.state.hoursWorked.value
     );
   }
 
@@ -121,63 +100,49 @@ class TimesheetForm extends Component {
     return (
       <form>
         <FormGroup
-          controlId="name"
-          validationState={this.getNameValidationState()}
+          controlId="project"
+          validationState={this.getProjectValidationState()}
         >
-          <ControlLabel>Name</ControlLabel>
+          <ControlLabel>Project</ControlLabel>
           <FormControl
             type="text"
-            value={this.state.name.value}
-            placeholder="Enter name"
-            onChange={(e) => this.handleNameChange(e.target.value)}
+            value={this.state.project.value}
+            placeholder="Project1"
+            onChange={(e) => this.handleProjectChange(e.target.value)}
           />
           <FormControl.Feedback />
         </FormGroup>
 
         <FormGroup
-          controlId="description"
-          validationState={this.getDescriptionValidationState()}
+          controlId="dateWorked"
+          validationState={this.getDateWorkedValidationState()}
         >
-          <ControlLabel>Description</ControlLabel>
+          <ControlLabel>Date Worked</ControlLabel>
           <FormControl
             type="text"
-            value={this.state.description.value}
-            placeholder="Enter description"
-            onChange={(e) => this.handleDescriptionChange(e.target.value)}
-          />
-          <FormControl.Feedback />
-        </FormGroup>
-
-        <FormGroup
-          controlId="beginDate"
-          validationState={this.getBeginDateValidationState()}
-        >
-          <ControlLabel>Begin Date</ControlLabel>
-          <FormControl
-            type="text"
-            value={this.state.beginDate.value}
+            value={this.state.dateWorked.value}
             placeholder="YYYY-MM-DD"
-            onChange={(e) => this.handleBeginDateChange(e.target.value)}
+            onChange={(e) => this.handleDateWorkedChange(e.target.value)}
           />
           <FormControl.Feedback />
         </FormGroup>
 
         <FormGroup
-          controlId="endDate"
-          validationState={this.getEndDateValidationState()}
+          controlId="hoursWorked"
+          validationState={this.getHoursWorkedValidationState()}
         >
-          <ControlLabel>End Date</ControlLabel>
+          <ControlLabel>Hours Worked</ControlLabel>
           <FormControl
             type="text"
-            value={this.state.endDate.value}
-            placeholder="YYYY-MM-DD"
-            onChange={(e) => this.handleEndDateChange(e.target.value)}
+            value={this.state.hoursWorked.value}
+            placeholder="Number of hours worked"
+            onChange={(e) => this.handleHoursWorkedChange(e.target.value)}
           />
           <FormControl.Feedback />
         </FormGroup>
 
         <Button bsStyle="success" onClick={this.handleSave} disabled={!this.validateAll()}> Save </Button>&nbsp;
-        <LinkContainer to="/employees/all/timesheets">
+        <LinkContainer to={'/employees/' + this.props.timesheet.user_id + '/timesheets/detail/' + this.props.timesheet._id}>
           <Button bsStyle="danger"> Cancel </Button>
         </LinkContainer>
       </form>
@@ -185,13 +150,15 @@ class TimesheetForm extends Component {
   }
 }
 
-TimesheetForm.defaultProps = {
-  timesheet: {}
+TimeunitForm.defaultProps = {
+  timesheet: {},
+  timeunit: {}
 };
 
-TimesheetForm.propTypes = {
+TimeunitForm.propTypes = {
   timesheet: React.PropTypes.object.isRequired,
+  timeunit: React.PropTypes.object.isRequired,
   handleSave: React.PropTypes.func.isRequired
 };
 
-export default TimesheetForm;
+export default TimeunitForm;

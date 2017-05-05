@@ -1,23 +1,29 @@
 import React, { Component } from 'react';
-import ProjectForm from './ProjectForm';
+import TimeunitForm from './TimeunitForm';
 import {PageHeader, Grid, Row} from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as ProjectActions from '../../actions/ProjectActionCreator';
+import * as TimeunitActions from '../../actions/TimeunitActionCreator';
+import * as TimesheetActions from '../../actions/TimesheetActionCreator';
 import { withRouter } from 'react-router';
 
-class ProjectsCreate extends Component {
+class TimeunitsCreate extends Component {
 
   constructor(props) {
     super(props);
-    props.actions.listProjects();
 
     this.handleSave = this.handleSave.bind(this);
   }
 
-  handleSave(project){
-    this.props.actions.createProject(project).then(() => {
-      this.props.history.push('/projects');
+  handleSave(timeunit){
+    const timesheet = this.props.timesheet;
+    this.props.actions.createTimeunit(timesheet._id, timeunit).then(() => {
+
+      //Reload all of the timeunits after the save
+      this.props.actions.listTimeunits(timesheet._id);
+
+      //Redirect back to the detail page to see all time entries
+      this.props.history.push('/employees/' + timesheet.user_id + '/timesheets/detail/' + timesheet._id);
     });
   }
 
@@ -25,33 +31,35 @@ class ProjectsCreate extends Component {
     return (
       <Grid>
         <Row>
-          <PageHeader>Projects Create</PageHeader>
+          <PageHeader>Timeunits Create</PageHeader>
         </Row>
         <Row>
-          <ProjectForm project={this.props.project} actions={this.props.actions} handleSave={this.handleSave}/>
+          <TimeunitForm timesheet={this.props.timesheet} timeunit={this.props.timeunit} actions={this.props.actions} handleSave={this.handleSave}/>
         </Row>
       </Grid>
     );
   }
 }
 
-ProjectsCreate.propTypes = {
-  project: React.PropTypes.object.isRequired,
+TimeunitsCreate.propTypes = {
+  timeunit: React.PropTypes.object.isRequired,
+  timesheet: React.PropTypes.object.isRequired,
   history: React.PropTypes.object
 };
 
-ProjectsCreate.defaultProps = {
-  project: {}
+TimeunitsCreate.defaultProps = {
+  timeunit: {}
 };
 
 function mapStateToProps(state) {
   return {
+    timesheet: state.timesheets.timesheet
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(ProjectActions, dispatch)
+    actions: bindActionCreators(TimeunitActions, dispatch)
   };
 }
 
@@ -59,4 +67,4 @@ function mapDispatchToProps(dispatch) {
 export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(ProjectsCreate));
+)(TimeunitsCreate));

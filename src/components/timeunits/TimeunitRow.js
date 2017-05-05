@@ -3,16 +3,18 @@ import {Button} from 'react-bootstrap';
 
 class TimeunitRow extends Component {
 
-  //TODO: Jeff add the showDetail piece
-
   handleClick(timesheet, timeunit) {
     if(timeunit.deleted){
       timeunit.deleted = false;
-      this.props.actions.restoreTimeunit(timesheet._id, timeunit).then(this.props.actions.listTimeunits);
+      this.props.actions.restoreTimeunit(timesheet._id, timeunit).then(()=>{
+        this.props.actions.listTimeunits(timesheet._id);
+      });
     }
     else{
       timeunit.deleted = true;
-      this.props.actions.removeTimeunit(timesheet._id, timeunit).then(this.props.actions.listTimeunits);
+      this.props.actions.removeTimeunit(timesheet._id, timeunit).then(()=>{
+        this.props.actions.listTimeunits(timesheet._id);
+      });
     }
   }
 
@@ -24,7 +26,7 @@ class TimeunitRow extends Component {
 
     const button = (
       <Button
-        onClick={() => {this.handleClick(this.props.timesheet, this.props.timeunit)}}
+        onClick={(e) => {this.handleClick(this.props.timesheet, this.props.timeunit); e.stopPropagation();}}
         bsStyle={this.props.timeunit.deleted ? 'success' : 'danger'}
       >
         {this.props.timeunit.deleted ? 'Restore' : 'Delete'}
