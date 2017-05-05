@@ -88,7 +88,7 @@ export const restoreTimeunit = (timesheetId, timeunit) => {
 
 export const createTimeunit = (timesheetId, timeunit) => {
   return (dispatch) => {
-    return Axios.put(url(timesheetId), timeunit)
+    return Axios.post(url(timesheetId), timeunit)
       .then(function (res) {
         dispatch(get(res.data))
         console.log('Timeunit created.');
