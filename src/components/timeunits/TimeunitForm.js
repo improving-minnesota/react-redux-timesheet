@@ -40,7 +40,7 @@ class TimeunitForm extends Component {
         project: this.state.project.value,
         dateWorked: this.state.dateWorked.value,
         hoursWorked: this.state.hoursWorked.value,
-        timesheet_id: this.props.timesheet._id,
+        timesheet_id: this.props.timesheetId,
         _id: this.props.timeunit._id
       });
     }
@@ -142,7 +142,7 @@ class TimeunitForm extends Component {
         </FormGroup>
 
         <Button bsStyle="success" onClick={this.handleSave} disabled={!this.validateAll()}> Save </Button>&nbsp;
-        <LinkContainer to={'/employees/' + this.props.timesheet.user_id + '/timesheets/detail/' + this.props.timesheet._id}>
+        <LinkContainer to={'/employees/' + this.props.userId + '/timesheets/detail/' + this.props.timesheetId}>
           <Button bsStyle="danger"> Cancel </Button>
         </LinkContainer>
       </form>
@@ -151,12 +151,12 @@ class TimeunitForm extends Component {
 }
 
 TimeunitForm.defaultProps = {
-  timesheet: {},
   timeunit: {}
 };
 
 TimeunitForm.propTypes = {
-  timesheet: React.PropTypes.object.isRequired,
+  timesheetId: React.PropTypes.string.isRequired,
+  userId: React.PropTypes.string.isRequired,
   timeunit: React.PropTypes.object.isRequired,
   handleSave: React.PropTypes.func.isRequired
 };

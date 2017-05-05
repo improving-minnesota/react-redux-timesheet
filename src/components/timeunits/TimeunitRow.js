@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Button} from 'react-bootstrap';
+import { withRouter } from 'react-router';
 
 class TimeunitRow extends Component {
 
@@ -18,6 +19,15 @@ class TimeunitRow extends Component {
     }
   }
 
+  showDetail(timesheet, timeunit) {
+    if(timeunit.deleted) {
+      console.log('You cannot edit a deleted timeunit.');
+      return;
+    }
+
+    this.props.history.push('/employees/' + timesheet.user_id + '/timesheets/detail/' + timesheet._id + '/timeunits/detail/' + timeunit._id);
+  }
+
   render() {
     let rowClass = "";
     if(this.props.timeunit.deleted){
@@ -33,7 +43,7 @@ class TimeunitRow extends Component {
       </Button>);
 
     return (
-      <tr className={rowClass}>
+      <tr className={rowClass} onClick={() => {this.showDetail(this.props.timesheet, this.props.timeunit)}}>
         <td>{this.props.timeunit.project}</td>
         <td>{this.props.timeunit.dateWorked}</td>
         <td>{this.props.timeunit.hoursWorked}</td>
@@ -45,7 +55,8 @@ class TimeunitRow extends Component {
 
 TimeunitRow.propTypes = {
   timeunit: React.PropTypes.object.isRequired,
-  timesheet: React.PropTypes.object.isRequired
+  timesheet: React.PropTypes.object.isRequired,
+  history: React.PropTypes.object
 };
 
-export default TimeunitRow;
+export default withRouter(TimeunitRow);

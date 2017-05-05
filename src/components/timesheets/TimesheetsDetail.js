@@ -5,7 +5,7 @@ import {PageHeader, Grid, Row, Col} from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as TimesheetActions from '../../actions/TimesheetActionCreator';
-import Timeunits from '../timeunits/Timeunits'
+import Timeunits from '../timeunits/Timeunits';
 import TimesheetForm from './TimesheetForm';
 
 class TimesheetsDetail extends Component {

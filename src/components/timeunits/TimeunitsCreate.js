@@ -34,7 +34,7 @@ class TimeunitsCreate extends Component {
           <PageHeader>Timeunits Create</PageHeader>
         </Row>
         <Row>
-          <TimeunitForm timesheet={this.props.timesheet} timeunit={this.props.timeunit} actions={this.props.actions} handleSave={this.handleSave}/>
+          <TimeunitForm timesheetId={this.props.timesheet._id} userId={this.props.timesheet.user_id} timeunit={this.props.timeunit} actions={this.props.actions} handleSave={this.handleSave}/>
         </Row>
       </Grid>
     );
