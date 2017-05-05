@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Button} from 'react-bootstrap';
+import { withRouter } from 'react-router';
 
 class EmployeeRow extends Component {
 
@@ -20,7 +21,7 @@ class EmployeeRow extends Component {
       return;
     }
 
-    this.context.router.history.push('/employees/detail/' + employee._id);
+    this.props.history.push('/employees/detail/' + employee._id);
   }
 
   render() {
@@ -58,8 +59,4 @@ EmployeeRow.propTypes = {
   employee: React.PropTypes.object.isRequired
 };
 
-EmployeeRow.contextTypes = {
-  router: React.PropTypes.object
-};
-
-export default EmployeeRow;
+export default withRouter(EmployeeRow);

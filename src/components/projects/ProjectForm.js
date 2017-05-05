@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Button, FormGroup, ControlLabel, FormControl} from 'react-bootstrap';
 import {LinkContainer} from 'react-router-bootstrap';
+import { withRouter } from 'react-router';
 
 class ProjectForm extends Component {
   constructor(props){
@@ -120,11 +121,8 @@ ProjectForm.defaultProps = {
 
 ProjectForm.propTypes = {
   project: React.PropTypes.object.isRequired,
-  handleSave: React.PropTypes.func.isRequired
+  handleSave: React.PropTypes.func.isRequired,
+  history: React.PropTypes.object
 };
 
-ProjectForm.contextTypes = {
-  router: React.PropTypes.object
-};
-
-export default ProjectForm;
+export default withRouter(ProjectForm);

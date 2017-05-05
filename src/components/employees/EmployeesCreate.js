@@ -4,6 +4,7 @@ import {PageHeader, Grid, Row} from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as EmployeeActions from '../../actions/EmployeeActionCreator';
+import { withRouter } from 'react-router';
 
 class EmployeesCreate extends Component {
 
@@ -16,7 +17,7 @@ class EmployeesCreate extends Component {
 
   handleSave(employee){
     this.props.actions.createEmployee(employee).then(() => {
-      this.context.router.history.push('/employees');
+      this.props.history.push('/employees');
     });
   }
 
@@ -38,8 +39,9 @@ EmployeesCreate.defaultProps = {
   employee: {}
 };
 
-EmployeesCreate.contextTypes = {
-  router: React.PropTypes.object
+EmployeesCreate.propTypes = {
+  employee: React.PropTypes.object.isRequired,
+  history: React.PropTypes.object
 };
 
 
@@ -55,7 +57,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(EmployeesCreate);
+)(EmployeesCreate));

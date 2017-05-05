@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Button, FormGroup, ControlLabel, FormControl, ButtonGroup} from 'react-bootstrap';
 import {LinkContainer} from 'react-router-bootstrap';
+import { withRouter } from 'react-router';
 
 class EmployeeForm extends Component {
   constructor(props){
@@ -240,11 +241,8 @@ EmployeeForm.defaultProps = {
 
 EmployeeForm.propTypes = {
   employee: React.PropTypes.object.isRequired,
-  handleSave: React.PropTypes.func.isRequired
+  handleSave: React.PropTypes.func.isRequired,
+  history: React.PropTypes.object
 };
 
-EmployeeForm.contextTypes = {
-  router: React.PropTypes.object
-};
-
-export default EmployeeForm;
+export default withRouter(EmployeeForm);

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Button} from 'react-bootstrap';
+import { withRouter } from 'react-router';
 
 class ProjectRow extends Component {
 
@@ -20,7 +21,7 @@ class ProjectRow extends Component {
       return;
     }
 
-    this.context.router.history.push('/projects/detail/' + project._id);
+    this.props.history.push('/projects/detail/' + project._id);
   }
 
   render() {
@@ -52,11 +53,8 @@ ProjectRow.defaultProps = {
 };
 
 ProjectRow.propTypes = {
-  project: React.PropTypes.object.isRequired
+  project: React.PropTypes.object.isRequired,
+  history: React.PropTypes.object
 };
 
-ProjectRow.contextTypes = {
-  router: React.PropTypes.object
-};
-
-export default ProjectRow;
+export default withRouter(ProjectRow);
