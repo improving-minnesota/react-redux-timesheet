@@ -110,6 +110,7 @@ class TimeunitForm extends Component {
             componentClass="select"
             onChange={(e) => this.handleProjectChange(e.target.value)}
           >
+            <option value="" disabled selected>Select a project</option>
             {
               this.props.projects
               .map((project) => {
