@@ -4,14 +4,14 @@ import {PageHeader, Grid, Row} from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as TimeunitActions from '../../actions/TimeunitActionCreator';
-import * as TimesheetActions from '../../actions/TimesheetActionCreator';
+import * as ProjectActions from '../../actions/ProjectActionCreator';
 import { withRouter } from 'react-router';
 
 class TimeunitsCreate extends Component {
 
   constructor(props) {
     super(props);
-
+    this.props.projectActions.listProjects();
     this.handleSave = this.handleSave.bind(this);
   }
 
@@ -34,7 +34,9 @@ class TimeunitsCreate extends Component {
           <PageHeader>Timeunits Create</PageHeader>
         </Row>
         <Row>
-          <TimeunitForm timesheetId={this.props.timesheet._id} userId={this.props.timesheet.user_id} timeunit={this.props.timeunit} actions={this.props.actions} handleSave={this.handleSave}/>
+          <TimeunitForm timesheetId={this.props.timesheet._id} userId={this.props.timesheet.user_id}
+                        timeunit={this.props.timeunit} actions={this.props.actions} handleSave={this.handleSave}
+                        projects={this.props.projects}/>
         </Row>
       </Grid>
     );
@@ -48,18 +50,21 @@ TimeunitsCreate.propTypes = {
 };
 
 TimeunitsCreate.defaultProps = {
-  timeunit: {}
+  timeunit: {},
+  projects: []
 };
 
 function mapStateToProps(state) {
   return {
-    timesheet: state.timesheets.timesheet
+    timesheet: state.timesheets.timesheet,
+    projects: state.projects.projects
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(TimeunitActions, dispatch)
+    actions: bindActionCreators(TimeunitActions, dispatch),
+    projectActions: bindActionCreators(ProjectActions, dispatch)
   };
 }
 

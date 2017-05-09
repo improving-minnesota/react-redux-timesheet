@@ -105,11 +105,18 @@ class TimeunitForm extends Component {
         >
           <ControlLabel>Project</ControlLabel>
           <FormControl
-            type="text"
             value={this.state.project.value}
             placeholder="Project1"
+            componentClass="select"
             onChange={(e) => this.handleProjectChange(e.target.value)}
-          />
+          >
+            {
+              this.props.projects
+              .map((project) => {
+                return <option value={project.name}>{project.name}</option>
+              })
+            }
+          </FormControl>
           <FormControl.Feedback />
         </FormGroup>
 
@@ -151,7 +158,8 @@ class TimeunitForm extends Component {
 }
 
 TimeunitForm.defaultProps = {
-  timeunit: {}
+  timeunit: {},
+  projects: []
 };
 
 TimeunitForm.propTypes = {

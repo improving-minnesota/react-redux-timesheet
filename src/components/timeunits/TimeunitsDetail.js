@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as TimeunitActions from '../../actions/TimeunitActionCreator';
 import TimeunitForm from './TimeunitForm';
+import * as ProjectActions from '../../actions/ProjectActionCreator';
 
 class TimeunitsDetail extends Component {
 
@@ -14,6 +15,7 @@ class TimeunitsDetail extends Component {
     const id = props.match.params._id;
     const timesheetId = props.match.params.timesheet_id;
     props.actions.getTimeunit(timesheetId, id);
+    props.projectActions.listProjects();
 
     this.handleSave = this.handleSave.bind(this);
   }
@@ -39,7 +41,7 @@ class TimeunitsDetail extends Component {
           <PageHeader>Timeunit Edit</PageHeader>
         </Row>
         <Row>
-          <TimeunitForm timesheetId={timesheetId} userId={userId} timeunit={this.props.timeunit} actions={this.props.actions} handleSave={this.handleSave}/>
+          <TimeunitForm projects={this.props.projects} timesheetId={timesheetId} userId={userId} timeunit={this.props.timeunit} actions={this.props.actions} handleSave={this.handleSave}/>
         </Row>
       </Grid>
     );
@@ -48,13 +50,15 @@ class TimeunitsDetail extends Component {
 
 function mapStateToProps(state) {
   return {
-    timeunit: state.timeunits.timeunit
+    timeunit: state.timeunits.timeunit,
+    projects: state.projects.projects
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(TimeunitActions, dispatch)
+    actions: bindActionCreators(TimeunitActions, dispatch),
+    projectActions: bindActionCreators(ProjectActions, dispatch)
   };
 }
 
