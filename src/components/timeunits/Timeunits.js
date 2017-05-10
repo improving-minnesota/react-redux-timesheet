@@ -10,13 +10,8 @@ class Timeunits extends Component {
 
   constructor(props) {
     super(props);
-  }
 
-  componentWillReceiveProps(nextProps) {
-    //Reload timeunits only when timesheet changes
-    if (nextProps.timesheet && (!this.props.timesheet || nextProps.timesheet._id !== this.props.timesheet._id)) {
-      this.props.actions.listTimeunits(nextProps.timesheet._id);
-    }
+    props.actions.listTimeunits(props.timesheet._id);
   }
 
   render() {

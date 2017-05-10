@@ -15,6 +15,7 @@ class TimesheetsDetail extends Component {
 
     const id = props.match.params._id;
     const userId = props.match.params.user_id;
+
     props.actions.getTimesheet(id, userId);
 
     this.handleSave = this.handleSave.bind(this);
@@ -35,9 +36,12 @@ class TimesheetsDetail extends Component {
         <Row>
           <TimesheetForm timesheet={this.props.timesheet} actions={this.props.actions} handleSave={this.handleSave}/>
         </Row>
-        <Row>
-          <Timeunits timesheet={this.props.timesheet} actions={this.props.actions}/>
-        </Row>
+        { //Show timeunits after the getTimesheet() call finishes loading the timesheet
+          this.props.timesheet && this.props.timesheet._id &&
+          <Row>
+            <Timeunits timesheet={this.props.timesheet} actions={this.props.actions}/>
+          </Row>
+        }
       </Grid>
     );
   }
