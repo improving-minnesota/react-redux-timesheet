@@ -1,7 +1,7 @@
 import React from 'react';
 import TimesheetTable from './TimesheetTable';
 import ReactTestUtils from 'react-dom/test-utils';
-
+import {MemoryRouter} from 'react-router-dom';
 
 describe('Timesheet Table Component: ', function () {
 
@@ -9,7 +9,7 @@ describe('Timesheet Table Component: ', function () {
 
   beforeEach(() =>{
     const timesheets = [{}, {}];
-    timesheetTable = ReactTestUtils.renderIntoDocument(<TimesheetTable timesheets={timesheets} />);
+    timesheetTable = ReactTestUtils.renderIntoDocument(<MemoryRouter><TimesheetTable timesheets={timesheets} actions={{}} /></MemoryRouter>);
   });
 
   it('should instantiate the Timesheet Component', function () {
