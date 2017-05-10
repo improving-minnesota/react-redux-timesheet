@@ -126,6 +126,23 @@ class TimesheetForm extends Component {
           controlId="name"
           validationState={this.getNameValidationState()}
         >
+          {!this.props.timesheet._id &&
+            <div>
+              <ControlLabel>Username</ControlLabel>
+              <FormControl
+                componentClass="select"
+                onChange={(e) => this.handleEmployeeChange(e.target.value)}
+              >
+                <option value="" disabled selected>Select an employee</option>
+                  {
+                    this.props.employees
+                      .map((employee) => {
+                          return <option value={employee._id}>{employee.username}</option>
+                      })
+                  }
+              </FormControl>
+            </div>
+          }
           <ControlLabel>Name</ControlLabel>
           <FormControl
             type="text"

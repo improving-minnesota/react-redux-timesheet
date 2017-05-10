@@ -4,12 +4,14 @@ import {PageHeader, Grid, Row} from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as ProjectActions from '../../actions/ProjectActionCreator';
+import * as EmployeeActions from '../../actions/EmployeeActionCreator';
 import { withRouter } from 'react-router';
 
 class TimesheetsCreate extends Component {
 
   constructor(props) {
     super(props);
+    this.props.employeeActions.listEmployees();
     this.handleSave = this.handleSave.bind(this);
   }
 
@@ -28,7 +30,7 @@ class TimesheetsCreate extends Component {
           <PageHeader>Timesheet Create</PageHeader>
         </Row>
         <Row>
-          <TimesheetForm/>
+          <TimesheetForm employees={this.props.employees}/>
         </Row>
       </Grid>
     );
@@ -36,22 +38,23 @@ class TimesheetsCreate extends Component {
 }
 
 TimesheetsCreate.propTypes = {
-  project: React.PropTypes.object.isRequired,
-  history: React.PropTypes.object
+  employees: React.PropTypes.array
 };
 
 TimesheetsCreate.defaultProps = {
-  project: {}
+  employees: []
 };
 
 function mapStateToProps(state) {
   return {
+      employees: state.employees.employees
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(ProjectActions, dispatch)
+    actions: bindActionCreators(ProjectActions, dispatch),
+    employeeActions: bindActionCreators(EmployeeActions, dispatch)
   };
 }
 
