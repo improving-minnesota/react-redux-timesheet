@@ -1,6 +1,7 @@
 import React from 'react';
 import EmployeeRow from './EmployeeRow';
 import renderer from 'react-test-renderer';
+import {MemoryRouter} from 'react-router-dom';
 
 describe('Employee Row Component: ', function () {
 
@@ -15,7 +16,7 @@ describe('Employee Row Component: ', function () {
                          }
 
         const component = renderer.create(
-                <EmployeeRow employee={employee}/>
+                <MemoryRouter><EmployeeRow employee={employee}/></MemoryRouter>
         );
 
         let stringVal = JSON.stringify(component);

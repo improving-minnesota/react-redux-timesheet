@@ -56,6 +56,7 @@ TimesheetRow.defaultProps = {
 
 TimesheetRow.propTypes = {
   timesheet: React.PropTypes.object.isRequired,
+  actions: React.PropTypes.object.isRequired,
   history: React.PropTypes.object
 };
 
