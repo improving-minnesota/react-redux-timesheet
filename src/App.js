@@ -8,6 +8,7 @@ import EmployeesDetail from './components/employees/EmployeesDetail';
 import EmployeesCreate from './components/employees/EmployeesCreate';
 import Timesheets from './components/timesheets/Timesheets';
 import TimesheetsDetail from './components/timesheets/TimesheetsDetail';
+import TimesheetsCreate from './components/timesheets/TimesheetsCreate';
 import TimeunitsCreate from './components/timeunits/TimeunitsCreate';
 import TimeunitsDetail from './components/timeunits/TimeunitsDetail';
 import Navigation from './components/nav/Navigation';
@@ -31,6 +32,8 @@ class App extends Component {
 
               <Route exact path="/employees/:user_id/timesheets" component={Timesheets}/>
               <Route exact path='/employees/:user_id/timesheets/detail/:_id' component={TimesheetsDetail} />
+
+              <Route path='/timesheets/create' component={TimesheetsCreate} />
 
               <Route path='/employees/:user_id/timesheets/detail/:timesheet_id/timeunits/create' component={TimeunitsCreate} />
               <Route path='/employees/:user_id/timesheets/detail/:timesheet_id/timeunits/detail/:_id' component={TimeunitsDetail} />
