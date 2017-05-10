@@ -1,7 +1,7 @@
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
-import * as actions from './TimesheetActionCreator'
-import * as types from './TimesheetActionTypes'
+import * as actions from './TimeunitActionCreator'
+import * as types from './TimeunitActionTypes'
 import moxios from 'moxios'
 
 const middlewares = [ thunk ]
@@ -14,7 +14,7 @@ describe('synchronous actions', () => {
     ).toEqual(
       {
         type: types.LIST,
-        timesheets: ['p1', 'p2']
+        timeunits: ['p1', 'p2']
       }
     )
   });
@@ -25,7 +25,7 @@ describe('synchronous actions', () => {
     ).toEqual(
       {
         type: types.GET,
-        timesheet: 'p1'
+        timeunit: 'p1'
       }
     )
   });
@@ -40,38 +40,38 @@ describe('async actions', () => {
     moxios.uninstall()
   });
 
-  it('creates LIST when fetching timesheets has been done', () => {
-    moxios.stubRequest('/api/users/all/timesheets', {
+  it('creates LIST when fetching timeunits has been done', () => {
+    moxios.stubRequest('/api/users/all/timesheets/99/timeunits', {
       status: 200,
-      response: ['timesheet1', 'timesheet2']
+      response: ['timeunit1', 'timeunit2']
     });
 
 
     const expectedActions = [
-      {type: types.LIST, timesheets: ['timesheet1', 'timesheet2']}
+      {type: types.LIST, timeunits: ['timeunit1', 'timeunit2']}
     ]
-    const store = mockStore({timesheets: []})
+    const store = mockStore({timeunits: []})
 
-    return store.dispatch(actions.listTimesheets())
+    return store.dispatch(actions.listTimeunits(99))
       .then(() => { // return of async actions
         expect(store.getActions()).toEqual(expectedActions)
       })
   });
 
 
-  it('create GET when requesting single timesheet', () => {
-    moxios.stubRequest('/api/users/all/timesheets/1', {
+  it('create GET when requesting single timeunit', () => {
+    moxios.stubRequest('/api/users/all/timesheets/99/timeunits/1', {
       status: 200,
-      response: 'timesheet1'
+      response: 'timeunit1'
     });
 
 
     const expectedActions = [
-      {type: types.GET, timesheet: 'timesheet1'}
+      {type: types.GET, timeunit: 'timeunit1'}
     ]
-    const store = mockStore({timesheets: []})
+    const store = mockStore({timeunits: []})
 
-    return store.dispatch(actions.getTimesheet(1))
+    return store.dispatch(actions.getTimeunit(99, 1))
       .then(() => { // return of async actions
         expect(store.getActions()).toEqual(expectedActions)
       })
@@ -79,54 +79,72 @@ describe('async actions', () => {
   });
 
 
-  it('create GET when updating a timesheet', () => {
-    moxios.stubRequest('/api/users/all/timesheets/1', {
+  it('create GET when updating a timeunit', () => {
+    moxios.stubRequest('/api/users/all/timesheets/99/timeunits/1', {
       status: 200,
-      response: 'timesheet1'
+      response: 'timeunit1'
     });
 
     const expectedActions = [
-      {type: types.GET, timesheet: 'timesheet1'}
+      {type: types.GET, timeunit: 'timeunit1'}
     ]
-    const store = mockStore({timesheets: []})
+    const store = mockStore({timeunits: []})
 
-    return store.dispatch(actions.updateTimesheet({_id: 1}))
+    return store.dispatch(actions.updateTimeunit(99, {_id: 1}))
       .then(() => { // return of async actions
         expect(store.getActions()).toEqual(expectedActions)
       })
 
   });
 
-  it('create GET when removing a timesheet', () => {
-    moxios.stubRequest('/api/users/all/timesheets/1', {
+  it('create GET when removing a timeunit', () => {
+    moxios.stubRequest('/api/users/all/timesheets/99/timeunits/1', {
       status: 200,
-      response: 'timesheet1'
+      response: 'timeunit1'
     });
 
     const expectedActions = [
-      {type: types.GET, timesheet: 'timesheet1'}
+      {type: types.GET, timeunit: 'timeunit1'}
     ]
-    const store = mockStore({timesheets: []})
+    const store = mockStore({timeunits: []})
 
-    return store.dispatch(actions.removeTimesheet({_id: 1}))
+    return store.dispatch(actions.removeTimeunit(99, {_id: 1}))
       .then(() => { // return of async actions
         expect(store.getActions()).toEqual(expectedActions)
       })
 
   });
 
-  it('create GET when restoring a timesheet', () => {
-    moxios.stubRequest('/api/users/all/timesheets/1', {
+  it('create GET when restoring a timeunit', () => {
+    moxios.stubRequest('/api/users/all/timesheets/99/timeunits/1', {
       status: 200,
-      response: 'timesheet1'
+      response: 'timeunit1'
     });
 
     const expectedActions = [
-      {type: types.GET, timesheet: 'timesheet1'}
+      {type: types.GET, timeunit: 'timeunit1'}
     ]
-    const store = mockStore({timesheets: []})
+    const store = mockStore({timeunits: []})
 
-    return store.dispatch(actions.restoreTimesheet({_id: 1}))
+    return store.dispatch(actions.restoreTimeunit(99, {_id: 1}))
+      .then(() => { // return of async actions
+        expect(store.getActions()).toEqual(expectedActions)
+      })
+
+  });
+
+  it('create GET when posting a new timeunit', () => {
+    moxios.stubOnce('POST', '/api/users/all/timesheets/99/timeunits', {
+      status: 201,
+      response: 'timeunit1'
+    });
+
+    const expectedActions = [
+      {type: types.GET, timeunit: 'timeunit1'}
+    ]
+    const store = mockStore({timeunits: []})
+
+    return store.dispatch(actions.createTimeunit(99, {_id: 1}))
       .then(() => { // return of async actions
         expect(store.getActions()).toEqual(expectedActions)
       })
