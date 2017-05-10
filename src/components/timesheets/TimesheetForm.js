@@ -87,9 +87,10 @@ class TimesheetForm extends Component {
   }
 
   handleBeginDateChange(value) {
-    let isValid = false;
-    if(value){
-      isValid = true;
+    let isValid = false,
+        dateRegExp = /^\d{4}-\d{1,2}-\d{1,2}$/;
+    if(dateRegExp.test(value)){
+        isValid = true;
     }
     return this.setState({ beginDate: {value: value, valid: isValid }});
   }

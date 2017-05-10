@@ -67,8 +67,9 @@ class TimeunitForm extends Component {
   }
 
   handleDateWorkedChange(value) {
-    let isValid = false;
-    if(value){
+    let isValid = false,
+        dateRegExp = /^\d{4}-\d{1,2}-\d{1,2}$/;
+    if(dateRegExp.test(value)){
       isValid = true;
     }
     return this.setState({ dateWorked: {value: value, valid: isValid }});
