@@ -27,6 +27,8 @@ class TimesheetForm extends Component {
 
     this.validateAll = this.validateAll.bind(this);
 
+    this.handleEmployeeChange = this.handleEmployeeChange.bind(this);
+
     this.handleSave = this.handleSave.bind(this);
   }
 
@@ -46,7 +48,7 @@ class TimesheetForm extends Component {
         description: this.state.description.value,
         beginDate: this.state.beginDate.value,
         endDate: this.state.endDate.value,
-        user_id: this.props.timesheet.user_id,
+        user_id: this.props.timesheet.user_id ?  this.props.timesheet.user_id : this.state.user_id.value,
         _id: this.props.timesheet._id
       });
     }
@@ -117,6 +119,14 @@ class TimesheetForm extends Component {
       && this.state.beginDate.value
       && this.state.endDate.value
     );
+  }
+
+  handleEmployeeChange(value) {
+    let isValid = false;
+    if(value){
+        isValid = true;
+    }
+    return this.setState({ user_id: {value: value, valid: isValid }});
   }
 
   render () {
@@ -205,7 +215,8 @@ class TimesheetForm extends Component {
 }
 
 TimesheetForm.defaultProps = {
-  timesheet: {}
+  timesheet: {},
+  employees: []
 };
 
 TimesheetForm.propTypes = {

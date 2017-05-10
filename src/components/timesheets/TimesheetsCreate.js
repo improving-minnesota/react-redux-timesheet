@@ -3,7 +3,7 @@ import TimesheetForm from './TimesheetForm';
 import {PageHeader, Grid, Row} from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as ProjectActions from '../../actions/ProjectActionCreator';
+import * as TimesheetActions from '../../actions/TimesheetActionCreator';
 import * as EmployeeActions from '../../actions/EmployeeActionCreator';
 import { withRouter } from 'react-router';
 
@@ -15,13 +15,11 @@ class TimesheetsCreate extends Component {
     this.handleSave = this.handleSave.bind(this);
   }
 
-  handleSave(project){
-    // this.props.actions.createProject(project).then(() => {
-    //   this.props.history.push('/projects');
-    // });
+  handleSave(timesheet){
+    this.props.actions.createTimesheet(timesheet).then(() => {
+      this.props.history.push('/employees/all/timesheets');
+    });
   }
-
-  // project={this.props.project} actions={this.props.actions} handleSave={this.handleSave}
 
   render() {
     return (
@@ -30,7 +28,7 @@ class TimesheetsCreate extends Component {
           <PageHeader>Timesheet Create</PageHeader>
         </Row>
         <Row>
-          <TimesheetForm employees={this.props.employees}/>
+          <TimesheetForm employees={this.props.employees} handleSave={this.handleSave}/>
         </Row>
       </Grid>
     );
@@ -53,7 +51,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(ProjectActions, dispatch),
+    actions: bindActionCreators(TimesheetActions, dispatch),
     employeeActions: bindActionCreators(EmployeeActions, dispatch)
   };
 }
