@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TimesheetTable from './TimesheetTable';
-import {PageHeader, Grid, Row, Col} from 'react-bootstrap';
+import {PageHeader, Grid, Row} from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as TimesheetActions from '../../actions/TimesheetActionCreator';

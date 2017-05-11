@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import EmployeeTable from './EmployeeTable';
-import {PageHeader, Grid, Row, Col} from 'react-bootstrap';
+import {PageHeader, Grid, Row} from 'react-bootstrap';
 
 class Employees extends Component {
 
@@ -10,6 +10,7 @@ class Employees extends Component {
       pageConfig: {
         data: [
           {
+            "_id": 1,
             "username": "admin",
             "email": "admin@mixtape.com",
             "password": "password",
@@ -18,6 +19,7 @@ class Employees extends Component {
             "lastName": "User"
           },
           {
+            "_id": 2,
             "username": "user",
             "email": "user@mixtape.com",
             "password": "password",
