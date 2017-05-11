@@ -28,6 +28,16 @@ describe('Hello World:', function () {
         expect(stringVal).toMatch(/Fred/);
 
     });
+    
+    it('should render to match the snapshot', function () {
+
+        const component = renderer.create(
+            <Hello friend="Luke"/>
+        );
+
+        const json = component.toJSON();
+        expect(json).toMatchSnapshot();
+    });    
 
 
 });
