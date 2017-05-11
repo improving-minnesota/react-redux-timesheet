@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import TimesheetRow from './TimesheetRow';
 import {Table} from 'react-bootstrap';
 
@@ -32,11 +34,11 @@ class TimesheetTable extends Component {
 }
 
 TimesheetTable.defaultProps = {
-  timesheets: new Array()
+  timesheets: []
 };
 
 TimesheetTable.propTypes = {
-  timesheets: React.PropTypes.array.isRequired
+  timesheets: PropTypes.array.isRequired
 };
 
 export default TimesheetTable;

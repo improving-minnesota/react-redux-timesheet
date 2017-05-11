@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class TimesheetRow extends Component {
 
@@ -16,7 +17,7 @@ class TimesheetRow extends Component {
 }
 
 TimesheetRow.propTypes = {
-  timesheet: React.PropTypes.object.isRequired
+  timesheet: PropTypes.object.isRequired
 };
 
 export default TimesheetRow;
