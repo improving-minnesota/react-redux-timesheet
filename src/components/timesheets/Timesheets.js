@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TimesheetTable from './TimesheetTable';
-import {PageHeader, Grid, Row, Col} from 'react-bootstrap';
+import {PageHeader, Grid, Row} from 'react-bootstrap';
 
 class Timesheets extends Component {
 
@@ -10,6 +10,7 @@ class Timesheets extends Component {
       pageConfig: {
         data: [
           {
+            "_id": 1,
             "name": "UserOne",
             "beginDate": "2013-11-18T00:00:00.000Z",
             "endDate": "2013-11-24T00:00:00.000Z",
@@ -23,6 +24,7 @@ class Timesheets extends Component {
             ]
           },
           {
+            "_id": 2,
             "name": "UserTwo",
             "beginDate": "2013-11-25T00:00:00.000Z",
             "endDate": "2013-12-01T00:00:00.000Z",
@@ -36,6 +38,7 @@ class Timesheets extends Component {
             ]
           },
           {
+            "_id": 3,
             "name": "UserThree",
             "beginDate": "2013-12-02T00:00:00.000Z",
             "endDate": "2013-12-08T00:00:00.000Z",
@@ -49,6 +52,7 @@ class Timesheets extends Component {
             ]
           },
           {
+            "_id": 4,
             "name": "UserFour",
             "beginDate": "2013-12-09T00:00:00.000Z",
             "endDate": "2013-12-15T00:00:00.000Z",
@@ -62,6 +66,7 @@ class Timesheets extends Component {
             ]
           },
           {
+            "_id": 5,
             "name": "UserFive",
             "beginDate": "2013-12-16T00:00:00.000Z",
             "endDate": "2013-12-22T00:00:00.000Z",
@@ -75,6 +80,7 @@ class Timesheets extends Component {
             ]
           },
           {
+            "_id": 6,
             "name": "UserSix",
             "beginDate": "2013-12-23T00:00:00.000Z",
             "endDate": "2013-12-29T00:00:00.000Z",
@@ -88,6 +94,7 @@ class Timesheets extends Component {
             ]
           },
           {
+            "_id": 7,
             "name": "UserSeven",
             "beginDate": "2013-12-30T00:00:00.000Z",
             "endDate": "2013-01-05T00:00:00.000Z",
@@ -101,6 +108,7 @@ class Timesheets extends Component {
             ]
           },
           {
+            "_id": 8,
             "name": "UserEight",
             "beginDate": "2013-01-06T00:00:00.000Z",
             "endDate": "2013-01-12T00:00:00.000Z",
@@ -114,6 +122,7 @@ class Timesheets extends Component {
             ]
           },
           {
+            "_id": 9,
             "name": "UserNine",
             "beginDate": "2013-01-13T00:00:00.000Z",
             "endDate": "2013-01-19T00:00:00.000Z",
@@ -127,6 +136,7 @@ class Timesheets extends Component {
             ]
           },
           {
+            "_id": 10,
             "name": "UserTen",
             "beginDate": "2013-01-20T00:00:00.000Z",
             "endDate": "2013-01-26T00:00:00.000Z",
@@ -140,6 +150,7 @@ class Timesheets extends Component {
             ]
           },
           {
+            "_id": 11,
             "name": "UserEleven",
             "beginDate": "2013-01-27T00:00:00.000Z",
             "endDate": "2013-02-02T00:00:00.000Z",

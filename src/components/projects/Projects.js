@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+
 import ProjectTable from './ProjectTable';
-import {PageHeader, Grid, Row, Col} from 'react-bootstrap';
+import {PageHeader, Grid, Row} from 'react-bootstrap';
 
 class Projects extends Component {
 
@@ -9,9 +10,9 @@ class Projects extends Component {
     this.state = {
       pageConfig: {
         data: [
-          {"name": "Project1", "description": "This is your first project"},
-          {"name": "Project2", "description": "This is your second project"},
-          {"name": "Project3", "description": "This is the third project"}
+          {"_id": 1, "name": "Project1", "description": "This is your first project"},
+          {"_id": 2, "name": "Project2", "description": "This is your second project"},
+          {"_id": 3, "name": "Project3", "description": "This is the third project"}
         ]
       }
     };
