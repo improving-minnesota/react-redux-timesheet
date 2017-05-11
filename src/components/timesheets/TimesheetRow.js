@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Button} from 'react-bootstrap';
+import { withRouter } from 'react-router';
 
 class TimesheetRow extends Component {
 
@@ -14,6 +15,15 @@ class TimesheetRow extends Component {
     }
   }
 
+  showDetail(timesheet) {
+    if(timesheet.deleted) {
+      console.log('You cannot edit a deleted timesheet.');
+      return;
+    }
+
+    this.props.history.push('/employees/' + timesheet.user_id + '/timesheets/detail/' + timesheet._id);
+  }
+
   render() {
     let rowClass = "";
     if(this.props.timesheet.deleted){
@@ -22,14 +32,14 @@ class TimesheetRow extends Component {
 
     const button = (
       <Button
-        onClick={() => {this.handleClick(this.props.timesheet)}}
+        onClick={(e) => {this.handleClick(this.props.timesheet); e.stopPropagation();}}
         bsStyle={this.props.timesheet.deleted ? 'success' : 'danger'}
       >
         {this.props.timesheet.deleted ? 'Restore' : 'Delete'}
       </Button>);
 
     return (
-      <tr className={rowClass}>
+      <tr className={rowClass} onClick={() => {this.showDetail(this.props.timesheet)}}>
         <td>{this.props.timesheet.beginDate}</td>
         <td>{this.props.timesheet.endDate}</td>
         <td>{this.props.timesheet.name}</td>
@@ -40,8 +50,14 @@ class TimesheetRow extends Component {
   }
 }
 
-TimesheetRow.propTypes = {
-  timesheet: React.PropTypes.object.isRequired
+TimesheetRow.defaultProps = {
+  timesheet: {}
 };
 
-export default TimesheetRow;
+TimesheetRow.propTypes = {
+  timesheet: React.PropTypes.object.isRequired,
+  actions: React.PropTypes.object.isRequired,
+  history: React.PropTypes.object
+};
+
+export default withRouter(TimesheetRow);

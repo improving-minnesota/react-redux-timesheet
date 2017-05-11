@@ -1,16 +1,11 @@
 import * as TimesheetActionTypes from './TimesheetActionTypes';
 import Axios from 'axios';
 
-
-const apiUrl = '/api/users/all/timesheets';
-
-const url = (timesheetId) => {
-
-  let url = apiUrl;
+const url = (timesheetId, userId='all') => {
+  const url = `/api/users/${userId}/timesheets`;
   if (timesheetId) {
-    url += '/' + timesheetId;
+    return url + '/' + timesheetId;
   }
-
   return url;
 }
 
@@ -27,9 +22,9 @@ export const listTimesheets = () => {
   };
 }
 
-export const getTimesheet = (id) => {
+export const getTimesheet = (id, userId) => {
   return (dispatch) => {
-    return Axios.get(url(id))
+    return Axios.get(url(id, userId))
       .then(function (res) {
         dispatch(get(res.data));
         return true;
@@ -88,7 +83,7 @@ export const restoreTimesheet = (timesheet) => {
 
 export const createTimesheet = (timesheet) => {
   return (dispatch) => {
-    return Axios.put(url(), timesheet)
+    return Axios.post(url(), timesheet)
       .then(function (res) {
         dispatch(get(res.data))
         console.log('Timesheet : ' + res.data.name + ', created.');

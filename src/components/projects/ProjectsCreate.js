@@ -4,6 +4,7 @@ import {PageHeader, Grid, Row} from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as ProjectActions from '../../actions/ProjectActionCreator';
+import { withRouter } from 'react-router';
 
 class ProjectsCreate extends Component {
 
@@ -16,7 +17,7 @@ class ProjectsCreate extends Component {
 
   handleSave(project){
     this.props.actions.createProject(project).then(() => {
-      this.context.router.history.push('/projects');
+      this.props.history.push('/projects');
     });
   }
 
@@ -34,14 +35,14 @@ class ProjectsCreate extends Component {
   }
 }
 
+ProjectsCreate.propTypes = {
+  project: React.PropTypes.object.isRequired,
+  history: React.PropTypes.object
+};
+
 ProjectsCreate.defaultProps = {
   project: {}
 };
-
-ProjectsCreate.contextTypes = {
-  router: React.PropTypes.object
-};
-
 
 function mapStateToProps(state) {
   return {
@@ -55,7 +56,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(ProjectsCreate);
+)(ProjectsCreate));

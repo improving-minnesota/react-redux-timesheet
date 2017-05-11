@@ -1,4 +1,4 @@
-import * as TimeUnitActionTypes from './TimeUnitActionTypes';
+import * as TimeunitActionTypes from './TimeunitActionTypes';
 import Axios from 'axios';
 
 
@@ -45,7 +45,7 @@ export const updateTimeunit = (timesheetId, timeunit) => {
     return Axios.put(url(timesheetId, timeunit._id), timeunit)
       .then(function (res) {
         dispatch(get(res.data));
-        console.log(`Timesheet : ${timesheet.name}, timeunit was updated.`);
+        console.log(`Timesheet timeunit was updated.`);
         return true;
       })
       .catch(function (x) {
@@ -88,7 +88,7 @@ export const restoreTimeunit = (timesheetId, timeunit) => {
 
 export const createTimeunit = (timesheetId, timeunit) => {
   return (dispatch) => {
-    return Axios.put(url(timesheetId), timeunit)
+    return Axios.post(url(timesheetId), timeunit)
       .then(function (res) {
         dispatch(get(res.data))
         console.log('Timeunit created.');
@@ -102,14 +102,14 @@ export const createTimeunit = (timesheetId, timeunit) => {
 
 export function list(timeunits) {
   return {
-    type: TimeUnitActionTypes.LIST,
+    type: TimeunitActionTypes.LIST,
     timeunits: timeunits
   }
 }
 
 export function get(timeunit) {
   return {
-    type: TimeUnitActionTypes.GET,
+    type: TimeunitActionTypes.GET,
     timeunit: timeunit
   }
 }
