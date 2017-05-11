@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {Button} from 'react-bootstrap';
 
 class ProjectRow extends Component {
@@ -39,7 +40,7 @@ class ProjectRow extends Component {
 }
 
 ProjectRow.propTypes = {
-  project: React.PropTypes.object.isRequired
+  project: PropTypes.object.isRequired
 };
 
 export default ProjectRow;
