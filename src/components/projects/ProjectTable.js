@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import ProjectRow from './ProjectRow';
 import {Table} from 'react-bootstrap';
 
 class ProjectTable extends Component {
   render() {
-    let key = 1;
 
     const actions = this.props.actions;
 
-    let projectRows = this.props.projects.map(function (project) {
+    const projectRows = this.props.projects.map(function (project) {
       return (
-        <ProjectRow project={project} key={++key} actions={actions}/>
+        <ProjectRow project={project} key={project._id} actions={actions}/>
       );
     });
 
@@ -32,13 +33,13 @@ class ProjectTable extends Component {
 }
 
 ProjectTable.defaultProps = {
-  projects: new Array(),
+  projects: [],
   actions: {}
 };
 
 ProjectTable.propTypes = {
-  projects: React.PropTypes.array.isRequired,
-  actions: React.PropTypes.object.isRequired
+  projects: PropTypes.array.isRequired,
+  actions: PropTypes.object.isRequired
 };
 
 export default ProjectTable;

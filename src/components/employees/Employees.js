@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import EmployeeTable from './EmployeeTable';
-import {PageHeader, Grid, Row, Col} from 'react-bootstrap';
+import {PageHeader, Grid, Row} from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as EmployeeActions from '../../actions/EmployeeActionCreator';

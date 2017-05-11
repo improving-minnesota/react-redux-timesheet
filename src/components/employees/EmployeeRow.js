@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import {Button} from 'react-bootstrap';
 
 class EmployeeRow extends Component {
@@ -46,7 +48,7 @@ class EmployeeRow extends Component {
 }
 
 EmployeeRow.propTypes = {
-  employee: React.PropTypes.object.isRequired
+  employee: PropTypes.object.isRequired
 };
 
 export default EmployeeRow;
