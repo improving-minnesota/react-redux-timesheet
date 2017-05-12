@@ -7,6 +7,7 @@ class EmployeeForm extends Component {
   constructor(props){
     super(props);
 
+    //This is the form initial state
     this.state = {
       username: {value: null, valid: null},
       email: {value: null, valid: null},
@@ -37,26 +38,11 @@ class EmployeeForm extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.state = {
-      username: {value: nextProps.employee.username, valid: null},
-      email: {value: nextProps.employee.email, valid: null},
-      firstName: {value: nextProps.employee.firstName, valid: null},
-      lastName: {value: nextProps.employee.lastName, valid: null},
-      admin: {value: nextProps.employee.admin, valid: null}
-    };
+    // TODO - implement me to handle changes from form field props
   }
 
   handleSave(){
-    if(this.validateAll()) {
-      this.props.handleSave({
-        username: this.state.username.value,
-        email: this.state.email.value,
-        firstName: this.state.firstName.value,
-        lastName: this.state.lastName.value,
-        admin: this.state.admin.value,
-        _id: this.props.employee._id
-      });
-    }
+    //TODO: implement handleSave() method here
   }
 
   getAdminValidationState() {
@@ -135,11 +121,8 @@ class EmployeeForm extends Component {
 
   validateAll(){
     return (
-      this.state.username.value
-      && this.state.email.value
-      && this.state.firstName.value
-      && this.state.lastName.value
-      && this.state.admin.value !== null
+      //TODO: check all validation values here, instead of just returning true
+      true
     );
   }
 
@@ -160,33 +143,9 @@ class EmployeeForm extends Component {
           <FormControl.Feedback />
         </FormGroup>
 
-        <FormGroup
-          controlId="email"
-          validationState={this.getEmailValidationState()}
-        >
-          <ControlLabel>Email</ControlLabel>
-          <FormControl
-            type="email"
-            value={this.state.email.value}
-            placeholder="Enter email"
-            onChange={(e) => this.handleEmailChange(e.target.value)}
-          />
-          <FormControl.Feedback />
-        </FormGroup>
+        {/*TODO: Implement email form control here*/}
 
-        <FormGroup
-          controlId="firstName"
-          validationState={this.getFirstNameValidationState()}
-        >
-          <ControlLabel>First Name</ControlLabel>
-          <FormControl
-            type="text"
-            value={this.state.firstName.value}
-            placeholder="Enter firstName"
-            onChange={(e) => this.handleFirstNameChange(e.target.value)}
-          />
-          <FormControl.Feedback />
-        </FormGroup>
+        {/*TODO: Implement firstName form control here*/}
 
         <FormGroup
           controlId="lastName"
@@ -226,10 +185,7 @@ class EmployeeForm extends Component {
           <FormControl.Feedback />
         </FormGroup>
 
-        <Button bsStyle="success" onClick={this.handleSave} disabled={!this.validateAll()}> Save </Button>&nbsp;
-        <LinkContainer to="/employees">
-          <Button bsStyle="danger"> Cancel </Button>
-        </LinkContainer>
+        {/* TODO: Implement Save and Cancel buttons here */}
       </form>
     );
   }

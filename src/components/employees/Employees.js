@@ -18,17 +18,13 @@ class Employees extends Component {
   render() {
     return (
       <Grid>
-        {/* TODO - Add a button to open the create employee route */}
-
         <Row>
           <PageHeader>Employees</PageHeader>
         </Row>
         <Row>
-          <div className="pull-right">
-            <LinkContainer to="/employees/create">
-              <Button bsStyle="primary">Create Employee</Button>
-            </LinkContainer>
-          </div>
+
+          {/* TODO - Add a button to open the create employee route */}
+
         </Row>
         <Row>
           <EmployeeTable employees={this.props.employees} actions={this.props.actions}/>

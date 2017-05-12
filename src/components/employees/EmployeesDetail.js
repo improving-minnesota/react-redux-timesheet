@@ -8,31 +8,11 @@ import { withRouter } from 'react-router';
 
 class EmployeesDetail extends Component {
 
-  constructor(props) {
-    super(props);
-
-    const id = props.match.params._id;
-    props.actions.getEmployee(id);
-
-    this.handleSave = this.handleSave.bind(this);
-  }
-
-  handleSave(employee){
-    this.props.actions.updateEmployee(employee).then(() => {
-      this.props.history.push('/employees');
-    });
-  }
+  // TODO - implement me
 
   render() {
     return (
-      <Grid>
-        <Row>
-          <PageHeader>Employees Detail</PageHeader>
-        </Row>
-        <Row>
-          <EmployeeForm employee={this.props.employee} actions={this.props.actions} handleSave={this.handleSave}/>
-        </Row>
-      </Grid>
+      <div/>
     );
   }
 }
@@ -42,20 +22,22 @@ EmployeesDetail.defaultProps = {
 };
 
 EmployeesDetail.propTypes = {
-  employee: React.PropTypes.object.isRequired,
+
+  //TODO: require the employee object here
+
   history: React.PropTypes.object
 };
 
 
 function mapStateToProps(state) {
   return {
-    employee: state.employees.employee
+    //TODO: map the redux store state to the component props here
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(EmployeeActions, dispatch)
+    //TODO: bind the action creators here
   };
 }
 

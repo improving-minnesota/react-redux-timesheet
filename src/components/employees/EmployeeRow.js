@@ -17,14 +17,7 @@ class EmployeeRow extends Component {
     }
   }
 
-  showDetail(employee) {
-    if(employee.deleted) {
-      console.log('You cannot edit a deleted employee.');
-      return;
-    }
-
-    this.props.history.push('/employees/detail/' + employee._id);
-  }
+  //TODO: showDetail function goes here
 
   render() {
     const employee = this.props.employee;
@@ -43,8 +36,9 @@ class EmployeeRow extends Component {
       </Button>);
 
 
+    //TODO: Add onClick function to call showDetail in tr tag below
     return (
-      <tr className={rowClass} onClick={() => {this.showDetail(employee)}}>
+      <tr className={rowClass}>
         <td>{employee.username}</td>
         <td>{employee.email}</td>
         <td>{employee.firstName}</td>
