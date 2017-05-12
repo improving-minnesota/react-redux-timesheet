@@ -9,7 +9,6 @@ class ProjectTable extends Component {
     let key = 1;
 
     let projectRows = this.props.projects.map(function (project) {
-      debugger;
       return (
         <ProjectRow project={project} key={++key} />
       );
