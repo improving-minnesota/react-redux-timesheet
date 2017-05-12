@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import {Button, FormGroup, ControlLabel, FormControl} from 'react-bootstrap';
 import {LinkContainer} from 'react-router-bootstrap';
 
@@ -165,10 +167,10 @@ TimeunitForm.defaultProps = {
 };
 
 TimeunitForm.propTypes = {
-  timesheetId: React.PropTypes.string.isRequired,
-  userId: React.PropTypes.string.isRequired,
-  timeunit: React.PropTypes.object.isRequired,
-  handleSave: React.PropTypes.func.isRequired
+  timesheetId: PropTypes.string.isRequired,
+  userId: PropTypes.string.isRequired,
+  timeunit: PropTypes.object.isRequired,
+  handleSave: PropTypes.func.isRequired
 };
 
 export default TimeunitForm;

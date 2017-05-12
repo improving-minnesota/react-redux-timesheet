@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import TimeunitRow from './TimeunitRow';
 import {Table} from 'react-bootstrap';
 
@@ -40,8 +42,8 @@ TimeunitTable.defaultProps = {
 };
 
 TimeunitTable.propTypes = {
-  timeunits: React.PropTypes.array.isRequired,
-  timesheet: React.PropTypes.object.isRequired
+  timeunits: PropTypes.array.isRequired,
+  timesheet: PropTypes.object.isRequired
 };
 
 export default TimeunitTable;

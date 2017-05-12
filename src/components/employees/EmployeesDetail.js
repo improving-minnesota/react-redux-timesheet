@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import EmployeeForm from './EmployeeForm';
 import {PageHeader, Grid, Row} from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
@@ -25,7 +27,7 @@ EmployeesDetail.propTypes = {
 
   //TODO: require the employee object here
 
-  history: React.PropTypes.object
+  history: PropTypes.object
 };
 
 

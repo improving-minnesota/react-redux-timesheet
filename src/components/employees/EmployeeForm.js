@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import {Button, FormGroup, ControlLabel, FormControl, ButtonGroup} from 'react-bootstrap';
 import {LinkContainer} from 'react-router-bootstrap';
 import { withRouter } from 'react-router';
@@ -196,9 +198,9 @@ EmployeeForm.defaultProps = {
 };
 
 EmployeeForm.propTypes = {
-  employee: React.PropTypes.object.isRequired,
-  handleSave: React.PropTypes.func.isRequired,
-  history: React.PropTypes.object
+  employee: PropTypes.object.isRequired,
+  handleSave: PropTypes.func.isRequired,
+  history: PropTypes.object
 };
 
 export default withRouter(EmployeeForm);

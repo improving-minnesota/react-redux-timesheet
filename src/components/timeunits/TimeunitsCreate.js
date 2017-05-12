@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import TimeunitForm from './TimeunitForm';
 import {PageHeader, Grid, Row} from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
@@ -44,9 +46,9 @@ class TimeunitsCreate extends Component {
 }
 
 TimeunitsCreate.propTypes = {
-  timeunit: React.PropTypes.object.isRequired,
-  timesheet: React.PropTypes.object.isRequired,
-  history: React.PropTypes.object
+  timeunit: PropTypes.object.isRequired,
+  timesheet: PropTypes.object.isRequired,
+  history: PropTypes.object
 };
 
 TimeunitsCreate.defaultProps = {
