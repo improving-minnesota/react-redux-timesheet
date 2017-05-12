@@ -1,7 +1,7 @@
 import React from 'react';
 import EmployeeTable from './EmployeeTable';
 import renderer from 'react-test-renderer';
-
+import {MemoryRouter} from 'react-router-dom';
 
 describe('Employee Table Component: ', function () {
 
@@ -19,7 +19,7 @@ describe('Employee Table Component: ', function () {
 
 
         const component = renderer.create(
-                <EmployeeTable employees={employees}/>
+                <MemoryRouter><EmployeeTable employees={employees}/></MemoryRouter>
         );
 
         let stringVal = JSON.stringify(component);

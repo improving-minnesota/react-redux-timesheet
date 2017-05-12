@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import {Button} from 'react-bootstrap';
+import { withRouter } from 'react-router';
 
 class EmployeeRow extends Component {
 
@@ -16,6 +17,15 @@ class EmployeeRow extends Component {
     }
   }
 
+  showDetail(employee) {
+    if(employee.deleted) {
+      console.log('You cannot edit a deleted employee.');
+      return;
+    }
+
+    this.props.history.push('/employees/detail/' + employee._id);
+  }
+
   render() {
     const employee = this.props.employee;
 
@@ -26,7 +36,7 @@ class EmployeeRow extends Component {
 
     const button = (
       <Button
-        onClick={() => {this.handleClick(employee)}}
+        onClick={(e) => {this.handleClick(employee); e.stopPropagation();}}
         bsStyle={employee.deleted ? 'success' : 'danger'}
       >
         {employee.deleted ? 'Restore' : 'Delete'}
@@ -34,7 +44,7 @@ class EmployeeRow extends Component {
 
 
     return (
-      <tr className={rowClass}>
+      <tr className={rowClass} onClick={() => {this.showDetail(employee)}}>
         <td>{employee.username}</td>
         <td>{employee.email}</td>
         <td>{employee.firstName}</td>
@@ -51,4 +61,4 @@ EmployeeRow.propTypes = {
   employee: PropTypes.object.isRequired
 };
 
-export default EmployeeRow;
+export default withRouter(EmployeeRow);

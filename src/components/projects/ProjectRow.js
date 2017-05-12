@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {Button} from 'react-bootstrap';
+import { withRouter } from 'react-router';
 
 class ProjectRow extends Component {
 
@@ -15,6 +16,15 @@ class ProjectRow extends Component {
     }
   }
 
+  showDetail(project) {
+    if(project.deleted) {
+      console.log('You cannot edit a deleted project.');
+      return;
+    }
+
+    this.props.history.push('/projects/detail/' + project._id);
+  }
+
   render() {
     let rowClass = "";
     if(this.props.project.deleted){
@@ -23,14 +33,14 @@ class ProjectRow extends Component {
 
     const button = (
       <Button
-        onClick={() => {this.handleClick(this.props.project)}}
+        onClick={(e) => {this.handleClick(this.props.project); e.stopPropagation();}}
         bsStyle={this.props.project.deleted ? 'success' : 'danger'}
       >
         {this.props.project.deleted ? 'Restore' : 'Delete'}
       </Button>);
 
     return (
-      <tr className={rowClass}>
+      <tr className={rowClass} onClick={() => {this.showDetail(this.props.project)}}>
         <td>{this.props.project.name}</td>
         <td>{this.props.project.description}</td>
         <td>{button}</td>
@@ -39,8 +49,13 @@ class ProjectRow extends Component {
   }
 }
 
-ProjectRow.propTypes = {
-  project: PropTypes.object.isRequired
+ProjectRow.defaultProps = {
+  project: {}
 };
 
-export default ProjectRow;
+ProjectRow.propTypes = {
+  project: PropTypes.object.isRequired,
+  history: PropTypes.object
+};
+
+export default withRouter(ProjectRow);

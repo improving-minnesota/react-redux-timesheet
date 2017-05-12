@@ -38,7 +38,8 @@ TimesheetTable.defaultProps = {
 };
 
 TimesheetTable.propTypes = {
-  timesheets: PropTypes.array.isRequired
+  timesheets: PropTypes.array.isRequired,
+  actions: PropTypes.object.isRequired
 };
 
 export default TimesheetTable;
