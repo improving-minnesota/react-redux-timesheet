@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import {Button, FormGroup, ControlLabel, FormControl} from 'react-bootstrap';
 import {LinkContainer} from 'react-router-bootstrap';
 
@@ -220,8 +222,8 @@ TimesheetForm.defaultProps = {
 };
 
 TimesheetForm.propTypes = {
-  timesheet: React.PropTypes.object.isRequired,
-  handleSave: React.PropTypes.func.isRequired
+  timesheet: PropTypes.object.isRequired,
+  handleSave: PropTypes.func.isRequired
 };
 
 export default TimesheetForm;

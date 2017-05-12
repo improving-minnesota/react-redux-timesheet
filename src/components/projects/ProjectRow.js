@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {Button} from 'react-bootstrap';
 import { withRouter } from 'react-router';
 
@@ -53,8 +54,8 @@ ProjectRow.defaultProps = {
 };
 
 ProjectRow.propTypes = {
-  project: React.PropTypes.object.isRequired,
-  history: React.PropTypes.object
+  project: PropTypes.object.isRequired,
+  history: PropTypes.object
 };
 
 export default withRouter(ProjectRow);

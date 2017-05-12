@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import EmployeeRow from './EmployeeRow';
 import {Table} from 'react-bootstrap';
 
@@ -39,7 +41,7 @@ EmployeeTable.defaultProps = {
 };
 
 EmployeeTable.propTypes = {
-  employees: React.PropTypes.array.isRequired
+  employees: PropTypes.array.isRequired
 };
 
 export default EmployeeTable;
