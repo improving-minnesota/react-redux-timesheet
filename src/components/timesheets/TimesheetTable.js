@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-
 import TimesheetRow from './TimesheetRow';
 import {Table} from 'react-bootstrap';
 
@@ -10,7 +8,7 @@ class TimesheetTable extends Component {
 
     let timesheetRows = this.props.timesheets.map(function (timesheet) {
       return (
-        <TimesheetRow timesheet={timesheet} key={timesheet._id} actions={actions}/>
+        <TimesheetRow timesheet={timesheet} actions={actions}/>
       );
     });
 
@@ -34,12 +32,12 @@ class TimesheetTable extends Component {
 }
 
 TimesheetTable.defaultProps = {
-  timesheets: []
+  timesheets: new Array()
 };
 
 TimesheetTable.propTypes = {
-  timesheets: PropTypes.array.isRequired,
-  actions: PropTypes.object.isRequired
+  timesheets: React.PropTypes.array.isRequired,
+  actions: React.PropTypes.object.isRequired
 };
 
 export default TimesheetTable;

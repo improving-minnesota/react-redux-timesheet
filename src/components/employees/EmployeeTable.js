@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-
 import EmployeeRow from './EmployeeRow';
 import {Table} from 'react-bootstrap';
 
 class EmployeeTable extends Component {
   render() {
+    let key = 1;
 
     const actions = this.props.actions;
 
     let employeeRows = this.props.employees.map(function (employee) {
       return (
-        <EmployeeRow employee={employee} key={employee._id} actions={actions} />
+        <EmployeeRow employee={employee} key={++key} actions={actions} />
       );
     });
 
@@ -40,7 +39,7 @@ EmployeeTable.defaultProps = {
 };
 
 EmployeeTable.propTypes = {
-  employees: PropTypes.array.isRequired
+  employees: React.PropTypes.array.isRequired
 };
 
 export default EmployeeTable;

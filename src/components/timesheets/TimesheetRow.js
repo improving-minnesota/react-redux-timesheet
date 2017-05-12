@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-
 import {Button} from 'react-bootstrap';
 import { withRouter } from 'react-router';
 
@@ -57,9 +55,9 @@ TimesheetRow.defaultProps = {
 };
 
 TimesheetRow.propTypes = {
-  timesheet: PropTypes.object.isRequired,
-  actions: PropTypes.object.isRequired,
-  history: PropTypes.object
+  timesheet: React.PropTypes.object.isRequired,
+  actions: React.PropTypes.object.isRequired,
+  history: React.PropTypes.object
 };
 
 export default withRouter(TimesheetRow);

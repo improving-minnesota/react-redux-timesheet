@@ -27,12 +27,16 @@ class App extends Component {
               <Route path='/projects/create' component={ProjectsCreate} />
 
               <Route exact path="/employees" component={Employees}/>
-              {/* TODO - Add the employee detail and create routes*/}
+              <Route path='/employees/detail/:_id' component={EmployeesDetail} />
+              <Route path='/employees/create' component={EmployeesCreate} />
 
               <Route exact path="/employees/:user_id/timesheets" component={Timesheets}/>
-              {/* TODO - Add the timesheets detail and create routes */}
+              <Route exact path='/employees/:user_id/timesheets/detail/:_id' component={TimesheetsDetail} />
 
-              {/* TODO - Add the timeunits detail and create routes*/}
+              <Route path='/timesheets/create' component={TimesheetsCreate} />
+
+              <Route path='/employees/:user_id/timesheets/detail/:timesheet_id/timeunits/create' component={TimeunitsCreate} />
+              <Route path='/employees/:user_id/timesheets/detail/:timesheet_id/timeunits/detail/:_id' component={TimeunitsDetail} />
 
               <Redirect to="/employees"/>
             </Switch>

@@ -16,8 +16,14 @@ describe('Employees Detail Component: ', function () {
     };
   });
 
-  //TODO: Implement me
   it('should instantiate the Employees Detail Component', function () {
+    const component = renderer.create(
+      <MemoryRouter><EmployeesDetail store={mockStore}/></MemoryRouter>
+    );
+
+      const stringVal = JSON.stringify(component);
+      expect(stringVal).toMatch(/Employees Detail/);
+
   });
 
   describe.skip('getting the employee', function () {

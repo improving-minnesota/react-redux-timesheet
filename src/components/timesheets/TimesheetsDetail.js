@@ -10,11 +10,39 @@ import TimesheetForm from './TimesheetForm';
 
 class TimesheetsDetail extends Component {
 
-  // TODO - implement me
+  constructor(props) {
+    super(props);
+
+    const id = props.match.params._id;
+    const userId = props.match.params.user_id;
+
+    props.actions.getTimesheet(id, userId);
+
+    this.handleSave = this.handleSave.bind(this);
+  }
+
+  handleSave(timesheet){
+    this.props.actions.updateTimesheet(timesheet).then(() => {
+      this.props.history.push(`/employees/all/timesheets`);
+    });
+  }
 
   render() {
     return (
-      <div/>
+      <Grid>
+        <Row>
+          <PageHeader>Timesheet Detail</PageHeader>
+        </Row>
+        <Row>
+          <TimesheetForm timesheet={this.props.timesheet} actions={this.props.actions} handleSave={this.handleSave}/>
+        </Row>
+        { //Show timeunits after the getTimesheet() call finishes loading the timesheet
+          this.props.timesheet && this.props.timesheet._id &&
+          <Row>
+            <Timeunits timesheet={this.props.timesheet} actions={this.props.actions}/>
+          </Row>
+        }
+      </Grid>
     );
   }
 }
