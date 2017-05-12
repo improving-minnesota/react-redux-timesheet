@@ -37,7 +37,7 @@ class TimeunitTable extends Component {
 }
 
 TimeunitTable.defaultProps = {
-  timeunits: new Array(),
+  timeunits: [],
   timesheet: {}
 };
 
