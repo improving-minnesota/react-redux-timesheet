@@ -10,7 +10,7 @@ class TimesheetTable extends Component {
 
     let timesheetRows = this.props.timesheets.map(function (timesheet) {
       return (
-        <TimesheetRow timesheet={timesheet} actions={actions}/>
+        <TimesheetRow timesheet={timesheet} key={timesheet._id} actions={actions}/>
       );
     });
 
