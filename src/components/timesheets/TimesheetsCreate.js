@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import TimesheetForm from './TimesheetForm';
 import {PageHeader, Grid, Row} from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
@@ -36,7 +38,7 @@ class TimesheetsCreate extends Component {
 }
 
 TimesheetsCreate.propTypes = {
-  employees: React.PropTypes.array
+  employees: PropTypes.array
 };
 
 TimesheetsCreate.defaultProps = {

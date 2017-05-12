@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import ProjectForm from './ProjectForm';
 import {PageHeader, Grid, Row} from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
@@ -38,8 +40,8 @@ class ProjectsDetail extends Component {
 }
 
 ProjectsDetail.propTypes = {
-  project: React.PropTypes.object.isRequired,
-  history: React.PropTypes.object
+  project: PropTypes.object.isRequired,
+  history: PropTypes.object
 };
 
 ProjectsDetail.defaultProps = {

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import EmployeeForm from './EmployeeForm';
 import {PageHeader, Grid, Row} from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
@@ -40,8 +42,8 @@ EmployeesCreate.defaultProps = {
 };
 
 EmployeesCreate.propTypes = {
-  employee: React.PropTypes.object.isRequired,
-  history: React.PropTypes.object
+  employee: PropTypes.object.isRequired,
+  history: PropTypes.object
 };
 
 
