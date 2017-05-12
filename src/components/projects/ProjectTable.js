@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+
 import ProjectRow from './ProjectRow';
 import {Table} from 'react-bootstrap';
 
 class ProjectTable extends Component {
   render() {
+    let key = 1;
 
-    const projectRows = this.props.projects.map(function (project) {
+    let projectRows = this.props.projects.map(function (project) {
       return (
-        <ProjectRow project={project} key={project._id} />
+        <ProjectRow project={project} key={++key} />
       );
     });
 
