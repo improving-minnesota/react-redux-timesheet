@@ -19,13 +19,13 @@ class TimesheetsDetail extends Component {
 
     this.handleSave = this.handleSave.bind(this);
   }
+    
+  // TODO - implement me
+  handleSave(timesheet) {
 
-  handleSave(timesheet){
-    this.props.actions.updateTimesheet(timesheet).then(() => {
-      this.props.history.push(`/employees/all/timesheets`);
-    });
   }
 
+  // TODO - implement me, too
   render() {
     return (
       <Grid>
