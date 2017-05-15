@@ -12,15 +12,12 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           <Navigation/>
-          <Route path={"/"}>
-            <Switch>
-              <Route path="/projects" component={Projects}/>
-              <Route exact path="/employees" component={Employees}/>
-              <Route path="/employees/:user_id/timesheets" component={Timesheets}/>
-              <Redirect to="/employees"/>
-            </Switch>
-          </Route>
-
+          <Switch>
+            <Route path="/projects" component={Projects}/>
+            <Route exact path="/employees" component={Employees}/>
+            <Route path="/employees/:user_id/timesheets" component={Timesheets}/>
+            <Redirect to="/employees"/>
+          </Switch>
         </div>
       </BrowserRouter>
     );
