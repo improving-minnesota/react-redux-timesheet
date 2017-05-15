@@ -20,7 +20,6 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           <Navigation/>
-          <Route path={"/"}>
             <Switch>
               <Route exact path="/projects" component={Projects}/>
               <Route path='/projects/detail/:_id' component={ProjectsDetail} />
@@ -40,7 +39,6 @@ class App extends Component {
 
               <Redirect to="/employees"/>
             </Switch>
-          </Route>
 
         </div>
       </BrowserRouter>
