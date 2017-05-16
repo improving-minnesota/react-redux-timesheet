@@ -1,6 +1,6 @@
 import React from 'react';
 import EmployeeRow from './EmployeeRow';
-import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 
 describe('Employee Row Component: ', function () {
 
@@ -14,16 +14,13 @@ describe('Employee Row Component: ', function () {
                           'admin':true
                          }
 
-        const component = renderer.create(
+        const component = shallow(
                 <EmployeeRow employee={employee}/>
         );
 
-        let stringVal = JSON.stringify(component);
-        expect(stringVal).toMatch(/td/);
-        expect(stringVal).toMatch(/Flintstone/);
-        expect(stringVal).toMatch(/fflintstone/);
-        expect(stringVal).toMatch(/Yes/);
-
+        expect(component).toContainReact(<td>Flintstone</td>);
+        expect(component).toContainReact(<td>fflintstone</td>);
+        expect(component).toContainReact(<td>Yes</td>);
 
     });
 

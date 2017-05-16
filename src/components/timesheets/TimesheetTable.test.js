@@ -1,19 +1,19 @@
 import React from 'react';
-import TimesheetTable from './TimesheetTable';
-import ReactTestUtils from 'react-dom/test-utils';
+import { shallow } from 'enzyme';
 
+import TimesheetTable from './TimesheetTable';
 
 describe('Timesheet Table Component: ', function () {
 
   let timesheetTable;
 
   beforeEach(() =>{
-    const timesheets = [{}, {}];
-    timesheetTable = ReactTestUtils.renderIntoDocument(<TimesheetTable timesheets={timesheets} />);
+    const timesheets = [{_id: 1}, {_id: 2}];
+    timesheetTable = shallow(<TimesheetTable timesheets={timesheets} />);
   });
 
-  it('should instantiate the Timesheet Component', function () {
-    expect(ReactTestUtils.isCompositeComponent(timesheetTable)).toBe(true);
+  it('should instantiate the Timesheet Table Component', function () {
+    expect(timesheetTable).toHaveLength(1);
   });
 
 });
