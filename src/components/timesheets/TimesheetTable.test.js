@@ -1,6 +1,7 @@
 import React from 'react';
+import { mount } from 'enzyme';
+
 import TimesheetTable from './TimesheetTable';
-import ReactTestUtils from 'react-dom/test-utils';
 import {MemoryRouter} from 'react-router-dom';
 
 describe('Timesheet Table Component: ', function () {
@@ -8,12 +9,12 @@ describe('Timesheet Table Component: ', function () {
   let timesheetTable;
 
   beforeEach(() =>{
-    const timesheets = [{}, {}];
-    timesheetTable = ReactTestUtils.renderIntoDocument(<MemoryRouter><TimesheetTable timesheets={timesheets} actions={{}} /></MemoryRouter>);
+    const timesheets = [{_id: 1}, {_id: 2}];
+    timesheetTable = mount(<MemoryRouter><TimesheetTable timesheets={timesheets} actions={{}} /></MemoryRouter>);
   });
 
-  it('should instantiate the Timesheet Component', function () {
-    expect(ReactTestUtils.isCompositeComponent(timesheetTable)).toBe(true);
+  it('should instantiate the Timesheet Table Component', function () {
+    expect(timesheetTable).toHaveLength(1);
   });
 
 });
