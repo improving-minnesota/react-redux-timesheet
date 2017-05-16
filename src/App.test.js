@@ -1,19 +1,22 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { shallow, mount } from 'enzyme';
+
 import App from './App';
-import renderer from 'react-test-renderer';
+import Hello from './hello/Hello';
 
+describe('App Component', () => {
+  it('renders without exploding', () => {
+    expect(shallow(<App />)).toHaveLength(1);
+  });
 
-it('renders with our expected text', () => {
+  it('passes our expected prop to Hello component', () => {
+    const component = shallow(<App />);
+    expect(component.find(Hello)).toHaveProp('friend', 'WoooHooo!');
+  });
 
-    const component = renderer.create(
-            <App/>
-    );
-
-    let stringVal = JSON.stringify(component);
-    expect(stringVal).toMatch(/Congratulations/);
-    
-
-    
+  describe('Int Test both App and Hello component rendering', () => {
+    it('renders with our expected text', () => {
+      expect(mount(<App />)).toIncludeText('Congratulations!');
+    });
+  });
 });
-
