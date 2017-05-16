@@ -6,7 +6,6 @@ import {Table} from 'react-bootstrap';
 
 class TimeunitTable extends Component {
   render() {
-    let key = 1;
 
     const actions = this.props.actions;
 
@@ -14,7 +13,7 @@ class TimeunitTable extends Component {
 
     let timeunitRows = this.props.timeunits.map(function (timeunit) {
       return (
-        <TimeunitRow timeunit={timeunit} timesheet={timesheet} key={++key} actions={actions}/>
+        <TimeunitRow timeunit={timeunit} timesheet={timesheet} key={timeunit._id} actions={actions}/>
       );
     });
 
