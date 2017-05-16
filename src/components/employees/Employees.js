@@ -8,6 +8,7 @@ class Employees extends Component {
       pageConfig: {
         data: [
           {
+            "_id": 1,
             "username": "admin",
             "email": "admin@mixtape.com",
             "password": "password",
@@ -16,6 +17,7 @@ class Employees extends Component {
             "lastName": "User"
           },
           {
+            "_id": 2,
             "username": "user",
             "email": "user@mixtape.com",
             "password": "password",
