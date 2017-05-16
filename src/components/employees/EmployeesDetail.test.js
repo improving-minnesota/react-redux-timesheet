@@ -1,6 +1,6 @@
 import React from 'react';
 import EmployeesDetail from './EmployeesDetail';
-import renderer from 'react-test-renderer';
+import {mount} from 'enzyme';
 import configureStore from '../../store/configure-store';
 import {MemoryRouter} from 'react-router-dom';
 
@@ -27,7 +27,7 @@ describe('Employees Detail Component: ', function () {
       });
 
       it('should set the employee on the component state', function () {
-        const component = renderer.create(
+        const component = mount(
           <MemoryRouter><EmployeesDetail store={mockStore}/></MemoryRouter>
         );
 

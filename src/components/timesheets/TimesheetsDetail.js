@@ -9,8 +9,23 @@ import TimesheetForm from './TimesheetForm';
 
 class TimesheetsDetail extends Component {
 
-  // TODO - implement me
+  constructor(props) {
+    super(props);
 
+    const id = props.match.params._id;
+    const userId = props.match.params.user_id;
+
+    props.actions.getTimesheet(id, userId);
+
+    this.handleSave = this.handleSave.bind(this);
+  }
+
+  // TODO - implement me
+  handleSave(timesheet) {
+
+  }
+
+  // TODO - implement me, too
   render() {
     return (
       <div/>
