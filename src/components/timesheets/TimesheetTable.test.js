@@ -8,7 +8,7 @@ describe('Timesheet Table Component: ', function () {
   let timesheetTable;
 
   beforeEach(() =>{
-    const timesheets = [{_id:1}, {_id:2}];
+    const timesheets = [{_id: 1}, {_id: 2}];
     timesheetTable = shallow(<TimesheetTable timesheets={timesheets} />);
   });
 
