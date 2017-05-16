@@ -1,7 +1,7 @@
 import React from 'react';
-import TimesheetRow from './TimesheetTable';
-import ReactTestUtils from 'react-dom/test-utils';
+import { shallow } from 'enzyme';
 
+import TimesheetRow from './TimesheetRow';
 
 describe('Timesheet Row Component: ', function () {
 
@@ -9,11 +9,11 @@ describe('Timesheet Row Component: ', function () {
 
   beforeEach(() =>{
     const timesheet = {};
-    timesheetRow = ReactTestUtils.renderIntoDocument(<TimesheetRow timesheet={timesheet} />);
+    timesheetRow = shallow(<TimesheetRow timesheet={timesheet} />);
   });
 
   it('should instantiate the Timesheet Component', function () {
-    expect(ReactTestUtils.isCompositeComponent(timesheetRow)).toBe(true);
+    expect(timesheetRow).toHaveLength(1);
   });
 
 });

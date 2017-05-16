@@ -1,7 +1,7 @@
 import React from 'react';
-import ProjectTable from './ProjectTable';
-import ReactTestUtils from 'react-dom/test-utils';
+import { shallow } from 'enzyme';
 
+import ProjectTable from './ProjectTable';
 
 describe('Project Table Component: ', function () {
 
@@ -9,11 +9,11 @@ describe('Project Table Component: ', function () {
 
   beforeEach(() =>{
     const projects = [{}, {}];
-    projectTable = ReactTestUtils.renderIntoDocument(<ProjectTable projects={projects} />);
+    projectTable = shallow(<ProjectTable projects={projects} />);
   });
 
-  it('should instantiate the Project Component', function () {
-    expect(ReactTestUtils.isCompositeComponent(projectTable)).toBe(true);
+  it('should instantiate the Project Table Component', function () {
+    expect(projectTable).toHaveLength(1);
   });
 
 });
