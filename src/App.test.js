@@ -1,19 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { shallow, mount } from 'enzyme';
+
 import App from './App';
-import renderer from 'react-test-renderer';
+import Hello from './hello/Hello';
 
-
-it('renders with our expected text', () => {
-
-    const component = renderer.create(
-            <App/>
-    );
-
-    let stringVal = JSON.stringify(component);
-    expect(stringVal).toMatch(/Timesheetz/);
-
-
-
+describe('App Component', () => {
+  it('renders without exploding', () => {
+    expect(shallow(<App />)).toHaveLength(1);
+  });
 });
-

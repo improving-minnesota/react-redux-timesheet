@@ -1,46 +1,38 @@
 import React from 'react';
-import Hello from './Hello';
-import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 
+import Hello from './Hello';
 
 describe('Hello World:', function () {
 
- 
-    it('should render with default text', function () {
+  it('renders without exploding', () => {
+    expect(shallow(<Hello />)).toHaveLength(1);
+  });
 
-        const component = renderer.create(
-                <Hello/>
-        );
+  it('should render with default text', function () {
+    const component = shallow(<Hello />);
 
-        let stringVal = JSON.stringify(component);
-        expect(stringVal).toMatch(/Howdy/);
-        expect(stringVal).toMatch(/Partner/);
-   
-    });
+    expect(component).toIncludeText('Howdy');
+    expect(component).toIncludeText('Partner');
 
-    it('should render with our props', function () {
+    expect(component).toHaveState('greeting', 'Howdy!!');
+  });
 
-        const component = renderer.create(
-                <Hello friend="Fred"/>
-        );
+  it('should render with our props', function () {
+    const component = shallow(
+      <Hello friend="Fred"/>
+    );
 
-        let stringVal = JSON.stringify(component);
-        expect(stringVal).toMatch(/Howdy/);
-        expect(stringVal).toMatch(/Fred/);
+    expect(component).toIncludeText('Howdy');
 
-    });
-    
-    it('should render to match the snapshot', function () {
+    expect(component).toIncludeText('Fred');
+    expect(component).not.toIncludeText('Partner');
+  });
 
-        const component = renderer.create(
-            <Hello friend="Luke"/>
-        );
+  it('should render to match the snapshot', function () {
+    const component = shallow(<Hello friend="Luke"/>);
 
-        const json = component.toJSON();
-        expect(json).toMatchSnapshot();
-    });    
-
+    expect(component).toMatchSnapshot();
+  });
 
 });
-
-

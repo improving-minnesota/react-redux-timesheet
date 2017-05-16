@@ -1,14 +1,113 @@
 exports[`Hello World: should render to match the snapshot 1`] = `
-<div
-  className="hello">
-  <h1>
-    Howdy!!
-  </h1>
-  <h2>
-    Luke
-  </h2>
-  <p>
-    Congratulations!  You have created your first React component!
-  </p>
-</div>
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": <div
+    className="hello">
+    <h1>
+        Howdy!!
+    </h1>
+    <h2>
+        Luke
+    </h2>
+    <p>
+        Congratulations!  You have created your first React component!
+    </p>
+</div>,
+  "nodes": Array [
+    <div
+      className="hello">
+      <h1>
+            Howdy!!
+      </h1>
+      <h2>
+            Luke
+      </h2>
+      <p>
+            Congratulations!  You have created your first React component!
+      </p>
+</div>,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_instance": ShallowComponentWrapper {
+      "_calledComponentWillUnmount": false,
+      "_compositeType": 0,
+      "_context": Object {},
+      "_currentElement": <Hello
+        friend="Luke" />,
+      "_debugID": 7,
+      "_hostContainerInfo": null,
+      "_hostParent": null,
+      "_instance": Hello {
+        "_reactInternalInstance": [Circular],
+        "context": Object {},
+        "props": Object {
+          "friend": "Luke",
+        },
+        "refs": Object {},
+        "state": Object {
+          "greeting": "Howdy!!",
+        },
+        "updater": Object {
+          "enqueueCallback": [Function],
+          "enqueueCallbackInternal": [Function],
+          "enqueueElementInternal": [Function],
+          "enqueueForceUpdate": [Function],
+          "enqueueReplaceState": [Function],
+          "enqueueSetState": [Function],
+          "isMounted": [Function],
+          "validateCallback": [Function],
+        },
+      },
+      "_mountOrder": 4,
+      "_pendingCallbacks": null,
+      "_pendingElement": null,
+      "_pendingForceUpdate": false,
+      "_pendingReplaceState": false,
+      "_pendingStateQueue": null,
+      "_renderedComponent": NoopInternalComponent {
+        "_currentElement": <div
+          className="hello">
+          <h1>
+                    Howdy!!
+          </h1>
+          <h2>
+                    Luke
+          </h2>
+          <p>
+                    Congratulations!  You have created your first React component!
+          </p>
+</div>,
+        "_debugID": 8,
+        "_renderedOutput": <div
+          className="hello">
+          <h1>
+                    Howdy!!
+          </h1>
+          <h2>
+                    Luke
+          </h2>
+          <p>
+                    Congratulations!  You have created your first React component!
+          </p>
+</div>,
+      },
+      "_renderedNodeType": 0,
+      "_rootNodeID": 0,
+      "_topLevelWrapper": null,
+      "_updateBatchNumber": null,
+      "_warnedAboutRefsInRender": false,
+    },
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <Hello
+    friend="Luke" />,
+}
 `;
