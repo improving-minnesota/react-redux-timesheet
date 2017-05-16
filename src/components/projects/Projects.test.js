@@ -1,6 +1,7 @@
 import React from 'react';
+import { mount } from 'enzyme';
+
 import Projects from './Projects';
-import ReactTestUtils from 'react-dom/test-utils';
 import configureStore from '../../store/configure-store';
 import {BrowserRouter} from 'react-router-dom';
 
@@ -10,11 +11,11 @@ describe('Projects Component: ', function () {
   const mockStore = configureStore();
 
   beforeEach(() =>{
-    projects = ReactTestUtils.renderIntoDocument(<BrowserRouter><Projects store={mockStore}/></BrowserRouter>);
+    projects = mount(<BrowserRouter><Projects store={mockStore}/></BrowserRouter>);
   });
 
   it('should instantiate the Project Component', function () {
-    expect(ReactTestUtils.isCompositeComponent(projects)).toBe(true);
+    expect(projects).toHaveLength(1);
   });
 
 });

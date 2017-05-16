@@ -1,8 +1,10 @@
 import React from 'react';
 import ProjectsCreate from './ProjectsCreate';
-import ReactTestUtils from 'react-dom/test-utils';
+import {mount} from 'enzyme';
 import configureStore from '../../store/configure-store';
 import {BrowserRouter} from 'react-router-dom';
+
+import * as ProjectActions from '../../actions/ProjectActionCreator';
 
 describe('Projects Create Component: ', function () {
 
@@ -10,11 +12,17 @@ describe('Projects Create Component: ', function () {
   const mockStore = configureStore();
 
   beforeEach(() =>{
-    projects = ReactTestUtils.renderIntoDocument(<BrowserRouter><ProjectsCreate store={mockStore}/></BrowserRouter>);
+    //Mock out the server call in the constructor
+    ProjectActions.listProjects = ()=>{
+      return function (dispatch) {
+      };
+    };
+
+    projects = mount(<BrowserRouter><ProjectsCreate store={mockStore}/></BrowserRouter>);
   });
 
   it('should instantiate the Projects Create Component', function () {
-    expect(ReactTestUtils.isCompositeComponent(projects)).toBe(true);
+    expect(projects).toHaveLength(1);
   });
 
 });

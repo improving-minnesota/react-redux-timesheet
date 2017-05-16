@@ -1,6 +1,6 @@
 import React from 'react';
 import TimeunitTable from './TimeunitTable';
-import ReactTestUtils from 'react-dom/test-utils';
+import {mount} from 'enzyme';
 import {MemoryRouter} from 'react-router-dom';
 
 describe('Timeunit Table Component: ', function () {
@@ -8,12 +8,12 @@ describe('Timeunit Table Component: ', function () {
   let timeunitTable;
 
   beforeEach(() =>{
-    const timeunits = [{}, {}];
-    timeunitTable = ReactTestUtils.renderIntoDocument(<MemoryRouter><TimeunitTable timeunits={timeunits} /></MemoryRouter>);
+    const timeunits = [{_id: 1}, {_id: 2}];
+    timeunitTable = mount(<MemoryRouter><TimeunitTable timeunits={timeunits} /></MemoryRouter>);
   });
 
   it('should instantiate the Timeunit Component', function () {
-    expect(ReactTestUtils.isCompositeComponent(timeunitTable)).toBe(true);
+    expect(timeunitTable).toHaveLength(1);
   });
 
 });

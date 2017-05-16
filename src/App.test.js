@@ -1,20 +1,18 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { shallow } from 'enzyme';
+
 import App from './App';
-import ReactShallowRenderer from 'react-test-renderer/shallow';
 
-it('renders with our expected text', () => {
+describe('App Component', () => {
+  it('renders without exploding', () => {
+    expect(shallow(<App />)).toHaveLength(1);
+  });
 
-    //Shallow renderer to avoid integration testing all subcomponents
-    const renderer = new ReactShallowRenderer();
-    renderer.render(
-            <App/>
-    );
+  it('renders with our expected text', () => {
 
-    const result = renderer.getRenderOutput();
+    const result = shallow(<App />);
 
-    let stringVal = JSON.stringify(result);
-    expect(stringVal).toMatch(/employees\/:user_id\/timesheets/);
+    expect(result.find('Route').at(1)).toHaveProp('path', '/projects/detail/:_id');
 
+  });
 });
-
