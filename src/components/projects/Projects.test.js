@@ -1,6 +1,7 @@
 import React from 'react';
+import { shallow } from 'enzyme';
+
 import Projects from './Projects';
-import ReactTestUtils from 'react-dom/test-utils';
 import configureStore from '../../store/configure-store';
 
 describe('Projects Component: ', function () {
@@ -9,11 +10,11 @@ describe('Projects Component: ', function () {
   const mockStore = configureStore();
 
   beforeEach(() =>{
-    projects = ReactTestUtils.renderIntoDocument(<Projects store={mockStore}/>);
+    projects = shallow(<Projects store={mockStore}/>);
   });
 
   it('should instantiate the Project Component', function () {
-    expect(ReactTestUtils.isCompositeComponent(projects)).toBe(true);
+    expect(projects).toHaveLength(1);
   });
 
 });

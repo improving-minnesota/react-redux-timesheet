@@ -1,7 +1,6 @@
 import React from 'react';
 import EmployeeTable from './EmployeeTable';
-import renderer from 'react-test-renderer';
-
+import { mount } from 'enzyme';
 
 describe('Employee Table Component: ', function () {
 
@@ -13,19 +12,20 @@ describe('Employee Table Component: ', function () {
                           'email':'fred.flintstone@slatequarry.com',
                           'firstName':'Fred',
                           'lastName':'Flintstone',
-                          'admin':true
+                          'admin':true,
+                          '_id':1
                          }]
 
 
 
-        const component = renderer.create(
+        const component = mount(
                 <EmployeeTable employees={employees}/>
         );
 
-        let stringVal = JSON.stringify(component);
-        expect(stringVal).toMatch(/table/);
-        expect(stringVal).toMatch(/Flintstone/);
+        expect(component).toContainReact(<th>Last Name</th>);
+        expect(component).toIncludeText('Flintstone');
 
+        expect(component.find('tbody tr')).toHaveLength(1);
 
   });
 
