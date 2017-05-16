@@ -1,8 +1,10 @@
 import React from 'react';
 import ProjectsDetail from './ProjectsDetail';
-import ReactTestUtils from 'react-dom/test-utils';
+import {mount} from 'enzyme';
 import configureStore from '../../store/configure-store';
 import {BrowserRouter} from 'react-router-dom';
+
+import * as ProjectActions from '../../actions/ProjectActionCreator';
 
 describe('Projects Detail Component: ', function () {
 
@@ -11,11 +13,17 @@ describe('Projects Detail Component: ', function () {
   const mockMatch = {params: {_id: 1}};
 
   beforeEach(() =>{
-    projects = ReactTestUtils.renderIntoDocument(<BrowserRouter><ProjectsDetail store={mockStore} match={mockMatch}/></BrowserRouter>);
+    //Mock out the server call in the constructor
+    ProjectActions.getProject = (id)=>{
+      return function (dispatch) {
+      };
+    };
+
+    projects = mount(<BrowserRouter><ProjectsDetail store={mockStore} match={mockMatch}/></BrowserRouter>);
   });
 
   it('should instantiate the Projects Detail Component', function () {
-    expect(ReactTestUtils.isCompositeComponent(projects)).toBe(true);
+    expect(projects).toHaveLength(1);
   });
 
 });
