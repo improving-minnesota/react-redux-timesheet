@@ -1,6 +1,7 @@
 import React from 'react';
+import { mount } from 'enzyme';
+
 import TimesheetRow from './TimesheetRow';
-import ReactTestUtils from 'react-dom/test-utils';
 import {MemoryRouter} from 'react-router-dom';
 
 describe('Timesheet Row Component: ', function () {
@@ -10,11 +11,11 @@ describe('Timesheet Row Component: ', function () {
   beforeEach(() =>{
     const timesheet = {};
     const routerStub = {};
-    timesheetRow = ReactTestUtils.renderIntoDocument(<MemoryRouter><TimesheetRow timesheet={timesheet} actions={{}} route={routerStub} /></MemoryRouter>);
+    timesheetRow = mount(<MemoryRouter><TimesheetRow timesheet={timesheet} actions={{}} route={routerStub} /></MemoryRouter>);
   });
 
-  it('should instantiate the TimesheetRow Component', function () {
-    expect(ReactTestUtils.isCompositeComponent(timesheetRow)).toBe(true);
+  it('should instantiate the Timesheet Component', function () {
+    expect(timesheetRow).toHaveLength(1);
   });
 
 });

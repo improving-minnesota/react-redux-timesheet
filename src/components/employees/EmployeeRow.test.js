@@ -1,6 +1,6 @@
 import React from 'react';
 import EmployeeRow from './EmployeeRow';
-import renderer from 'react-test-renderer';
+import { mount } from 'enzyme';
 import {MemoryRouter} from 'react-router-dom';
 
 describe('Employee Row Component: ', function () {
@@ -15,16 +15,13 @@ describe('Employee Row Component: ', function () {
                           'admin':true
                          }
 
-        const component = renderer.create(
-                <MemoryRouter><EmployeeRow employee={employee}/></MemoryRouter>
+        const component = mount(
+          <MemoryRouter><EmployeeRow employee={employee}/></MemoryRouter>
         );
 
-        let stringVal = JSON.stringify(component);
-        expect(stringVal).toMatch(/td/);
-        expect(stringVal).toMatch(/Flintstone/);
-        expect(stringVal).toMatch(/fflintstone/);
-        expect(stringVal).toMatch(/Yes/);
-
+        expect(component).toContainReact(<td>Flintstone</td>);
+        expect(component).toContainReact(<td>fflintstone</td>);
+        expect(component).toContainReact(<td>Yes</td>);
 
     });
 

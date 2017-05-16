@@ -1,6 +1,7 @@
 import React from 'react';
+import { mount } from 'enzyme';
+
 import Timesheets from './Timesheets';
-import ReactTestUtils from 'react-dom/test-utils';
 import configureStore from '../../store/configure-store';
 import {MemoryRouter} from 'react-router-dom';
 
@@ -10,11 +11,11 @@ describe('Timesheets Component: ', function () {
   const mockStore = configureStore();
 
   beforeEach(() =>{
-    timesheets = ReactTestUtils.renderIntoDocument(<MemoryRouter><Timesheets store={mockStore}/></MemoryRouter>);
+    timesheets = mount(<MemoryRouter><Timesheets store={mockStore}/></MemoryRouter>);
   });
 
   it('should instantiate the Timesheet Component', function () {
-    expect(ReactTestUtils.isCompositeComponent(timesheets)).toBe(true);
+    expect(timesheets).toHaveLength(1);
   });
 
 });
