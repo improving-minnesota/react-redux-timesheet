@@ -17,9 +17,11 @@
     "redux-thunk": "2.2.x"
   },
   "devDependencies": {
+    "enzyme": "2.8.2",
+    "jest-enzyme": "2.1.2",
     "moxios": "0.4.x",
     "react-scripts": "0.9.5",
-    "react-test-renderer": "15.5.x",
+    "react-test-renderer": "15.5.4",
     "redux-mock-store": "1.2.x"
   },
   "scripts": {
