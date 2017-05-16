@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import renderer from 'react-test-renderer';
 
 import Hello from './Hello';
 
@@ -30,9 +31,11 @@ describe('Hello World:', function () {
   });
 
   it('should render to match the snapshot', function () {
-    const component = shallow(<Hello friend="Luke"/>);
+    const component = renderer.create(
+      <Hello friend="Luke"/>
+    );
 
-    expect(component).toMatchSnapshot();
+    expect(component.toJSON()).toMatchSnapshot();
   });
 
 });
