@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TimesheetTable from './TimesheetTable';
-import {PageHeader, Grid, Row, Col} from 'react-bootstrap';
+import {PageHeader, Grid, Row} from 'react-bootstrap';
 
 class Timesheets extends Component {
 
