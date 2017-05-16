@@ -1,18 +1,18 @@
 import React from 'react';
-import Timesheets from './Timesheets';
-import ReactTestUtils from 'react-dom/test-utils';
+import { shallow } from 'enzyme';
 
+import Timesheets from './Timesheets';
 
 describe('Timesheets Component: ', function () {
 
   let timesheets;
 
   beforeEach(() =>{
-    timesheets = ReactTestUtils.renderIntoDocument(<Timesheets/>);
+    timesheets = shallow(<Timesheets/>);
   });
 
   it('should instantiate the Timesheet Component', function () {
-    expect(ReactTestUtils.isCompositeComponent(timesheets)).toBe(true);
+    expect(timesheets).toHaveLength(1);
   });
 
 });

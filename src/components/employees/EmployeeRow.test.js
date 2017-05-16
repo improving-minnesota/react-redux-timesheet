@@ -1,6 +1,6 @@
 import React from 'react';
 import EmployeeRow from './EmployeeRow';
-import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 
 
 describe('Employee Row Component: ', function () {

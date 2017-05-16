@@ -1,7 +1,7 @@
 import React from 'react';
-import ProjectRow from './ProjectTable';
-import ReactTestUtils from 'react-dom/test-utils';
+import { shallow } from 'enzyme';
 
+import ProjectRow from './ProjectRow';
 
 describe('Project Row Component: ', function () {
 
@@ -9,11 +9,11 @@ describe('Project Row Component: ', function () {
 
   beforeEach(() =>{
     const project = {};
-    projectRow = ReactTestUtils.renderIntoDocument(<ProjectRow project={project} />);
+    projectRow = shallow(<ProjectRow project={project} />);
   });
 
-  it('should instantiate the Project Component', function () {
-    expect(ReactTestUtils.isCompositeComponent(projectRow)).toBe(true);
+  it('should instantiate the Project Row Component', function () {
+    expect(projectRow).toHaveLength(1);
   });
 
 });

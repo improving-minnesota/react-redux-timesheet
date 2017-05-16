@@ -1,7 +1,6 @@
 import React from 'react';
 import Employees from './Employees';
-import renderer from 'react-test-renderer';
-
+import { shallow } from 'enzyme';
 
 describe('Employees Component: ', function () {
 
