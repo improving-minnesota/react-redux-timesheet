@@ -1,5 +1,6 @@
 import React from 'react';
 import Navigation from './Navigation';
+import { mount } from 'enzyme';
 
 import {BrowserRouter} from 'react-router-dom';
 

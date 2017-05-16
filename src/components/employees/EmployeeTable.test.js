@@ -1,6 +1,6 @@
 import React from 'react';
 import EmployeeTable from './EmployeeTable';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 
 describe('Employee Table Component: ', function () {
 
