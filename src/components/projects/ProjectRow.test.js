@@ -1,6 +1,7 @@
 import React from 'react';
+import { mount } from 'enzyme';
+
 import ProjectRow from './ProjectRow';
-import ReactTestUtils from 'react-dom/test-utils';
 import {MemoryRouter} from 'react-router-dom';
 
 describe('Project Row Component: ', function () {
@@ -9,11 +10,11 @@ describe('Project Row Component: ', function () {
 
   beforeEach(() =>{
     const project = {};
-    projectRow = ReactTestUtils.renderIntoDocument(<MemoryRouter><ProjectRow project={project} /></MemoryRouter>);
+    projectRow = mount(<MemoryRouter><ProjectRow project={project} /></MemoryRouter>);
   });
 
   it('should instantiate the Project Row Component', function () {
-    expect(ReactTestUtils.isCompositeComponent(projectRow)).toBe(true);
+    expect(projectRow).toHaveLength(1);
   });
 
 });
