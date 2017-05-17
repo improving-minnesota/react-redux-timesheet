@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-class NavBar extends Component {
+class Navigation extends Component {
 
   // TODO - actually implement this for realz
   render() {return (<div />);}
 }
 
-export default NavBar;
+export default Navigation;
