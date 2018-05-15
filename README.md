@@ -5,8 +5,8 @@
 Prior to attending the workshop, we ask to validate your machine setup so that we can ensure a smooth workshop focused on learning React, not tweaking machine setup!
 
 1. Please ensure you have all the requested tooling (e.g. git) as specified in [setup instructions](http://react-redux-workshop.netlify.com/labs/setup-and-install-dependencies)
-1. Fork the repo at `https://github.com/objectpartners/react-redux-workshop.git`
-1. `git clone https://github.com/yourusername/react-redux-workshop.git && cd react-redux-workshop`
+1. Fork the repo at `https://github.com/objectpartners/react-redux-timesheet.git`
+1. `git clone https://github.com/yourusername/react-redux-timesheet.git && cd react-redux-timesheet`
 1. `node verify.js`
 
 If all goes well, you should see
