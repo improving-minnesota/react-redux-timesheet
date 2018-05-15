@@ -1,4 +1,21 @@
-## React Redux Timesheet workshop ##
+## React Redux Timesheet workshop
+
+## Setup
+
+Prior to attending the workshop, we ask to validate your machine setup so that we can ensure a smooth workshop focused on learning React, not tweaking machine setup!
+
+1. Please ensure you have all the requested tooling (e.g. git) as specified in [setup instructions](http://react-redux-workshop.netlify.com/labs/setup-and-install-dependencies)
+1. Fork the repo at `https://github.com/objectpartners/react-redux-workshop.git`
+1. `git clone https://github.com/yourusername/react-redux-workshop.git && cd react-redux-workshop`
+1. `node verify.js`
+
+If all goes well, you should see
+
+> 🎉  Congrats! Your system is setup properly
+> 
+> You should be good to install and run things.
+
+## Description
 
 This is the frontend project code for the [React Redux Workshop](http://objectpartners.github.io/react-redux-workshop)
 - Labs are at https://github.com/objectpartners/react-redux-workshop/tree/master/labs
