@@ -1,0 +1,33 @@
+{
+  "name": "react-redux-timesheet-lab-01",
+  "version": "0.1.0",
+  "private": true,
+  "proxy": "http://localhost:3001",
+  "dependencies": {
+    "axios": "0.16.x",
+    "prop-types": "15.5.x",
+    "react": "15.5.x",
+    "react-bootstrap": "0.31.x",
+    "react-dom": "15.5.x",
+    "react-redux": "4.4.x",
+    "react-router": "4.1.x",
+    "react-router-bootstrap": "0.24.x",
+    "react-router-dom": "4.1.x",
+    "redux": "3.6.x",
+    "redux-thunk": "2.2.x"
+  },
+  "devDependencies": {
+    "enzyme": "2.8.2",
+    "jest-enzyme": "2.1.2",
+    "moxios": "0.4.x",
+    "react-scripts": "0.9.5",
+    "react-test-renderer": "15.5.4",
+    "redux-mock-store": "1.2.x"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
