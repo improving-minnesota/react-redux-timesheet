@@ -1,5 +1,5 @@
 {
-  "name": "react-redux-timesheet",
+  "name": "react-redux-timesheet-lab-02",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:3001",
