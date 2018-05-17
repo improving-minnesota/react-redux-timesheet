@@ -1,0 +1,4 @@
+//Special create-react-app convention file to setup tests
+//See: https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#initializing-test-environment
+
+import 'jest-enzyme';
