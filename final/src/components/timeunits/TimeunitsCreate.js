@@ -56,14 +56,14 @@ TimeunitsCreate.defaultProps = {
   projects: []
 };
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   return {
     timesheet: state.timesheets.timesheet,
     projects: state.projects.projects
   }
 }
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch) => {
   return {
     actions: bindActionCreators(TimeunitActions, dispatch),
     projectActions: bindActionCreators(ProjectActions, dispatch)

@@ -31,13 +31,13 @@ EmployeesDetail.propTypes = {
 };
 
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   return {
     //TODO: map the redux store state to the component props here
   }
 }
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch) => {
   return {
     //TODO: bind the action creators here
   };

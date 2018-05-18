@@ -8,7 +8,7 @@ class ProjectTable extends Component {
   render() {
     let key = 1;
 
-    let projectRows = this.props.projects.map(function (project) {
+    let projectRows = this.props.projects.map(project => {
       return (
         <ProjectRow project={project} key={++key} />
       );

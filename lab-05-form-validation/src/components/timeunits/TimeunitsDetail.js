@@ -48,14 +48,14 @@ class TimeunitsDetail extends Component {
   }
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   return {
     timeunit: state.timeunits.timeunit,
     projects: state.projects.projects
   }
 }
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch) => {
   return {
     actions: bindActionCreators(TimeunitActions, dispatch),
     projectActions: bindActionCreators(ProjectActions, dispatch)

@@ -15,7 +15,7 @@ describe('Projects Detail Component: ', () =>  {
   beforeEach(() =>{
     //Mock out the server call in the constructor
     ProjectActions.getProject = (id)=>{
-      return function (dispatch) {
+      return (dispatch) => {
       };
     };
 

@@ -213,7 +213,7 @@ class EmployeeForm extends Component {
             <ButtonGroup>
               <Button
                 onClick={() => {this.handleAdminChange(true)}}
-                bsStyle={this.state.admin.value === true ? 'success' : ''}
+                bsStyle={this.state.admin.value === true ? 'success' : 'default'}
               >
                 Yes
               </Button>

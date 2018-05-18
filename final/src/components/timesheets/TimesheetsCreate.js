@@ -45,13 +45,13 @@ TimesheetsCreate.defaultProps = {
   employees: []
 };
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   return {
       employees: state.employees.employees
   }
 }
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch) => {
   return {
     actions: bindActionCreators(TimesheetActions, dispatch),
     employeeActions: bindActionCreators(EmployeeActions, dispatch)

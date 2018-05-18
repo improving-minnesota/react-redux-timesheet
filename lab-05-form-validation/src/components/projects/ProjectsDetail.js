@@ -48,13 +48,13 @@ ProjectsDetail.defaultProps = {
   project: {}
 };
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   return {
     project: state.projects.project
   }
 }
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch) => {
   return {
     actions: bindActionCreators(ProjectActions, dispatch)
   };

@@ -14,7 +14,7 @@ describe('Projects Create Component: ', () =>  {
   beforeEach(() =>{
     //Mock out the server call in the constructor
     ProjectActions.listProjects = ()=>{
-      return function (dispatch) {
+      return (dispatch) => {
       };
     };
 

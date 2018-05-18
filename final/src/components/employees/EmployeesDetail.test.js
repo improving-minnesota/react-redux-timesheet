@@ -8,7 +8,7 @@ import {MemoryRouter} from 'react-router-dom';
 describe('Employees Detail Component: ', () =>  {
   let mockStore;
 
-  beforeEach(function() {
+  beforeEach(() => {
     mockStore = configureStore();
   });
 

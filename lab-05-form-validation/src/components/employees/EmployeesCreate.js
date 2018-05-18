@@ -31,12 +31,12 @@ EmployeesCreate.propTypes = {
 };
 
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   return {
   }
 }
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch) => {
   return {
     //TODO: bind the redux action creators to the component props here
     //actions: bindActionCreators(EmployeeActions, dispatch)

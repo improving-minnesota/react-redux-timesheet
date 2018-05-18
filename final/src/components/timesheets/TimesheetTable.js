@@ -8,7 +8,7 @@ class TimesheetTable extends Component {
   render() {
     const actions = this.props.actions;
 
-    let timesheetRows = this.props.timesheets.map(function (timesheet) {
+    let timesheetRows = this.props.timesheets.map(timesheet => {
       return (
         <TimesheetRow timesheet={timesheet} key={timesheet._id} actions={actions}/>
       );
