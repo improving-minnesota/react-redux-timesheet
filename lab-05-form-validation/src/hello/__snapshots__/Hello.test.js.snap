@@ -1,6 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Hello World: should render to match the snapshot 1`] = `
 <div
-  className="hello">
+  className="hello"
+>
   <h1>
     Howdy!!
   </h1>
