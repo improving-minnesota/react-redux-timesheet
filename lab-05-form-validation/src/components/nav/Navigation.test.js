@@ -5,7 +5,7 @@ import Navigation from './Navigation';
 
 import {BrowserRouter} from 'react-router-dom';
 
-describe('Navigation Component: ', function () {
+describe('Navigation Component: ', () =>  {
 
   let nav;
 
@@ -13,7 +13,7 @@ describe('Navigation Component: ', function () {
     nav = mount(<BrowserRouter><Navigation /></BrowserRouter>);
   });
 
-  it('should instantiate the Navigation Component', function () {
+  it('should instantiate the Navigation Component', () =>  {
     expect(nav).toHaveLength(1);
   });
 

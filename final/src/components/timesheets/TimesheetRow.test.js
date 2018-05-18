@@ -4,7 +4,7 @@ import { mount } from 'enzyme';
 import TimesheetRow from './TimesheetRow';
 import {MemoryRouter} from 'react-router-dom';
 
-describe('Timesheet Row Component: ', function () {
+describe('Timesheet Row Component: ', () =>  {
 
   let timesheetRow;
 
@@ -14,7 +14,7 @@ describe('Timesheet Row Component: ', function () {
     timesheetRow = mount(<MemoryRouter><TimesheetRow timesheet={timesheet} actions={{}} route={routerStub} /></MemoryRouter>);
   });
 
-  it('should instantiate the Timesheet Component', function () {
+  it('should instantiate the Timesheet Component', () =>  {
     expect(timesheetRow).toHaveLength(1);
   });
 

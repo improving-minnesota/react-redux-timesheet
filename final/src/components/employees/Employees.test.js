@@ -6,9 +6,9 @@ import {MemoryRouter} from 'react-router-dom';
 
 const mockStore = configureStore();
 
-describe('Employees Component: ', function () {
+describe('Employees Component: ', () =>  {
 
-  it('should instantiate the Employee Component', function () {
+  it('should instantiate the Employee Component', () =>  {
     const component = shallow(
       <MemoryRouter><Employees store={mockStore}/></MemoryRouter>
     );

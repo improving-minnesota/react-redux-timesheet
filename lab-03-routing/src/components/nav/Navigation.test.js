@@ -4,9 +4,9 @@ import { mount } from 'enzyme';
 
 import {BrowserRouter} from 'react-router-dom';
 
-describe('Navigation Component: ', function () {
+describe('Navigation Component: ', () =>  {
 
-  it('implement me', function () {
+  it('implement me', () =>  {
     expect(true).toBe(true);
   });
 

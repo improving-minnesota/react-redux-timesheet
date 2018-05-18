@@ -3,9 +3,9 @@ import EmployeeRow from './EmployeeRow';
 import { shallow } from 'enzyme';
 
 
-describe('Employee Row Component: ', function () {
+describe('Employee Row Component: ', () => {
 
-  it('implement me', function () {
+  it('implement me', () => {
     expect(true).toBe(true);
   });
 

@@ -5,7 +5,7 @@ import configureStore from '../../store/configure-store';
 import {MemoryRouter} from 'react-router-dom';
 
 
-describe('Employees Detail Component: ', function () {
+describe('Employees Detail Component: ', () =>  {
   let mockStore;
 
   beforeEach(function() {
@@ -13,7 +13,7 @@ describe('Employees Detail Component: ', function () {
   });
 
   //TODO: Implement me
-  it('should instantiate the Employees Detail Component', function () {
+  it('should instantiate the Employees Detail Component', () =>  {
   });
 
 });

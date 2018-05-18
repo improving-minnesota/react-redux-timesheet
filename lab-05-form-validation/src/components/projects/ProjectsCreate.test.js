@@ -6,7 +6,7 @@ import {BrowserRouter} from 'react-router-dom';
 
 import * as ProjectActions from '../../actions/ProjectActionCreator';
 
-describe('Projects Create Component: ', function () {
+describe('Projects Create Component: ', () =>  {
 
   let projects;
   const mockStore = configureStore();
@@ -21,7 +21,7 @@ describe('Projects Create Component: ', function () {
     projects = mount(<BrowserRouter><ProjectsCreate store={mockStore}/></BrowserRouter>);
   });
 
-  it('should instantiate the Projects Create Component', function () {
+  it('should instantiate the Projects Create Component', () =>  {
     expect(projects).toHaveLength(1);
   });
 

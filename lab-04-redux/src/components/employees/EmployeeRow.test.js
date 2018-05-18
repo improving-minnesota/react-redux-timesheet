@@ -2,10 +2,10 @@ import React from 'react';
 import EmployeeRow from './EmployeeRow';
 import { shallow } from 'enzyme';
 
-describe('Employee Row Component: ', function () {
+describe('Employee Row Component: ', () =>  {
 
 
-    it('should instantiate the Employee Row Component', function () {
+    it('should instantiate the Employee Row Component', () =>  {
 
         const employee = {username:'fflintstone',
                           'email':'fred.flintstone@slatequarry.com',

@@ -4,7 +4,7 @@ import { mount } from 'enzyme';
 import ProjectRow from './ProjectRow';
 import {MemoryRouter} from 'react-router-dom';
 
-describe('Project Row Component: ', function () {
+describe('Project Row Component: ', () =>  {
 
   let projectRow;
 
@@ -13,7 +13,7 @@ describe('Project Row Component: ', function () {
     projectRow = mount(<MemoryRouter><ProjectRow project={project} /></MemoryRouter>);
   });
 
-  it('should instantiate the Project Row Component', function () {
+  it('should instantiate the Project Row Component', () =>  {
     expect(projectRow).toHaveLength(1);
   });
 

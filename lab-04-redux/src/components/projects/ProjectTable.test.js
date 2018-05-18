@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 
 import ProjectTable from './ProjectTable';
 
-describe('Project Table Component: ', function () {
+describe('Project Table Component: ', () =>  {
 
   let projectTable;
 
@@ -12,7 +12,7 @@ describe('Project Table Component: ', function () {
     projectTable = shallow(<ProjectTable projects={projects} />);
   });
 
-  it('should instantiate the Project Table Component', function () {
+  it('should instantiate the Project Table Component', () =>  {
     expect(projectTable).toHaveLength(1);
   });
 

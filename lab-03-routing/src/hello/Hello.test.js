@@ -4,13 +4,13 @@ import renderer from 'react-test-renderer';
 
 import Hello from './Hello';
 
-describe('Hello World:', function () {
+describe('Hello World:', () =>  {
 
   it('renders without exploding', () => {
     expect(shallow(<Hello />)).toHaveLength(1);
   });
 
-  it('should render with default text', function () {
+  it('should render with default text', () =>  {
     const component = shallow(<Hello />);
 
     expect(component).toIncludeText('Howdy');
@@ -19,7 +19,7 @@ describe('Hello World:', function () {
     expect(component).toHaveState('greeting', 'Howdy!!');
   });
 
-  it('should render with our props', function () {
+  it('should render with our props', () =>  {
     const component = shallow(
       <Hello friend="Fred"/>
     );
@@ -30,7 +30,7 @@ describe('Hello World:', function () {
     expect(component).not.toIncludeText('Partner');
   });
 
-  it('should render to match the snapshot', function () {
+  it('should render to match the snapshot', () =>  {
     const component = renderer.create(
       <Hello friend="Luke"/>
     );
