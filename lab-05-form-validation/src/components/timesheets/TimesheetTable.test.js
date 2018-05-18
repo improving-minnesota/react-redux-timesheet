@@ -4,7 +4,7 @@ import { mount } from 'enzyme';
 import TimesheetTable from './TimesheetTable';
 import {MemoryRouter} from 'react-router-dom';
 
-describe('Timesheet Table Component: ', function () {
+describe('Timesheet Table Component: ', () =>  {
 
   let timesheetTable;
 
@@ -13,7 +13,7 @@ describe('Timesheet Table Component: ', function () {
     timesheetTable = mount(<MemoryRouter><TimesheetTable timesheets={timesheets} actions={{}} /></MemoryRouter>);
   });
 
-  it('should instantiate the Timesheet Table Component', function () {
+  it('should instantiate the Timesheet Table Component', () =>  {
     expect(timesheetTable).toHaveLength(1);
   });
 

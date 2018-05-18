@@ -49,13 +49,13 @@ EmployeesDetail.propTypes = {
 };
 
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   return {
     employee: state.employees.employee
   }
 }
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch) => {
   return {
     actions: bindActionCreators(EmployeeActions, dispatch)
   };

@@ -3,10 +3,10 @@ import EmployeeRow from './EmployeeRow';
 import { mount } from 'enzyme';
 import {MemoryRouter} from 'react-router-dom';
 
-describe('Employee Row Component: ', function () {
+describe('Employee Row Component: ', () =>  {
 
 
-    it('should instantiate the Employee Row Component', function () {
+    it('should instantiate the Employee Row Component', () =>  {
 
         const employee = {username:'fflintstone',
                           'email':'fred.flintstone@slatequarry.com',

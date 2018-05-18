@@ -5,7 +5,7 @@ import Timesheets from './Timesheets';
 import configureStore from '../../store/configure-store';
 
 
-describe('Timesheets Component: ', function () {
+describe('Timesheets Component: ', () =>  {
 
   let timesheets;
   const mockStore = configureStore();
@@ -14,7 +14,7 @@ describe('Timesheets Component: ', function () {
     timesheets = shallow(<Timesheets store={mockStore}/>);
   });
 
-  it('should instantiate the Timesheet Component', function () {
+  it('should instantiate the Timesheet Component', () =>  {
     expect(timesheets).toHaveLength(1);
   });
 

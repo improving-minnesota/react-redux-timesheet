@@ -34,13 +34,13 @@ class Timesheets extends Component {
   }
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   return {
     timesheets: state.timesheets.timesheets
   }
 }
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch) => {
   return {
     actions: bindActionCreators(TimesheetActions, dispatch)
   };

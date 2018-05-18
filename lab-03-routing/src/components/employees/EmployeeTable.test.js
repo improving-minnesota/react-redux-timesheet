@@ -2,9 +2,9 @@ import React from 'react';
 import EmployeeTable from './EmployeeTable';
 import { mount } from 'enzyme';
 
-describe('Employee Table Component: ', function () {
+describe('Employee Table Component: ', () => {
 
-  it('implement me', function () {
+  it('implement me',  () => {
     expect(true).toBe(true);
   });
 

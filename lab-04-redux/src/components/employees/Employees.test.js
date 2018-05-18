@@ -5,9 +5,9 @@ import configureStore from '../../store/configure-store';
 
 const mockStore = configureStore();
 
-describe('Employees Component: ', function () {
+describe('Employees Component: ', () =>  {
 
-  it('should instantiate the Employee Component', function () {
+  it('should instantiate the Employee Component', () =>  {
       const component = shallow(
               <Employees store={mockStore}/>
       );

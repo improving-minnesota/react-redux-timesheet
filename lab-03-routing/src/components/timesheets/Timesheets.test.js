@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 
 import Timesheets from './Timesheets';
 
-describe('Timesheets Component: ', function () {
+describe('Timesheets Component: ', () =>  {
 
   let timesheets;
 
@@ -11,7 +11,7 @@ describe('Timesheets Component: ', function () {
     timesheets = shallow(<Timesheets/>);
   });
 
-  it('should instantiate the Timesheet Component', function () {
+  it('should instantiate the Timesheet Component', () =>  {
     expect(timesheets).toHaveLength(1);
   });
 

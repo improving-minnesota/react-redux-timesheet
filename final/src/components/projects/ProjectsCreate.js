@@ -46,12 +46,12 @@ ProjectsCreate.defaultProps = {
   project: {}
 };
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   return {
   }
 }
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch) => {
   return {
     actions: bindActionCreators(ProjectActions, dispatch)
   };

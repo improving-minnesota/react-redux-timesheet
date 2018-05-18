@@ -4,7 +4,7 @@ import {mount} from 'enzyme';
 import configureStore from '../../store/configure-store';
 import {MemoryRouter} from 'react-router-dom';
 
-describe('Timeunits Component: ', function () {
+describe('Timeunits Component: ', () =>  {
 
   let timeunits;
   let timesheet;
@@ -15,7 +15,7 @@ describe('Timeunits Component: ', function () {
     timeunits = mount(<MemoryRouter><Timeunits store={mockStore} timesheet={timesheet}/></MemoryRouter>);
   });
 
-  it('should instantiate the Timeunit Component', function () {
+  it('should instantiate the Timeunit Component', () =>  {
     expect(timeunits).toHaveLength(1);
   });
 

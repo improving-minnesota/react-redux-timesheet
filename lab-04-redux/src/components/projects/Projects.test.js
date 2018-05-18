@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import Projects from './Projects';
 import configureStore from '../../store/configure-store';
 
-describe('Projects Component: ', function () {
+describe('Projects Component: ', () =>  {
 
   let projects;
   const mockStore = configureStore();
@@ -13,7 +13,7 @@ describe('Projects Component: ', function () {
     projects = shallow(<Projects store={mockStore}/>);
   });
 
-  it('should instantiate the Project Component', function () {
+  it('should instantiate the Project Component', () =>  {
     expect(projects).toHaveLength(1);
   });
 

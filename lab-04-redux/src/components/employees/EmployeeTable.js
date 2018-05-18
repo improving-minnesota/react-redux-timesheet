@@ -7,7 +7,7 @@ import {Table} from 'react-bootstrap';
 class EmployeeTable extends Component {
   render() {
 
-    let employeeRows = this.props.employees.map(function (employee) {
+    let employeeRows = this.props.employees.map(employee => {
       return (
         <EmployeeRow employee={employee} key={employee._id} />
       );

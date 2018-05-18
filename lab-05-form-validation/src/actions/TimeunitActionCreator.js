@@ -30,11 +30,11 @@ export const listTimeunits = (timesheetId) => {
 export const getTimeunit = (timesheetId, timeunitId) => {
   return (dispatch) => {
     return Axios.get(url(timesheetId, timeunitId))
-      .then(function (res) {
+      .then(res => {
         dispatch(get(res.data));
         return true;
       })
-      .catch(function (x) {
+      .catch(error => {
         console.log('There was an error getting the timeunit');
       });
   }
@@ -43,12 +43,12 @@ export const getTimeunit = (timesheetId, timeunitId) => {
 export const updateTimeunit = (timesheetId, timeunit) => {
   return (dispatch) => {
     return Axios.put(url(timesheetId, timeunit._id), timeunit)
-      .then(function (res) {
+      .then(res => {
         dispatch(get(res.data));
         console.log(`Timesheet timeunit was updated.`);
         return true;
       })
-      .catch(function (x) {
+      .catch(error => {
         console.log('There was an error updating the timeunit.');
       });
   }
@@ -59,12 +59,12 @@ export const removeTimeunit = (timesheetId, timeunit) => {
     timeunit.deleted = true;
 
     return Axios.put(url(timesheetId, timeunit._id), timeunit)
-      .then(function (res) {
+      .then(res => {
         dispatch(get(res.data));
         console.log(`Timesheet : ${res.data.name}, logged time was deleted.`);
         return true;
       })
-      .catch(function (x) {
+      .catch(error => {
         console.log('Error attempting to delete timeunit.');
       });
   }
@@ -75,12 +75,12 @@ export const restoreTimeunit = (timesheetId, timeunit) => {
     timeunit.deleted = false;
 
     return Axios.put(url(timesheetId, timeunit._id), timeunit)
-      .then(function (res) {
+      .then(res => {
         dispatch(get(res.data))
         console.log(`Timesheet : ${res.data.name}, timeunit was restored.`);
         return true;
       })
-      .catch(function (x) {
+      .catch(error => {
         console.log('Error attempting to restore timeunit.');
       });
   }
@@ -89,25 +89,25 @@ export const restoreTimeunit = (timesheetId, timeunit) => {
 export const createTimeunit = (timesheetId, timeunit) => {
   return (dispatch) => {
     return Axios.post(url(timesheetId), timeunit)
-      .then(function (res) {
+      .then(res => {
         dispatch(get(res.data))
         console.log('Timeunit created.');
         return true;
       })
-      .catch(function (x) {
+      .catch(error => {
         console.log('There was an error creating timeunit.');
       });
   }
 }
 
-export function list(timeunits) {
+export const list = (timeunits) => {
   return {
     type: TimeunitActionTypes.LIST,
     timeunits: timeunits
   }
 }
 
-export function get(timeunit) {
+export const get = (timeunit) => {
   return {
     type: TimeunitActionTypes.GET,
     timeunit: timeunit

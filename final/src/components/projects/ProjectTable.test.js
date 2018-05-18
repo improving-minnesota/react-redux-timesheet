@@ -4,7 +4,7 @@ import { mount } from 'enzyme';
 import ProjectTable from './ProjectTable';
 import {MemoryRouter} from 'react-router-dom';
 
-describe('Project Table Component: ', function () {
+describe('Project Table Component: ', () =>  {
 
   let projectTable;
 
@@ -13,7 +13,7 @@ describe('Project Table Component: ', function () {
     projectTable = mount(<MemoryRouter><ProjectTable projects={projects} /></MemoryRouter>);
   });
 
-  it('should instantiate the Project Table Component', function () {
+  it('should instantiate the Project Table Component', () =>  {
     expect(projectTable).toHaveLength(1);
   });
 

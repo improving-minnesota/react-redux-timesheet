@@ -11,7 +11,7 @@ class TimeunitTable extends Component {
 
     const timesheet = this.props.timesheet;
 
-    let timeunitRows = this.props.timeunits.map(function (timeunit) {
+    let timeunitRows = this.props.timeunits.map(timeunit => {
       return (
         <TimeunitRow timeunit={timeunit} timesheet={timesheet} key={timeunit._id} actions={actions}/>
       );

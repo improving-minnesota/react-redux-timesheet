@@ -46,13 +46,13 @@ class TimesheetsDetail extends Component {
   }
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   return {
     timesheet: state.timesheets.timesheet
   }
 }
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch) => {
   return {
     actions: bindActionCreators(TimesheetActions, dispatch)
   };
