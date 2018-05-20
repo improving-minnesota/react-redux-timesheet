@@ -26,10 +26,10 @@ class ProjectForm extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.state = {
+    this.setState({
       name: {value: nextProps.project.name, valid: null},
       description: {value: nextProps.project.description, valid: null}
-    };
+    });
   }
 
   handleSave(){
