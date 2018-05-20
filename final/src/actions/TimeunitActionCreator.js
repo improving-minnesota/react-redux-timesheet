@@ -1,21 +1,19 @@
 import * as TimeunitActionTypes from './TimeunitActionTypes';
 import Axios from 'axios';
 
-
 const apiUrl = '/api/users/all/timesheets/';
 
 const url = (timesheetId, timeunitId) => {
-
   let url = apiUrl + timesheetId + '/timeunits';
   if (timeunitId) {
     url += '/' + timeunitId;
   }
 
   return url;
-}
+};
 
-export const listTimeunits = (timesheetId) => {
-  return (dispatch) => {
+export const listTimeunits = timesheetId => {
+  return dispatch => {
     return Axios.get(url(timesheetId))
       .then(response => {
         dispatch(list(response.data));
@@ -25,92 +23,91 @@ export const listTimeunits = (timesheetId) => {
         console.log('Error attempting to retrieve logged hours.');
       });
   };
-}
+};
 
 export const getTimeunit = (timesheetId, timeunitId) => {
-  return (dispatch) => {
+  return dispatch => {
     return Axios.get(url(timesheetId, timeunitId))
-      .then(function (res) {
+      .then(function(res) {
         dispatch(get(res.data));
         return true;
       })
-      .catch(function (x) {
+      .catch(function(x) {
         console.log('There was an error getting the timeunit');
       });
-  }
-}
+  };
+};
 
 export const updateTimeunit = (timesheetId, timeunit) => {
-  return (dispatch) => {
+  return dispatch => {
     return Axios.put(url(timesheetId, timeunit._id), timeunit)
-      .then(function (res) {
+      .then(function(res) {
         dispatch(get(res.data));
         console.log(`Timesheet timeunit was updated.`);
         return true;
       })
-      .catch(function (x) {
+      .catch(function(x) {
         console.log('There was an error updating the timeunit.');
       });
-  }
-}
+  };
+};
 
 export const removeTimeunit = (timesheetId, timeunit) => {
-  return (dispatch) => {
+  return dispatch => {
     timeunit.deleted = true;
 
     return Axios.put(url(timesheetId, timeunit._id), timeunit)
-      .then(function (res) {
+      .then(function(res) {
         dispatch(get(res.data));
         console.log(`Timesheet : ${res.data.name}, logged time was deleted.`);
         return true;
       })
-      .catch(function (x) {
+      .catch(function(x) {
         console.log('Error attempting to delete timeunit.');
       });
-  }
-}
+  };
+};
 
 export const restoreTimeunit = (timesheetId, timeunit) => {
-  return (dispatch) => {
+  return dispatch => {
     timeunit.deleted = false;
 
     return Axios.put(url(timesheetId, timeunit._id), timeunit)
-      .then(function (res) {
-        dispatch(get(res.data))
+      .then(function(res) {
+        dispatch(get(res.data));
         console.log(`Timesheet : ${res.data.name}, timeunit was restored.`);
         return true;
       })
-      .catch(function (x) {
+      .catch(function(x) {
         console.log('Error attempting to restore timeunit.');
       });
-  }
-}
+  };
+};
 
 export const createTimeunit = (timesheetId, timeunit) => {
-  return (dispatch) => {
+  return dispatch => {
     return Axios.post(url(timesheetId), timeunit)
-      .then(function (res) {
-        dispatch(get(res.data))
+      .then(function(res) {
+        dispatch(get(res.data));
         console.log('Timeunit created.');
         return true;
       })
-      .catch(function (x) {
+      .catch(function(x) {
         console.log('There was an error creating timeunit.');
       });
-  }
-}
+  };
+};
 
 export function list(timeunits) {
   return {
     type: TimeunitActionTypes.LIST,
     timeunits: timeunits
-  }
+  };
 }
 
 export function get(timeunit) {
   return {
     type: TimeunitActionTypes.GET,
     timeunit: timeunit
-  }
+  };
 }
-

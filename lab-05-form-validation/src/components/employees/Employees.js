@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import EmployeeTable from './EmployeeTable';
-import {PageHeader, Grid, Row, Button} from 'react-bootstrap';
-import {LinkContainer} from 'react-router-bootstrap';
+import { PageHeader, Grid, Row, Button } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as EmployeeActions from '../../actions/EmployeeActionCreator';
 
 class Employees extends Component {
-
   constructor(props) {
     super(props);
 
@@ -31,7 +30,10 @@ class Employees extends Component {
           </div>
         </Row>
         <Row>
-          <EmployeeTable employees={this.props.employees} actions={this.props.actions}/>
+          <EmployeeTable
+            employees={this.props.employees}
+            actions={this.props.actions}
+          />
         </Row>
       </Grid>
     );
@@ -41,7 +43,7 @@ class Employees extends Component {
 function mapStateToProps(state) {
   return {
     employees: state.employees.employees
-  }
+  };
 }
 
 function mapDispatchToProps(dispatch) {
@@ -50,7 +52,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Employees);
+export default connect(mapStateToProps, mapDispatchToProps)(Employees);

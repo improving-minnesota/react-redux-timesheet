@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import ProjectForm from './ProjectForm';
-import {PageHeader, Grid, Row} from 'react-bootstrap';
+import { PageHeader, Grid, Row } from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as ProjectActions from '../../actions/ProjectActionCreator';
 import { withRouter } from 'react-router';
 
 class ProjectsDetail extends Component {
-
   constructor(props) {
     super(props);
 
@@ -19,7 +18,7 @@ class ProjectsDetail extends Component {
     this.handleSave = this.handleSave.bind(this);
   }
 
-  handleSave(project){
+  handleSave(project) {
     this.props.actions.updateProject(project).then(() => {
       this.props.history.push('/projects');
     });
@@ -32,7 +31,11 @@ class ProjectsDetail extends Component {
           <PageHeader>Projects Detail</PageHeader>
         </Row>
         <Row>
-          <ProjectForm project={this.props.project} actions={this.props.actions} handleSave={this.handleSave}/>
+          <ProjectForm
+            project={this.props.project}
+            actions={this.props.actions}
+            handleSave={this.handleSave}
+          />
         </Row>
       </Grid>
     );
@@ -51,7 +54,7 @@ ProjectsDetail.defaultProps = {
 function mapStateToProps(state) {
   return {
     project: state.projects.project
-  }
+  };
 }
 
 function mapDispatchToProps(dispatch) {
@@ -60,8 +63,6 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-
-export default withRouter(connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ProjectsDetail));
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(ProjectsDetail)
+);

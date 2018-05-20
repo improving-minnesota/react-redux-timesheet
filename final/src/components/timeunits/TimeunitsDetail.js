@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
-import {PageHeader, Grid, Row} from 'react-bootstrap';
+import { PageHeader, Grid, Row } from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as TimeunitActions from '../../actions/TimeunitActionCreator';
@@ -8,7 +8,6 @@ import TimeunitForm from './TimeunitForm';
 import * as ProjectActions from '../../actions/ProjectActionCreator';
 
 class TimeunitsDetail extends Component {
-
   constructor(props) {
     super(props);
 
@@ -20,15 +19,16 @@ class TimeunitsDetail extends Component {
     this.handleSave = this.handleSave.bind(this);
   }
 
-  handleSave(timeunit){
+  handleSave(timeunit) {
     const userId = this.props.match.params.user_id;
     const timesheetId = this.props.match.params.timesheet_id;
     this.props.actions.updateTimeunit(timesheetId, timeunit).then(() => {
-
       //Reload all of the timeunits after the save
       this.props.actions.listTimeunits(timesheetId);
 
-      this.props.history.push(`/employees/${userId}/timesheets/detail/${timesheetId}`);
+      this.props.history.push(
+        `/employees/${userId}/timesheets/detail/${timesheetId}`
+      );
     });
   }
 
@@ -41,7 +41,14 @@ class TimeunitsDetail extends Component {
           <PageHeader>Timeunit Edit</PageHeader>
         </Row>
         <Row>
-          <TimeunitForm projects={this.props.projects} timesheetId={timesheetId} userId={userId} timeunit={this.props.timeunit} actions={this.props.actions} handleSave={this.handleSave}/>
+          <TimeunitForm
+            projects={this.props.projects}
+            timesheetId={timesheetId}
+            userId={userId}
+            timeunit={this.props.timeunit}
+            actions={this.props.actions}
+            handleSave={this.handleSave}
+          />
         </Row>
       </Grid>
     );
@@ -52,7 +59,7 @@ function mapStateToProps(state) {
   return {
     timeunit: state.timeunits.timeunit,
     projects: state.projects.projects
-  }
+  };
 }
 
 function mapDispatchToProps(dispatch) {
@@ -62,8 +69,6 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-
-export default withRouter(connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(TimeunitsDetail));
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(TimeunitsDetail)
+);

@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 
 import ProjectTable from './ProjectTable';
-import {PageHeader, Grid, Row, Button} from 'react-bootstrap';
-import {LinkContainer} from 'react-router-bootstrap';
+import { PageHeader, Grid, Row, Button } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as ProjectActions from '../../actions/ProjectActionCreator';
 
 class Projects extends Component {
-
   constructor(props) {
     super(props);
     props.actions.listProjects();
@@ -16,9 +15,7 @@ class Projects extends Component {
     this.createProject = this.createProject.bind(this);
   }
 
-  createProject(){
-
-  }
+  createProject() {}
 
   render() {
     return (
@@ -34,7 +31,10 @@ class Projects extends Component {
           </div>
         </Row>
         <Row>
-          <ProjectTable projects={this.props.projects} actions={this.props.actions}/>
+          <ProjectTable
+            projects={this.props.projects}
+            actions={this.props.actions}
+          />
         </Row>
       </Grid>
     );
@@ -44,7 +44,7 @@ class Projects extends Component {
 function mapStateToProps(state) {
   return {
     projects: state.projects.projects
-  }
+  };
 }
 
 function mapDispatchToProps(dispatch) {
@@ -53,7 +53,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Projects);
+export default connect(mapStateToProps, mapDispatchToProps)(Projects);
