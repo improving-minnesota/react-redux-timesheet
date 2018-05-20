@@ -3,17 +3,15 @@ import { shallow } from 'enzyme';
 
 import ProjectRow from './ProjectRow';
 
-describe('Project Row Component: ', () =>  {
-
+describe('Project Row Component: ', () => {
   let projectRow;
 
-  beforeEach(() =>{
+  beforeEach(() => {
     const project = {};
     projectRow = shallow(<ProjectRow project={project} />);
   });
 
-  it('should instantiate the Project Row Component', () =>  {
+  it('should instantiate the Project Row Component', () => {
     expect(projectRow).toHaveLength(1);
   });
-
 });

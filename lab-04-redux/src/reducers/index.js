@@ -1,4 +1,4 @@
-import {combineReducers} from "redux";
+import { combineReducers } from 'redux';
 import projects from './project-reducer';
 import timesheets from './timesheet-reducer';
 

@@ -1,11 +1,10 @@
 import React from 'react';
 import EmployeesDetail from './EmployeesDetail';
-import {mount} from 'enzyme';
+import { mount } from 'enzyme';
 import configureStore from '../../store/configure-store';
-import {MemoryRouter} from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 
-
-describe('Employees Detail Component: ', () =>  {
+describe('Employees Detail Component: ', () => {
   let mockStore;
 
   beforeEach(() => {
@@ -13,7 +12,5 @@ describe('Employees Detail Component: ', () =>  {
   });
 
   //TODO: Implement me
-  it('should instantiate the Employees Detail Component', () =>  {
-  });
-
+  it('should instantiate the Employees Detail Component', () => {});
 });

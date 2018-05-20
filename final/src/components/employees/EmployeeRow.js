@@ -1,24 +1,26 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import {Button} from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { withRouter } from 'react-router';
 
 class EmployeeRow extends Component {
-
   handleClick(employee) {
-    if(employee.deleted){
+    if (employee.deleted) {
       employee.deleted = false;
-      this.props.actions.restoreEmployee(employee).then(this.props.actions.listEmployees);
-    }
-    else{
+      this.props.actions
+        .restoreEmployee(employee)
+        .then(this.props.actions.listEmployees);
+    } else {
       employee.deleted = true;
-      this.props.actions.removeEmployee(employee).then(this.props.actions.listEmployees);
+      this.props.actions
+        .removeEmployee(employee)
+        .then(this.props.actions.listEmployees);
     }
   }
 
   showDetail(employee) {
-    if(employee.deleted) {
+    if (employee.deleted) {
       console.log('You cannot edit a deleted employee.');
       return;
     }
@@ -29,22 +31,30 @@ class EmployeeRow extends Component {
   render() {
     const employee = this.props.employee;
 
-    let rowClass = "";
-    if(employee.deleted){
-      rowClass = "faded";
+    let rowClass = '';
+    if (employee.deleted) {
+      rowClass = 'faded';
     }
 
     const button = (
       <Button
-        onClick={(e) => {this.handleClick(employee); e.stopPropagation();}}
+        onClick={e => {
+          this.handleClick(employee);
+          e.stopPropagation();
+        }}
         bsStyle={employee.deleted ? 'success' : 'danger'}
       >
         {employee.deleted ? 'Restore' : 'Delete'}
-      </Button>);
-
+      </Button>
+    );
 
     return (
-      <tr className={rowClass} onClick={() => {this.showDetail(employee)}}>
+      <tr
+        className={rowClass}
+        onClick={() => {
+          this.showDetail(employee);
+        }}
+      >
         <td>{employee.username}</td>
         <td>{employee.email}</td>
         <td>{employee.firstName}</td>
@@ -54,7 +64,6 @@ class EmployeeRow extends Component {
       </tr>
     );
   }
-
 }
 
 EmployeeRow.propTypes = {

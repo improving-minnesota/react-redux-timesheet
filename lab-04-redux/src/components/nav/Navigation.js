@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import {Navbar, Nav, NavItem} from 'react-bootstrap';
-import {LinkContainer} from 'react-router-bootstrap';
+import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 
 class NavBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: {_id: 'all'}
+      user: { _id: 'all' }
     };
   }
 
@@ -14,9 +14,7 @@ class NavBar extends Component {
     return (
       <Navbar>
         <Navbar.Header>
-          <Navbar.Brand>
-            Timesheetz
-          </Navbar.Brand>
+          <Navbar.Brand>Timesheetz</Navbar.Brand>
         </Navbar.Header>
         <Nav>
           <LinkContainer to="/projects">

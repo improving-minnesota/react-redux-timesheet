@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import TimesheetRow from './TimesheetRow';
-import {Table} from 'react-bootstrap';
+import { Table } from 'react-bootstrap';
 
 class TimesheetTable extends Component {
   render() {
@@ -10,24 +10,26 @@ class TimesheetTable extends Component {
 
     let timesheetRows = this.props.timesheets.map(timesheet => {
       return (
-        <TimesheetRow timesheet={timesheet} key={timesheet._id} actions={actions}/>
+        <TimesheetRow
+          timesheet={timesheet}
+          key={timesheet._id}
+          actions={actions}
+        />
       );
     });
 
     return (
       <Table striped bordered condensed hover>
         <thead>
-        <tr>
-          <th>Begin Date</th>
-          <th>End Date</th>
-          <th>Name</th>
-          <th>Description</th>
-          <th>Delete</th>
-        </tr>
+          <tr>
+            <th>Begin Date</th>
+            <th>End Date</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Delete</th>
+          </tr>
         </thead>
-        <tbody>
-        {timesheetRows}
-        </tbody>
+        <tbody>{timesheetRows}</tbody>
       </Table>
     );
   }

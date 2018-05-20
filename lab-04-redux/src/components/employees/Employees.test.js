@@ -5,15 +5,10 @@ import configureStore from '../../store/configure-store';
 
 const mockStore = configureStore();
 
-describe('Employees Component: ', () =>  {
+describe('Employees Component: ', () => {
+  it('should instantiate the Employee Component', () => {
+    const component = shallow(<Employees store={mockStore} />);
 
-  it('should instantiate the Employee Component', () =>  {
-      const component = shallow(
-              <Employees store={mockStore}/>
-      );
-
-      expect(component).toHaveLength(1);
-
+    expect(component).toHaveLength(1);
   });
-
 });

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class TimesheetRow extends Component {
-
   render() {
     const timesheet = this.props.timesheet;
     return (

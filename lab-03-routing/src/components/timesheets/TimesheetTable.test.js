@@ -3,17 +3,15 @@ import { shallow } from 'enzyme';
 
 import TimesheetTable from './TimesheetTable';
 
-describe('Timesheet Table Component: ', () =>  {
-
+describe('Timesheet Table Component: ', () => {
   let timesheetTable;
 
-  beforeEach(() =>{
-    const timesheets = [{_id: 1}, {_id: 2}];
+  beforeEach(() => {
+    const timesheets = [{ _id: 1 }, { _id: 2 }];
     timesheetTable = shallow(<TimesheetTable timesheets={timesheets} />);
   });
 
-  it('should instantiate the Timesheet Table Component', () =>  {
+  it('should instantiate the Timesheet Table Component', () => {
     expect(timesheetTable).toHaveLength(1);
   });
-
 });

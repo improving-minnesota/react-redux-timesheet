@@ -2,20 +2,17 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import EmployeeForm from './EmployeeForm';
-import {PageHeader, Grid, Row} from 'react-bootstrap';
+import { PageHeader, Grid, Row } from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as EmployeeActions from '../../actions/EmployeeActionCreator';
 import { withRouter } from 'react-router';
 
 class EmployeesCreate extends Component {
-
   // TODO - implement me
 
   render() {
-    return (
-      <div/>
-    );
+    return <div />;
   }
 }
 
@@ -24,27 +21,22 @@ EmployeesCreate.defaultProps = {
 };
 
 EmployeesCreate.propTypes = {
-
   //TODO: Require the employee proptype
 
   history: PropTypes.object
 };
 
+const mapStateToProps = state => {
+  return {};
+};
 
-const mapStateToProps = (state) => {
-  return {
-  }
-}
-
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
     //TODO: bind the redux action creators to the component props here
     //actions: bindActionCreators(EmployeeActions, dispatch)
   };
-}
+};
 
-
-export default withRouter(connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(EmployeesCreate));
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(EmployeesCreate)
+);
