@@ -1,11 +1,12 @@
-var workshopSetup = require('./scripts/workshop-setup');
-var execSync = require('child_process').execSync;
+const workshopSetup = require('./scripts/workshop-setup');
+const execSync = require('child_process').execSync;
+const validateYarn = require('./scripts/yarn-validator');
 
-var verifySystem = workshopSetup.verifySystem;
+const verifySystem = workshopSetup.verifySystem;
 
 verifySystem([
   verifySystem.validators.node('>=8.0.0'),
-  verifySystem.validators.yarnNpm('>=1.0.0', '>=5.0.0'),
+  validateYarn('>=1.0.0'),
   function validateFork() {
     const output = execSync('git remote -v').toString().match(/origin[^\n]+/);
     if (output.some(part => /objectpartners/.test(part))) {
