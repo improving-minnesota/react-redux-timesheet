@@ -140,7 +140,7 @@ class TimeunitForm extends Component {
           Save{' '}
         </Button>&nbsp;
         <LinkContainer
-          to={'/employees/' + this.props.userId + '/timesheets/detail/' + this.props.timesheetId}
+          to={`/employees/${this.props.userId}/timesheets/detail/${this.props.timesheetId}`}
         >
           <Button bsStyle="danger"> Cancel </Button>
         </LinkContainer>

@@ -24,7 +24,7 @@ class TimeunitsCreate extends Component {
 
       //Redirect back to the detail page to see all time entries
       this.props.history.push(
-        '/employees/' + timesheet.user_id + '/timesheets/detail/' + timesheet._id
+        `/employees/${timesheet.user_id}/timesheets/detail/${timesheet._id}`
       );
     });
   }
