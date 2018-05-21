@@ -6,7 +6,7 @@ const apiUrl = '/api/projects';
 const url = projectId => {
   let url = apiUrl;
   if (projectId) {
-    url += '/' + projectId;
+    url += `/${projectId}`;
   }
 
   return url;
@@ -43,7 +43,7 @@ export const updateProject = project => {
     return Axios.put(url(project._id), project)
       .then(function(res) {
         dispatch(get(res.data));
-        console.log('Project : ' + project.name + ', updated.');
+        console.log(`Project : ${project.name}, updated.`);
         return true;
       })
       .catch(function(x) {
@@ -59,7 +59,7 @@ export const removeProject = project => {
     return Axios.put(url(project._id), project)
       .then(function(res) {
         dispatch(get(res.data));
-        console.log('Project : ' + res.data.name + ', was deleted.');
+        console.log(`Project : ${res.data.name}, was deleted.`);
         return true;
       })
       .catch(function(x) {
@@ -75,7 +75,7 @@ export const restoreProject = project => {
     return Axios.put(url(project._id), project)
       .then(function(res) {
         dispatch(get(res.data));
-        console.log('Project : ' + res.data.name + ', was restored.');
+        console.log(`Project : ${res.data.name}, was restored.`);
         return true;
       })
       .catch(function(x) {
@@ -89,7 +89,7 @@ export const createProject = project => {
     return Axios.put(url(), project)
       .then(function(res) {
         dispatch(get(res.data));
-        console.log('Project : ' + res.data.name + ', created.');
+        console.log(`Project : ${res.data.name}, created.`);
         return true;
       })
       .catch(function(x) {

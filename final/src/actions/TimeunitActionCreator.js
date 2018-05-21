@@ -4,9 +4,9 @@ import Axios from 'axios';
 const apiUrl = '/api/users/all/timesheets/';
 
 const url = (timesheetId, timeunitId) => {
-  let url = apiUrl + timesheetId + '/timeunits';
+  let url = `${apiUrl + timesheetId}/timeunits`;
   if (timeunitId) {
-    url += '/' + timeunitId;
+    url += `/${timeunitId}`;
   }
 
   return url;

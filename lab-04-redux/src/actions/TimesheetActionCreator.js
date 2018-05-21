@@ -6,7 +6,7 @@ const apiUrl = '/api/users/all/timesheets';
 const url = timesheetId => {
   let url = apiUrl;
   if (timesheetId) {
-    url += '/' + timesheetId;
+    url += `/${timesheetId}`;
   }
 
   return url;
@@ -43,7 +43,7 @@ export const updateTimesheet = timesheet => {
     return Axios.put(url(timesheet._id), timesheet)
       .then(function(res) {
         dispatch(get(res.data));
-        console.log('Timesheet : ' + timesheet.name + ', updated.');
+        console.log(`Timesheet : ${timesheet.name}, updated.`);
         return true;
       })
       .catch(function(x) {
@@ -59,7 +59,7 @@ export const removeTimesheet = timesheet => {
     return Axios.put(url(timesheet._id), timesheet)
       .then(function(res) {
         dispatch(get(res.data));
-        console.log('Timesheet : ' + res.data.name + ', was deleted.');
+        console.log(`Timesheet : ${res.data.name}, was deleted.`);
         return true;
       })
       .catch(function(x) {
@@ -75,7 +75,7 @@ export const restoreTimesheet = timesheet => {
     return Axios.put(url(timesheet._id), timesheet)
       .then(function(res) {
         dispatch(get(res.data));
-        console.log('Timesheet : ' + res.data.name + ', was restored.');
+        console.log(`Timesheet : ${res.data.name}, was restored.`);
         return true;
       })
       .catch(function(x) {
@@ -89,7 +89,7 @@ export const createTimesheet = timesheet => {
     return Axios.put(url(), timesheet)
       .then(function(res) {
         dispatch(get(res.data));
-        console.log('Timesheet : ' + res.data.name + ', created.');
+        console.log(`Timesheet : ${res.data.name}, created.`);
         return true;
       })
       .catch(function(x) {

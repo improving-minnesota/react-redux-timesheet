@@ -20,7 +20,7 @@ class ProjectRow extends Component {
       return;
     }
 
-    this.props.history.push('/projects/detail/' + project._id);
+    this.props.history.push(`/projects/detail/${project._id}`);
   }
 
   render() {
