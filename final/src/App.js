@@ -29,11 +29,7 @@ class App extends Component {
             <Route path="/employees/detail/:_id" component={EmployeesDetail} />
             <Route path="/employees/create" component={EmployeesCreate} />
 
-            <Route
-              exact
-              path="/employees/:user_id/timesheets"
-              component={Timesheets}
-            />
+            <Route exact path="/employees/:user_id/timesheets" component={Timesheets} />
             <Route
               exact
               path="/employees/:user_id/timesheets/detail/:_id"

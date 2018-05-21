@@ -22,10 +22,7 @@ class Employees extends Component {
         </Row>
         <Row>{/* TODO - Add a button to open the create employee route */}</Row>
         <Row>
-          <EmployeeTable
-            employees={this.props.employees}
-            actions={this.props.actions}
-          />
+          <EmployeeTable employees={this.props.employees} actions={this.props.actions} />
         </Row>
       </Grid>
     );

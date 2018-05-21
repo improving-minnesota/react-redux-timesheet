@@ -19,14 +19,10 @@ class TimesheetForm extends Component {
     this.getNameValidationState = this.getNameValidationState.bind(this);
 
     this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
-    this.getDescriptionValidationState = this.getDescriptionValidationState.bind(
-      this
-    );
+    this.getDescriptionValidationState = this.getDescriptionValidationState.bind(this);
 
     this.handleBeginDateChange = this.handleBeginDateChange.bind(this);
-    this.getBeginDateValidationState = this.getBeginDateValidationState.bind(
-      this
-    );
+    this.getBeginDateValidationState = this.getBeginDateValidationState.bind(this);
 
     this.handleEndDateChange = this.handleEndDateChange.bind(this);
     this.getEndDateValidationState = this.getEndDateValidationState.bind(this);
@@ -140,10 +136,7 @@ class TimesheetForm extends Component {
   render() {
     return (
       <form>
-        <FormGroup
-          controlId="name"
-          validationState={this.getNameValidationState()}
-        >
+        <FormGroup controlId="name" validationState={this.getNameValidationState()}>
           {!this.props.timesheet._id && (
             <div>
               <ControlLabel>Username</ControlLabel>
@@ -155,9 +148,7 @@ class TimesheetForm extends Component {
                   Select an employee
                 </option>
                 {this.props.employees.map(employee => {
-                  return (
-                    <option value={employee._id}>{employee.username}</option>
-                  );
+                  return <option value={employee._id}>{employee.username}</option>;
                 })}
               </FormControl>
             </div>
@@ -171,10 +162,7 @@ class TimesheetForm extends Component {
           />
           <FormControl.Feedback />
         </FormGroup>
-        <FormGroup
-          controlId="description"
-          validationState={this.getDescriptionValidationState()}
-        >
+        <FormGroup controlId="description" validationState={this.getDescriptionValidationState()}>
           <ControlLabel>Description</ControlLabel>
           <FormControl
             type="text"
@@ -184,10 +172,7 @@ class TimesheetForm extends Component {
           />
           <FormControl.Feedback />
         </FormGroup>
-        <FormGroup
-          controlId="beginDate"
-          validationState={this.getBeginDateValidationState()}
-        >
+        <FormGroup controlId="beginDate" validationState={this.getBeginDateValidationState()}>
           <ControlLabel>Begin Date</ControlLabel>
           <FormControl
             type="text"
@@ -197,10 +182,7 @@ class TimesheetForm extends Component {
           />
           <FormControl.Feedback />
         </FormGroup>
-        <FormGroup
-          controlId="endDate"
-          validationState={this.getEndDateValidationState()}
-        >
+        <FormGroup controlId="endDate" validationState={this.getEndDateValidationState()}>
           <ControlLabel>End Date</ControlLabel>
           <FormControl
             type="text"
@@ -210,11 +192,7 @@ class TimesheetForm extends Component {
           />
           <FormControl.Feedback />
         </FormGroup>
-        <Button
-          bsStyle="success"
-          onClick={this.handleSave}
-          disabled={!this.validateAll()}
-        >
+        <Button bsStyle="success" onClick={this.handleSave} disabled={!this.validateAll()}>
           {' '}
           Save{' '}
         </Button>&nbsp;

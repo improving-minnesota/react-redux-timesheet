@@ -26,9 +26,7 @@ class TimeunitsDetail extends Component {
       //Reload all of the timeunits after the save
       this.props.actions.listTimeunits(timesheetId);
 
-      this.props.history.push(
-        `/employees/${userId}/timesheets/detail/${timesheetId}`
-      );
+      this.props.history.push(`/employees/${userId}/timesheets/detail/${timesheetId}`);
     });
   }
 
@@ -69,6 +67,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(TimeunitsDetail)
-);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TimeunitsDetail));

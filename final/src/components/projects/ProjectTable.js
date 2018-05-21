@@ -9,9 +9,7 @@ class ProjectTable extends Component {
     const actions = this.props.actions;
 
     const projectRows = this.props.projects.map(project => {
-      return (
-        <ProjectRow project={project} key={project._id} actions={actions} />
-      );
+      return <ProjectRow project={project} key={project._id} actions={actions} />;
     });
 
     return (

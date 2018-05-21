@@ -42,10 +42,7 @@ class TimesheetsDetail extends Component {
         this.props.timesheet &&
           this.props.timesheet._id && (
             <Row>
-              <Timeunits
-                timesheet={this.props.timesheet}
-                actions={this.props.actions}
-              />
+              <Timeunits timesheet={this.props.timesheet} actions={this.props.actions} />
             </Row>
           )}
       </Grid>
@@ -65,6 +62,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(TimesheetsDetail)
-);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TimesheetsDetail));

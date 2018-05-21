@@ -19,10 +19,7 @@ class Projects extends Component {
           <PageHeader>Projects</PageHeader>
         </Row>
         <Row>
-          <ProjectTable
-            projects={this.props.projects}
-            actions={this.props.actions}
-          />
+          <ProjectTable projects={this.props.projects} actions={this.props.actions} />
         </Row>
       </Grid>
     );

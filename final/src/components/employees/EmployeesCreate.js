@@ -59,6 +59,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(EmployeesCreate)
-);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(EmployeesCreate));

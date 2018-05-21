@@ -38,9 +38,7 @@ describe('async actions', () => {
       response: ['employee1', 'employee2']
     });
 
-    const expectedActions = [
-      { type: types.LIST, employees: ['employee1', 'employee2'] }
-    ];
+    const expectedActions = [{ type: types.LIST, employees: ['employee1', 'employee2'] }];
     const store = mockStore({ employees: [] });
 
     return store.dispatch(actions.listEmployees()).then(() => {

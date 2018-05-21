@@ -38,9 +38,7 @@ describe('async actions', () => {
       response: ['timesheet1', 'timesheet2']
     });
 
-    const expectedActions = [
-      { type: types.LIST, timesheets: ['timesheet1', 'timesheet2'] }
-    ];
+    const expectedActions = [{ type: types.LIST, timesheets: ['timesheet1', 'timesheet2'] }];
     const store = mockStore({ timesheets: [] });
 
     return store.dispatch(actions.listTimesheets()).then(() => {

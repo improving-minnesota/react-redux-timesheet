@@ -18,9 +18,7 @@ class ProjectForm extends Component {
     this.getNameValidationState = this.getNameValidationState.bind(this);
 
     this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
-    this.getDescriptionValidationState = this.getDescriptionValidationState.bind(
-      this
-    );
+    this.getDescriptionValidationState = this.getDescriptionValidationState.bind(this);
 
     this.validateAll = this.validateAll.bind(this);
 
@@ -79,10 +77,7 @@ class ProjectForm extends Component {
   render() {
     return (
       <form>
-        <FormGroup
-          controlId="name"
-          validationState={this.getNameValidationState()}
-        >
+        <FormGroup controlId="name" validationState={this.getNameValidationState()}>
           <ControlLabel>Name</ControlLabel>
           <FormControl
             type="text"
@@ -92,10 +87,7 @@ class ProjectForm extends Component {
           />
           <FormControl.Feedback />
         </FormGroup>
-        <FormGroup
-          controlId="description"
-          validationState={this.getDescriptionValidationState()}
-        >
+        <FormGroup controlId="description" validationState={this.getDescriptionValidationState()}>
           <ControlLabel>Description</ControlLabel>
           <FormControl
             type="text"
@@ -105,11 +97,7 @@ class ProjectForm extends Component {
           />
           <FormControl.Feedback />
         </FormGroup>
-        <Button
-          bsStyle="success"
-          onClick={this.handleSave}
-          disabled={!this.validateAll()}
-        >
+        <Button bsStyle="success" onClick={this.handleSave} disabled={!this.validateAll()}>
           {' '}
           Save{' '}
         </Button>&nbsp;

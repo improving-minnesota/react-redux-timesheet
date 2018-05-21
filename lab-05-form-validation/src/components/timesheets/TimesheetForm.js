@@ -19,14 +19,10 @@ class TimesheetForm extends Component {
     this.getNameValidationState = this.getNameValidationState.bind(this);
 
     this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
-    this.getDescriptionValidationState = this.getDescriptionValidationState.bind(
-      this
-    );
+    this.getDescriptionValidationState = this.getDescriptionValidationState.bind(this);
 
     this.handleBeginDateChange = this.handleBeginDateChange.bind(this);
-    this.getBeginDateValidationState = this.getBeginDateValidationState.bind(
-      this
-    );
+    this.getBeginDateValidationState = this.getBeginDateValidationState.bind(this);
 
     this.handleEndDateChange = this.handleEndDateChange.bind(this);
     this.getEndDateValidationState = this.getEndDateValidationState.bind(this);

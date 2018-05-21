@@ -18,10 +18,7 @@ class Timesheets extends Component {
           <PageHeader>Timesheets</PageHeader>
         </Row>
         <Row>
-          <TimesheetTable
-            timesheets={this.props.timesheets}
-            actions={this.props.actions}
-          />
+          <TimesheetTable timesheets={this.props.timesheets} actions={this.props.actions} />
         </Row>
       </Grid>
     );

@@ -18,14 +18,10 @@ class TimeunitForm extends Component {
     this.getProjectValidationState = this.getProjectValidationState.bind(this);
 
     this.handleDateWorkedChange = this.handleDateWorkedChange.bind(this);
-    this.getDateWorkedValidationState = this.getDateWorkedValidationState.bind(
-      this
-    );
+    this.getDateWorkedValidationState = this.getDateWorkedValidationState.bind(this);
 
     this.handleHoursWorkedChange = this.handleHoursWorkedChange.bind(this);
-    this.getHoursWorkedValidationState = this.getHoursWorkedValidationState.bind(
-      this
-    );
+    this.getHoursWorkedValidationState = this.getHoursWorkedValidationState.bind(this);
 
     this.validateAll = this.validateAll.bind(this);
 
@@ -96,20 +92,13 @@ class TimeunitForm extends Component {
   }
 
   validateAll() {
-    return (
-      this.state.project.value &&
-      this.state.dateWorked.value &&
-      this.state.hoursWorked.value
-    );
+    return this.state.project.value && this.state.dateWorked.value && this.state.hoursWorked.value;
   }
 
   render() {
     return (
       <form>
-        <FormGroup
-          controlId="project"
-          validationState={this.getProjectValidationState()}
-        >
+        <FormGroup controlId="project" validationState={this.getProjectValidationState()}>
           <ControlLabel>Project</ControlLabel>
           <FormControl
             value={this.state.project.value}
@@ -126,10 +115,7 @@ class TimeunitForm extends Component {
           </FormControl>
           <FormControl.Feedback />
         </FormGroup>
-        <FormGroup
-          controlId="dateWorked"
-          validationState={this.getDateWorkedValidationState()}
-        >
+        <FormGroup controlId="dateWorked" validationState={this.getDateWorkedValidationState()}>
           <ControlLabel>Date Worked</ControlLabel>
           <FormControl
             type="text"
@@ -139,10 +125,7 @@ class TimeunitForm extends Component {
           />
           <FormControl.Feedback />
         </FormGroup>
-        <FormGroup
-          controlId="hoursWorked"
-          validationState={this.getHoursWorkedValidationState()}
-        >
+        <FormGroup controlId="hoursWorked" validationState={this.getHoursWorkedValidationState()}>
           <ControlLabel>Hours Worked</ControlLabel>
           <FormControl
             type="text"
@@ -152,21 +135,12 @@ class TimeunitForm extends Component {
           />
           <FormControl.Feedback />
         </FormGroup>
-        <Button
-          bsStyle="success"
-          onClick={this.handleSave}
-          disabled={!this.validateAll()}
-        >
+        <Button bsStyle="success" onClick={this.handleSave} disabled={!this.validateAll()}>
           {' '}
           Save{' '}
         </Button>&nbsp;
         <LinkContainer
-          to={
-            '/employees/' +
-            this.props.userId +
-            '/timesheets/detail/' +
-            this.props.timesheetId
-          }
+          to={'/employees/' + this.props.userId + '/timesheets/detail/' + this.props.timesheetId}
         >
           <Button bsStyle="danger"> Cancel </Button>
         </LinkContainer>

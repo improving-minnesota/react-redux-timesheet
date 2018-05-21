@@ -31,10 +31,7 @@ class Projects extends Component {
           </div>
         </Row>
         <Row>
-          <ProjectTable
-            projects={this.props.projects}
-            actions={this.props.actions}
-          />
+          <ProjectTable projects={this.props.projects} actions={this.props.actions} />
         </Row>
       </Grid>
     );

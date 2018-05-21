@@ -28,11 +28,7 @@ class App extends Component {
             <Route exact path="/employees" component={Employees} />
             {/* TODO - Add the employee detail and create routes*/}
 
-            <Route
-              exact
-              path="/employees/:user_id/timesheets"
-              component={Timesheets}
-            />
+            <Route exact path="/employees/:user_id/timesheets" component={Timesheets} />
             {/* TODO - Add the timesheets detail and create routes */}
 
             {/* TODO - Add the timeunits detail and create routes*/}

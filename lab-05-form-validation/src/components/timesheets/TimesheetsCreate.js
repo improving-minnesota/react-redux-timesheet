@@ -38,6 +38,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(TimesheetsCreate)
-);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TimesheetsCreate));
