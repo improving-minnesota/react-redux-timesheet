@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
-import {PageHeader, Grid, Row} from 'react-bootstrap';
+import { PageHeader, Grid, Row } from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as TimesheetActions from '../../actions/TimesheetActionCreator';
@@ -8,7 +8,6 @@ import Timeunits from '../timeunits/Timeunits';
 import TimesheetForm from './TimesheetForm';
 
 class TimesheetsDetail extends Component {
-
   constructor(props) {
     super(props);
 
@@ -20,7 +19,7 @@ class TimesheetsDetail extends Component {
     this.handleSave = this.handleSave.bind(this);
   }
 
-  handleSave(timesheet){
+  handleSave(timesheet) {
     this.props.actions.updateTimesheet(timesheet).then(() => {
       this.props.history.push(`/employees/all/timesheets`);
     });
@@ -33,33 +32,34 @@ class TimesheetsDetail extends Component {
           <PageHeader>Timesheet Detail</PageHeader>
         </Row>
         <Row>
-          <TimesheetForm timesheet={this.props.timesheet} actions={this.props.actions} handleSave={this.handleSave}/>
+          <TimesheetForm
+            timesheet={this.props.timesheet}
+            actions={this.props.actions}
+            handleSave={this.handleSave}
+          />
         </Row>
-        { //Show timeunits after the getTimesheet() call finishes loading the timesheet
-          this.props.timesheet && this.props.timesheet._id &&
-          <Row>
-            <Timeunits timesheet={this.props.timesheet} actions={this.props.actions}/>
-          </Row>
-        }
+        {//Show timeunits after the getTimesheet() call finishes loading the timesheet
+        this.props.timesheet &&
+          this.props.timesheet._id && (
+            <Row>
+              <Timeunits timesheet={this.props.timesheet} actions={this.props.actions} />
+            </Row>
+          )}
       </Grid>
     );
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     timesheet: state.timesheets.timesheet
-  }
-}
+  };
+};
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
     actions: bindActionCreators(TimesheetActions, dispatch)
   };
-}
+};
 
-
-export default withRouter(connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(TimesheetsDetail));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TimesheetsDetail));

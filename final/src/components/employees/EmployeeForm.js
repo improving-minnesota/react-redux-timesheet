@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import {Button, FormGroup, ControlLabel, FormControl, ButtonGroup} from 'react-bootstrap';
-import {LinkContainer} from 'react-router-bootstrap';
+import { Button, FormGroup, ControlLabel, FormControl, ButtonGroup } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 import { withRouter } from 'react-router';
 
 class EmployeeForm extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.state = {
-      username: {value: null, valid: null},
-      email: {value: null, valid: null},
-      firstName: {value: null, valid: null},
-      lastName: {value: null, valid: null},
-      admin: {value: false, valid: null}
+      username: { value: null, valid: null },
+      email: { value: null, valid: null },
+      firstName: { value: null, valid: null },
+      lastName: { value: null, valid: null },
+      admin: { value: false, valid: null }
     };
 
     this.handleUsernameChange = this.handleUsernameChange.bind(this);
@@ -32,7 +32,6 @@ class EmployeeForm extends Component {
     this.handleAdminChange = this.handleAdminChange.bind(this);
     this.getAdminValidationState = this.getAdminValidationState.bind(this);
 
-
     this.validateAll = this.validateAll.bind(this);
 
     this.handleSave = this.handleSave.bind(this);
@@ -40,16 +39,16 @@ class EmployeeForm extends Component {
 
   componentWillReceiveProps(nextProps) {
     this.state = {
-      username: {value: nextProps.employee.username, valid: null},
-      email: {value: nextProps.employee.email, valid: null},
-      firstName: {value: nextProps.employee.firstName, valid: null},
-      lastName: {value: nextProps.employee.lastName, valid: null},
-      admin: {value: nextProps.employee.admin, valid: null}
+      username: { value: nextProps.employee.username, valid: null },
+      email: { value: nextProps.employee.email, valid: null },
+      firstName: { value: nextProps.employee.firstName, valid: null },
+      lastName: { value: nextProps.employee.lastName, valid: null },
+      admin: { value: nextProps.employee.admin, valid: null }
     };
   }
 
-  handleSave(){
-    if(this.validateAll()) {
+  handleSave() {
+    if (this.validateAll()) {
       this.props.handleSave({
         username: this.state.username.value,
         email: this.state.email.value,
@@ -69,12 +68,11 @@ class EmployeeForm extends Component {
 
   handleAdminChange(value) {
     let isValid = false;
-    if(value !== null){
+    if (value !== null) {
       isValid = true;
     }
-    return this.setState({ admin: {value: value, valid: isValid }});
+    return this.setState({ admin: { value: value, valid: isValid } });
   }
-
 
   getUsernameValidationState() {
     if (!this.state) return;
@@ -84,12 +82,11 @@ class EmployeeForm extends Component {
 
   handleUsernameChange(value) {
     let isValid = false;
-    if(value){
+    if (value) {
       isValid = true;
     }
-    return this.setState({ username: {value: value, valid: isValid }});
+    return this.setState({ username: { value: value, valid: isValid } });
   }
-
 
   getEmailValidationState() {
     if (!this.state) return;
@@ -99,12 +96,11 @@ class EmployeeForm extends Component {
 
   handleEmailChange(value) {
     let isValid = false;
-    if(value){
+    if (value) {
       isValid = true;
     }
-    return this.setState({ email: {value: value, valid: isValid }});
+    return this.setState({ email: { value: value, valid: isValid } });
   }
-
 
   getFirstNameValidationState() {
     if (!this.state) return;
@@ -114,12 +110,11 @@ class EmployeeForm extends Component {
 
   handleFirstNameChange(value) {
     let isValid = false;
-    if(value){
+    if (value) {
       isValid = true;
     }
-    return this.setState({ firstName: {value: value, valid: isValid }});
+    return this.setState({ firstName: { value: value, valid: isValid } });
   }
-
 
   getLastNameValidationState() {
     if (!this.state) return;
@@ -129,96 +124,81 @@ class EmployeeForm extends Component {
 
   handleLastNameChange(value) {
     let isValid = false;
-    if(value){
+    if (value) {
       isValid = true;
     }
-    return this.setState({ lastName: {value: value, valid: isValid }});
+    return this.setState({ lastName: { value: value, valid: isValid } });
   }
 
-  validateAll(){
+  validateAll() {
     return (
-      this.state.username.value
-      && this.state.email.value
-      && this.state.firstName.value
-      && this.state.lastName.value
-      && this.state.admin.value !== null
+      this.state.username.value &&
+      this.state.email.value &&
+      this.state.firstName.value &&
+      this.state.lastName.value &&
+      this.state.admin.value !== null
     );
   }
 
-  render () {
+  render() {
     return (
       <form>
-        <FormGroup
-          controlId="username"
-          validationState={this.getUsernameValidationState()}
-        >
+        <FormGroup controlId="username" validationState={this.getUsernameValidationState()}>
           <ControlLabel>Username</ControlLabel>
           <FormControl
             type="text"
             value={this.state.username.value}
             placeholder="Enter username"
-            onChange={(e) => this.handleUsernameChange(e.target.value)}
+            onChange={e => this.handleUsernameChange(e.target.value)}
           />
           <FormControl.Feedback />
         </FormGroup>
-
-        <FormGroup
-          controlId="email"
-          validationState={this.getEmailValidationState()}
-        >
+        <FormGroup controlId="email" validationState={this.getEmailValidationState()}>
           <ControlLabel>Email</ControlLabel>
           <FormControl
             type="email"
             value={this.state.email.value}
             placeholder="Enter email"
-            onChange={(e) => this.handleEmailChange(e.target.value)}
+            onChange={e => this.handleEmailChange(e.target.value)}
           />
           <FormControl.Feedback />
         </FormGroup>
-
-        <FormGroup
-          controlId="firstName"
-          validationState={this.getFirstNameValidationState()}
-        >
+        <FormGroup controlId="firstName" validationState={this.getFirstNameValidationState()}>
           <ControlLabel>First Name</ControlLabel>
           <FormControl
             type="text"
             value={this.state.firstName.value}
             placeholder="Enter firstName"
-            onChange={(e) => this.handleFirstNameChange(e.target.value)}
+            onChange={e => this.handleFirstNameChange(e.target.value)}
           />
           <FormControl.Feedback />
         </FormGroup>
-
-        <FormGroup
-          controlId="lastName"
-          validationState={this.getLastNameValidationState()}
-        >
+        <FormGroup controlId="lastName" validationState={this.getLastNameValidationState()}>
           <ControlLabel>Last Name</ControlLabel>
           <FormControl
             type="text"
             value={this.state.lastName.value}
             placeholder="Enter lastName"
-            onChange={(e) => this.handleLastNameChange(e.target.value)}
+            onChange={e => this.handleLastNameChange(e.target.value)}
           />
           <FormControl.Feedback />
         </FormGroup>
-
-        <FormGroup
-          controlId="admin"
-          validationState={this.getAdminValidationState()}
-        >
+        <FormGroup controlId="admin" validationState={this.getAdminValidationState()}>
           <ControlLabel>Admin</ControlLabel>
           <div>
             <ButtonGroup>
               <Button
-                onClick={() => {this.handleAdminChange(true)}}
+                onClick={() => {
+                  this.handleAdminChange(true);
+                }}
                 bsStyle={this.state.admin.value === true ? 'success' : 'default'}
               >
                 Yes
               </Button>
               <Button
-                onClick={() => {this.handleAdminChange(false)}}
+                onClick={() => {
+                  this.handleAdminChange(false);
+                }}
                 bsStyle={this.state.admin.value === false ? 'danger' : ''}
               >
                 No
@@ -227,8 +207,10 @@ class EmployeeForm extends Component {
           </div>
           <FormControl.Feedback />
         </FormGroup>
-
-        <Button bsStyle="success" onClick={this.handleSave} disabled={!this.validateAll()}> Save </Button>&nbsp;
+        <Button bsStyle="success" onClick={this.handleSave} disabled={!this.validateAll()}>
+          {' '}
+          Save{' '}
+        </Button>&nbsp;
         <LinkContainer to="/employees">
           <Button bsStyle="danger"> Cancel </Button>
         </LinkContainer>

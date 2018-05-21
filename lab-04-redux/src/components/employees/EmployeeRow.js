@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class EmployeeRow extends Component {
-
   render() {
     const employee = this.props.employee;
 
@@ -16,7 +15,6 @@ class EmployeeRow extends Component {
       </tr>
     );
   }
-
 }
 
 EmployeeRow.propTypes = {

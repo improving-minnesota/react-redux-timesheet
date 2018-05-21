@@ -1,33 +1,30 @@
 import React from 'react';
 import EmployeeTable from './EmployeeTable';
 import { mount } from 'enzyme';
-import {MemoryRouter} from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 
-describe('Employee Table Component: ', () =>  {
+describe('Employee Table Component: ', () => {
+  it('should instantiate the Employee Table', () => {
+    const employees = [
+      {
+        username: 'fflintstone',
+        email: 'fred.flintstone@slatequarry.com',
+        firstName: 'Fred',
+        lastName: 'Flintstone',
+        admin: true,
+        _id: 1
+      }
+    ];
 
+    const component = mount(
+      <MemoryRouter>
+        <EmployeeTable employees={employees} />
+      </MemoryRouter>
+    );
 
-    it('should instantiate the Employee Table', () =>  {
+    expect(component).toContainReact(<th>Last Name</th>);
+    expect(component).toIncludeText('Flintstone');
 
-
-        const employees = [{username:'fflintstone',
-                          'email':'fred.flintstone@slatequarry.com',
-                          'firstName':'Fred',
-                          'lastName':'Flintstone',
-                          'admin':true,
-                          '_id':1
-                         }]
-
-
-
-        const component = mount(
-                <MemoryRouter><EmployeeTable employees={employees}/></MemoryRouter>
-        );
-
-        expect(component).toContainReact(<th>Last Name</th>);
-        expect(component).toIncludeText('Flintstone');
-
-        expect(component.find('tbody tr')).toHaveLength(1);
-
+    expect(component.find('tbody tr')).toHaveLength(1);
   });
-
 });

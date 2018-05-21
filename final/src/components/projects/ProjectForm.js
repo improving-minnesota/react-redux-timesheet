@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import {Button, FormGroup, ControlLabel, FormControl} from 'react-bootstrap';
-import {LinkContainer} from 'react-router-bootstrap';
+import { Button, FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 import { withRouter } from 'react-router';
 
 class ProjectForm extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.state = {
-      name: {value: null, valid: null},
-      description: {value: null, valid: null}
+      name: { value: null, valid: null },
+      description: { value: null, valid: null }
     };
 
     this.handleNameChange = this.handleNameChange.bind(this);
@@ -27,13 +27,13 @@ class ProjectForm extends Component {
 
   componentWillReceiveProps(nextProps) {
     this.state = {
-      name: {value: nextProps.project.name, valid: null},
-      description: {value: nextProps.project.description, valid: null}
+      name: { value: nextProps.project.name, valid: null },
+      description: { value: nextProps.project.description, valid: null }
     };
   }
 
-  handleSave(){
-    if(this.validateAll()) {
+  handleSave() {
+    if (this.validateAll()) {
       this.props.handleSave({
         name: this.state.name.value,
         description: this.state.description.value,
@@ -50,10 +50,10 @@ class ProjectForm extends Component {
 
   handleDescriptionChange(value) {
     let isValid = false;
-    if(value){
+    if (value) {
       isValid = true;
     }
-    return this.setState({ description: {value: value, valid: isValid }});
+    return this.setState({ description: { value: value, valid: isValid } });
   }
 
   getNameValidationState() {
@@ -64,51 +64,43 @@ class ProjectForm extends Component {
 
   handleNameChange(value) {
     let isValid = false;
-    if(value){
+    if (value) {
       isValid = true;
     }
-    return this.setState({ name: {value: value, valid: isValid }});
+    return this.setState({ name: { value: value, valid: isValid } });
   }
 
-  validateAll(){
-    return (
-      this.state.name.value
-      && this.state.description.value
-    );
+  validateAll() {
+    return this.state.name.value && this.state.description.value;
   }
 
-  render () {
+  render() {
     return (
       <form>
-        <FormGroup
-          controlId="name"
-          validationState={this.getNameValidationState()}
-        >
+        <FormGroup controlId="name" validationState={this.getNameValidationState()}>
           <ControlLabel>Name</ControlLabel>
           <FormControl
             type="text"
             value={this.state.name.value}
             placeholder="Enter name"
-            onChange={(e) => this.handleNameChange(e.target.value)}
+            onChange={e => this.handleNameChange(e.target.value)}
           />
           <FormControl.Feedback />
         </FormGroup>
-
-        <FormGroup
-          controlId="description"
-          validationState={this.getDescriptionValidationState()}
-        >
+        <FormGroup controlId="description" validationState={this.getDescriptionValidationState()}>
           <ControlLabel>Description</ControlLabel>
           <FormControl
             type="text"
             value={this.state.description.value}
             placeholder="Enter description"
-            onChange={(e) => this.handleDescriptionChange(e.target.value)}
+            onChange={e => this.handleDescriptionChange(e.target.value)}
           />
           <FormControl.Feedback />
         </FormGroup>
-
-        <Button bsStyle="success" onClick={this.handleSave} disabled={!this.validateAll()}> Save </Button>&nbsp;
+        <Button bsStyle="success" onClick={this.handleSave} disabled={!this.validateAll()}>
+          {' '}
+          Save{' '}
+        </Button>&nbsp;
         <LinkContainer to="/projects">
           <Button bsStyle="danger"> Cancel </Button>
         </LinkContainer>

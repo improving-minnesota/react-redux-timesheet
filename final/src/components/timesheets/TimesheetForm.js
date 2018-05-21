@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import {Button, FormGroup, ControlLabel, FormControl} from 'react-bootstrap';
-import {LinkContainer} from 'react-router-bootstrap';
+import { Button, FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 
 class TimesheetForm extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.state = {
-      name: {value: null, valid: null},
-      description: {value: null, valid: null},
-      beginDate: {value: null, valid: null},
-      endDate: {value: null, valid: null}
+      name: { value: null, valid: null },
+      description: { value: null, valid: null },
+      beginDate: { value: null, valid: null },
+      endDate: { value: null, valid: null }
     };
 
     this.handleNameChange = this.handleNameChange.bind(this);
@@ -36,21 +36,23 @@ class TimesheetForm extends Component {
 
   componentWillReceiveProps(nextProps) {
     this.state = {
-      name: {value: nextProps.timesheet.name, valid: null},
-      description: {value: nextProps.timesheet.description, valid: null},
-      beginDate: {value: nextProps.timesheet.beginDate, valid: null},
-      endDate: {value: nextProps.timesheet.endDate, valid: null}
+      name: { value: nextProps.timesheet.name, valid: null },
+      description: { value: nextProps.timesheet.description, valid: null },
+      beginDate: { value: nextProps.timesheet.beginDate, valid: null },
+      endDate: { value: nextProps.timesheet.endDate, valid: null }
     };
   }
 
-  handleSave(){
-    if(this.validateAll()) {
+  handleSave() {
+    if (this.validateAll()) {
       this.props.handleSave({
         name: this.state.name.value,
         description: this.state.description.value,
         beginDate: this.state.beginDate.value,
         endDate: this.state.endDate.value,
-        user_id: this.props.timesheet.user_id ?  this.props.timesheet.user_id : this.state.user_id.value,
+        user_id: this.props.timesheet.user_id
+          ? this.props.timesheet.user_id
+          : this.state.user_id.value,
         _id: this.props.timesheet._id
       });
     }
@@ -64,10 +66,10 @@ class TimesheetForm extends Component {
 
   handleDescriptionChange(value) {
     let isValid = false;
-    if(value){
+    if (value) {
       isValid = true;
     }
-    return this.setState({ description: {value: value, valid: isValid }});
+    return this.setState({ description: { value: value, valid: isValid } });
   }
 
   getNameValidationState() {
@@ -78,10 +80,10 @@ class TimesheetForm extends Component {
 
   handleNameChange(value) {
     let isValid = false;
-    if(value){
+    if (value) {
       isValid = true;
     }
-    return this.setState({ name: {value: value, valid: isValid }});
+    return this.setState({ name: { value: value, valid: isValid } });
   }
 
   getBeginDateValidationState() {
@@ -92,11 +94,11 @@ class TimesheetForm extends Component {
 
   handleBeginDateChange(value) {
     let isValid = false,
-        dateRegExp = /^\d{4}-\d{1,2}-\d{1,2}$/;
-    if(dateRegExp.test(value)){
-        isValid = true;
+      dateRegExp = /^\d{4}-\d{1,2}-\d{1,2}$/;
+    if (dateRegExp.test(value)) {
+      isValid = true;
     }
-    return this.setState({ beginDate: {value: value, valid: isValid }});
+    return this.setState({ beginDate: { value: value, valid: isValid } });
   }
 
   getEndDateValidationState() {
@@ -107,107 +109,93 @@ class TimesheetForm extends Component {
 
   handleEndDateChange(value) {
     let isValid = false,
-        dateRegExp = /^\d{4}-\d{1,2}-\d{1,2}$/;
-    if(dateRegExp.test(value)){
-        isValid = true;
+      dateRegExp = /^\d{4}-\d{1,2}-\d{1,2}$/;
+    if (dateRegExp.test(value)) {
+      isValid = true;
     }
-    return this.setState({ endDate: {value: value, valid: isValid }});
+    return this.setState({ endDate: { value: value, valid: isValid } });
   }
 
-  validateAll(){
+  validateAll() {
     return (
-      this.state.name.value
-      && this.state.description.value
-      && this.state.beginDate.value
-      && this.state.endDate.value
+      this.state.name.value &&
+      this.state.description.value &&
+      this.state.beginDate.value &&
+      this.state.endDate.value
     );
   }
 
   handleEmployeeChange(value) {
     let isValid = false;
-    if(value){
-        isValid = true;
+    if (value) {
+      isValid = true;
     }
-    return this.setState({ user_id: {value: value, valid: isValid }});
+    return this.setState({ user_id: { value: value, valid: isValid } });
   }
 
-  render () {
+  render() {
     return (
       <form>
-        <FormGroup
-          controlId="name"
-          validationState={this.getNameValidationState()}
-        >
-          {!this.props.timesheet._id &&
+        <FormGroup controlId="name" validationState={this.getNameValidationState()}>
+          {!this.props.timesheet._id && (
             <div>
               <ControlLabel>Username</ControlLabel>
               <FormControl
                 componentClass="select"
-                onChange={(e) => this.handleEmployeeChange(e.target.value)}
+                onChange={e => this.handleEmployeeChange(e.target.value)}
               >
-                <option value="" disabled selected>Select an employee</option>
-                  {
-                    this.props.employees
-                      .map((employee) => {
-                          return <option value={employee._id}>{employee.username}</option>
-                      })
-                  }
+                <option value="" disabled selected>
+                  Select an employee
+                </option>
+                {this.props.employees.map(employee => {
+                  return <option value={employee._id}>{employee.username}</option>;
+                })}
               </FormControl>
             </div>
-          }
+          )}
           <ControlLabel>Name</ControlLabel>
           <FormControl
             type="text"
             value={this.state.name.value}
             placeholder="Enter name"
-            onChange={(e) => this.handleNameChange(e.target.value)}
+            onChange={e => this.handleNameChange(e.target.value)}
           />
           <FormControl.Feedback />
         </FormGroup>
-
-        <FormGroup
-          controlId="description"
-          validationState={this.getDescriptionValidationState()}
-        >
+        <FormGroup controlId="description" validationState={this.getDescriptionValidationState()}>
           <ControlLabel>Description</ControlLabel>
           <FormControl
             type="text"
             value={this.state.description.value}
             placeholder="Enter description"
-            onChange={(e) => this.handleDescriptionChange(e.target.value)}
+            onChange={e => this.handleDescriptionChange(e.target.value)}
           />
           <FormControl.Feedback />
         </FormGroup>
-
-        <FormGroup
-          controlId="beginDate"
-          validationState={this.getBeginDateValidationState()}
-        >
+        <FormGroup controlId="beginDate" validationState={this.getBeginDateValidationState()}>
           <ControlLabel>Begin Date</ControlLabel>
           <FormControl
             type="text"
             value={this.state.beginDate.value}
             placeholder="YYYY-MM-DD"
-            onChange={(e) => this.handleBeginDateChange(e.target.value)}
+            onChange={e => this.handleBeginDateChange(e.target.value)}
           />
           <FormControl.Feedback />
         </FormGroup>
-
-        <FormGroup
-          controlId="endDate"
-          validationState={this.getEndDateValidationState()}
-        >
+        <FormGroup controlId="endDate" validationState={this.getEndDateValidationState()}>
           <ControlLabel>End Date</ControlLabel>
           <FormControl
             type="text"
             value={this.state.endDate.value}
             placeholder="YYYY-MM-DD"
-            onChange={(e) => this.handleEndDateChange(e.target.value)}
+            onChange={e => this.handleEndDateChange(e.target.value)}
           />
           <FormControl.Feedback />
         </FormGroup>
-
-        <Button bsStyle="success" onClick={this.handleSave} disabled={!this.validateAll()}> Save </Button>&nbsp;
+        <Button bsStyle="success" onClick={this.handleSave} disabled={!this.validateAll()}>
+          {' '}
+          Save{' '}
+        </Button>&nbsp;
         <LinkContainer to="/employees/all/timesheets">
           <Button bsStyle="danger"> Cancel </Button>
         </LinkContainer>

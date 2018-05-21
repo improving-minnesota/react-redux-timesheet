@@ -1,29 +1,30 @@
 import React from 'react';
 import ProjectsDetail from './ProjectsDetail';
-import {mount} from 'enzyme';
+import { mount } from 'enzyme';
 import configureStore from '../../store/configure-store';
-import {BrowserRouter} from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 import * as ProjectActions from '../../actions/ProjectActionCreator';
 
-describe('Projects Detail Component: ', () =>  {
-
+describe('Projects Detail Component: ', () => {
   let projects;
   const mockStore = configureStore();
-  const mockMatch = {params: {_id: 1}};
+  const mockMatch = { params: { _id: 1 } };
 
-  beforeEach(() =>{
+  beforeEach(() => {
     //Mock out the server call in the constructor
-    ProjectActions.getProject = (id)=>{
-      return (dispatch) => {
-      };
+    ProjectActions.getProject = id => {
+      return dispatch => {};
     };
 
-    projects = mount(<BrowserRouter><ProjectsDetail store={mockStore} match={mockMatch}/></BrowserRouter>);
+    projects = mount(
+      <BrowserRouter>
+        <ProjectsDetail store={mockStore} match={mockMatch} />
+      </BrowserRouter>
+    );
   });
 
-  it('should instantiate the Projects Detail Component', () =>  {
+  it('should instantiate the Projects Detail Component', () => {
     expect(projects).toHaveLength(1);
   });
-
 });

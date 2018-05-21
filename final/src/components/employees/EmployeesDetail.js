@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import EmployeeForm from './EmployeeForm';
-import {PageHeader, Grid, Row} from 'react-bootstrap';
+import { PageHeader, Grid, Row } from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as EmployeeActions from '../../actions/EmployeeActionCreator';
 import { withRouter } from 'react-router';
 
 class EmployeesDetail extends Component {
-
   constructor(props) {
     super(props);
 
@@ -19,7 +18,7 @@ class EmployeesDetail extends Component {
     this.handleSave = this.handleSave.bind(this);
   }
 
-  handleSave(employee){
+  handleSave(employee) {
     this.props.actions.updateEmployee(employee).then(() => {
       this.props.history.push('/employees');
     });
@@ -32,7 +31,11 @@ class EmployeesDetail extends Component {
           <PageHeader>Employees Detail</PageHeader>
         </Row>
         <Row>
-          <EmployeeForm employee={this.props.employee} actions={this.props.actions} handleSave={this.handleSave}/>
+          <EmployeeForm
+            employee={this.props.employee}
+            actions={this.props.actions}
+            handleSave={this.handleSave}
+          />
         </Row>
       </Grid>
     );
@@ -48,21 +51,16 @@ EmployeesDetail.propTypes = {
   history: PropTypes.object
 };
 
-
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     employee: state.employees.employee
-  }
-}
+  };
+};
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
     actions: bindActionCreators(EmployeeActions, dispatch)
   };
-}
+};
 
-
-export default withRouter(connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(EmployeesDetail));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(EmployeesDetail));
