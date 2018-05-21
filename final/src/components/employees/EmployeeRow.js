@@ -21,7 +21,7 @@ class EmployeeRow extends Component {
       return;
     }
 
-    this.props.history.push('/employees/detail/' + employee._id);
+    this.props.history.push(`/employees/detail/${employee._id}`);
   }
 
   render() {

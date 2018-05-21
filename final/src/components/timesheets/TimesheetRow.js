@@ -22,7 +22,7 @@ class TimesheetRow extends Component {
     }
 
     this.props.history.push(
-      '/employees/' + timesheet.user_id + '/timesheets/detail/' + timesheet._id
+      `/employees/${timesheet.user_id}/timesheets/detail/${timesheet._id}`
     );
   }
 

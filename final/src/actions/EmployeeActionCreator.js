@@ -6,7 +6,7 @@ const apiUrl = '/api/users';
 const url = employeeId => {
   let url = apiUrl;
   if (employeeId) {
-    url += '/' + employeeId;
+    url += `/${employeeId}`;
   }
 
   return url;
@@ -57,7 +57,7 @@ export const updateEmployee = employee => {
     return Axios.put(url(employee._id), employee)
       .then(res => {
         dispatch(get(res.data));
-        console.log('Employee : ' + employee.name + ', updated.');
+        console.log(`Employee : ${employee.name}, updated.`);
         return true;
       })
       .catch(error => {
@@ -73,7 +73,7 @@ export const removeEmployee = employee => {
     return Axios.put(url(employee._id), employee)
       .then(res => {
         dispatch(get(res.data));
-        console.log('Employee : ' + res.data.name + ', was deleted.');
+        console.log(`Employee : ${res.data.name}, was deleted.`);
         return true;
       })
       .catch(error => {
@@ -89,7 +89,7 @@ export const restoreEmployee = employee => {
     return Axios.put(url(employee._id), employee)
       .then(res => {
         dispatch(get(res.data));
-        console.log('Employee : ' + res.data.name + ', was restored.');
+        console.log(`Employee : ${res.data.name}, was restored.`);
         return true;
       })
       .catch(error => {
@@ -103,7 +103,7 @@ export const createEmployee = employee => {
     return Axios.post(url(), employee)
       .then(res => {
         dispatch(get(res.data));
-        console.log('Employee : ' + res.data.name + ', created.');
+        console.log(`Employee : ${res.data.name}, created.`);
         return true;
       })
       .catch(error => {
