@@ -38,9 +38,7 @@ describe('async actions', () => {
       response: ['timeunit1', 'timeunit2']
     });
 
-    const expectedActions = [
-      { type: types.LIST, timeunits: ['timeunit1', 'timeunit2'] }
-    ];
+    const expectedActions = [{ type: types.LIST, timeunits: ['timeunit1', 'timeunit2'] }];
     const store = mockStore({ timeunits: [] });
 
     return store.dispatch(actions.listTimeunits(99)).then(() => {

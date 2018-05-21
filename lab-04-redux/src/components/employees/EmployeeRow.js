@@ -7,14 +7,10 @@ class EmployeeRow extends Component {
   handleClick(employee) {
     if (employee.deleted) {
       employee.deleted = false;
-      this.props.actions
-        .restoreEmployee(employee)
-        .then(this.props.actions.listEmployees);
+      this.props.actions.restoreEmployee(employee).then(this.props.actions.listEmployees);
     } else {
       employee.deleted = true;
-      this.props.actions
-        .removeEmployee(employee)
-        .then(this.props.actions.listEmployees);
+      this.props.actions.removeEmployee(employee).then(this.props.actions.listEmployees);
     }
   }
 

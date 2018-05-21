@@ -59,6 +59,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(ProjectsCreate)
-);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProjectsCreate));

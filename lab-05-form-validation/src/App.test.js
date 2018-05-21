@@ -11,9 +11,6 @@ describe('App Component', () => {
   it('renders with our expected text', () => {
     const result = shallow(<App />);
 
-    expect(result.find('Route').at(1)).toHaveProp(
-      'path',
-      '/projects/detail/:_id'
-    );
+    expect(result.find('Route').at(1)).toHaveProp('path', '/projects/detail/:_id');
   });
 });

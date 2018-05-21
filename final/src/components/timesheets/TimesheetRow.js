@@ -8,14 +8,10 @@ class TimesheetRow extends Component {
   handleClick(timesheet) {
     if (timesheet.deleted) {
       timesheet.deleted = false;
-      this.props.actions
-        .restoreTimesheet(timesheet)
-        .then(this.props.actions.listTimesheets);
+      this.props.actions.restoreTimesheet(timesheet).then(this.props.actions.listTimesheets);
     } else {
       timesheet.deleted = true;
-      this.props.actions
-        .removeTimesheet(timesheet)
-        .then(this.props.actions.listTimesheets);
+      this.props.actions.removeTimesheet(timesheet).then(this.props.actions.listTimesheets);
     }
   }
 

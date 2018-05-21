@@ -29,10 +29,7 @@ class TimesheetsCreate extends Component {
           <PageHeader>Timesheet Create</PageHeader>
         </Row>
         <Row>
-          <TimesheetForm
-            employees={this.props.employees}
-            handleSave={this.handleSave}
-          />
+          <TimesheetForm employees={this.props.employees} handleSave={this.handleSave} />
         </Row>
       </Grid>
     );
@@ -60,6 +57,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(TimesheetsCreate)
-);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TimesheetsCreate));

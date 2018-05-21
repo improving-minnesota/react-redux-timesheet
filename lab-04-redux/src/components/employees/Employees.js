@@ -20,10 +20,7 @@ class Employees extends Component {
           <PageHeader>Employees</PageHeader>
         </Row>
         <Row>
-          <EmployeeTable
-            employees={this.props.employees}
-            actions={this.props.actions}
-          />
+          <EmployeeTable employees={this.props.employees} actions={this.props.actions} />
         </Row>
       </Grid>
     );
