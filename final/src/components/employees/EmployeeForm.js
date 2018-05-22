@@ -38,13 +38,13 @@ class EmployeeForm extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.state = {
+    this.setState({
       username: { value: nextProps.employee.username, valid: null },
       email: { value: nextProps.employee.email, valid: null },
       firstName: { value: nextProps.employee.firstName, valid: null },
       lastName: { value: nextProps.employee.lastName, valid: null },
       admin: { value: nextProps.employee.admin, valid: null }
-    };
+    });
   }
 
   handleSave() {

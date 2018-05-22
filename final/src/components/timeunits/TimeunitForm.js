@@ -29,11 +29,11 @@ class TimeunitForm extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.state = {
+    this.setState({
       project: { value: nextProps.timeunit.project, valid: null },
       dateWorked: { value: nextProps.timeunit.dateWorked, valid: null },
       hoursWorked: { value: nextProps.timeunit.hoursWorked, valid: null }
-    };
+    });
   }
 
   handleSave() {

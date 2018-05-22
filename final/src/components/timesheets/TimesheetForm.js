@@ -35,12 +35,12 @@ class TimesheetForm extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.state = {
+    this.setState({
       name: { value: nextProps.timesheet.name, valid: null },
       description: { value: nextProps.timesheet.description, valid: null },
       beginDate: { value: nextProps.timesheet.beginDate, valid: null },
       endDate: { value: nextProps.timesheet.endDate, valid: null }
-    };
+    });
   }
 
   handleSave() {
