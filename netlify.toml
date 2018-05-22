@@ -1,4 +1,3 @@
 [build]
-  base    = "final/"
   publish = "final/build"
-  command = "yarn build"
+  command = "cd final && yarn build"
