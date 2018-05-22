@@ -11,7 +11,7 @@ exports[`Hello World: should render to match the snapshot 1`] = `
     Luke
   </h2>
   <p>
-    Congratulations!  You have created your first React component!
+    Congratulations! You have created your first React component!
   </p>
 </div>
 `;
