@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
-import * as AuthActions from "../../actions/AuthActionCreator";
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
 
 class NavBar extends Component {
   constructor(props) {
@@ -12,10 +10,6 @@ class NavBar extends Component {
       user: { _id: 'all' }
     };
   }
-
-  logout = () => {
-    this.props.authActions.logout();
-  };
 
   render() {
     return (
@@ -36,7 +30,7 @@ class NavBar extends Component {
         </Nav>
         <Nav pullRight>
           <LinkContainer to="/logout">
-            <NavItem eventKey={4} onClick={this.logout}>Logout</NavItem>
+            <NavItem eventKey={4} onClick={this.props.onLogout}>Logout</NavItem>
           </LinkContainer>
         </Nav>
       </Navbar>
@@ -44,14 +38,8 @@ class NavBar extends Component {
   }
 }
 
-function mapStateToProps() {
-  return {};
-}
+NavBar.propTypes = {
+  onLogout: PropTypes.func.isRequired
+};
 
-function mapDispatchToProps(dispatch) {
-  return {
-    authActions: bindActionCreators(AuthActions, dispatch)
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
+export default NavBar;

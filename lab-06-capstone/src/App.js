@@ -15,10 +15,12 @@ import Navigation from './components/nav/Navigation';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import LoginForm from "./components/login/Login";
 import { connect } from 'react-redux';
+import { bindActionCreators } from "redux";
+import * as AuthActions from "./actions/AuthActionCreator";
 
 class App extends Component {
   render() {
-    const { authActions, user } = this.props;
+    const { user } = this.props;
 
     if (!user) {
       return <LoginForm />
@@ -27,7 +29,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="App">
-          <Navigation />
+          <Navigation onLogout={this.props.authActions.logout}/>
           <Switch>
             <Route exact path="/projects" component={Projects} />
             <Route path="/projects/detail/:_id" component={ProjectsDetail} />
@@ -70,7 +72,9 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return {};
+  return {
+    authActions: bindActionCreators(AuthActions, dispatch)
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
