@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Hello World: should render to match the snapshot 1`] = `
+<div
+  className="hello"
+>
+  <h1>
+    Howdy!!
+  </h1>
+  <h2>
+    Luke
+  </h2>
+  <p>
+    Congratulations! You have created your first React component!
+  </p>
+</div>
+`;
