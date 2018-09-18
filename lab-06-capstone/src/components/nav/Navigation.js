@@ -28,18 +28,12 @@ class NavBar extends Component {
             <NavItem eventKey={2}>Timesheets</NavItem>
           </LinkContainer>
         </Nav>
-        <Nav pullRight>
-          <LinkContainer to="/logout">
-            <NavItem eventKey={4} onClick={this.props.onLogout}>Logout</NavItem>
-          </LinkContainer>
-        </Nav>
       </Navbar>
     );
   }
 }
 
 NavBar.propTypes = {
-  onLogout: PropTypes.func.isRequired
 };
 
 export default NavBar;

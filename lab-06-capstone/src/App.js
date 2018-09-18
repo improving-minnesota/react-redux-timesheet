@@ -20,16 +20,10 @@ import * as AuthActions from "./actions/AuthActionCreator";
 
 class App extends Component {
   render() {
-    const { user } = this.props;
-
-    if (!user) {
-      return <LoginForm />
-    }
-
     return (
       <BrowserRouter>
         <div className="App">
-          <Navigation onLogout={this.props.authActions.logout}/>
+          <Navigation/>
           <Switch>
             <Route exact path="/projects" component={Projects} />
             <Route path="/projects/detail/:_id" component={ProjectsDetail} />
@@ -65,16 +59,3 @@ class App extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    user: state.auth.user
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    authActions: bindActionCreators(AuthActions, dispatch)
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
