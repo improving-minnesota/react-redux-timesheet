@@ -13,8 +13,8 @@ class ProjectTable extends Component {
       <Table celled striped>
         <Table.Header>
           <Table.Row>
-            <th>Name</th>
-            <th>Description</th>
+            <Table.HeaderCell>Name</Table.HeaderCell>
+            <Table.HeaderCell>Description</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
         < Table.Body>
