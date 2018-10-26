@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 
 import Timesheets from './Timesheets';
 
-describe('Timesheets Component: ', function() {
+describe('<Timesheets />', function() {
   let timesheets;
 
   beforeEach(() => {
