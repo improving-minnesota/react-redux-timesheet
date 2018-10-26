@@ -13,11 +13,11 @@ class EmployeeTable extends React.Component {
       <Table celled striped>
         <Table.Header>
           <Table.Row>
-            <Table.Cell>Username</Table.Cell>
-            <Table.Cell>Email</Table.Cell>
-            <Table.Cell>First Name</Table.Cell>
-            <Table.Cell>Last Name</Table.Cell>
-            <Table.Cell>Admin</Table.Cell>
+            <Table.HeaderCell>Username</Table.HeaderCell>
+            <Table.HeaderCell>Email</Table.HeaderCell>
+            <Table.HeaderCell>First Name</Table.HeaderCell>
+            <Table.HeaderCell>Last Name</Table.HeaderCell>
+            <Table.HeaderCell>Admin</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
         <Table.Body>

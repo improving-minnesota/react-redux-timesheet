@@ -13,10 +13,10 @@ class TimesheetTable extends React.Component {
       <Table celled striped>
         <Table.Header>
           <Table.Row>
-            <Table.Cell>Begin Date</Table.Cell>
-            <Table.Cell>End Date</Table.Cell>
-            <Table.Cell>Name</Table.Cell>
-            <Table.Cell>Description</Table.Cell>
+            <Table.HeaderCell>Begin Date</Table.HeaderCell>
+            <Table.HeaderCell>End Date</Table.HeaderCell>
+            <Table.HeaderCell>Name</Table.HeaderCell>
+            <Table.HeaderCell>Description</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
         <Table.Body>

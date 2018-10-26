@@ -30,10 +30,12 @@ class Employees extends Component {
   }
 
   render() {
+    const { employees } = this.state;
+
     return (
       <div>
         <Header as="h1">Employees</Header>
-        <EmployeeTable employees={ this.state.data }/>
+        <EmployeeTable employees={ employees }/>
       </div>
     );
   }

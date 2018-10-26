@@ -6,7 +6,7 @@ class Timesheets extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: [
+      timesheets: [
         {
           _id: 1,
           name: 'UserOne',
@@ -386,10 +386,12 @@ class Timesheets extends React.Component {
   }
 
   render() {
+    const { timesheets } = this.state;
+
     return (
       <div>
         <Header as="h1">Timesheets</Header>
-        <TimesheetTable timesheets={ this.state.data }/>
+        <TimesheetTable timesheets={ timesheets }/>
       </div>
     );
   }
