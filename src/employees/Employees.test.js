@@ -2,7 +2,7 @@ import React from 'react';
 import Employees from './Employees';
 import { shallow, mount } from 'enzyme';
 
-describe('Employees Component: ', function() {
+describe('<Employees />', function() {
   it('should instantiate the Employee Component', function() {
     const component = shallow(<Employees />);
 
