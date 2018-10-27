@@ -17,7 +17,7 @@ class EmployeeRow extends React.Component {
     const { employee } = this.props;
 
     return (
-      <Table.Row disabled={employee.deleted}>
+      <Table.Row negative={employee.deleted}>
         <Table.Cell>{employee.username}</Table.Cell>
         <Table.Cell>{employee.email}</Table.Cell>
         <Table.Cell>{employee.firstName}</Table.Cell>

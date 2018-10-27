@@ -12,8 +12,7 @@ class Employees extends Component {
   }
 
   render() {
-    const { deleteEmployee, restoreEmployee } = this.props;
-    const { employees } = this.state;
+    const { employees, deleteEmployee, restoreEmployee } = this.props;
 
     return (
       <div>
