@@ -1,44 +1,39 @@
 import React, { Component } from 'react';
 import { Header } from 'semantic-ui-react';
 import EmployeeTable from './EmployeeTable';
+import * as EmployeeActionCreators from '../actions/EmployeeActionCreator';
+import { connect } from 'react-redux';
 
 class Employees extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      employees: [
-        {
-          _id: 1,
-          username: 'admin',
-          email: 'admin@mixtape.com',
-          password: 'password',
-          admin: true,
-          firstName: 'Admin',
-          lastName: 'User'
-        },
-        {
-          _id: 2,
-          username: 'user',
-          email: 'user@mixtape.com',
-          password: 'password',
-          admin: false,
-          firstName: 'Normal',
-          lastName: 'User'
-        }
-      ]
-    };
+
+    props.listEmployees();
   }
 
   render() {
+    const { deleteEmployee, restoreEmployee } = this.props;
     const { employees } = this.state;
 
     return (
       <div>
         <Header as="h1">Employees</Header>
-        <EmployeeTable employees={ employees }/>
+        <EmployeeTable employees={ employees } onDelete={deleteEmployee} onRestore={restoreEmployee} />
       </div>
     );
   }
 }
 
-export default Employees;
+const mapStateToProps = state => {
+  return {
+    employees: state.employees.employees,
+  };
+};
+
+const mapDispatchToProps = {
+  listEmployees: EmployeeActionCreators.listEmployees,
+  deleteEmployee: EmployeeActionCreators.removeEmployee,
+  restoreEmployee: EmployeeActionCreators.restoreEmployee
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Employees);

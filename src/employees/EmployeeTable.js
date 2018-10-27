@@ -5,8 +5,10 @@ import EmployeeRow from './EmployeeRow';
 
 class EmployeeTable extends React.Component {
   render() {
-    const employeeRows = this.props.employees.map(employee => (
-      <EmployeeRow employee={ employee } key={ employee._id }/>
+    const { employees, onDelete, onRestore } = this.props;
+
+    const employeeRows = employees.map(employee => (
+      <EmployeeRow employee={ employee } onDelete={onDelete} onRestore={onRestore} key={ employee._id }/>
     ));
 
     return (
@@ -18,6 +20,7 @@ class EmployeeTable extends React.Component {
             <Table.HeaderCell>First Name</Table.HeaderCell>
             <Table.HeaderCell>Last Name</Table.HeaderCell>
             <Table.HeaderCell>Admin</Table.HeaderCell>
+            <Table.HeaderCell>Delete</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
         <Table.Body>
@@ -33,7 +36,9 @@ EmployeeTable.defaultProps = {
 };
 
 EmployeeTable.propTypes = {
-  employees: PropTypes.array.isRequired
+  employees: PropTypes.array.isRequired,
+  onDelete: PropTypes.func.isRequired,
+  onRestore: PropTypes.func.isRequired
 };
 
 export default EmployeeTable;
