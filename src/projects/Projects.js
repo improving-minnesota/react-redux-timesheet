@@ -1,6 +1,8 @@
 import React from 'react';
-import { Header } from 'semantic-ui-react';
+import { Button, Header } from 'semantic-ui-react';
 import ProjectTable from './ProjectTable';
+import { withRouter } from 'react-router';
+import { Link } from 'react-router-dom';
 
 class Projects extends React.Component {
   constructor(props) {
@@ -27,7 +29,12 @@ class Projects extends React.Component {
 
     return (
       <div>
-        <Header as="h1">Projects</Header>
+        <Header as="h1">
+          Projects
+          <Button floated="right" primary inverted>
+            <Link to="/projects/details">New Project</Link>
+          </Button>
+        </Header>
         <ProjectTable projects={projects} />
       </div>
     );

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Header } from 'semantic-ui-react';
+import { Button, Header } from 'semantic-ui-react';
 import EmployeeTable from './EmployeeTable';
 import * as EmployeeActionCreators from '../actions/EmployeeActionCreator';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 class Employees extends Component {
   constructor(props) {
@@ -16,7 +17,12 @@ class Employees extends Component {
 
     return (
       <div>
-        <Header as="h1">Employees</Header>
+        <Header as="h1">
+          Employees
+          <Button floated="right" primary inverted>
+            <Link to="/employees/details">New Employee</Link>
+          </Button>
+        </Header>
         <EmployeeTable employees={ employees } onDelete={deleteEmployee} onRestore={restoreEmployee} />
       </div>
     );

@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
-import { Grid, PageHeader, Row } from 'react-bootstrap';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as TimesheetActions from '../actions/TimesheetActionCreator';
 import Timeunits from '../timeunits/Timeunits';
@@ -11,9 +9,9 @@ import { Header } from 'semantic-ui-react';
 class TimesheetsDetail extends Component {
 
   componentDidMount() {
-    const { getTimesheet } = this.props;
-    const id = props.match.params._id;
-    const userId = props.match.params.user_id;
+    const { getTimesheet, match } = this.props;
+    const id = match.params._id;
+    const userId = match.params.user_id;
 
     getTimesheet(id, userId);
   }

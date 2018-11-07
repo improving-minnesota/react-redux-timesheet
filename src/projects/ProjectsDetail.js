@@ -7,9 +7,10 @@ import ProjectForm from './ProjectForm';
 import * as ProjectActions from '../actions/ProjectActionCreator';
 
 class ProjectsDetail extends React.Component {
-  componentDidMount(props) {
-    const id = props.match.params._id;
-    props.actions.getProject(id);
+  componentDidMount() {
+    const { match, getProject } = this.props;
+    const id = match.params._id;
+    getProject(id);
   }
 
   handleSave = (values) => {

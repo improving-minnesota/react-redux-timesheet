@@ -1,6 +1,7 @@
 import React from 'react';
-import { Header } from 'semantic-ui-react';
+import { Button, Header } from 'semantic-ui-react';
 import TimesheetTable from './TimesheetTable';
+import { Link } from 'react-router-dom';
 
 class Timesheets extends React.Component {
   constructor(props) {
@@ -390,7 +391,12 @@ class Timesheets extends React.Component {
 
     return (
       <div>
-        <Header as="h1">Timesheets</Header>
+        <Header as="h1">
+          Timesheets
+          <Button floated="right" primary inverted>
+            <Link to="/timesheets/details">New Timesheet</Link>
+          </Button>
+        </Header>
         <TimesheetTable timesheets={ timesheets }/>
       </div>
     );
