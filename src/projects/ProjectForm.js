@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Field, Form, Formik } from 'formik';
+import { Form, Formik } from 'formik';
 import { Button } from 'semantic-ui-react';
 import { FieldError } from '../form/FieldError';
 import { StyledField } from '../form/StyledField';
@@ -8,11 +8,7 @@ import { StyledField } from '../form/StyledField';
 class ProjectForm extends React.Component {
 
   handleSave = (values) => {
-    this.props.handleSave({
-      name: values.name,
-      description: values.description,
-      _id: values._id
-    });
+    this.props.handleSave(values);
   };
 
   validate = (values) => {

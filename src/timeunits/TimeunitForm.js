@@ -1,21 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { StyledField } from '../form/StyledField';
+import { Button } from 'semantic-ui-react';
+import { FieldError } from '../form/FieldError';
 
 class TimeunitForm extends React.Component {
 
   handleSave = (values) => {
-    if (this.validate()) {
-      this.props.handleSave({
-        name: values.name,
-        description: values.description,
-        _id: values._id
-      });
-    }
+    this.props.handleSave(values);
   };
 
   validate = (values) => {
-    return !!values.name && !!values.description;
+    const errors = {};
+
+    if (!values.project) {
+      errors.project = 'Required';
+    }
+    if (!values.dateWorked) {
+      errors.project = 'Required';
+    }
+    if (!values.hoursWorked) {
+      errors.project = 'Required';
+    }
+
+    return errors;
   };
 
   render() {
@@ -24,24 +33,32 @@ class TimeunitForm extends React.Component {
     return (
       <Formik
         initialValues={{
-          name: project.name,
-          description: project.description,
-          _id: project._id
+          project: timeunit.project || '',
+          dateWorked: timeunit.dateWorked || '',
+          hoursWorked: timeunit.hoursWorked || '',
+          _id: timeunit._id || ''
         }}
         validate={this.validate}
         onSubmit={this.handleSave}
       >
         {({ isSubmitting, isValid }) => (
           <Form>
-            <Field type="select" name="project" options={projects} />
-            <ErrorMessage name="project" component="div" />
-            <Field type="date" name="dateWorked" />
-            <ErrorMessage name="dateWorked" component="div" />
-            <Field type="number" name="hoursWorked" />
-            <ErrorMessage name="password" component="div" />
-            <button type="submit" disabled={isSubmitting || !isValid}>
+            <StyledField type="select" name="project" label="Project">
+              {projects.map(project => (
+                <option key={project._id} value={project._id}>{project.name}</option>
+              ))}
+            </StyledField>
+            <FieldError name="project" />
+
+            <StyledField type="date" name="dateWorked" placeholder="YYYY-MM-DD" label="Date Worked" />
+            <FieldError name="dateWorked" />
+
+            <StyledField type="number" name="hoursWorked" label="Hours Worked" />
+            <FieldError name="hoursWorked" />
+
+            <Button type="submit" disabled={isSubmitting || !isValid}>
               Save
-            </button>
+            </Button>
           </Form>
         )}
       </Formik>
@@ -55,8 +72,9 @@ ProjectForm.defaultProps = {
 };
 
 ProjectForm.propTypes = {
-  project: PropTypes.arrayOf(PropTypes.object).isRequired,
+  projects: PropTypes.arrayOf(PropTypes.object).isRequired,
   timesheet: PropTypes.object.isRequired,
+  timeunit: PropTypes.object,
   handleSave: PropTypes.func.isRequired
 };
 
