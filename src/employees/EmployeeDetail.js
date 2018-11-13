@@ -1,27 +1,60 @@
 import * as React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
+import { Header } from 'semantic-ui-react';
+import EmployeeForm from './EmployeeForm';
+import * as EmployeeActions from '../actions/EmployeeActionCreator';
 
-class EmployeeDetail extends React.Component {
-  componentDidMount(props) {
+class EmployeesDetail extends React.Component {
+  componentDidMount() {
+    const { match, getEmployee } = this.props;
+    const id = match.params._id;
+    getEmployee(id);
   }
 
   handleSave = (values) => {
+    const { onCreate, onUpdate, history } = this.props;
 
+    const result = values._id ? onUpdate(values) : onCreate(values);
+    result.then(() => {
+      history.push('/employees');
+    });
   };
 
   render() {
     return (
       <div>
-          TODO
+        <Header as="h1">Employees Detail</Header>
+        <EmployeeForm
+          project={this.props.employee}
+          actions={this.props.actions}
+          handleSave={this.handleSave}
+        />
       </div>
     );
   }
 }
 
-EmployeeDetail.propTypes = {
+EmployeesDetail.propTypes = {
+  employee: PropTypes.object.isRequired,
+  history: PropTypes.object
 };
 
-EmployeeDetail.defaultProps = {
+EmployeesDetail.defaultProps = {
+  employee: {}
 };
 
+const mapStateToProps = (state) => {
+  return {
+    employee: state.employees.employee
+  };
+};
 
-export default EmployeeDetail;
+const mapDispatchToProps = {
+  onCreate: EmployeeActions.createEmployee,
+  onUpdate: EmployeeActions.updateEmployee,
+  getEmployee: EmployeeActions.getEmployee
+};
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(EmployeesDetail));
