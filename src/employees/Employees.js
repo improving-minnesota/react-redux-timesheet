@@ -6,10 +6,9 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 class Employees extends Component {
-  constructor(props) {
-    super(props);
-
-    props.listEmployees();
+  componentDidMount() {
+    const { listEmployees } = this.props;
+    listEmployees();
   }
 
   render() {
@@ -19,11 +18,13 @@ class Employees extends Component {
       <div>
         <Header as="h1">
           Employees
-          <Button floated="right" primary inverted>
-            <Link to="/employees/details">New Employee</Link>
-          </Button>
+          <Link to="/employees/details">
+            <Button floated="right" primary>
+              New Employee
+            </Button>
+          </Link>
         </Header>
-        <EmployeeTable employees={ employees } onDelete={deleteEmployee} onRestore={restoreEmployee} />
+        <EmployeeTable employees={ employees } onDelete={ deleteEmployee } onRestore={ restoreEmployee }/>
       </div>
     );
   }

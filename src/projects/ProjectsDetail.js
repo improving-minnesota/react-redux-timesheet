@@ -52,8 +52,8 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = {
-  onCreate: ProjectActions.updateProject,
-  onUpdate: ProjectActions.createProject,
+  onCreate: ProjectActions.createProject,
+  onUpdate: ProjectActions.updateProject,
   getProject: ProjectActions.getProject
 };
 

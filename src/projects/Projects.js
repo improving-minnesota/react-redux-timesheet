@@ -1,39 +1,28 @@
 import React from 'react';
 import { Button, Header } from 'semantic-ui-react';
 import ProjectTable from './ProjectTable';
-import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
+import * as ProjectActionCreators from '../actions/ProjectActionCreator';
+import connect from 'react-redux/es/connect/connect';
 
 class Projects extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      projects: [
-        {
-          _id: 1,
-          name: 'Project1',
-          description: 'This is your first project'
-        },
-        {
-          _id: 2,
-          name: 'Project2',
-          description: 'This is your second project'
-        },
-        { _id: 3, name: 'Project3', description: 'This is the third project' }
-      ]
-    };
+  componentDidMount() {
+    const { listProjects } = this.props;
+    listProjects();
   }
 
   render() {
-    const { projects } = this.state;
+    const { projects } = this.props;
 
     return (
       <div>
         <Header as="h1">
           Projects
-          <Button floated="right" primary inverted>
-            <Link to="/projects/details">New Project</Link>
-          </Button>
+          <Link to="/projects/details">
+            <Button floated="right" primary>
+              New Project
+            </Button>
+          </Link>
         </Header>
         <ProjectTable projects={projects} />
       </div>
@@ -41,4 +30,16 @@ class Projects extends React.Component {
   }
 }
 
-export default Projects;
+const mapStateToProps = state => {
+  return {
+    projects: state.projects.projects,
+  };
+};
+
+const mapDispatchToProps = {
+  listProjects: ProjectActionCreators.listProjects,
+  deleteEmployee: ProjectActionCreators.removeProject,
+  restoreEmployee: ProjectActionCreators.restoreProject
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Projects);

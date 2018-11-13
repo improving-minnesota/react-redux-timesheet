@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { Form, Formik } from 'formik';
 import { StyledField } from '../form/StyledField';
 import { Button } from 'semantic-ui-react';
-import { FieldError } from '../form/FieldError';
 
 class TimeunitForm extends React.Component {
 
@@ -41,22 +40,18 @@ class TimeunitForm extends React.Component {
         validate={this.validate}
         onSubmit={this.handleSave}
       >
-        {({ isSubmitting, isValid }) => (
+        {({ isSubmitting, isValid, errors }) => (
           <Form>
-            <StyledField type="select" name="project" label="Project">
+            <StyledField type="select" name="project" label="Project" invalid={errors.project}>
               {projects.map(project => (
                 <option key={project._id} value={project._id}>{project.name}</option>
               ))}
             </StyledField>
-            <FieldError name="project" />
 
-            <StyledField type="date" name="dateWorked" placeholder="YYYY-MM-DD" label="Date Worked" />
-            <FieldError name="dateWorked" />
+            <StyledField type="date" name="dateWorked" placeholder="YYYY-MM-DD" label="Date Worked" invalid={errors.dateWorked}/>
+            <StyledField type="number" name="hoursWorked" label="Hours Worked" invalid={errors.hoursWorked}/>
 
-            <StyledField type="number" name="hoursWorked" label="Hours Worked" />
-            <FieldError name="hoursWorked" />
-
-            <Button type="submit" disabled={isSubmitting || !isValid}>
+            <Button type="submit" disabled={isSubmitting || !isValid} primary>
               Save
             </Button>
           </Form>

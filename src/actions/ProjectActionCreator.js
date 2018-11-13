@@ -86,7 +86,7 @@ export const restoreProject = project => {
 
 export const createProject = project => {
   return dispatch => {
-    return Axios.put(url(), project)
+    return Axios.post(url(), project)
       .then(function(res) {
         dispatch(get(res.data));
         console.log(`Project : ${res.data.name}, created.`);

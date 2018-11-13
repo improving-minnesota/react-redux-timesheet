@@ -17,9 +17,11 @@ class Timeunits extends Component {
       <div>
         <Header as="h1">
           Timeunits
-          <Button floated="right" primary inverted>
-            <Link to="/timeunits/details">New Timeunit</Link>
-          </Button>
+          <Link to="/timeunits/details">
+            <Button floated="right" primary>
+              New Timeunit
+            </Button>
+          </Link>
         </Header>
         <TimeunitTable
           timeunits={ timeunits }

@@ -92,7 +92,7 @@ export const restoreEmployee = employee => {
 
 export const createEmployee = employee => {
   return dispatch => {
-    return Axios.put(url(), employee)
+    return Axios.post(url(), employee)
       .then(res => {
         dispatch(get(res.data));
         console.log('Employee : ' + res.data.name + ', created.');

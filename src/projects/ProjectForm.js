@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Form, Formik } from 'formik';
 import { Button } from 'semantic-ui-react';
-import { FieldError } from '../form/FieldError';
 import { StyledField } from '../form/StyledField';
 
 class ProjectForm extends React.Component {
@@ -32,27 +31,24 @@ class ProjectForm extends React.Component {
 
     return (
       <Formik
-        initialValues={{
+        initialValues={ {
           name: project.name || '',
           description: project.description || '',
           _id: project._id
-        }}
-        validate={this.validate}
-        onSubmit={this.handleSave}
+        } }
+        validate={ this.validate }
+        onSubmit={ this.handleSave }
       >
-        {({ isSubmitting, isValid }) => (
+        { ({ isSubmitting, isValid, errors }) => (
           <Form className="ui form">
-            <StyledField type="text" name="name" label="Name" />
-            <FieldError name="name" />
+            <StyledField type="text" name="name" label="Name" invalid={ errors.name }/>
+            <StyledField type="text" name="description" label="Description" invalid={ errors.description }/>
 
-            <StyledField type="text" name="description" label="Description" />
-            <FieldError name="description" />
-
-            <Button type="submit" disabled={isSubmitting || !isValid} inverted primary>
+            <Button type="submit" disabled={ isSubmitting || !isValid } primary>
               Save
             </Button>
           </Form>
-        )}
+        ) }
       </Formik>
     );
   }

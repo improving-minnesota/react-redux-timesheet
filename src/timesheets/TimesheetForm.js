@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Form, Formik } from 'formik';
 import { StyledField } from '../form/StyledField';
-import { FieldError } from '../form/FieldError';
 import { Button } from 'semantic-ui-react';
 
 class TimesheetForm extends React.Component {
@@ -38,43 +37,38 @@ class TimesheetForm extends React.Component {
 
     return (
       <Formik
-        initialValues={{
+        initialValues={ {
           name: timesheet.name,
           description: timesheet.description,
           employee: timesheet.employee,
           startDate: timesheet.startDate,
           endDate: timesheet.endDate,
           _id: timesheet._id
-        }}
-        validate={this.validate}
-        onSubmit={this.handleSave}
+        } }
+        validate={ this.validate }
+        onSubmit={ this.handleSave }
       >
-        {({ isSubmitting, isValid }) => (
+        { ({ isSubmitting, isValid, errors }) => (
           <Form>
-            <StyledField type="select" name="employee" label="Employee">
-              {employees.map(employee => (
-                <option key={employee._id} value={employee._id}>{`${employee.firstName} ${employee.lastName}`}</option>
-              ))}
+            <StyledField type="select" name="employee" label="Employee" invalid={ errors.employee }>
+              { employees.map(employee => (
+                <option key={ employee._id }
+                        value={ employee._id }>{ `${employee.firstName} ${employee.lastName}` }</option>
+              )) }
             </StyledField>
-            <FieldError name="employee" />
 
-            <StyledField type="text" name="name" label="Name" />
-            <FieldError name="name" />
+            <StyledField type="text" name="name" label="Name" invalid={ errors.name }/>
+            <StyledField type="text" name="description" label="Description" invalid={ errors.description }/>
+            <StyledField type="date" name="startDate" placeholder="YYYY-MM-DD" label="Start Date"
+                         invalid={ errors.startDate }/>
+            <StyledField type="date" name="endDate" placeholder="YYYY-MM-DD" label="End Date"
+                         invalid={ errors.endDate }/>
 
-            <StyledField type="text" name="description" label="Description" />
-            <FieldError name="description" />
-
-            <StyledField type="date" name="startDate" placeholder="YYYY-MM-DD" label="Start Date" />
-            <FieldError name="startDate" />
-
-            <StyledField type="date" name="endDate" placeholder="YYYY-MM-DD" label="End Date" />
-            <FieldError name="endDate" />
-
-            <Button type="submit" disabled={isSubmitting || !isValid} primary inverted>
+            <Button type="submit" disabled={ isSubmitting || !isValid } primary>
               Save
             </Button>
           </Form>
-        )}
+        ) }
       </Formik>
     );
   }

@@ -26,8 +26,6 @@ class TimesheetsDetail extends Component {
   };
 
   render() {
-    const { createTimesheet, updateTimesheet } = this.props;
-
     return (
       <div>
         <Header as="h1">Timesheet Detail</Header>
