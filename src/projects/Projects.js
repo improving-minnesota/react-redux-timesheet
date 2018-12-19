@@ -18,7 +18,7 @@ class Projects extends React.Component {
       <div>
         <Header as="h1">
           Projects
-          <Link to="/projects/details">
+          <Link to="/projects/detail">
             <Button floated="right" primary>
               New Project
             </Button>

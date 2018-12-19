@@ -8,7 +8,7 @@ class TimesheetTable extends React.Component {
     const { timesheets } = this.props;
 
     return (
-      <Table celled striped>
+      <Table celled selectable striped>
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell>Begin Date</Table.HeaderCell>
@@ -19,7 +19,7 @@ class TimesheetTable extends React.Component {
         </Table.Header>
         <Table.Body>
           {timesheets.map((timesheet) => (
-            <TimesheetRow timesheet={ timesheet } key={ timesheet._id }/>
+            <TimesheetRow timesheet={ timesheet } key={ timesheet._id } />
           ))}
         </Table.Body>
       </Table>

@@ -45,9 +45,11 @@ ProjectsDetail.defaultProps = {
   project: {}
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, props) => {
+  const { match } = props;
+  const { _id } = match.params;
   return {
-    project: state.projects.project
+    project: state.projects.projects.find(project => project._id === _id)
   };
 };
 

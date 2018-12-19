@@ -18,7 +18,7 @@ class Employees extends Component {
       <div>
         <Header as="h1">
           Employees
-          <Link to="/employees/details">
+          <Link to="/employees/detail">
             <Button floated="right" primary>
               New Employee
             </Button>

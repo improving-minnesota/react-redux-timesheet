@@ -4,8 +4,8 @@ import { withRouter } from 'react-router';
 import { Button, Table } from 'semantic-ui-react';
 
 class TimeunitRow extends React.Component {
-  handleClick = (timesheet, timeunit) => {
-    const { onDelete, onRestore } = this.props;
+  handleClick = () => {
+    const { onDelete, onRestore, timesheet, timeunit } = this.props;
 
     if (timeunit.deleted) {
       onRestore(timesheet._id, timeunit);
@@ -14,26 +14,24 @@ class TimeunitRow extends React.Component {
     }
   };
 
-  showDetail = (timesheet, timeunit) => {
-    const { history } = this.props;
+  showDetail = () => {
+    const { history, timesheet, timeunit } = this.props;
 
     if (timeunit.deleted) {
       console.log('You cannot edit a deleted timeunit.');
       return;
     }
 
-    history.push(`/employees/${timesheet.user_id}/timesheets/detail/${timesheet._id}/timeunits/detail/${timeunit._id}`);
+    history.push(`/timesheets/detail/${timesheet._id}/timeunits/detail/${timeunit._id}`);
   };
 
   render() {
-    const { timesheet, timeunit } = this.props;
+    const { timeunit } = this.props;
 
     return (
       <Table.Row
         negative={timeunit.deleted}
-        onClick={() => {
-          this.showDetail(timesheet, timeunit);
-        }}
+        onClick={this.showDetail}
       >
         <Table.Cell>{timeunit.project}</Table.Cell>
         <Table.Cell>{timeunit.dateWorked}</Table.Cell>
