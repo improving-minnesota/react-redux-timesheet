@@ -9,6 +9,7 @@ import Navigation from './navigation/Navigation';
 import ProjectsDetail from './projects/ProjectsDetail';
 import TimesheetsDetail from './timesheets/TimesheetsDetail';
 import EmployeeDetail from './employees/EmployeeDetail';
+import TimeunitsDetail from './timeunits/TimeunitsDetail';
 
 class App extends React.Component {
   render() {
@@ -18,11 +19,20 @@ class App extends React.Component {
           <Navigation />
           <Switch>
             <Route exact path="/projects" component={Projects} />
-            <Route exact path="/projects/details" component={ProjectsDetail} />
+            <Route exact path="/projects/detail/:_id?" component={ProjectsDetail} />
+
             <Route exact path="/employees" component={Employees} />
-            <Route exact path="/employees/details" component={EmployeeDetail} />
-            <Route exact path="/employees/:user_id/timesheets" component={Timesheets} />
-            <Route exact path="/employees/:user_id/timesheets/details" component={TimesheetsDetail} />
+            <Route exact path="/employees/detail/:_id?" component={EmployeeDetail} />
+
+            <Route exact path="/timesheets" component={Timesheets} />
+            <Route exact path="/timesheets/detail/:_id?" component={TimesheetsDetail} />
+
+            <Route
+              exact
+              path="/timesheets/detail/:timesheet_id/timeunits/detail/:_id?"
+              component={TimeunitsDetail}
+            />
+
             <Redirect to="/employees" />
           </Switch>
         </div>

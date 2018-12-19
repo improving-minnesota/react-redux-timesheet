@@ -21,21 +21,24 @@ class TimesheetsDetail extends Component {
 
     const save = timesheet._id ? updateTimesheet(timesheet) : createTimesheet(timesheet);
     save.then(() => {
-      history.push('/employees/all/timesheets');
+      history.push('/employees/timesheets');
     });
   };
 
   render() {
+    const { employees, timesheet } = this.props;
+
     return (
       <div>
         <Header as="h1">Timesheet Detail</Header>
         <TimesheetForm
-          timesheet={ this.props.timesheet }
+          timesheet={ timesheet }
+          employees={ employees }
           handleSave={ this.handleSave }
         />
         {//Show timeunits after the getTimesheet() call finishes loading the timesheet
-          this.props.timesheet && this.props.timesheet._id && (
-            <Timeunits timesheet={ this.props.timesheet } />
+          timesheet && timesheet._id && (
+            <Timeunits timesheet={ timesheet } />
           )
         }
       </div>
@@ -43,9 +46,12 @@ class TimesheetsDetail extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, props) => {
+  const { match } = props;
+  const { _id } = match.params;
   return {
-    timesheet: state.timesheets.timesheet
+    employees: state.employees.employees,
+    timesheet: state.timesheets.timesheets.find(timesheet => timesheet._id === _id)
   };
 };
 

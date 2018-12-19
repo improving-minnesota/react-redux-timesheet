@@ -22,8 +22,8 @@ class TimesheetForm extends React.Component {
     if (!values.description) {
       errors.description = 'Required';
     }
-    if (!values.startDate) {
-      errors.startDate = 'Required';
+    if (!values.beginDate) {
+      errors.beginDate = 'Required';
     }
     if (!values.endDate) {
       errors.endDate = 'Required';
@@ -41,7 +41,7 @@ class TimesheetForm extends React.Component {
           name: timesheet.name,
           description: timesheet.description,
           employee: timesheet.employee,
-          startDate: timesheet.startDate,
+          beginDate: timesheet.beginDate,
           endDate: timesheet.endDate,
           _id: timesheet._id
         } }
@@ -50,7 +50,7 @@ class TimesheetForm extends React.Component {
       >
         { ({ isSubmitting, isValid, errors }) => (
           <Form>
-            <StyledField type="select" name="employee" label="Employee" invalid={ errors.employee }>
+            <StyledField component="select" name="employee" label="Employee" invalid={ errors.employee }>
               { employees.map(employee => (
                 <option key={ employee._id }
                         value={ employee._id }>{ `${employee.firstName} ${employee.lastName}` }</option>
@@ -59,8 +59,8 @@ class TimesheetForm extends React.Component {
 
             <StyledField type="text" name="name" label="Name" invalid={ errors.name }/>
             <StyledField type="text" name="description" label="Description" invalid={ errors.description }/>
-            <StyledField type="date" name="startDate" placeholder="YYYY-MM-DD" label="Start Date"
-                         invalid={ errors.startDate }/>
+            <StyledField type="date" name="beginDate" placeholder="YYYY-MM-DD" label="Start Date"
+                         invalid={ errors.beginDate }/>
             <StyledField type="date" name="endDate" placeholder="YYYY-MM-DD" label="End Date"
                          invalid={ errors.endDate }/>
 

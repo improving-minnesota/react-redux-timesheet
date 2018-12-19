@@ -17,7 +17,7 @@ class Timeunits extends Component {
       <div>
         <Header as="h1">
           Timeunits
-          <Link to="/timeunits/details">
+          <Link to={`/timesheets/detail/${timesheet._id}/timeunits/detail`}>
             <Button floated="right" primary>
               New Timeunit
             </Button>

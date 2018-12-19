@@ -11,8 +11,6 @@ class Navigation extends React.Component {
   }
 
   render() {
-    const { user } = this.state;
-
     return (
       <Menu pointing secondary>
         <Menu.Item>
@@ -25,7 +23,7 @@ class Navigation extends React.Component {
           <NavLink to="/employees" exact>Employees</NavLink>
         </Menu.Item>
         <Menu.Item>
-          <NavLink to={`/employees/${user._id}/timesheets`}>Timesheets</NavLink>
+          <NavLink to="/timesheets">Timesheets</NavLink>
         </Menu.Item>
       </Menu>
     );

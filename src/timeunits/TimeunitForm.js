@@ -42,7 +42,7 @@ class TimeunitForm extends React.Component {
       >
         {({ isSubmitting, isValid, errors }) => (
           <Form>
-            <StyledField type="select" name="project" label="Project" invalid={errors.project}>
+            <StyledField component="select" name="project" label="Project" invalid={errors.project}>
               {projects.map(project => (
                 <option key={project._id} value={project._id}>{project.name}</option>
               ))}
@@ -61,12 +61,12 @@ class TimeunitForm extends React.Component {
   }
 }
 
-ProjectForm.defaultProps = {
+TimeunitForm.defaultProps = {
   projects: [],
   timeunit: {}
 };
 
-ProjectForm.propTypes = {
+TimeunitForm.propTypes = {
   projects: PropTypes.arrayOf(PropTypes.object).isRequired,
   timesheet: PropTypes.object.isRequired,
   timeunit: PropTypes.object,

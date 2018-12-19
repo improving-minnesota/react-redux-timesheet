@@ -9,7 +9,7 @@ class TimeunitTable extends Component {
     const { timesheet, timeunits, onDelete, onRestore } = this.props;
 
     return (
-      <Table celled striped>
+      <Table celled selectable striped>
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell>Project</Table.HeaderCell>

@@ -18,7 +18,7 @@ class Timesheets extends React.Component {
       <div>
         <Header as="h1">
           Timesheets
-          <Link to="/timesheets/details">
+          <Link to="/timesheets/detail">
             <Button floated="right" primary>
               New Timesheet
             </Button>

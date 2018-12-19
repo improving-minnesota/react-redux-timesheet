@@ -9,21 +9,18 @@ import { Header } from 'semantic-ui-react';
 class TimeunitsDetail extends React.Component {
 
   componentDidUpdate() {
-    const { getTimeunit, listProjects } = this.props;
-    const id = props.match.params._id;
-    const timesheetId = props.match.params.timesheet_id;
-    getTimeunit(timesheetId, id);
+    const { listProjects } = this.props;
     listProjects();
   }
 
   handleSave = (timeunit) => {
-    const { history, updateTimeunit } = this.props;
-    const userId = this.props.match.params.user_id;
-    const timesheetId = this.props.match.params.timesheet_id;
+    const { history, match, createTimeunit, updateTimeunit } = this.props;
+    const userId = match.params.user_id;
+    const timesheetId = match.params.timesheet_id;
 
     const result = timeunit._id ? updateTimeunit(timesheetId, timeunit) : createTimeunit(timesheetId, timeunit);
     result.then(() => {
-      history.push(`/employees/${userId}/timesheets/detail/${timesheetId}`);
+      history.push(`/employees/${userId}/timesheets/${timesheetId}`);
     });
   };
 
@@ -46,12 +43,15 @@ class TimeunitsDetail extends React.Component {
   }
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = (state, props) => {
+  const { match } = props;
+  const { timesheet_id, _id } = match.params;
+  const timesheet = state.timesheets.timesheets.find(timesheet => timesheet._id === timesheet_id);
   return {
-    timeunit: state.timeunits.timeunit,
+    timeunit: state.timeunits.timeunits.find(timeunit => timeunit._id === _id),
     projects: state.projects.projects
   };
-}
+};
 
 const mapDispatchToProps = {
   updateTimeunit: TimeunitActions.updateTimeunit,
