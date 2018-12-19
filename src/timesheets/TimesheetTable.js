@@ -5,7 +5,7 @@ import TimesheetRow from './TimesheetRow';
 
 class TimesheetTable extends React.Component {
   render() {
-    const { timesheets } = this.props;
+    const { onDelete, onRestore, timesheets } = this.props;
 
     return (
       <Table celled selectable striped>
@@ -15,11 +15,12 @@ class TimesheetTable extends React.Component {
             <Table.HeaderCell>End Date</Table.HeaderCell>
             <Table.HeaderCell>Name</Table.HeaderCell>
             <Table.HeaderCell>Description</Table.HeaderCell>
+            <Table.HeaderCell>Delete</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
         <Table.Body>
           {timesheets.map((timesheet) => (
-            <TimesheetRow timesheet={ timesheet } key={ timesheet._id } />
+            <TimesheetRow timesheet={ timesheet } key={ timesheet._id } onDelete={onDelete} onRestore={onRestore} />
           ))}
         </Table.Body>
       </Table>
@@ -32,6 +33,8 @@ TimesheetTable.defaultProps = {
 };
 
 TimesheetTable.propTypes = {
+  onDelete: PropTypes.func,
+  onRestore: PropTypes.func,
   timesheets: PropTypes.array.isRequired
 };
 

@@ -12,7 +12,7 @@ class Timesheets extends React.Component {
   }
 
   render() {
-    const { timesheets } = this.props;
+    const { deleteTimesheet, restoreTimesheet, timesheets } = this.props;
 
     return (
       <div>
@@ -24,7 +24,7 @@ class Timesheets extends React.Component {
             </Button>
           </Link>
         </Header>
-        <TimesheetTable timesheets={ timesheets }/>
+        <TimesheetTable timesheets={ timesheets } onDelete={ deleteTimesheet } onRestore={ restoreTimesheet } />
       </div>
     );
   }
