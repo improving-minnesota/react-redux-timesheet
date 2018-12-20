@@ -5,9 +5,7 @@ import TimesheetRow from './TimesheetRow';
 
 class TimesheetTable extends React.Component {
   render() {
-    const timesheetRows = this.props.timesheets.map((timesheet) => (
-      <TimesheetRow timesheet={ timesheet } key={ timesheet._id }/>
-    ));
+    const { timesheets } = this.props;
 
     return (
       <Table celled striped>
@@ -20,7 +18,9 @@ class TimesheetTable extends React.Component {
           </Table.Row>
         </Table.Header>
         <Table.Body>
-          { timesheetRows }
+          {timesheets.map((timesheet) => (
+            <TimesheetRow timesheet={ timesheet } key={ timesheet._id }/>
+          ))}
         </Table.Body>
       </Table>
     );
