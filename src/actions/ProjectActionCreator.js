@@ -59,7 +59,7 @@ export const removeProject = project => {
     return Axios.put(url(project._id), project)
       .then(response => {
         dispatch(get(response.data));
-        console.log(`Project : ${res.data.name}, was deleted.`);
+        console.log(`Project : ${response.data.name}, was deleted.`);
         return true;
       })
       .catch(err => {
