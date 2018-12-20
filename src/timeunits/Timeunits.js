@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import * as TimeunitActions from '../actions/TimeunitActionCreator';
 import { Button, Header } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import { Button, Header } from 'semantic-ui-react';
 
 class Timeunits extends React.Component {
   componentDidMount() {

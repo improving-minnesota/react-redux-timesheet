@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Form, Formik } from 'formik';
 import { Button } from 'semantic-ui-react';
-import { StyledField } from '../form/StyledField';
+import { FieldWrapper } from '../form/FieldWrapper';
 
 class ProjectForm extends React.Component {
 
@@ -41,8 +41,8 @@ class ProjectForm extends React.Component {
       >
         { ({ isSubmitting, isValid, errors }) => (
           <Form className="ui form">
-            <StyledField type="text" name="name" label="Name" invalid={ errors.name }/>
-            <StyledField type="text" name="description" label="Description" invalid={ errors.description }/>
+            <FieldWrapper type="text" name="name" label="Name" invalid={ errors.name }/>
+            <FieldWrapper type="text" name="description" label="Description" invalid={ errors.description }/>
 
             <Button type="submit" disabled={ isSubmitting || !isValid } primary>
               Save

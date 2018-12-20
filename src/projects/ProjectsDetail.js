@@ -2,7 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { Header } from 'semantic-ui-react';
+import { Container, Header } from 'semantic-ui-react';
 import ProjectForm from './ProjectForm';
 import * as ProjectActions from '../actions/ProjectActionCreator';
 
@@ -24,14 +24,14 @@ class ProjectsDetail extends React.Component {
 
   render() {
     return (
-      <div>
+      <Container>
         <Header as="h1">Projects Detail</Header>
         <ProjectForm
           project={this.props.project}
           actions={this.props.actions}
           handleSave={this.handleSave}
         />
-      </div>
+      </Container>
     );
   }
 }

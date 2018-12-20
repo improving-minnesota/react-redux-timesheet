@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import * as TimeunitActions from '../actions/TimeunitActionCreator';
 import TimeunitForm from './TimeunitForm';
 import * as ProjectActions from '../actions/ProjectActionCreator';
-import { Header } from 'semantic-ui-react';
+import { Container, Header } from 'semantic-ui-react';
 
 class TimeunitsDetail extends React.Component {
 
@@ -33,7 +33,7 @@ class TimeunitsDetail extends React.Component {
     const userId = match.params.user_id;
     const timesheetId = match.params.timesheet_id;
     return (
-      <div>
+      <Container>
         <Header as="h1">Timeunit Edit</Header>
         <TimeunitForm
           projects={ projects }
@@ -42,7 +42,7 @@ class TimeunitsDetail extends React.Component {
           timeunit={ timeunit }
           handleSave={ this.handleSave }
         />
-      </div>
+      </Container>
     );
   }
 }

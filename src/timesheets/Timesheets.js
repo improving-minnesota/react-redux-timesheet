@@ -1,7 +1,6 @@
 import React from 'react';
 import { Button, Header } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { Header } from 'semantic-ui-react';
 import TimesheetTable from './TimesheetTable';
 import { Link } from 'react-router-dom';
 import * as TimesheetActionCreators from '../actions/TimesheetActionCreator';

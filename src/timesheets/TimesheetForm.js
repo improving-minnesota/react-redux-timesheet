@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Form, Formik } from 'formik';
-import { StyledField } from '../form/StyledField';
+import { FieldWrapper } from '../form/FieldWrapper';
 import { Button } from 'semantic-ui-react';
 
 class TimesheetForm extends React.Component {
@@ -49,19 +49,19 @@ class TimesheetForm extends React.Component {
         onSubmit={ this.handleSave }
       >
         { ({ isSubmitting, isValid, errors }) => (
-          <Form>
-            <StyledField component="select" name="employee" label="Employee" invalid={ errors.employee }>
+          <Form className="ui form">
+            <FieldWrapper component="select" name="employee" label="Employee" invalid={ errors.employee }>
               { employees.map(employee => (
                 <option key={ employee._id }
                         value={ employee._id }>{ `${employee.firstName} ${employee.lastName}` }</option>
               )) }
-            </StyledField>
+            </FieldWrapper>
 
-            <StyledField type="text" name="name" label="Name" invalid={ errors.name }/>
-            <StyledField type="text" name="description" label="Description" invalid={ errors.description }/>
-            <StyledField type="date" name="beginDate" placeholder="YYYY-MM-DD" label="Start Date"
+            <FieldWrapper type="text" name="name" label="Name" invalid={ errors.name }/>
+            <FieldWrapper type="text" name="description" label="Description" invalid={ errors.description }/>
+            <FieldWrapper type="date" name="beginDate" placeholder="YYYY-MM-DD" label="Start Date"
                          invalid={ errors.beginDate }/>
-            <StyledField type="date" name="endDate" placeholder="YYYY-MM-DD" label="End Date"
+            <FieldWrapper type="date" name="endDate" placeholder="YYYY-MM-DD" label="End Date"
                          invalid={ errors.endDate }/>
 
             <Button type="submit" disabled={ isSubmitting || !isValid } primary>
