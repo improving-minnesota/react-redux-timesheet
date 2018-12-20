@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Form, Formik } from 'formik';
-import { StyledField } from '../form/StyledField';
-import { Button } from 'semantic-ui-react';
+import { FieldWrapper } from '../form/FieldWrapper';
+import { Button, Container } from 'semantic-ui-react';
 
 class LoginForm extends React.Component {
 
@@ -28,24 +28,26 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <Formik
-        validate={this.validate}
-        onSubmit={this.login}
-        initialValues={{
-          username: '',
-          password: ''
-        }}>
-        {({ isValid, errors }) => (
-          <Form className="ui form">
-            <StyledField type="text" name="username" label="Username" invalid={errors.username}/>
-            <StyledField type="password" name="password" label="Password" invalid={errors.email}/>
+      <Container>
+        <Formik
+          validate={this.validate}
+          onSubmit={this.login}
+          initialValues={{
+            username: '',
+            password: ''
+          }}>
+          {({ isValid, errors }) => (
+            <Form className="ui form">
+              <FieldWrapper type="text" name="username" label="Username" invalid={errors.username}/>
+              <FieldWrapper type="password" name="password" label="Password" invalid={errors.email}/>
 
-            <Button type="submit" disabled={!isValid} primary>
-              Login
-            </Button>
-          </Form>
-        )}
-      </Formik>
+              <Button type="submit" disabled={!isValid} primary>
+                Login
+              </Button>
+            </Form>
+          )}
+        </Formik>
+      </Container>
     );
   }
 }
