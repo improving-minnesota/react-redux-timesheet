@@ -1,5 +1,7 @@
 import React from 'react';
 import { Button, Header } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
+import { Header } from 'semantic-ui-react';
 import ProjectTable from './ProjectTable';
 import { Link } from 'react-router-dom';
 import * as ProjectActionCreators from '../actions/ProjectActionCreator';
@@ -29,6 +31,13 @@ class Projects extends React.Component {
     );
   }
 }
+
+Projects.propTypes = {
+  projects: PropTypes.arrayOf(PropTypes.object),
+  listProjects: PropTypes.func,
+  deleteEmployee: PropTypes.func,
+  restoreEmployee: PropTypes.func
+};
 
 const mapStateToProps = state => {
   return {

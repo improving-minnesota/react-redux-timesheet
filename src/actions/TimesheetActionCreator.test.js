@@ -24,11 +24,11 @@ describe('synchronous actions', () => {
 });
 
 describe('async actions', () => {
-  beforeEach(function() {
+  beforeEach(() => {
     moxios.install();
   });
 
-  afterEach(function() {
+  afterEach(() => {
     moxios.uninstall();
   });
 
