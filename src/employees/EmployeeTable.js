@@ -7,10 +7,6 @@ class EmployeeTable extends React.Component {
   render() {
     const { employees, onDelete, onRestore } = this.props;
 
-    const employeeRows = employees.map(employee => (
-      <EmployeeRow employee={ employee } onDelete={onDelete} onRestore={onRestore} key={ employee._id }/>
-    ));
-
     return (
       <Table celled striped>
         <Table.Header>
@@ -24,7 +20,9 @@ class EmployeeTable extends React.Component {
           </Table.Row>
         </Table.Header>
         <Table.Body>
-          { employeeRows }
+          {employees.map(employee => (
+            <EmployeeRow employee={ employee } key={ employee._id } onDelete={onDelete} onRestore={onRestore} />
+          ))}
         </Table.Body>
       </Table>
     );

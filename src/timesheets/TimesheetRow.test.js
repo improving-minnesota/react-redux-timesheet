@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 
 import TimesheetRow from './TimesheetRow';
 
-describe('<TimesheetRow />', function() {
+describe('<TimesheetRow />', () => {
   let timesheetRow;
 
   beforeEach(() => {
@@ -11,7 +11,7 @@ describe('<TimesheetRow />', function() {
     timesheetRow = shallow(<TimesheetRow timesheet={timesheet} />);
   });
 
-  it('should instantiate the Timesheet Component', function() {
+  it('should instantiate the Timesheet Component', () => {
     expect(timesheetRow).toHaveLength(1);
   });
 });

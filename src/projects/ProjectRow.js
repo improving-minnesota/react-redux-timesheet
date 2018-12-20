@@ -28,7 +28,6 @@ class ProjectRow extends React.Component {
 }
 
 ProjectRow.propTypes = {
-  onSelect: PropTypes.func,
   project: PropTypes.object.isRequired
 };
 

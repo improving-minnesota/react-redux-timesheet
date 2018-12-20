@@ -1,12 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { withRouter } from 'react-router';
+import { Grid, PageHeader, Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import * as TimesheetActions from '../actions/TimesheetActionCreator';
 import Timeunits from '../timeunits/Timeunits';
 import TimesheetForm from './TimesheetForm';
 import { Header } from 'semantic-ui-react';
 
-class TimesheetsDetail extends Component {
+class TimesheetsDetail extends React.Component {
 
   componentDidMount() {
     const { getTimesheet, match } = this.props;
@@ -46,9 +47,18 @@ class TimesheetsDetail extends Component {
   }
 }
 
+TimesheetsDetail.propTypes = {
+  employees: PropTypes.arrayOf(PropTypes.object),
+  timesheet: PropTypes.object,
+  createTimesheet: PropTypes.func,
+  updateTimesheet: PropTypes.func,
+  getTimesheet: PropTypes.func
+};
+
 const mapStateToProps = (state, props) => {
   const { match } = props;
   const { _id } = match.params;
+
   return {
     employees: state.employees.employees,
     timesheet: state.timesheets.timesheets.find(timesheet => timesheet._id === _id)

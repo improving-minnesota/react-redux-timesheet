@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Button, Header } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
 import EmployeeTable from './EmployeeTable';
 import * as EmployeeActionCreators from '../actions/EmployeeActionCreator';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-class Employees extends Component {
+class Employees extends React.Component {
   componentDidMount() {
     const { listEmployees } = this.props;
     listEmployees();
@@ -29,6 +30,10 @@ class Employees extends Component {
     );
   }
 }
+
+Employees.propTypes = {
+  employees: PropTypes.arrayOf(PropTypes.object)
+};
 
 const mapStateToProps = state => {
   return {

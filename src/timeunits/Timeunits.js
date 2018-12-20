@@ -1,11 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import TimeunitTable from './TimeunitTable';
 import { connect } from 'react-redux';
 import * as TimeunitActions from '../actions/TimeunitActionCreator';
 import { Button, Header } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import { Button, Header } from 'semantic-ui-react';
 
-class Timeunits extends Component {
+class Timeunits extends React.Component {
   componentDidMount() {
     const { listTimeunits, timesheet } = this.props;
     listTimeunits(timesheet._id);
@@ -24,15 +26,22 @@ class Timeunits extends Component {
           </Link>
         </Header>
         <TimeunitTable
-          timeunits={ timeunits }
-          timesheet={ timesheet }
-          onDelete={ deleteTimeunit }
-          onRestore={ restoreTimeunit }
+          timeunits={timeunits}
+          timesheet={timesheet}
+          onDelete={deleteTimeunit}
+          onRestore={restoreTimeunit}
         />
       </div>
     );
   }
 }
+
+Timeunits.propTypes = {
+  timeunits: PropTypes.arrayOf(PropTypes.object),
+  listTimeunits: PropTypes.func,
+  deleteTimeunit: PropTypes.func,
+  restoreTimeunit: PropTypes.func
+};
 
 const mapStateToProps = (state) => {
   return {

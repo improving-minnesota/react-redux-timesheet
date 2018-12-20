@@ -3,7 +3,7 @@ import TimeunitRow from './TimeunitRow';
 import { mount } from 'enzyme';
 import { MemoryRouter } from 'react-router-dom';
 
-describe('Timeunit Row Component: ', function() {
+describe('Timeunit Row Component: ', () => {
   let timesheetRow;
 
   beforeEach(() => {
@@ -15,7 +15,7 @@ describe('Timeunit Row Component: ', function() {
     );
   });
 
-  it('should instantiate the TimeunitRow Component', function() {
+  it('should instantiate the TimeunitRow Component', () => {
     expect(timesheetRow).toHaveLength(1);
   });
 });
