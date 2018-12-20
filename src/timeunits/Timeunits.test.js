@@ -1,10 +1,10 @@
 import React from 'react';
 import Timeunits from './Timeunits';
 import { mount } from 'enzyme';
-import configureStore from '../../store/configure-store';
+import configureStore from '../store/configure-store';
 import { MemoryRouter } from 'react-router-dom';
 
-describe('Timeunits Component: ', function() {
+describe('Timeunits Component: ', () => {
   let timeunits;
   let timesheet;
   const mockStore = configureStore();
@@ -18,7 +18,7 @@ describe('Timeunits Component: ', function() {
     );
   });
 
-  it('should instantiate the Timeunit Component', function() {
+  it('should instantiate the Timeunit Component', () => {
     expect(timeunits).toHaveLength(1);
   });
 });
