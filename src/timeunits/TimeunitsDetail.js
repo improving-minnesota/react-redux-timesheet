@@ -1,4 +1,5 @@
 import * as React from 'react';
+import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import * as TimeunitActions from '../actions/TimeunitActionCreator';
@@ -9,7 +10,10 @@ import { Header } from 'semantic-ui-react';
 class TimeunitsDetail extends React.Component {
 
   componentDidUpdate() {
-    const { listProjects } = this.props;
+    const { getTimeunit, listProjects, match } = this.props;
+    const id = match.params._id;
+    const timesheetId = match.params.timesheet_id;
+    getTimeunit(timesheetId, id);
     listProjects();
   }
 
@@ -25,9 +29,9 @@ class TimeunitsDetail extends React.Component {
   };
 
   render() {
-    const { projects, timeunit } = this.props;
-    const userId = this.props.match.params.user_id;
-    const timesheetId = this.props.match.params.timesheet_id;
+    const { projects, timeunit, match } = this.props;
+    const userId = match.params.user_id;
+    const timesheetId = match.params.timesheet_id;
     return (
       <div>
         <Header as="h1">Timeunit Edit</Header>
@@ -43,10 +47,19 @@ class TimeunitsDetail extends React.Component {
   }
 }
 
+TimeunitsDetail.propTypes = {
+  timeunit: PropTypes.object,
+  projects: PropTypes.arrayOf(PropTypes.object),
+  updateTimeunit: PropTypes.func,
+  createTimeunit: PropTypes.func,
+  getTimeunit: PropTypes.func,
+  listProjects: PropTypes.func
+};
+
 const mapStateToProps = (state, props) => {
   const { match } = props;
-  const { timesheet_id, _id } = match.params;
-  const timesheet = state.timesheets.timesheets.find(timesheet => timesheet._id === timesheet_id);
+  const { _id } = match.params;
+
   return {
     timeunit: state.timeunits.timeunits.find(timeunit => timeunit._id === _id),
     projects: state.projects.projects

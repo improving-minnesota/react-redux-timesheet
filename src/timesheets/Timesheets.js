@@ -1,5 +1,7 @@
 import React from 'react';
 import { Button, Header } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
+import { Header } from 'semantic-ui-react';
 import TimesheetTable from './TimesheetTable';
 import { Link } from 'react-router-dom';
 import * as TimesheetActionCreators from '../actions/TimesheetActionCreator';
@@ -29,6 +31,13 @@ class Timesheets extends React.Component {
     );
   }
 }
+
+Timesheets.propTypes = {
+  timesheets: PropTypes.arrayOf(PropTypes.object),
+  listTimesheets: PropTypes.func,
+  deleteTimesheet: PropTypes.func,
+  restoreTimesheet: PropTypes.func
+};
 
 const mapStateToProps = state => {
   return {

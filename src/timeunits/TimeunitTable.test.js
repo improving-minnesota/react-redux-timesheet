@@ -3,7 +3,7 @@ import TimeunitTable from './TimeunitTable';
 import { mount } from 'enzyme';
 import { MemoryRouter } from 'react-router-dom';
 
-describe('Timeunit Table Component: ', function() {
+describe('Timeunit Table Component: ', () => {
   let timeunitTable;
 
   beforeEach(() => {
@@ -15,7 +15,7 @@ describe('Timeunit Table Component: ', function() {
     );
   });
 
-  it('should instantiate the Timeunit Component', function() {
+  it('should instantiate the Timeunit Component', () => {
     expect(timeunitTable).toHaveLength(1);
   });
 });
