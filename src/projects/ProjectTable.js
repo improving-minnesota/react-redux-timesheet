@@ -5,9 +5,7 @@ import ProjectRow from './ProjectRow';
 
 class ProjectTable extends Component {
   render() {
-    const projectRows = this.props.projects.map(project => (
-      <ProjectRow project={ project } key={ project._id }/>
-    ));
+    const { projects } = this.props;
 
     return (
       <Table celled striped>
@@ -18,7 +16,9 @@ class ProjectTable extends Component {
           </Table.Row>
         </Table.Header>
         < Table.Body>
-          { projectRows }
+          {projects.map(project => (
+            <ProjectRow project={ project } key={ project._id }/>
+          ))}
         </Table.Body>
       </Table>
     );
