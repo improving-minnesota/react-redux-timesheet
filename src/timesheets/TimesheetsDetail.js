@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
-import { Grid, PageHeader, Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import * as TimesheetActions from '../actions/TimesheetActionCreator';
 import Timeunits from '../timeunits/Timeunits';
 import TimesheetForm from './TimesheetForm';
-import { Header } from 'semantic-ui-react';
+import { Container, Header } from 'semantic-ui-react';
 
 class TimesheetsDetail extends React.Component {
 
@@ -31,7 +30,7 @@ class TimesheetsDetail extends React.Component {
     const { employees, timesheet } = this.props;
 
     return (
-      <div>
+      <Container>
         <Header as="h1">Timesheet Detail</Header>
         <TimesheetForm
           timesheet={ timesheet }
@@ -43,7 +42,7 @@ class TimesheetsDetail extends React.Component {
             <Timeunits timesheet={ timesheet } />
           )
         }
-      </div>
+      </Container>
     );
   }
 }

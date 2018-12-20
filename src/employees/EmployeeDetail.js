@@ -2,7 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { Header } from 'semantic-ui-react';
+import { Container, Header } from 'semantic-ui-react';
 import EmployeeForm from './EmployeeForm';
 import * as EmployeeActions from '../actions/EmployeeActionCreator';
 
@@ -24,14 +24,14 @@ class EmployeesDetail extends React.Component {
 
   render() {
     return (
-      <div>
+      <Container>
         <Header as="h1">Employees Detail</Header>
         <EmployeeForm
           project={this.props.employee}
           actions={this.props.actions}
           handleSave={this.handleSave}
         />
-      </div>
+      </Container>
     );
   }
 }

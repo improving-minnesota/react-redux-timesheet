@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Form, Formik } from 'formik';
-import { StyledField } from '../form/StyledField';
+import { FieldWrapper } from '../form/FieldWrapper';
 import { Button } from 'semantic-ui-react';
 
 class TimeunitForm extends React.Component {
@@ -41,15 +41,15 @@ class TimeunitForm extends React.Component {
         onSubmit={this.handleSave}
       >
         {({ isSubmitting, isValid, errors }) => (
-          <Form>
-            <StyledField component="select" name="project" label="Project" invalid={errors.project}>
+          <Form className="ui form">
+            <FieldWrapper component="select" name="project" label="Project" invalid={errors.project}>
               {projects.map(project => (
                 <option key={project._id} value={project._id}>{project.name}</option>
               ))}
-            </StyledField>
+            </FieldWrapper>
 
-            <StyledField type="date" name="dateWorked" placeholder="YYYY-MM-DD" label="Date Worked" invalid={errors.dateWorked}/>
-            <StyledField type="number" name="hoursWorked" label="Hours Worked" invalid={errors.hoursWorked}/>
+            <FieldWrapper type="date" name="dateWorked" placeholder="YYYY-MM-DD" label="Date Worked" invalid={errors.dateWorked}/>
+            <FieldWrapper type="number" name="hoursWorked" label="Hours Worked" invalid={errors.hoursWorked}/>
 
             <Button type="submit" disabled={isSubmitting || !isValid} primary>
               Save
