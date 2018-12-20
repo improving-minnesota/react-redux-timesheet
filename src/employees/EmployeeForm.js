@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Form, Formik } from 'formik';
 import { Button } from 'semantic-ui-react';
-import { StyledField } from '../form/StyledField';
+import { FieldWrapper } from '../form/FieldWrapper';
 
 class EmployeeForm extends React.Component {
 
@@ -41,11 +41,11 @@ class EmployeeForm extends React.Component {
       >
         { ({ isSubmitting, isValid, errors }) => (
           <Form className="ui form">
-            <StyledField type="text" name="username" label="Username" invalid={ errors.username }/>
-            <StyledField type="text" name="email" label="Email" invalid={ errors.email }/>
-            <StyledField type="text" name="firstName" label="First Name" invalid={ errors.firstName }/>
-            <StyledField type="text" name="lastName" label="Last Name" invalid={ errors.lastName }/>
-            <StyledField type="checkbox" name="admin" label="Admin" invalid={ errors.admin }/>
+            <FieldWrapper type="text" name="username" label="Username" invalid={ errors.username }/>
+            <FieldWrapper type="text" name="email" label="Email" invalid={ errors.email }/>
+            <FieldWrapper type="text" name="firstName" label="First Name" invalid={ errors.firstName }/>
+            <FieldWrapper type="text" name="lastName" label="Last Name" invalid={ errors.lastName }/>
+            <FieldWrapper type="checkbox" name="admin" label="Admin" invalid={ errors.admin }/>
 
             <Button type="submit" disabled={ isSubmitting || !isValid } primary>
               Save
