@@ -3,14 +3,14 @@ import { shallow } from 'enzyme';
 
 import Timesheets from './Timesheets';
 
-describe('<Timesheets />', function() {
+describe('<Timesheets />', () => {
   let timesheets;
 
   beforeEach(() => {
     timesheets = shallow(<Timesheets />);
   });
 
-  it('should instantiate the Timesheet Component', function() {
+  it('should instantiate the Timesheet Component', () => {
     expect(timesheets).toHaveLength(1);
   });
 });

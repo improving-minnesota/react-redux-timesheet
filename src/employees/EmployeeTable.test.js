@@ -2,8 +2,8 @@ import React from 'react';
 import EmployeeTable from './EmployeeTable';
 import { mount } from 'enzyme';
 
-describe('<EmployeeTable />', function() {
-  it('should instantiate the Employee Table', function() {
+describe('<EmployeeTable />', () => {
+  it('should instantiate the Employee Table', () => {
     const employees = [
       {
         username: 'fflintstone',
