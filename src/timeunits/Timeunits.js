@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import TimeunitTable from './TimeunitTable';
-import { Button, Grid, PageHeader, Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import * as TimeunitActions from '../actions/TimeunitActionCreator';
 import { Link } from 'react-router-dom';
-import { Header } from 'semantic-ui-react';
+import { Button, Header } from 'semantic-ui-react';
 
-class Timeunits extends Component {
+class Timeunits extends React.Component {
   componentDidMount() {
     const { listTimeunits, timesheet } = this.props;
     listTimeunits(timesheet._id);
@@ -15,26 +15,33 @@ class Timeunits extends Component {
   render() {
     const { timesheet, timeunits, deleteTimeunit, restoreTimeunit } = this.props;
     const timeunitsCreateLink = timesheet
-      ? `/employees/${timesheet.user_id}/timesheets/detail/${timesheet._id}/timeunits/create`
+      ? `/timesheets/detail/${timesheet._id}/timeunits/detail`
       : '';
     return (
       <div>
         <Header as="h1">Timeunits</Header>
         <div className="pull-right">
-          <Link to={ timeunitsCreateLink }>
-            <Button bsStyle="primary">Create Timeunit</Button>
+          <Link to={timeunitsCreateLink}>
+            <Button primary>Create Timeunit</Button>
           </Link>
         </div>
         <TimeunitTable
-          timeunits={ timeunits }
-          timesheet={ timesheet }
-          onDelete={ deleteTimeunit }
-          onRestore={ restoreTimeunit }
+          timeunits={timeunits}
+          timesheet={timesheet}
+          onDelete={deleteTimeunit}
+          onRestore={restoreTimeunit}
         />
       </div>
     );
   }
 }
+
+Timeunits.propTypes = {
+  timeunits: PropTypes.arrayOf(PropTypes.object),
+  listTimeunits: PropTypes.func,
+  deleteTimeunit: PropTypes.func,
+  restoreTimeunit: PropTypes.func
+};
 
 const mapStateToProps = (state) => {
   return {
@@ -44,7 +51,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
   listTimeunits: TimeunitActions.listTimeunits,
-  deleteTimeunit: TimeunitActions.deleteTimeunit,
+  deleteTimeunit: TimeunitActions.removeTimeunit,
   restoreTimeunit: TimeunitActions.restoreTimeunit
 };
 

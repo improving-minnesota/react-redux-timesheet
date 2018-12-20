@@ -24,20 +24,23 @@ class ProjectsDetail extends React.Component {
   render() {
     return (
       <div>
-          <Header as="h1">Projects Detail</Header>
-          <ProjectForm
-            project={this.props.project}
-            actions={this.props.actions}
-            handleSave={this.handleSave}
-          />
-        </div>
+        <Header as="h1">Projects Detail</Header>
+        <ProjectForm
+          project={this.props.project}
+          actions={this.props.actions}
+          handleSave={this.handleSave}
+        />
+      </div>
     );
   }
 }
 
 ProjectsDetail.propTypes = {
   project: PropTypes.object.isRequired,
-  history: PropTypes.object
+  history: PropTypes.object,
+  onCreate: PropTypes.func,
+  onUpdate: PropTypes.func,
+  getProject: PropTypes.func
 };
 
 ProjectsDetail.defaultProps = {

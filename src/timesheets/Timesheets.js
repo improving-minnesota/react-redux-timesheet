@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Header } from 'semantic-ui-react';
 import TimesheetTable from './TimesheetTable';
 
@@ -396,5 +397,9 @@ class Timesheets extends React.Component {
     );
   }
 }
+
+Timesheets.propTypes = {
+    timesheets: PropTypes.arrayOf(PropTypes.object)
+};
 
 export default Timesheets;

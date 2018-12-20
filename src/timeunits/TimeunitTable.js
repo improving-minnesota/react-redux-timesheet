@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-
 import TimeunitRow from './TimeunitRow';
 import { Table } from 'semantic-ui-react';
 
-class TimeunitTable extends Component {
+class TimeunitTable extends React.Component {
   render() {
     const { timesheet, timeunits, onDelete, onRestore } = this.props;
 
@@ -19,17 +18,15 @@ class TimeunitTable extends Component {
           </Table.Row>
         </Table.Header>
         <Table.Body>
-          {timeunits.map((timeunit) => {
-            return (
-              <TimeunitRow
-                timeunit={timeunit}
-                timesheet={timesheet}
-                key={timeunit._id}
-                onRestore={onRestore}
-                onDelete={onDelete}
-              />
-            );
-          })}
+          {timeunits.map((timeunit) => (
+            <TimeunitRow
+              timeunit={timeunit}
+              timesheet={timesheet}
+              key={timeunit._id}
+              onRestore={onRestore}
+              onDelete={onDelete}
+            />
+          ))}
         </Table.Body>
       </Table>
     );

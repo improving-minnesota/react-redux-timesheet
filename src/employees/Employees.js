@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Header } from 'semantic-ui-react';
 import EmployeeTable from './EmployeeTable';
 
-class Employees extends Component {
+class Employees extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -40,5 +41,9 @@ class Employees extends Component {
     );
   }
 }
+
+Employees.propTypes = {
+    employees: PropTypes.arrayOf(PropTypes.object)
+};
 
 export default Employees;
