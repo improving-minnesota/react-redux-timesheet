@@ -5,10 +5,8 @@ import EmployeeRow from './EmployeeRow';
 
 class EmployeeTable extends React.Component {
   render() {
-    const employeeRows = this.props.employees.map(employee => (
-      <EmployeeRow employee={ employee } key={ employee._id }/>
-    ));
-
+    const { employees } = this.props;
+    
     return (
       <Table celled striped>
         <Table.Header>
@@ -21,7 +19,9 @@ class EmployeeTable extends React.Component {
           </Table.Row>
         </Table.Header>
         <Table.Body>
-          { employeeRows }
+          {employees.map(employee => (
+            <EmployeeRow employee={ employee } key={ employee._id }/>
+          ))}
         </Table.Body>
       </Table>
     );
