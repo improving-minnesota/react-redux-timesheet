@@ -1,24 +1,22 @@
 import React from 'react';
-import { Header, Menu } from 'semantic-ui-react';
+import { Nav, Navbar, NavItem } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 
 class Navigation extends React.Component {
   render() {
     return (
-      <Menu pointing secondary>
-        <Menu.Item>
-          <Header as="h2">Timesheetz</Header>
-        </Menu.Item>
-        <Menu.Item>
-          <NavLink to="/projects">Projects</NavLink>
-        </Menu.Item>
-        <Menu.Item>
-          <NavLink to="/employees" exact>Employees</NavLink>
-        </Menu.Item>
-        <Menu.Item>
-          <NavLink to="/timesheets">Timesheets</NavLink>
-        </Menu.Item>
-      </Menu>
+      <Navbar>
+        <Navbar.Header>
+          <Navbar.Brand>
+            Timesheetz
+          </Navbar.Brand>
+        </Navbar.Header>
+        <Nav>
+          <NavItem><NavLink to="/projects">Projects</NavLink></NavItem>
+          <NavItem><NavLink to="/employees">Employees</NavLink></NavItem>
+          <NavItem><NavLink to="/timesheets">Timesheets</NavLink></NavItem>
+        </Nav>
+      </Navbar>
     );
   }
 }

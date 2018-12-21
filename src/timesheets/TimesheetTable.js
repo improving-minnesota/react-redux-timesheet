@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Table } from 'semantic-ui-react';
+import { Table } from 'react-bootstrap';
 import TimesheetRow from './TimesheetRow';
 
 class TimesheetTable extends React.Component {
@@ -8,20 +8,20 @@ class TimesheetTable extends React.Component {
     const { timesheets } = this.props;
 
     return (
-      <Table celled striped>
-        <Table.Header>
-          <Table.Row>
-            <Table.HeaderCell>Begin Date</Table.HeaderCell>
-            <Table.HeaderCell>End Date</Table.HeaderCell>
-            <Table.HeaderCell>Name</Table.HeaderCell>
-            <Table.HeaderCell>Description</Table.HeaderCell>
-          </Table.Row>
-        </Table.Header>
-        <Table.Body>
+      <Table bordered striped>
+        <thead>
+          <tr>
+            <td>Begin Date</td>
+            <td>End Date</td>
+            <td>Name</td>
+            <td>Description</td>
+          </tr>
+        </thead>
+        <tbody>
           {timesheets.map((timesheet) => (
             <TimesheetRow timesheet={ timesheet } key={ timesheet._id }/>
           ))}
-        </Table.Body>
+        </tbody>
       </Table>
     );
   }

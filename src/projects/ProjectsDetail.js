@@ -2,7 +2,6 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { Header } from 'semantic-ui-react';
 import ProjectForm from './ProjectForm';
 import * as ProjectActions from '../actions/ProjectActionCreator';
 
@@ -24,7 +23,7 @@ class ProjectsDetail extends React.Component {
   render() {
     return (
       <div>
-        <Header as="h1">Projects Detail</Header>
+        <h1>Projects Detail</h1>
         <ProjectForm
           project={this.props.project}
           actions={this.props.actions}

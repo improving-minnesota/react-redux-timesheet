@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import * as TimeunitActions from '../actions/TimeunitActionCreator';
 import TimeunitForm from './TimeunitForm';
 import * as ProjectActions from '../actions/ProjectActionCreator';
-import { Header } from 'semantic-ui-react';
 
 class TimeunitsDetail extends React.Component {
 
@@ -34,7 +33,7 @@ class TimeunitsDetail extends React.Component {
     const timesheetId = match.params.timesheet_id;
     return (
       <div>
-        <Header as="h1">Timeunit Edit</Header>
+        <h1>Timeunit Edit</h1>
         <TimeunitForm
           projects={ projects }
           timesheetId={ timesheetId }

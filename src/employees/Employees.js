@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Header } from 'semantic-ui-react';
 import EmployeeTable from './EmployeeTable';
 
 class Employees extends React.Component {
@@ -35,7 +34,7 @@ class Employees extends React.Component {
 
     return (
       <div>
-        <Header as="h1">Employees</Header>
+        <h1>Employees</h1>
         <EmployeeTable employees={ employees }/>
       </div>
     );

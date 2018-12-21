@@ -1,7 +1,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
-import { Button, Table } from 'semantic-ui-react';
+import { Button } from 'react-bootstrap';
 
 class TimeunitRow extends React.Component {
   handleClick = (timesheet, timeunit) => {
@@ -29,21 +29,20 @@ class TimeunitRow extends React.Component {
     const { timesheet, timeunit } = this.props;
 
     return (
-      <Table.Row
-        negative={timeunit.deleted}
+      <tr
         onClick={() => {
           this.showDetail(timesheet, timeunit);
         }}
       >
-        <Table.Cell>{timeunit.project}</Table.Cell>
-        <Table.Cell>{timeunit.dateWorked}</Table.Cell>
-        <Table.Cell>{timeunit.hoursWorked}</Table.Cell>
-        <Table.Cell>
+        <td>{timeunit.project}</td>
+        <td>{timeunit.dateWorked}</td>
+        <td>{timeunit.hoursWorked}</td>
+        <td>
           <Button onClick={this.handleClick}>
             {timeunit.deleted ? 'Restore' : 'Delete'}
           </Button>
-        </Table.Cell>
-      </Table.Row>
+        </td>
+      </tr>
     );
   }
 }

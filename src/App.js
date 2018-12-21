@@ -13,12 +13,14 @@ class App extends React.Component {
       <BrowserRouter>
         <div className="App">
           <Navigation />
-          <Switch>
-            <Route path="/projects" component={Projects} />
-            <Route exact path="/employees" component={Employees} />
-            <Route path="/employees/:user_id/timesheets" component={Timesheets} />
-            <Redirect to="/employees" />
-          </Switch>
+          <div className="container">
+            <Switch>
+              <Route path="/projects" component={Projects} />
+              <Route exact path="/employees" component={Employees} />
+              <Route path="/timesheets" component={Timesheets} />
+              <Redirect to="/employees" />
+            </Switch>
+          </div>
         </div>
       </BrowserRouter>
     );

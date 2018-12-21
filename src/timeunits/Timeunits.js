@@ -4,7 +4,7 @@ import TimeunitTable from './TimeunitTable';
 import { connect } from 'react-redux';
 import * as TimeunitActions from '../actions/TimeunitActionCreator';
 import { Link } from 'react-router-dom';
-import { Button, Header } from 'semantic-ui-react';
+import { Button } from 'react-bootstrap';
 
 class Timeunits extends React.Component {
   componentDidMount() {
@@ -19,10 +19,10 @@ class Timeunits extends React.Component {
       : '';
     return (
       <div>
-        <Header as="h1">Timeunits</Header>
+        <h1>Timeunits</h1>
         <div className="pull-right">
           <Link to={timeunitsCreateLink}>
-            <Button primary>Create Timeunit</Button>
+            <Button>Create Timeunit</Button>
           </Link>
         </div>
         <TimeunitTable
