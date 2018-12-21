@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Container } from 'semantic-ui-react';
 
 class EmployeeDetail extends React.Component {
   componentDidMount(props) {
@@ -11,9 +10,9 @@ class EmployeeDetail extends React.Component {
 
   render() {
     return (
-      <Container>
+      <div>
           TODO
-      </Container>
+      </div>
     );
   }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Table } from 'semantic-ui-react';
+import { Button } from 'react-bootstrap';
 
 class EmployeeRow extends React.Component {
   handleClick = () => {
@@ -17,18 +17,18 @@ class EmployeeRow extends React.Component {
     const { employee } = this.props;
 
     return (
-      <Table.Row negative={employee.deleted}>
-        <Table.Cell>{employee.username}</Table.Cell>
-        <Table.Cell>{employee.email}</Table.Cell>
-        <Table.Cell>{employee.firstName}</Table.Cell>
-        <Table.Cell>{employee.lastName}</Table.Cell>
-        <Table.Cell>{employee.admin ? 'Yes' : 'No'}</Table.Cell>
-        <Table.Cell>
+      <tr>
+        <td>{employee.username}</td>
+        <td>{employee.email}</td>
+        <td>{employee.firstName}</td>
+        <td>{employee.lastName}</td>
+        <td>{employee.admin ? 'Yes' : 'No'}</td>
+        <td>
           <Button onClick={this.handleClick}>
             {employee.deleted ? 'Restore' : 'Delete'}
           </Button>
-        </Table.Cell>
-      </Table.Row>
+        </td>
+      </tr>
     );
   }
 }

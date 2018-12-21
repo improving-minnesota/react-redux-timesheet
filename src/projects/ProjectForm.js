@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Form, Formik } from 'formik';
-import { Button } from 'semantic-ui-react';
 import { FieldWrapper } from '../form/FieldWrapper';
+import { Button } from 'react-bootstrap';
 
 class ProjectForm extends React.Component {
 

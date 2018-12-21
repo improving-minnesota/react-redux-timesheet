@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Table } from 'semantic-ui-react';
+import { Table } from 'react-bootstrap';
 import ProjectRow from './ProjectRow';
 
 class ProjectTable extends Component {
@@ -8,18 +8,18 @@ class ProjectTable extends Component {
     const { projects } = this.props;
 
     return (
-      <Table celled selectable striped>
-        <Table.Header>
-          <Table.Row>
-            <Table.HeaderCell>Name</Table.HeaderCell>
-            <Table.HeaderCell>Description</Table.HeaderCell>
-          </Table.Row>
-        </Table.Header>
-        < Table.Body>
+      <Table bordered striped hover>
+        <thead>
+          <tr>
+            <td>Name</td>
+            <td>Description</td>
+          </tr>
+        </thead>
+        <tbody>
           {projects.map(project => (
             <ProjectRow project={ project } key={ project._id } />
           ))}
-        </Table.Body>
+        </tbody>
       </Table>
     );
   }

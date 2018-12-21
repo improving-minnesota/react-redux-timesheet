@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Table } from 'semantic-ui-react';
 import { withRouter } from 'react-router';
 
 class ProjectRow extends React.Component {
@@ -19,10 +18,10 @@ class ProjectRow extends React.Component {
     const { project } = this.props;
 
     return (
-      <Table.Row onClick={this.showDetail}>
-        <Table.Cell>{project.name}</Table.Cell>
-        <Table.Cell>{project.description}</Table.Cell>
-      </Table.Row>
+      <tr onClick={this.showDetail}>
+        <td>{project.name}</td>
+        <td>{project.description}</td>
+      </tr>
     );
   }
 }

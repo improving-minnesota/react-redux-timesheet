@@ -1,10 +1,10 @@
 import React from 'react';
-import { Button, Header } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import EmployeeTable from './EmployeeTable';
 import * as EmployeeActionCreators from '../actions/EmployeeActionCreator';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 class Employees extends React.Component {
   componentDidMount() {
@@ -17,14 +17,12 @@ class Employees extends React.Component {
 
     return (
       <div>
-        <Header as="h1">
-          Employees
-          <Link to="/employees/detail">
-            <Button floated="right" primary>
-              New Employee
-            </Button>
-          </Link>
-        </Header>
+        <h1>Employees</h1>
+        <Link to="/employees/detail">
+          <Button floated="right" primary>
+            New Employee
+          </Button>
+        </Link>
         <EmployeeTable employees={ employees } onDelete={ deleteEmployee } onRestore={ restoreEmployee }/>
       </div>
     );
