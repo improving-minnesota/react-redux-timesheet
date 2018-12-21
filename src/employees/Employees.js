@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Header } from 'semantic-ui-react';
 import EmployeeTable from './EmployeeTable';
 
 class Employees extends Component {
@@ -34,7 +33,7 @@ class Employees extends Component {
 
     return (
       <div>
-        <Header as="h1">Employees</Header>
+        <h1>Employees</h1>
         <EmployeeTable employees={ employees }/>
       </div>
     );

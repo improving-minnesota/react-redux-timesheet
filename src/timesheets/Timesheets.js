@@ -1,5 +1,4 @@
 import React from 'react';
-import { Header } from 'semantic-ui-react';
 import TimesheetTable from './TimesheetTable';
 
 class Timesheets extends React.Component {
@@ -390,7 +389,7 @@ class Timesheets extends React.Component {
 
     return (
       <div>
-        <Header as="h1">Timesheets</Header>
+        <h1>Timesheets</h1>
         <TimesheetTable timesheets={ timesheets }/>
       </div>
     );

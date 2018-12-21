@@ -1,5 +1,4 @@
 import React from 'react';
-import { Header } from 'semantic-ui-react';
 import ProjectTable from './ProjectTable';
 
 class Projects extends React.Component {
@@ -27,7 +26,7 @@ class Projects extends React.Component {
 
     return (
       <div>
-        <Header as="h1">Projects</Header>
+        <h1>Projects</h1>
         <ProjectTable projects={projects} />
       </div>
     );
