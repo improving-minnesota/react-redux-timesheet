@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Form, Formik } from 'formik';
 import { FieldWrapper } from '../form/FieldWrapper';
-import { Button } from 'semantic-ui-react';
+import { Button } from 'react-bootstrap';
 
 class TimesheetForm extends React.Component {
 

@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import TimeunitTable from './TimeunitTable';
-import { connect } from 'react-redux';
 import * as TimeunitActions from '../actions/TimeunitActionCreator';
-import { Button, Header } from 'semantic-ui-react';
+import TimeunitTable from './TimeunitTable';
 import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
+import { connect } from 'react-redux';
 
 class Timeunits extends React.Component {
   componentDidMount() {
@@ -14,16 +14,13 @@ class Timeunits extends React.Component {
 
   render() {
     const { timesheet, timeunits, deleteTimeunit, restoreTimeunit } = this.props;
+
     return (
       <div>
-        <Header as="h1">
-          Timeunits
-          <Link to={`/timesheets/detail/${timesheet._id}/timeunits/detail`}>
-            <Button floated="right" primary>
-              New Timeunit
-            </Button>
-          </Link>
-        </Header>
+        <h1>Timeunits</h1>
+        <Link to={`/timesheets/detail/${timesheet._id}/timeunits/detail`}>
+          <Button>Create Timeunit</Button>
+        </Link>
         <TimeunitTable
           timeunits={timeunits}
           timesheet={timesheet}

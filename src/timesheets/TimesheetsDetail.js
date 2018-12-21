@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import * as TimesheetActions from '../actions/TimesheetActionCreator';
 import Timeunits from '../timeunits/Timeunits';
 import TimesheetForm from './TimesheetForm';
-import { Container, Header } from 'semantic-ui-react';
 
 class TimesheetsDetail extends React.Component {
 
@@ -30,8 +29,8 @@ class TimesheetsDetail extends React.Component {
     const { employees, timesheet } = this.props;
 
     return (
-      <Container>
-        <Header as="h1">Timesheet Detail</Header>
+      <div>
+        <h1>Timesheet Detail</h1>
         <TimesheetForm
           timesheet={ timesheet }
           employees={ employees }
@@ -42,7 +41,7 @@ class TimesheetsDetail extends React.Component {
             <Timeunits timesheet={ timesheet } />
           )
         }
-      </Container>
+      </div>
     );
   }
 }

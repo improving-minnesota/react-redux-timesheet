@@ -22,28 +22,30 @@ class App extends React.Component {
       <BrowserRouter>
         <div className="App">
           <Navigation onLogout={logout} />
-          {!user ? (
-            <LoginForm onLogin={login} />
-          ) : (
-            <Switch>
-              <Route exact path="/projects" component={Projects} />
-              <Route exact path="/projects/detail/:_id?" component={ProjectsDetail} />
+          <div className="container">
+            {!user ? (
+              <LoginForm onLogin={login} />
+            ) : (
+              <Switch>
+                <Route exact path="/projects" component={Projects} />
+                <Route exact path="/projects/detail/:_id?" component={ProjectsDetail} />
 
-              <Route exact path="/employees" component={Employees} />
-              <Route exact path="/employees/detail/:_id?" component={EmployeeDetail} />
+                <Route exact path="/employees" component={Employees} />
+                <Route exact path="/employees/detail/:_id?" component={EmployeeDetail} />
 
-              <Route exact path="/timesheets" component={Timesheets} />
-              <Route exact path="/timesheets/detail/:_id?" component={TimesheetsDetail} />
+                <Route exact path="/timesheets" component={Timesheets} />
+                <Route exact path="/timesheets/detail/:_id?" component={TimesheetsDetail} />
 
-              <Route
-                exact
-                path="/timesheets/detail/:timesheet_id/timeunits/detail/:_id?"
-                component={TimeunitsDetail}
-              />
+                <Route
+                  exact
+                  path="/timesheets/detail/:timesheet_id/timeunits/detail/:_id?"
+                  component={TimeunitsDetail}
+                />
 
-              <Redirect to="/employees" />
-            </Switch>
-          )}
+                <Redirect to="/employees" />
+              </Switch>
+            )}
+          </div>
         </div>
       </BrowserRouter>
     );

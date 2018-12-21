@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Form, Formik } from 'formik';
 import { FieldWrapper } from '../form/FieldWrapper';
-import { Button, Container } from 'semantic-ui-react';
+import { Button } from 'react-bootstrap';
 
 class LoginForm extends React.Component {
 
@@ -28,7 +28,7 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <Container>
+      <div>
         <Formik
           validate={this.validate}
           onSubmit={this.login}
@@ -47,7 +47,7 @@ class LoginForm extends React.Component {
             </Form>
           )}
         </Formik>
-      </Container>
+      </div>
     );
   }
 }

@@ -1,10 +1,10 @@
 import React from 'react';
-import { Button, Header } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import TimesheetTable from './TimesheetTable';
 import { Link } from 'react-router-dom';
 import * as TimesheetActionCreators from '../actions/TimesheetActionCreator';
 import connect from 'react-redux/es/connect/connect';
+import { Button } from 'react-bootstrap';
 
 class Timesheets extends React.Component {
   componentDidMount() {
@@ -17,14 +17,12 @@ class Timesheets extends React.Component {
 
     return (
       <div>
-        <Header as="h1">
-          Timesheets
-          <Link to="/timesheets/detail">
-            <Button floated="right" primary>
-              New Timesheet
-            </Button>
-          </Link>
-        </Header>
+        <h1>Timesheets</h1>
+        <Link to="/timesheets/detail">
+          <Button floated="right" primary>
+            New Timesheet
+          </Button>
+        </Link>
         <TimesheetTable timesheets={ timesheets } onDelete={ deleteTimesheet } onRestore={ restoreTimesheet } />
       </div>
     );

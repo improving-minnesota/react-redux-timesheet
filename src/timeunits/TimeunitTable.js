@@ -1,23 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TimeunitRow from './TimeunitRow';
-import { Table } from 'semantic-ui-react';
+import { Table } from 'react-bootstrap';
 
 class TimeunitTable extends React.Component {
   render() {
     const { timesheet, timeunits, onDelete, onRestore } = this.props;
 
     return (
-      <Table celled selectable striped>
-        <Table.Header>
-          <Table.Row>
-            <Table.HeaderCell>Project</Table.HeaderCell>
-            <Table.HeaderCell>Date</Table.HeaderCell>
-            <Table.HeaderCell>Hours</Table.HeaderCell>
-            <Table.HeaderCell>Delete</Table.HeaderCell>
-          </Table.Row>
-        </Table.Header>
-        <Table.Body>
+      <Table bordered striped hover>
+        <thead>
+          <tr>
+            <td>Project</td>
+            <td>Date</td>
+            <td>Hours</td>
+            <td>Delete</td>
+          </tr>
+        </thead>
+        <tbody>
           {timeunits.map((timeunit) => (
             <TimeunitRow
               timeunit={timeunit}
@@ -27,7 +27,7 @@ class TimeunitTable extends React.Component {
               onDelete={onDelete}
             />
           ))}
-        </Table.Body>
+        </tbody>
       </Table>
     );
   }
