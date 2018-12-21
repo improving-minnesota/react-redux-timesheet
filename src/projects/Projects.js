@@ -1,10 +1,10 @@
 import React from 'react';
-import { Button, Header } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import ProjectTable from './ProjectTable';
 import { Link } from 'react-router-dom';
 import * as ProjectActionCreators from '../actions/ProjectActionCreator';
 import connect from 'react-redux/es/connect/connect';
+import { Button } from 'react-bootstrap';
 
 class Projects extends React.Component {
   componentDidMount() {
@@ -17,14 +17,12 @@ class Projects extends React.Component {
 
     return (
       <div>
-        <Header as="h1">
-          Projects
-          <Link to="/projects/detail">
-            <Button floated="right" primary>
-              New Project
-            </Button>
-          </Link>
-        </Header>
+        <h1>Projects</h1>
+        <Link to="/projects/detail">
+          <Button floated="right" primary>
+            New Project
+          </Button>
+        </Link>
         <ProjectTable projects={projects} />
       </div>
     );

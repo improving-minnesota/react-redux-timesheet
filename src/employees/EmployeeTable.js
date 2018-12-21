@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Table } from 'semantic-ui-react';
+import { Table } from 'react-bootstrap';
 import EmployeeRow from './EmployeeRow';
 
 class EmployeeTable extends React.Component {
@@ -8,22 +8,22 @@ class EmployeeTable extends React.Component {
     const { employees, onDelete, onRestore } = this.props;
 
     return (
-      <Table celled striped selectable>
-        <Table.Header>
-          <Table.Row>
-            <Table.HeaderCell>Username</Table.HeaderCell>
-            <Table.HeaderCell>Email</Table.HeaderCell>
-            <Table.HeaderCell>First Name</Table.HeaderCell>
-            <Table.HeaderCell>Last Name</Table.HeaderCell>
-            <Table.HeaderCell>Admin</Table.HeaderCell>
-            <Table.HeaderCell>Delete</Table.HeaderCell>
-          </Table.Row>
-        </Table.Header>
-        <Table.Body>
+      <Table bordered striped hover>
+        <thead>
+          <tr>
+            <td>Username</td>
+            <td>Email</td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Admin</td>
+            <td>Delete</td>
+          </tr>
+        </thead>
+        <tbody>
           {employees.map(employee => (
             <EmployeeRow employee={ employee } key={ employee._id } onDelete={onDelete} onRestore={onRestore} />
           ))}
-        </Table.Body>
+        </tbody>
       </Table>
     );
   }
