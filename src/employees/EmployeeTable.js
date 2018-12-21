@@ -8,7 +8,7 @@ class EmployeeTable extends React.Component {
     const { employees, onDelete, onRestore } = this.props;
 
     return (
-      <Table celled striped>
+      <Table celled striped selectable>
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell>Username</Table.HeaderCell>
