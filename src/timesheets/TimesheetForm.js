@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Form, Formik } from 'formik';
 import { FieldWrapper } from '../form/FieldWrapper';
-import { Button } from 'react-bootstrap';
+import FormControls from '../form/FormControls';
 
 class TimesheetForm extends React.Component {
 
@@ -48,8 +48,8 @@ class TimesheetForm extends React.Component {
         validate={ this.validate }
         onSubmit={ this.handleSave }
       >
-        { ({ isSubmitting, isValid, errors }) => (
-          <Form className="ui form">
+        { ({ isValid, errors, handleReset, handleSubmit }) => (
+          <Form>
             <FieldWrapper component="select" name="employee" label="Employee" invalid={ errors.employee }>
               { employees.map(employee => (
                 <option key={ employee._id }
@@ -64,9 +64,11 @@ class TimesheetForm extends React.Component {
             <FieldWrapper type="date" name="endDate" placeholder="YYYY-MM-DD" label="End Date"
                          invalid={ errors.endDate }/>
 
-            <Button type="submit" disabled={ isSubmitting || !isValid } primary>
-              Save
-            </Button>
+            <FormControls
+              allowSubmit={isValid}
+              onSubmit={handleSubmit}
+              onReset={handleReset}
+            />
           </Form>
         ) }
       </Formik>
