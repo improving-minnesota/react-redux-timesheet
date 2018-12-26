@@ -2,7 +2,10 @@ import React from 'react';
 import ProjectTable from './ProjectTable';
 
 class Projects extends React.Component {
-  // TODO Implement
+  render() {
+    // TODO Implement
+    return null;
+  }
 }
 
 export default Projects;
