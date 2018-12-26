@@ -11,8 +11,8 @@ class ProjectTable extends Component {
       <Table bordered striped>
         <thead>
           <tr>
-            <td>Name</td>
-            <td>Description</td>
+            <th>Name</th>
+            <th>Description</th>
           </tr>
         </thead>
         <tbody>
