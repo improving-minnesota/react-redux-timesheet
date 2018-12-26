@@ -17,7 +17,7 @@ class EmployeeRow extends React.Component {
     const { employee } = this.props;
 
     return (
-      <tr>
+      <tr className={employee.deleted ? 'deleted' : ''}>
         <td>{employee.username}</td>
         <td>{employee.email}</td>
         <td>{employee.firstName}</td>

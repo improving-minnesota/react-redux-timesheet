@@ -18,7 +18,7 @@ class ProjectRow extends React.Component {
     const { project } = this.props;
 
     return (
-      <tr onClick={this.showDetail}>
+      <tr className={project.deleted ? 'deleted' : ''} onClick={this.showDetail}>
         <td>{project.name}</td>
         <td>{project.description}</td>
       </tr>
