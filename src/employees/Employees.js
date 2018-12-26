@@ -19,7 +19,7 @@ class Employees extends React.Component {
       <div>
         <h1>Employees</h1>
         <Link to="/employees/detail">
-          <Button floated="right" primary>
+          <Button bsStyle="primary">
             New Employee
           </Button>
         </Link>
