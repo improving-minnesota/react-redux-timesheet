@@ -29,7 +29,7 @@ class TimesheetRow extends React.Component {
     const { timesheet } = this.props;
 
     return (
-      <tr onClick={this.showDetail}>
+      <tr className={timesheet.deleted ? 'deleted' : ''} onClick={this.showDetail}>
         <td>{timesheet.beginDate}</td>
         <td>{timesheet.endDate}</td>
         <td>{timesheet.name}</td>

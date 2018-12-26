@@ -30,6 +30,7 @@ class TimeunitRow extends React.Component {
 
     return (
       <tr
+        className={timeunit.deleted ? 'deleted' : ''}
         onClick={() => {
           this.showDetail(timesheet, timeunit);
         }}
