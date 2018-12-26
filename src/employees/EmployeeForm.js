@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Form, Formik } from 'formik';
 import { FieldWrapper } from '../form/FieldWrapper';
-import { Button } from 'react-bootstrap';
+import FormControls from '../form/FormControls';
 
 class EmployeeForm extends React.Component {
 
@@ -39,17 +39,19 @@ class EmployeeForm extends React.Component {
         validate={ this.validate }
         onSubmit={ this.handleSave }
       >
-        { ({ isSubmitting, isValid, errors }) => (
-          <Form className="ui form">
+        { ({ isValid, errors, handleReset, handleSubmit }) => (
+          <Form>
             <FieldWrapper type="text" name="username" label="Username" invalid={ errors.username }/>
             <FieldWrapper type="text" name="email" label="Email" invalid={ errors.email }/>
             <FieldWrapper type="text" name="firstName" label="First Name" invalid={ errors.firstName }/>
             <FieldWrapper type="text" name="lastName" label="Last Name" invalid={ errors.lastName }/>
             <FieldWrapper type="checkbox" name="admin" label="Admin" invalid={ errors.admin }/>
 
-            <Button type="submit" disabled={ isSubmitting || !isValid } primary>
-              Save
-            </Button>
+            <FormControls
+              allowSubmit={isValid}
+              onSubmit={handleSubmit}
+              onReset={handleReset}
+            />
           </Form>
         ) }
       </Formik>
