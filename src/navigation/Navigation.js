@@ -2,10 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Nav, Navbar, NavItem } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
+import * as AuthActions from '../actions/AuthActionCreator';
+import { connect } from 'react-redux';
 
 class Navigation extends React.Component {
   logout = () => {
-    this.props.onLogout();
+    this.props.logout();
   };
 
   render() {
@@ -32,7 +34,14 @@ class Navigation extends React.Component {
 }
 
 Navigation.propTypes = {
-  onLogout: PropTypes.func
+  logout: PropTypes.func
 };
 
-export default Navigation;
+const mapStateToProps = state => ({
+});
+
+const mapDispatchToProps = {
+  logout: AuthActions.logout
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navigation);

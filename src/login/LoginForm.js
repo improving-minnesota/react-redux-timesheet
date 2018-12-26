@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Form, Formik } from 'formik';
 import { FieldWrapper } from '../form/FieldWrapper';
-import { Button } from 'react-bootstrap';
+import FormControls from '../form/FormControls';
 
 class LoginForm extends React.Component {
 
@@ -27,6 +27,8 @@ class LoginForm extends React.Component {
   };
 
   render() {
+    const { loginError } = this.props;
+
     return (
       <div>
         <Formik
@@ -36,24 +38,31 @@ class LoginForm extends React.Component {
             username: '',
             password: ''
           }}>
-          {({ isValid, errors }) => (
-            <Form className="ui form">
+          {({ isValid, errors, handleSubmit, handleReset }) => (
+            <Form>
               <FieldWrapper type="text" name="username" label="Username" invalid={errors.username}/>
               <FieldWrapper type="password" name="password" label="Password" invalid={errors.email}/>
 
-              <Button type="submit" disabled={!isValid} primary>
-                Login
-              </Button>
+              <FormControls
+                action="Login"
+                allowSubmit={isValid}
+                onSubmit={handleSubmit}
+                onReset={handleReset}
+              />
             </Form>
           )}
         </Formik>
+        {loginError && (
+          <p style={{ color: 'red' }}>{loginError}</p>
+        )}
       </div>
     );
   }
 }
 
 LoginForm.propTypes = {
-  onLogin: PropTypes.func
+  onLogin: PropTypes.func.isRequired,
+  loginError: PropTypes.string
 };
 
 export default LoginForm;

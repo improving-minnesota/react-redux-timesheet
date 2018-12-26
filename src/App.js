@@ -16,7 +16,7 @@ import LoginForm from './login/LoginForm';
 
 class App extends React.Component {
   render() {
-    const { user, login, logout } = this.props;
+    const { loginError, user, login, logout } = this.props;
 
     return (
       <BrowserRouter>
@@ -24,7 +24,7 @@ class App extends React.Component {
           <Navigation onLogout={logout} />
           <div className="container">
             {!user ? (
-              <LoginForm onLogin={login} />
+              <LoginForm onLogin={login} loginError={loginError} />
             ) : (
               <Switch>
                 <Route exact path="/projects" component={Projects} />
@@ -53,7 +53,8 @@ class App extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  user: state.auth.user
+  user: state.auth.user,
+  loginError: state.auth.error
 });
 
 const mapDispatchToProps = {
