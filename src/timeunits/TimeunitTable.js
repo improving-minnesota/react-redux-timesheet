@@ -11,10 +11,10 @@ class TimeunitTable extends React.Component {
       <Table bordered striped hover>
         <thead>
           <tr>
-            <td>Project</td>
-            <td>Date</td>
-            <td>Hours</td>
-            <td>Delete</td>
+            <th>Project</th>
+            <th>Date</th>
+            <th>Hours</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
