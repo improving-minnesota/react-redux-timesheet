@@ -11,12 +11,12 @@ class EmployeeTable extends React.Component {
       <Table bordered striped hover>
         <thead>
           <tr>
-            <td>Username</td>
-            <td>Email</td>
-            <td>First Name</td>
-            <td>Last Name</td>
-            <td>Admin</td>
-            <td>Delete</td>
+            <th>Username</th>
+            <th>Email</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Admin</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
