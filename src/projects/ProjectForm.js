@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Form, Formik } from 'formik';
 import { FieldWrapper } from '../form/FieldWrapper';
-import { Button } from 'react-bootstrap';
+import FormControls from '../form/FormControls';
 
 class ProjectForm extends React.Component {
 
@@ -39,14 +39,16 @@ class ProjectForm extends React.Component {
         validate={ this.validate }
         onSubmit={ this.handleSave }
       >
-        { ({ isSubmitting, isValid, errors }) => (
-          <Form className="ui form">
+        { ({ isValid, errors, handleReset, handleSubmit }) => (
+          <Form>
             <FieldWrapper type="text" name="name" label="Name" invalid={ errors.name }/>
             <FieldWrapper type="text" name="description" label="Description" invalid={ errors.description }/>
 
-            <Button type="submit" disabled={ isSubmitting || !isValid } primary>
-              Save
-            </Button>
+            <FormControls
+              allowSubmit={isValid}
+              onSubmit={handleSubmit}
+              onReset={handleReset}
+            />
           </Form>
         ) }
       </Formik>
