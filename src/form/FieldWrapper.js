@@ -1,14 +1,23 @@
 import React from 'react';
 import { Field } from 'formik';
+import { FormControl, FormGroup } from 'react-bootstrap';
+import ControlLabel from 'react-bootstrap/es/ControlLabel';
 
-const FieldWrapper = ({ label, invalid, children, component, ...rest }) => (
+const FieldWrapper = ({ name, label, invalid, children, component, ...rest }) => (
   <div className="field">
-    {label && <label>{label}</label>}
-    <Field {...rest} component={component} style={{ borderColor: invalid ? 'red' : undefined }} className={component === 'select' ? 'ui selection dropdown' : ''}>
-      {children}
-    </Field>
+    {label && <ControlLabel>{label}</ControlLabel>}
+    <Field
+      name={name}
+      render={({ field  }) => (
+        <FormGroup validationState={invalid ? 'error' : null}>
+          <FormControl {...field} componentClass={component} >
+            {children}
+          </FormControl>
+        </FormGroup>
+      )}
+    />
     {invalid && (
-      <p style={{ color: 'red' }}>{invalid}</p>
+      <small style={{ color: 'red' }}>{invalid}</small>
     )}
   </div>
 );
