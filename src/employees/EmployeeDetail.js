@@ -9,7 +9,9 @@ class EmployeesDetail extends React.Component {
   componentDidMount() {
     const { match, getEmployee } = this.props;
     const id = match.params._id;
-    getEmployee(id);
+    if (id) {
+      getEmployee(id);
+    }
   }
 
   handleSave = (values) => {
@@ -26,7 +28,7 @@ class EmployeesDetail extends React.Component {
       <div>
         <h1>Employees Detail</h1>
         <EmployeeForm
-          project={this.props.employee}
+          employee={this.props.employee}
           actions={this.props.actions}
           handleSave={this.handleSave}
         />
