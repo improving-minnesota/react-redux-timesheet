@@ -19,7 +19,7 @@ class Projects extends React.Component {
       <div>
         <h1>Projects</h1>
         <Link to="/projects/detail">
-          <Button floated="right" primary>
+          <Button bsStyle="primary">
             New Project
           </Button>
         </Link>
