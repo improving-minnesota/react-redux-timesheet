@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, ButtonToolbar } from 'react-bootstrap';
 
-const FormControls = ({ allowSubmit, onSubmit, onReset }) => (
+const FormControls = ({ action, allowSubmit, onSubmit, onReset }) => (
   <ButtonToolbar>
     <Button type="button" onClick={onSubmit} disabled={!allowSubmit} bsStyle="primary">
-      Save
+      {action}
     </Button>
     <Button type="button" onClick={onReset}>
       Reset
@@ -14,9 +14,17 @@ const FormControls = ({ allowSubmit, onSubmit, onReset }) => (
 );
 
 FormControls.propTypes = {
+  action: PropTypes.string,
   allowSubmit: PropTypes.bool,
   onSubmit: PropTypes.func,
   onReset: PropTypes.func
+};
+
+FormControls.defaultProps = {
+  action: 'Save',
+  allowSubmit: true,
+  onSubmit: () => {},
+  onReset: () => {}
 };
 
 export default FormControls;

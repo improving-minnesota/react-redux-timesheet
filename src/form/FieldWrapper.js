@@ -10,7 +10,7 @@ const FieldWrapper = ({ name, label, invalid, children, component, ...rest }) =>
       name={name}
       render={({ field  }) => (
         <FormGroup validationState={invalid ? 'error' : null}>
-          <FormControl {...field} componentClass={component} >
+          <FormControl {...rest} {...field} componentClass={component} >
             {children}
           </FormControl>
         </FormGroup>
