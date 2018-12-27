@@ -43,7 +43,7 @@ export const updateTimeunit = (timesheetId, timeunit) => {
     return Axios.put(url(timesheetId, timeunit._id), timeunit)
       .then(response => {
         dispatch(get(response.data));
-        console.log(`Timesheet timeunit was updated.`);
+        console.log(`Timesheet ${timesheetId} timeunit ${timeunit._id} was updated.`);
         return true;
       })
       .catch(err => {
@@ -59,7 +59,7 @@ export const removeTimeunit = (timesheetId, timeunit) => {
     return Axios.put(url(timesheetId, timeunit._id), timeunit)
       .then(response => {
         dispatch(get(response.data));
-        console.log(`Timesheet : ${response.data.name}, logged time was deleted.`);
+        console.log(`Timesheet ${timesheetId} timeunit ${response.data.name} was deleted.`);
         return true;
       })
       .catch(err => {
@@ -75,7 +75,7 @@ export const restoreTimeunit = (timesheetId, timeunit) => {
     return Axios.put(url(timesheetId, timeunit._id), timeunit)
       .then(response => {
         dispatch(get(response.data));
-        console.log(`Timesheet : ${response.data.name}, timeunit was restored.`);
+        console.log(`Timesheet ${timesheetId} timeunit ${response.data.name} was restored.`);
         return true;
       })
       .catch(err => {
@@ -89,7 +89,7 @@ export const createTimeunit = (timesheetId, timeunit) => {
     return Axios.post(url(timesheetId), timeunit)
       .then(response => {
         dispatch(get(response.data));
-        console.log('Timeunit created.');
+        console.log(`Timeunit ${response.data._id} created.`);
         return true;
       })
       .catch(err => {

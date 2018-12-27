@@ -43,7 +43,7 @@ export const updateProject = project => {
     return Axios.put(url(project._id), project)
       .then(response => {
         dispatch(get(response.data));
-        console.log(`Project : ${project.name}, updated.`);
+        console.log(`Project : ${project._id}, updated.`);
         return true;
       })
       .catch(err => {
@@ -59,7 +59,7 @@ export const removeProject = project => {
     return Axios.put(url(project._id), project)
       .then(response => {
         dispatch(get(response.data));
-        console.log(`Project : ${res.data.name}, was deleted.`);
+        console.log(`Project : ${response.data._id}, was deleted.`);
         return true;
       })
       .catch(err => {
@@ -75,7 +75,7 @@ export const restoreProject = project => {
     return Axios.put(url(project._id), project)
       .then(response => {
         dispatch(get(response.data));
-        console.log(`Project : ${response.data.name}, was restored.`);
+        console.log(`Project : ${response.data._id}, was restored.`);
         return true;
       })
       .catch(err => {
@@ -89,7 +89,7 @@ export const createProject = project => {
     return Axios.put(url(), project)
       .then(response => {
         dispatch(get(response.data));
-        console.log(`Project : ${response.data.name}, created.`);
+        console.log(`Project : ${response.data._id}, created.`);
         return true;
       })
       .catch(err => {
