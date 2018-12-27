@@ -25,6 +25,7 @@
     "moxios": "0.4.x",
     "react-scripts": "2.1.2",
     "react-test-renderer": "16.7.0",
+    "redux-devtools-extension": "^2.13.7",
     "redux-mock-store": "^1.5.3"
   },
   "scripts": {
