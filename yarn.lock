@@ -9072,6 +9072,11 @@ recursive-readdir@2.2.2:
   dependencies:
     minimatch "3.0.4"
 
+redux-devtools-extension@^2.13.7:
+  version "2.13.7"
+  resolved "https://ivyrepo.mutualofomaha.com:443/artifactory/api/npm/npmjs/redux-devtools-extension/-/redux-devtools-extension-2.13.7.tgz#14bd7a1a7c8bee7f397beb1116fd16fc9633b752"
+  integrity sha1-FL16GnyL7n85e+sRFv0W/JYzt1I=
+
 redux-mock-store@^1.5.3:
   version "1.5.3"
   resolved "https://ivyrepo.mutualofomaha.com:443/artifactory/api/npm/npmjs/redux-mock-store/-/redux-mock-store-1.5.3.tgz#1f10528949b7ce8056c2532624f7cafa98576c6d"
