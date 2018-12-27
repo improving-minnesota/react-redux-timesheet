@@ -43,7 +43,7 @@ export const updateEmployee = employee => {
     return Axios.put(url(employee._id), employee)
       .then(res => {
         dispatch(get(res.data));
-        console.log('Employee : ' + employee.name + ', updated.');
+        console.log('Employee : ' + employee._id + ', updated.');
         return true;
       })
       .catch(error => {
@@ -59,7 +59,7 @@ export const removeEmployee = employee => {
     return Axios.put(url(employee._id), employee)
       .then(res => {
         dispatch(get(res.data));
-        console.log('Employee : ' + res.data.name + ', was deleted.');
+        console.log('Employee : ' + res.data._id + ', was deleted.');
         return true;
       })
       .then(() => {
@@ -78,7 +78,7 @@ export const restoreEmployee = employee => {
     return Axios.put(url(employee._id), employee)
       .then(res => {
         dispatch(get(res.data));
-        console.log('Employee : ' + res.data.name + ', was restored.');
+        console.log('Employee : ' + res.data._id + ', was restored.');
         return true;
       })
       .then(() => {
@@ -95,7 +95,7 @@ export const createEmployee = employee => {
     return Axios.post(url(), employee)
       .then(res => {
         dispatch(get(res.data));
-        console.log('Employee : ' + res.data.name + ', created.');
+        console.log('Employee : ' + res.data._id + ', created.');
         return true;
       })
       .then(() => {
