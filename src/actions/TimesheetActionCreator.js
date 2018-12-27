@@ -43,7 +43,7 @@ export const updateTimesheet = timesheet => {
     return Axios.put(url(timesheet._id), timesheet)
       .then(response => {
         dispatch(get(response.data));
-        console.log(`Timesheet : ${timesheet.name}, updated.`);
+        console.log(`Timesheet : ${timesheet._id}, updated.`);
         return true;
       })
       .catch(err => {
@@ -59,7 +59,7 @@ export const removeTimesheet = timesheet => {
     return Axios.put(url(timesheet._id), timesheet)
       .then(response => {
         dispatch(get(response.data));
-        console.log(`Timesheet : ${response.data.name}, was deleted.`);
+        console.log(`Timesheet : ${response.data._id}, was deleted.`);
         return true;
       })
       .catch(err => {
@@ -75,7 +75,7 @@ export const restoreTimesheet = timesheet => {
     return Axios.put(url(timesheet._id), timesheet)
       .then(response => {
         dispatch(get(response.data));
-        console.log(`Timesheet : ${response.data.name}, was restored.`);
+        console.log(`Timesheet : ${response.data._id}, was restored.`);
         return true;
       })
       .catch(err => {
@@ -89,7 +89,7 @@ export const createTimesheet = timesheet => {
     return Axios.post(url(), timesheet)
       .then(response => {
         dispatch(get(response.data));
-        console.log(`Timesheet : ${response.data.name}, created.`);
+        console.log(`Timesheet : ${response.data._id}, created.`);
         return true;
       })
       .catch(err => {
