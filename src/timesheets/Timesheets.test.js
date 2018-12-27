@@ -2,15 +2,23 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import Timesheets from './Timesheets';
+import TimesheetTable from './TimesheetTable';
 
 describe('<Timesheets />', () => {
-  let timesheets;
+  let wrapper;
 
   beforeEach(() => {
-    timesheets = shallow(<Timesheets />);
+    wrapper = shallow(<Timesheets />);
   });
 
   it('should instantiate the Timesheet Component', () => {
-    expect(timesheets).toHaveLength(1);
+    expect(wrapper).toHaveLength(1);
+  });
+
+  it('should pass timesheets down to table', () => {
+    wrapper.setState({
+      timesheets: [{}, {}, {}, {}]
+    });
+    expect(wrapper.find(TimesheetTable).prop('timesheets')).toHaveLength(4);
   });
 });
