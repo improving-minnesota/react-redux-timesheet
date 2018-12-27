@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Field } from 'formik';
-import { FormControl, FormGroup } from 'react-bootstrap';
-import ControlLabel from 'react-bootstrap/es/ControlLabel';
+import { ControlLabel, FormControl, FormGroup } from 'react-bootstrap';
 
 const FieldWrapper = ({ name, label, invalid, children, component, ...rest }) => (
   <Field

@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import TimesheetTable from './TimesheetTable';
 import { Link } from 'react-router-dom';
 import * as TimesheetActionCreators from '../actions/TimesheetActionCreator';
-import connect from 'react-redux/es/connect/connect';
 import { Button } from 'react-bootstrap';
+import { connect } from 'react-redux';
 
 class Timesheets extends React.Component {
   componentDidMount() {
