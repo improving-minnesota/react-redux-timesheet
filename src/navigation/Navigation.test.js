@@ -1,22 +1,17 @@
 import React from 'react';
-import { mount } from 'enzyme';
-
+import { shallow } from 'enzyme';
 import Navigation from './Navigation';
 
-import { BrowserRouter } from 'react-router-dom';
-
 describe('<Navigation />', () => {
-  let nav;
+  let wrapper;
 
   beforeEach(() => {
-    nav = mount(
-      <BrowserRouter>
-        <Navigation />
-      </BrowserRouter>
+    wrapper = shallow(
+      <Navigation />
     );
   });
 
   it('should instantiate the Navigation Component', () => {
-    expect(nav).toHaveLength(1);
+    expect(wrapper).toHaveLength(1);
   });
 });
