@@ -6540,6 +6540,11 @@ lodash.isequal@^4.5.0:
   resolved "https://registry.yarnpkg.com/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
   integrity sha1-QVxEePK8wwEgwizhDtMib30+GOA=
 
+lodash.isplainobject@^4.0.6:
+  version "4.0.6"
+  resolved "https://ivyrepo.mutualofomaha.com:443/artifactory/api/npm/npmjs/lodash.isplainobject/-/lodash.isplainobject-4.0.6.tgz#7c526a52d89b45c45cc690b88163be0497f550cb"
+  integrity sha1-fFJqUtibRcRcxpC4gWO+BJf1UMs=
+
 lodash.istypedarray@^3.0.0:
   version "3.0.6"
   resolved "https://registry.yarnpkg.com/lodash.istypedarray/-/lodash.istypedarray-3.0.6.tgz#c9a477498607501d8e8494d283b87c39281cef62"
@@ -9066,6 +9071,13 @@ recursive-readdir@2.2.2:
   integrity sha512-nRCcW9Sj7NuZwa2XvH9co8NPeXUBhZP7CRKJtU+cS6PW9FpCIFoI5ib0NT1ZrbNuPoRy0ylyCaUL8Gih4LSyFg==
   dependencies:
     minimatch "3.0.4"
+
+redux-mock-store@^1.5.3:
+  version "1.5.3"
+  resolved "https://ivyrepo.mutualofomaha.com:443/artifactory/api/npm/npmjs/redux-mock-store/-/redux-mock-store-1.5.3.tgz#1f10528949b7ce8056c2532624f7cafa98576c6d"
+  integrity sha1-HxBSiUm3zoBWwlMmJPfK+phXbG0=
+  dependencies:
+    lodash.isplainobject "^4.0.6"
 
 redux-thunk@2.3.0:
   version "2.3.0"
