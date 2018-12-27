@@ -1,17 +1,23 @@
 import React from 'react';
 import Employees from './Employees';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
+import EmployeeTable from './EmployeeTable';
 
 describe('<Employees />', () => {
-  it('should instantiate the Employee Component', () => {
-    const component = shallow(<Employees />);
+  let wrapper;
 
-    expect(component).toHaveLength(1);
+  beforeEach(() => {
+    wrapper = shallow(<Employees />);
   });
 
-  it('should contain a correct employee', () => {
-    const component = mount(<Employees />);
+  it('should instantiate the Employee Component', () => {
+    expect(wrapper).toHaveLength(1);
+  });
 
-    expect(component).toIncludeText('admin@mixtape.com');
+  it('should pass employees down to table', () => {
+    wrapper.setState({
+      employees: [{}, {}, {}, {}]
+    });
+    expect(wrapper.find(EmployeeTable).prop('employees')).toHaveLength(4);
   });
 });

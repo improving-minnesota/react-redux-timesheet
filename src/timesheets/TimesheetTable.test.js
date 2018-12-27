@@ -2,16 +2,21 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import TimesheetTable from './TimesheetTable';
+import TimesheetRow from './TimesheetRow';
 
 describe('<TimesheetTable />', () => {
-  let timesheetTable;
+  let wrapper;
 
   beforeEach(() => {
     const timesheets = [{ _id: 1 }, { _id: 2 }];
-    timesheetTable = shallow(<TimesheetTable timesheets={timesheets} />);
+    wrapper = shallow(<TimesheetTable timesheets={timesheets} />);
   });
 
   it('should instantiate the Timesheet Table Component', () => {
-    expect(timesheetTable).toHaveLength(1);
+    expect(wrapper).toHaveLength(1);
+  });
+
+  it('should render a row for each timesheet', () => {
+    expect(wrapper.find(TimesheetRow)).toHaveLength(2);
   });
 });

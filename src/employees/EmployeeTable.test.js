@@ -1,9 +1,12 @@
 import React from 'react';
 import EmployeeTable from './EmployeeTable';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
+import EmployeeRow from './EmployeeRow';
 
 describe('<EmployeeTable />', () => {
-  it('should instantiate the Employee Table', () => {
+  let wrapper;
+
+  beforeEach(() => {
     const employees = [
       {
         username: 'fflintstone',
@@ -15,11 +18,10 @@ describe('<EmployeeTable />', () => {
       }
     ];
 
-    const component = mount(<EmployeeTable employees={employees} />);
+    wrapper = shallow(<EmployeeTable employees={employees} />);
+  });
 
-    expect(component).toContainReact(<th>Last Name</th>);
-    expect(component).toIncludeText('Flintstone');
-
-    expect(component.find('tbody tr')).toHaveLength(1);
+  it('should render a row for each employee', () => {
+    expect(wrapper.find(EmployeeRow)).toHaveLength(1);
   });
 });
