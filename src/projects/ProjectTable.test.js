@@ -2,16 +2,21 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import ProjectTable from './ProjectTable';
+import ProjectRow from './ProjectRow';
 
-describe('Project Table Component: ', () => {
-  let projectTable;
+describe('<ProjectTable />', () => {
+  let wrapper;
 
   beforeEach(() => {
     const projects = [{}, {}];
-    projectTable = shallow(<ProjectTable projects={projects} />);
+    wrapper = shallow(<ProjectTable projects={projects} />);
   });
 
   it('should instantiate the Project Table Component', () => {
-    expect(projectTable).toHaveLength(1);
+    expect(wrapper).toHaveLength(1);
+  });
+
+  it('should render a row for each project', () => {
+    expect(wrapper.find(ProjectRow)).toHaveLength(2);
   });
 });

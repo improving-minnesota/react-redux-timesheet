@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import ProjectTable from './ProjectTable';
 import { Link } from 'react-router-dom';
 import * as ProjectActionCreators from '../actions/ProjectActionCreator';
-import connect from 'react-redux/es/connect/connect';
 import { Button } from 'react-bootstrap';
+import { connect } from 'react-redux';
 
 class Projects extends React.Component {
   componentDidMount() {
