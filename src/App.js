@@ -5,7 +5,7 @@ import { Redirect, Route, Switch } from 'react-router';
 import Projects from "./projects/Projects";
 import Employees from './employees/Employees';
 import Timesheets from './timesheets/Timesheets';
-import Navigation from './navigation/Navigation';
+import Navigation from './nav/Navigation';
 import ProjectsDetail from './projects/ProjectsDetail';
 import TimesheetsDetail from './timesheets/TimesheetsDetail';
 import EmployeeDetail from './employees/EmployeeDetail';
