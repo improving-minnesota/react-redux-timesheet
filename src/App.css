@@ -1,2 +1,6 @@
 .App {
 }
+
+tr.deleted {
+    color: red;
+}
