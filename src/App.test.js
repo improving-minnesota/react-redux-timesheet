@@ -15,6 +15,6 @@ describe('<App />', () => {
   });
 
   it('adds "app" CSS class', () => {
-    expect(wrapper.hasClass('App')).toBe(true);
+    expect(wrapper.find('div').at(0).hasClass('App')).toBe(true);
   });
 });
