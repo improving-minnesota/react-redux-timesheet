@@ -36,7 +36,7 @@ class EmployeeRow extends React.Component {
         <td>{employee.lastName}</td>
         <td>{employee.admin ? 'Yes' : 'No'}</td>
         <td>
-          <Button onClick={this.handleClick}>
+          <Button onClick={this.handleClick} bsStyle={employee.deleted ? 'success' : 'danger'}>
             {employee.deleted ? 'Restore' : 'Delete'}
           </Button>
         </td>

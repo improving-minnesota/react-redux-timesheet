@@ -7,7 +7,7 @@ const FormControls = ({ action, allowSubmit, onSubmit, onReset }) => (
     <Button type="button" onClick={onSubmit} disabled={!allowSubmit} bsStyle="primary">
       {action}
     </Button>
-    <Button type="button" onClick={onReset}>
+    <Button type="button" onClick={onReset} bsStyle="danger">
       Reset
     </Button>
   </ButtonToolbar>
