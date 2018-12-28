@@ -39,13 +39,13 @@ class EmployeeForm extends React.Component {
         validate={ this.validate }
         onSubmit={ this.handleSave }
       >
-        { ({ isValid, errors, handleReset, handleSubmit }) => (
+        { ({ isValid, errors, touched, handleReset, handleSubmit }) => (
           <Form>
-            <FieldWrapper type="text" name="username" label="Username" invalid={ errors.username }/>
-            <FieldWrapper type="text" name="email" label="Email" invalid={ errors.email }/>
-            <FieldWrapper type="text" name="firstName" label="First Name" invalid={ errors.firstName }/>
-            <FieldWrapper type="text" name="lastName" label="Last Name" invalid={ errors.lastName }/>
-            <FieldWrapper type="checkbox" name="admin" label="Admin" invalid={ errors.admin }/>
+            <FieldWrapper type="text" name="username" label="Username" invalid={errors.username} touched={touched.username} />
+            <FieldWrapper type="text" name="email" label="Email" invalid={errors.email} touched={touched.email} />
+            <FieldWrapper type="text" name="firstName" label="First Name" invalid={errors.firstName} touched={touched.firstName} />
+            <FieldWrapper type="text" name="lastName" label="Last Name" invalid={errors.lastName} touched={touched.lastName} />
+            <FieldWrapper type="checkbox" name="admin" label="Admin" invalid={errors.admin} touched={touched.admin} />
 
             <FormControls
               allowSubmit={isValid}
