@@ -39,10 +39,10 @@ class ProjectForm extends React.Component {
         validate={ this.validate }
         onSubmit={ this.handleSave }
       >
-        { ({ isValid, errors, handleReset, handleSubmit }) => (
+        { ({ isValid, errors, touched, handleReset, handleSubmit }) => (
           <Form>
-            <FieldWrapper type="text" name="name" label="Name" invalid={ errors.name }/>
-            <FieldWrapper type="text" name="description" label="Description" invalid={ errors.description }/>
+            <FieldWrapper type="text" name="name" label="Name" invalid={errors.name} touched={touched.name} />
+            <FieldWrapper type="text" name="description" label="Description" invalid={errors.description} touched={touched.description} />
 
             <FormControls
               allowSubmit={isValid}

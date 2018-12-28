@@ -40,16 +40,16 @@ class TimeunitForm extends React.Component {
         validate={this.validate}
         onSubmit={this.handleSave}
       >
-        {({ isValid, errors, handleReset, handleSubmit }) => (
+        {({ isValid, errors, touched, handleReset, handleSubmit }) => (
           <Form>
-            <FieldWrapper component="select" name="project" label="Project" invalid={errors.project}>
+            <FieldWrapper component="select" name="project" label="Project" invalid={errors.project} touched={touched.project} >
               {projects.map(project => (
                 <option key={project._id} value={project._id}>{project.name}</option>
               ))}
             </FieldWrapper>
 
-            <FieldWrapper type="date" name="dateWorked" placeholder="YYYY-MM-DD" label="Date Worked" invalid={errors.dateWorked}/>
-            <FieldWrapper type="number" name="hoursWorked" label="Hours Worked" invalid={errors.hoursWorked}/>
+            <FieldWrapper type="date" name="dateWorked" placeholder="YYYY-MM-DD" label="Date Worked" invalid={errors.dateWorked} touched={touched.dateWorked} />
+            <FieldWrapper type="number" name="hoursWorked" label="Hours Worked" invalid={errors.hoursWorked} touched={touched.hoursWorked} />
 
             <FormControls
               allowSubmit={isValid}
