@@ -35,7 +35,7 @@ class TimesheetRow extends React.Component {
         <td>{timesheet.name}</td>
         <td>{timesheet.description}</td>
         <td>
-          <Button onClick={this.handleClick}>
+          <Button onClick={this.handleClick} bsStyle={timesheet.deleted ? 'success' : 'danger'}>
             {timesheet.deleted ? 'Restore' : 'Delete'}
           </Button>
         </td>
