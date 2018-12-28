@@ -48,21 +48,25 @@ class TimesheetForm extends React.Component {
         validate={ this.validate }
         onSubmit={ this.handleSave }
       >
-        { ({ isValid, errors, handleReset, handleSubmit }) => (
+        { ({ isValid, errors, touched, handleReset, handleSubmit }) => (
           <Form>
-            <FieldWrapper component="select" name="employee" label="Employee" invalid={ errors.employee }>
+            <FieldWrapper component="select" name="employee" label="Employee" invalid={errors.employee} touched={touched.employee} >
               { employees.map(employee => (
                 <option key={ employee._id }
                         value={ employee._id }>{ `${employee.firstName} ${employee.lastName}` }</option>
               )) }
             </FieldWrapper>
 
-            <FieldWrapper type="text" name="name" label="Name" invalid={ errors.name }/>
-            <FieldWrapper type="text" name="description" label="Description" invalid={ errors.description }/>
+            <FieldWrapper type="text" name="name" label="Name" invalid={errors.name} touched={touched.name} />
+            <FieldWrapper type="text" name="description" label="Description" invalid={errors.description} touched={touched.description} />
             <FieldWrapper type="date" name="beginDate" placeholder="YYYY-MM-DD" label="Start Date"
-                         invalid={ errors.beginDate }/>
+                          invalid={errors.beginDate}
+                          touched={touched.beginDate}
+            />
             <FieldWrapper type="date" name="endDate" placeholder="YYYY-MM-DD" label="End Date"
-                         invalid={ errors.endDate }/>
+                          invalid={errors.endDate}
+                          touched={touched.endDate}
+            />
 
             <FormControls
               allowSubmit={isValid}
