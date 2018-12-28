@@ -38,7 +38,7 @@ class TimeunitRow extends React.Component {
         <td>{timeunit.dateWorked}</td>
         <td>{timeunit.hoursWorked}</td>
         <td>
-          <Button onClick={this.handleClick}>
+          <Button onClick={this.handleClick} bsStyle={timeunit.deleted ? 'success' : 'danger'}>
             {timeunit.deleted ? 'Restore' : 'Delete'}
           </Button>
         </td>
