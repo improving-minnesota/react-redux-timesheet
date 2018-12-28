@@ -22,7 +22,7 @@ class Timeunits extends React.Component {
         <h1>Timeunits</h1>
         <div className="pull-right">
           <Link to={timeunitsCreateLink}>
-            <Button>Create Timeunit</Button>
+            <Button bsStyle="primary">Create Timeunit</Button>
           </Link>
         </div>
         <TimeunitTable
