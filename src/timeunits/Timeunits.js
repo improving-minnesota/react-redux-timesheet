@@ -19,7 +19,7 @@ class Timeunits extends React.Component {
       <div>
         <h1>Timeunits</h1>
         <Link to={`/timesheets/detail/${timesheet._id}/timeunits/detail`}>
-          <Button>Create Timeunit</Button>
+          <Button bsStyle="primary">Create Timeunit</Button>
         </Link>
         <TimeunitTable
           timeunits={timeunits}
