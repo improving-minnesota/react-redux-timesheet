@@ -4,7 +4,7 @@ import { withRouter } from 'react-router';
 import { Button } from 'react-bootstrap';
 
 class TimesheetRow extends React.Component {
-  handleClick = () => {
+  handleClick = (event) => {
     const { timesheet, onDelete, onRestore } = this.props;
 
     if (timesheet.deleted) {
@@ -12,6 +12,8 @@ class TimesheetRow extends React.Component {
     } else {
       onDelete(timesheet);
     }
+
+    event.stopPropagation();
   };
 
   showDetail = () => {

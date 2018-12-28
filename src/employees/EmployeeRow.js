@@ -4,7 +4,7 @@ import { withRouter } from 'react-router';
 import { Button } from 'react-bootstrap';
 
 class EmployeeRow extends React.Component {
-  handleClick = () => {
+  handleClick = (event) => {
     const { employee, onDelete, onRestore } = this.props;
 
     if (employee.deleted) {
@@ -12,6 +12,8 @@ class EmployeeRow extends React.Component {
     } else {
       onDelete(employee);
     }
+
+    event.stopPropagation();
   };
 
   showDetail = () => {
