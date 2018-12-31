@@ -8,36 +8,28 @@ import * as ProjectActions from '../actions/ProjectActionCreator';
 
 class TimeunitsDetail extends React.Component {
 
-  componentDidUpdate() {
-    const { getTimeunit, listProjects, match } = this.props;
-    const id = match.params._id;
-    const timesheetId = match.params.timesheet_id;
-    getTimeunit(timesheetId, id);
+  componentDidMount() {
+    const { listProjects } = this.props;
     listProjects();
   }
 
   handleSave = (timeunit) => {
-    const { history, updateTimeunit, createTimeunit, match } = this.props;
-    const userId = match.params.user_id;
+    const { history, match, createTimeunit, updateTimeunit } = this.props;
     const timesheetId = match.params.timesheet_id;
 
     const result = timeunit._id ? updateTimeunit(timesheetId, timeunit) : createTimeunit(timesheetId, timeunit);
     result.then(() => {
-      history.push(`/employees/${userId}/timesheets/detail/${timesheetId}`);
+      history.push(`/timesheets/detail/${timesheetId}`);
     });
   };
 
   render() {
-    const { projects, timeunit, match } = this.props;
-    const userId = match.params.user_id;
-    const timesheetId = match.params.timesheet_id;
+    const { projects, timeunit } = this.props;
     return (
       <div>
-        <h1>Timeunit Edit</h1>
+        <h1>Timeunit Detail</h1>
         <TimeunitForm
           projects={ projects }
-          timesheetId={ timesheetId }
-          userId={ userId }
           timeunit={ timeunit }
           handleSave={ this.handleSave }
         />
