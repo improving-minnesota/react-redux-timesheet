@@ -18,11 +18,6 @@ class Employees extends React.Component {
     return (
       <div>
         <h1>Employees</h1>
-        <Link to="/employees/detail">
-          <Button bsStyle="primary">
-            New Employee
-          </Button>
-        </Link>
         <EmployeeTable employees={ employees } onDelete={ deleteEmployee } onRestore={ restoreEmployee }/>
       </div>
     );
