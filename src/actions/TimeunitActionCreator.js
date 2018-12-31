@@ -59,7 +59,7 @@ export const removeTimeunit = (timesheetId, timeunit) => {
     return Axios.put(url(timesheetId, timeunit._id), timeunit)
       .then(response => {
         dispatch(get(response.data));
-        console.log(`Timesheet ${timesheetId} timeunit ${response.data.name} was deleted.`);
+        console.log(`Timesheet ${timesheetId} timeunit ${response.data._id} was deleted.`);
         return true;
       })
       .catch(err => {
@@ -75,7 +75,7 @@ export const restoreTimeunit = (timesheetId, timeunit) => {
     return Axios.put(url(timesheetId, timeunit._id), timeunit)
       .then(response => {
         dispatch(get(response.data));
-        console.log(`Timesheet ${timesheetId} timeunit ${response.data.name} was restored.`);
+        console.log(`Timesheet ${timesheetId} timeunit ${response.data._id} was restored.`);
         return true;
       })
       .catch(err => {
