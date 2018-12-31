@@ -38,7 +38,7 @@ Timesheets.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    timesheets: state.timesheets.timesheets,
+    timesheets: state.timesheets.data,
   };
 };
 

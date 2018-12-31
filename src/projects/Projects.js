@@ -38,7 +38,7 @@ Projects.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    projects: state.projects.projects,
+    projects: state.projects.data,
   };
 };
 

@@ -41,7 +41,7 @@ Timeunits.propTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    timeunits: state.timeunits.timeunits
+    timeunits: state.timeunits.data
   };
 };
 
