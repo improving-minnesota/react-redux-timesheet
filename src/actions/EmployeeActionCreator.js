@@ -62,9 +62,6 @@ export const removeEmployee = employee => {
         console.log('Employee : ' + res.data._id + ', was deleted.');
         return true;
       })
-      .then(() => {
-        dispatch(listEmployees())
-      })
       .catch(error => {
         console.log('Error attempting to delete employee.');
       });
@@ -81,9 +78,6 @@ export const restoreEmployee = employee => {
         console.log('Employee : ' + res.data._id + ', was restored.');
         return true;
       })
-      .then(() => {
-        dispatch(listEmployees())
-      })
       .catch(error => {
         console.log('Error attempting to restore employee.');
       });
@@ -97,9 +91,6 @@ export const createEmployee = employee => {
         dispatch(get(res.data));
         console.log('Employee : ' + res.data._id + ', created.');
         return true;
-      })
-      .then(() => {
-        dispatch(listEmployees())
       })
       .catch(error => {
         console.log('There was an error creating employee.');
