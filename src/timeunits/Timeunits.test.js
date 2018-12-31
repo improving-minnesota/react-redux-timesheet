@@ -5,16 +5,15 @@ import configureStore from '../store/configure-store';
 import { MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-describe('Timeunits Component: ', () => {
+describe('<Timeunits />', () => {
   let wrapper;
 
   beforeEach(() => {
     const mockStore = configureStore();
-    const timesheet = { _id: '123' };
     wrapper = mount(
       <Provider store={mockStore}>
         <MemoryRouter>
-          <Timeunits timesheet={timesheet} />
+          <Timeunits timeunits={[{}]} />
         </MemoryRouter>
       </Provider>
     );
