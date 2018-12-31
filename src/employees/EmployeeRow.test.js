@@ -1,6 +1,8 @@
 import React from 'react';
+import { mount } from 'enzyme';
+import { MemoryRouter } from 'react-router';
+
 import EmployeeRow from './EmployeeRow';
-import { shallow } from 'enzyme';
 
 describe('<EmployeeRow />', () => {
   let wrapper;
@@ -14,11 +16,15 @@ describe('<EmployeeRow />', () => {
       admin: true
     };
 
-    wrapper = shallow(<EmployeeRow employee={employee} />);
+    wrapper = mount(
+      <MemoryRouter>
+        <EmployeeRow employee={employee} />
+      </MemoryRouter>
+    );
   });
 
   it('should render values into expected cells', () => {
-    expect(wrapper.find('td')).toHaveLength(5);
+    expect(wrapper.find('td')).toHaveLength(6);
     expect(wrapper.find('td').at(0).text()).toEqual('fflintstone');
     expect(wrapper.find('td').at(1).text()).toEqual('fred.flintstone@slatequarry.com');
     expect(wrapper.find('td').at(2).text()).toEqual('Fred');
