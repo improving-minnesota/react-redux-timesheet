@@ -5,7 +5,15 @@ import FieldWrapper from '../form/FieldWrapper';
 import FormControls from '../form/FormControls';
 
 class EmployeeForm extends React.Component {
-// TODO
+
+  validate = (values) => {
+  };
+
+  handleSave = (values) => {
+  };
+
+  render() {
+  }
 }
 
 EmployeeForm.propTypes = {
