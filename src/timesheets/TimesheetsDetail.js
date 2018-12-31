@@ -2,18 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
-import * as TimesheetActions from '../actions/TimesheetActionCreator';
+import * as TimesheetActionCreators from '../actions/TimesheetActionCreator';
+import * as EmployeeActionCreators from '../actions/EmployeeActionCreator';
 import Timeunits from '../timeunits/Timeunits';
 import TimesheetForm from './TimesheetForm';
 
 class TimesheetsDetail extends React.Component {
 
   componentDidMount() {
-    const { getTimesheet, match } = this.props;
-    const id = match.params._id;
-    const userId = match.params.user_id;
-
-    getTimesheet(id, userId);
+    const { listEmployees } = this.props;
+    listEmployees();
   }
 
   handleSave = (timesheet) => {
@@ -50,8 +48,7 @@ TimesheetsDetail.propTypes = {
   employees: PropTypes.arrayOf(PropTypes.object),
   timesheet: PropTypes.object,
   createTimesheet: PropTypes.func,
-  updateTimesheet: PropTypes.func,
-  getTimesheet: PropTypes.func
+  updateTimesheet: PropTypes.func
 };
 
 const mapStateToProps = (state, props) => {
@@ -65,9 +62,9 @@ const mapStateToProps = (state, props) => {
 };
 
 const mapDispatchToProps = {
-  createTimesheet: TimesheetActions.createTimesheet,
-  updateTimesheet: TimesheetActions.updateTimesheet,
-  getTimesheet: TimesheetActions.getTimesheet
+  createTimesheet: TimesheetActionCreators.createTimesheet,
+  updateTimesheet: TimesheetActionCreators.updateTimesheet,
+  listEmployees: EmployeeActionCreators.listEmployees
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TimesheetsDetail));
