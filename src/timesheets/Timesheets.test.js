@@ -1,24 +1,26 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
+import { Provider } from 'react-redux';
+import { MemoryRouter } from 'react-router';
 
 import Timesheets from './Timesheets';
-import TimesheetTable from './TimesheetTable';
+import configureStore from '../store/configure-store';
 
 describe('<Timesheets />', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<Timesheets />);
+    const mockStore = configureStore();
+    wrapper = mount(
+      <Provider store={mockStore}>
+        <MemoryRouter>
+          <Timesheets timesheets={[{}, {}, {}, {}]}/>
+        </MemoryRouter>
+      </Provider>
+    );
   });
 
   it('should instantiate the Timesheet Component', () => {
     expect(wrapper).toHaveLength(1);
-  });
-
-  it('should pass timesheets down to table', () => {
-    wrapper.setState({
-      timesheets: [{}, {}, {}, {}]
-    });
-    expect(wrapper.find(TimesheetTable).prop('timesheets')).toHaveLength(4);
   });
 });

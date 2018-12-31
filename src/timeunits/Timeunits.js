@@ -39,9 +39,13 @@ Timeunits.propTypes = {
   restoreTimeunit: PropTypes.func
 };
 
+Timeunits.defaultProps = {
+  timesheet: {}
+};
+
 const mapStateToProps = (state) => {
   return {
-    timeunits: state.timeunits.timeunits
+    timeunits: state.timeunits.data
   };
 };
 
