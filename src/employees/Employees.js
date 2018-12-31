@@ -35,7 +35,7 @@ Employees.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    employees: state.employees.employees,
+    employees: state.employees.data,
   };
 };
 

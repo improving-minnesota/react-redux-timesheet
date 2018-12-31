@@ -1,5 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
+import { MemoryRouter } from 'react-router';
 
 import ProjectRow from './ProjectRow';
 
@@ -11,7 +12,11 @@ describe('<ProjectRow />', () => {
       name: 'NAME',
       description: 'DESCRIPTION'
     };
-    wrapper = shallow(<ProjectRow project={project} />);
+    wrapper = mount(
+      <MemoryRouter>
+        <ProjectRow project={project} />
+      </MemoryRouter>
+    );
   });
 
   it('should instantiate the Project Row Component', () => {
