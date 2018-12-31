@@ -28,6 +28,4 @@ FieldWrapper.propTypes = {
   component: PropTypes.oneOf(['input', 'select'])
 };
 
-export {
-  FieldWrapper
-}
+export default FieldWrapper;
