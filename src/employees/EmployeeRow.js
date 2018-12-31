@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
+import { withRouter } from 'react-router';
 
 class EmployeeRow extends React.Component {
   handleClick = (event) => {
@@ -41,4 +42,4 @@ EmployeeRow.propTypes = {
   onRestore: PropTypes.func.isRequired
 };
 
-export default EmployeeRow;
+export default withRouter(EmployeeRow);
