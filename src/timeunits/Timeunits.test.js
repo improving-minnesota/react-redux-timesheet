@@ -13,7 +13,7 @@ describe('<Timeunits />', () => {
     wrapper = mount(
       <Provider store={mockStore}>
         <MemoryRouter>
-          <Timeunits timeunits={[{}]} />
+          <Timeunits />
         </MemoryRouter>
       </Provider>
     );
