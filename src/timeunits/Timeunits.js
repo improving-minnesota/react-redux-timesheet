@@ -33,6 +33,7 @@ class Timeunits extends React.Component {
 }
 
 Timeunits.propTypes = {
+  timesheet: PropTypes.object,
   timeunits: PropTypes.arrayOf(PropTypes.object),
   listTimeunits: PropTypes.func,
   deleteTimeunit: PropTypes.func,
