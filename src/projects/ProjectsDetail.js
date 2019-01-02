@@ -6,12 +6,6 @@ import ProjectForm from './ProjectForm';
 import * as ProjectActions from '../actions/ProjectActionCreator';
 
 class ProjectsDetail extends React.Component {
-  componentDidMount() {
-    const { match, getProject } = this.props;
-    const id = match.params._id;
-    getProject(id);
-  }
-
   handleSave = (values) => {
     const { onCreate, onUpdate, history } = this.props;
 
@@ -40,7 +34,6 @@ ProjectsDetail.propTypes = {
   history: PropTypes.object,
   onCreate: PropTypes.func,
   onUpdate: PropTypes.func,
-  getProject: PropTypes.func
 };
 
 ProjectsDetail.defaultProps = {
@@ -57,8 +50,7 @@ const mapStateToProps = (state, props) => {
 
 const mapDispatchToProps = {
   onCreate: ProjectActions.createProject,
-  onUpdate: ProjectActions.updateProject,
-  getProject: ProjectActions.getProject
+  onUpdate: ProjectActions.updateProject
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProjectsDetail));
