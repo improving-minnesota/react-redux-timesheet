@@ -98,16 +98,16 @@ export const createTimesheet = timesheet => {
   };
 };
 
-export function list(timesheets) {
+export const list = timesheets => {
   return {
     type: TimesheetActionTypes.LIST,
     timesheets: timesheets
   };
-}
+};
 
-export function get(timesheet) {
+export const get = timesheet => {
   return {
     type: TimesheetActionTypes.GET,
     timesheet: timesheet
   };
-}
+};

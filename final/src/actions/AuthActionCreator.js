@@ -1,19 +1,19 @@
 import * as AuthActionTypes from './AuthActionTypes';
 import Axios from 'axios';
 
-export function setUser(user) {
+export const setUser = user => {
   return {
     type: AuthActionTypes.SET_USER,
     user: user
   };
-}
+};
 
-export function error(error) {
+export const error = error => {
   return {
     type: AuthActionTypes.ERROR,
     error: error
   }
-}
+};
 
 export const login = (credentials) => {
   return dispatch => {

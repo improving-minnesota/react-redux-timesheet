@@ -98,16 +98,16 @@ export const createTimeunit = (timesheetId, timeunit) => {
   };
 };
 
-export function list(timeunits) {
+export const list = timeunits => {
   return {
     type: TimeunitActionTypes.LIST,
     timeunits: timeunits
   };
-}
+};
 
-export function get(timeunit) {
+export const get = timeunit => {
   return {
     type: TimeunitActionTypes.GET,
     timeunit: timeunit
   };
-}
+};

@@ -21,21 +21,10 @@ This is the frontend project code for the [React Redux Workshop](http://objectpa
 - Labs are at https://github.com/objectpartners/react-redux-workshop/tree/master/labs
 - Backend API code is at https://github.com/objectpartners/react-redux-api
 
-## Branch Layout
-This project is setup as a series of labs done in branches. 
-Maintenance is done by merging changes downstream. 
-e.g. A change done in `lab-01` would be pushed to remote and merged into `lab-02`, 
-which is in turn pushed to remote and merged into `lab-03`.  
+## Layout
+This project is setup as a series of labs done in directories (workspaces). 
 
-If a change does not apply to Lab 01, then you would make the change where appropriate 
-and start from that part of the chain.
-
-Below is an example script you might use to merge something from `lab-01` 
-all the way through to the final branch.
-
-``` 
-git pull && git push && git co lab-02 && git pull && git merge lab-01 --no-edit && git push && git co lab-03 && git pull && git merge lab-02 --no-edit && git push && git co lab-04 && git pull && git merge lab-03 --no-edit && git push && git co lab-05 && git pull && git merge lab-04 --no-edit && git push
-```
+Maintenance is done by making changes to the first lab the change is needed and manually applying to future labs as applicable.
 
 ## Create React App
 

@@ -12,7 +12,7 @@ const url = projectId => {
   return url;
 };
 
-export function listProjects() {
+export const listProjects = () => {
   return dispatch => {
     return Axios.get(url())
       .then(response => {
@@ -98,16 +98,16 @@ export const createProject = project => {
   };
 };
 
-export function list(projects) {
+export const list = projects => {
   return {
     type: ProjectActionTypes.LIST,
     projects: projects
   };
-}
+};
 
-export function get(project) {
+export const get = project => {
   return {
     type: ProjectActionTypes.GET,
     project: project
   };
-}
+};
