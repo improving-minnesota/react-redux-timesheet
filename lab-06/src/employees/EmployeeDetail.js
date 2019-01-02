@@ -4,8 +4,6 @@ import * as EmployeeActionCreators from '../actions/EmployeeActionCreator';
 import EmployeeForm from './EmployeeForm';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 
 class EmployeeDetail extends React.Component {
   handleSave = (values) => {
@@ -20,12 +18,7 @@ class EmployeeDetail extends React.Component {
   render() {
     return (
       <div>
-        <h1>Employees Detail</h1>
-        <Link to="/employees/detail">
-          <Button bsStyle="primary">
-            New Employee
-          </Button>
-        </Link>
+        <h1>Employee Detail</h1>
         <EmployeeForm
           employee={this.props.employee}
           actions={this.props.actions}
