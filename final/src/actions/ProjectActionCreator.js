@@ -28,11 +28,11 @@ export const listProjects = () => {
 export const getProject = id => {
   return dispatch => {
     return Axios.get(url(id))
-      .then(res => {
-        dispatch(get(res.data));
+      .then(response => {
+        dispatch(get(response.data));
         return true;
       })
-      .catch(error => {
+      .catch(err => {
         console.log('There was an error getting the project');
       });
   };
@@ -41,12 +41,12 @@ export const getProject = id => {
 export const updateProject = project => {
   return dispatch => {
     return Axios.put(url(project._id), project)
-      .then(res => {
-        dispatch(get(res.data));
-        console.log(`Project : ${project.name}, updated.`);
+      .then(response => {
+        dispatch(get(response.data));
+        console.log(`Project : ${project._id}, updated.`);
         return true;
       })
-      .catch(error => {
+      .catch(err => {
         console.log('There was an error updating project.');
       });
   };
@@ -57,12 +57,12 @@ export const removeProject = project => {
     project.deleted = true;
 
     return Axios.put(url(project._id), project)
-      .then(res => {
-        dispatch(get(res.data));
-        console.log(`Project : ${res.data.name}, was deleted.`);
+      .then(response => {
+        dispatch(get(response.data));
+        console.log(`Project : ${response.data._id}, was deleted.`);
         return true;
       })
-      .catch(error => {
+      .catch(err => {
         console.log('Error attempting to delete project.');
       });
   };
@@ -73,12 +73,12 @@ export const restoreProject = project => {
     project.deleted = false;
 
     return Axios.put(url(project._id), project)
-      .then(res => {
-        dispatch(get(res.data));
-        console.log(`Project : ${res.data.name}, was restored.`);
+      .then(response => {
+        dispatch(get(response.data));
+        console.log(`Project : ${response.data._id}, was restored.`);
         return true;
       })
-      .catch(error => {
+      .catch(err => {
         console.log('Error attempting to restore project.');
       });
   };
@@ -87,12 +87,12 @@ export const restoreProject = project => {
 export const createProject = project => {
   return dispatch => {
     return Axios.post(url(), project)
-      .then(res => {
-        dispatch(get(res.data));
-        console.log(`Project : ${res.data.name}, created.`);
+      .then(response => {
+        dispatch(get(response.data));
+        console.log(`Project : ${response.data._id}, created.`);
         return true;
       })
-      .catch(error => {
+      .catch(err => {
         console.log('There was an error creating project.');
       });
   };

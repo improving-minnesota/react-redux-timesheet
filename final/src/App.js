@@ -1,58 +1,65 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
-import Projects from './components/projects/Projects';
-import ProjectsDetail from './components/projects/ProjectsDetail';
-import ProjectsCreate from './components/projects/ProjectsCreate';
-import Employees from './components/employees/Employees';
-import EmployeesDetail from './components/employees/EmployeesDetail';
-import EmployeesCreate from './components/employees/EmployeesCreate';
-import Timesheets from './components/timesheets/Timesheets';
-import TimesheetsDetail from './components/timesheets/TimesheetsDetail';
-import TimesheetsCreate from './components/timesheets/TimesheetsCreate';
-import TimeunitsCreate from './components/timeunits/TimeunitsCreate';
-import TimeunitsDetail from './components/timeunits/TimeunitsDetail';
-import Navigation from './components/nav/Navigation';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router';
+import Projects from "./projects/Projects";
+import Employees from './employees/Employees';
+import Timesheets from './timesheets/Timesheets';
+import Navigation from './nav/Navigation';
+import ProjectsDetail from './projects/ProjectsDetail';
+import TimesheetsDetail from './timesheets/TimesheetsDetail';
+import EmployeeDetail from './employees/EmployeeDetail';
+import TimeunitsDetail from './timeunits/TimeunitsDetail';
+import { connect } from 'react-redux';
+import * as AuthActions from './actions/AuthActionCreator';
+import LoginForm from './login/LoginForm';
 
-class App extends Component {
+class App extends React.Component {
   render() {
+    const { loginError, user, login, logout } = this.props;
+
     return (
       <BrowserRouter>
         <div className="App">
-          <Navigation />
-          <Switch>
-            <Route exact path="/projects" component={Projects} />
-            <Route path="/projects/detail/:_id" component={ProjectsDetail} />
-            <Route path="/projects/create" component={ProjectsCreate} />
+          <Navigation onLogout={logout} />
+          <div className="container">
+            {!user ? (
+              <LoginForm onLogin={login} loginError={loginError} />
+            ) : (
+              <Switch>
+                <Route exact path="/projects" component={Projects} />
+                <Route exact path="/projects/detail/:_id?" component={ProjectsDetail} />
 
-            <Route exact path="/employees" component={Employees} />
-            <Route path="/employees/detail/:_id" component={EmployeesDetail} />
-            <Route path="/employees/create" component={EmployeesCreate} />
+                <Route exact path="/employees" component={Employees} />
+                <Route exact path="/employees/detail/:_id?" component={EmployeeDetail} />
 
-            <Route exact path="/employees/:user_id/timesheets" component={Timesheets} />
-            <Route
-              exact
-              path="/employees/:user_id/timesheets/detail/:_id"
-              component={TimesheetsDetail}
-            />
+                <Route exact path="/timesheets" component={Timesheets} />
+                <Route exact path="/timesheets/detail/:_id?" component={TimesheetsDetail} />
 
-            <Route path="/timesheets/create" component={TimesheetsCreate} />
+                <Route
+                  exact
+                  path="/timesheets/detail/:timesheet_id/timeunits/detail/:_id?"
+                  component={TimeunitsDetail}
+                />
 
-            <Route
-              path="/employees/:user_id/timesheets/detail/:timesheet_id/timeunits/create"
-              component={TimeunitsCreate}
-            />
-            <Route
-              path="/employees/:user_id/timesheets/detail/:timesheet_id/timeunits/detail/:_id"
-              component={TimeunitsDetail}
-            />
-
-            <Redirect to="/employees" />
-          </Switch>
+                <Redirect to="/employees" />
+              </Switch>
+            )}
+          </div>
         </div>
       </BrowserRouter>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  user: state.auth.user,
+  loginError: state.auth.error
+});
+
+const mapDispatchToProps = {
+  login: AuthActions.login,
+  logout: AuthActions.logout
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
