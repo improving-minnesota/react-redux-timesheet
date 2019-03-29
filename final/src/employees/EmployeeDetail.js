@@ -1,56 +1,68 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import * as EmployeeActionCreators from '../actions/EmployeeActionCreator';
 import EmployeeForm from './EmployeeForm';
-import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import Axios from 'axios';
+
+const apiUrl = '/api/users';
+
+const url = employeeId => {
+  if (employeeId) {
+    return `${apiUrl}/${employeeId}`;
+  }
+  return apiUrl;
+};
 
 class EmployeeDetail extends React.Component {
-  handleSave = (values) => {
-    const { onCreate, onUpdate, history } = this.props;
+  static propTypes = {
+    history: PropTypes.object
+  };
 
-    const result = values._id ? onUpdate(values) : onCreate(values);
+  static defaultProps = {};
+
+  state = {
+    employee: null
+  };
+
+  async componentDidMount() {
+    const { match } = this.props;
+    const { _id } = match.params;
+    const { data: employee } = await Axios.get(url(_id));
+    this.setState({ employee });
+  }
+
+  onUpdate = async employee => {
+    const response = await Axios.put(url(employee._id), employee);
+    return response.data;
+  };
+
+  onCreate = async employee => {
+    const response = await Axios.post(url(employee._id), employee);
+    return response.data;
+  };
+
+  handleSave = values => {
+    const { history } = this.props;
+
+    const result = values._id ? this.onUpdate(values) : this.onCreate(values);
     result.then(() => {
       history.push('/employees');
     });
   };
 
   render() {
+    const { employee } = this.state;
+
+    if (!employee) {
+      return <div>Loading...</div>;
+    }
     return (
       <div>
         <h1>Employee Detail</h1>
-        <EmployeeForm
-          employee={this.props.employee}
-          actions={this.props.actions}
-          handleSave={this.handleSave}
-        />
+        <EmployeeForm employee={employee} handleSave={this.handleSave} />
       </div>
     );
   }
 }
 
-EmployeeDetail.propTypes = {
-  employee: PropTypes.object.isRequired,
-  history: PropTypes.object
-};
-
-EmployeeDetail.defaultProps = {
-  employee: {}
-};
-
-const mapStateToProps = (state, props) => {
-  const { match } = props;
-  const { _id } = match.params;
-  return {
-    employee: state.employees.data.find(employee => employee._id === _id)
-  };
-};
-
-const mapDispatchToProps = {
-  onCreate: EmployeeActionCreators.createEmployee,
-  onUpdate: EmployeeActionCreators.updateEmployee
-};
-
-export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(EmployeeDetail)
-);
+export default withRouter(EmployeeDetail);

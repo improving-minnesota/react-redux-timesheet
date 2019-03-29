@@ -1,21 +1,17 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { Provider } from 'react-redux';
-import { MemoryRouter } from 'react-router';
+import { EmployeeDetail } from './EmployeeDetail';
 
-import EmployeeDetail from './EmployeeDetail';
-import configureStore from '../store/configure-store';
+jest.mock('axios', () => ({
+  get: jest.fn(),
+  put: jest.fn(),
+  post: jest.fn()
+}));
 
 describe('<EmployeeDetail />', () => {
   it('should instantiate the Employee Detail Component', () => {
-    const mockStore = configureStore();
-    const component = mount(
-      <Provider store={mockStore}>
-        <MemoryRouter>
-          <EmployeeDetail />
-        </MemoryRouter>
-      </Provider>
-    );
+    const component = mount(<EmployeeDetail />);
+    component.setState({ employee: { _id: 1 } });
 
     expect(component).toIncludeText('Employee Detail');
   });
