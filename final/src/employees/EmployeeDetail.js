@@ -15,7 +15,7 @@ const url = employeeId => {
 
 class EmployeeDetail extends React.Component {
   static propTypes = {
-    history: PropTypes.object
+    history: PropTypes.object.isRequired
   };
 
   static defaultProps = {};

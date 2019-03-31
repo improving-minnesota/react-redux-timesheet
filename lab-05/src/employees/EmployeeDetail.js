@@ -14,20 +14,15 @@ const url = employeeId => {
 };
 
 class EmployeeDetail extends React.Component {
-  static propTypes = {};
+  static propTypes = {
+    history: PropTypes.object.isRequired
+  };
 
   static defaultProps = {};
 
-  state = {
-    employee: null
-  };
+  state = {};
 
-  async componentDidMount() {
-    const { match } = this.props;
-    const { _id } = match.params;
-    const { data: employee } = await Axios.get(url(_id));
-    this.setState({ employee });
-  }
+  async componentDidMount() {}
 
   onUpdate = async employee => {};
 
