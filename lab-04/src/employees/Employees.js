@@ -3,31 +3,28 @@ import PropTypes from 'prop-types';
 import EmployeeTable from './EmployeeTable';
 
 class Employees extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      employees: [
-        {
-          _id: 1,
-          username: 'admin',
-          email: 'admin@mixtape.com',
-          password: 'password',
-          admin: true,
-          firstName: 'Admin',
-          lastName: 'User'
-        },
-        {
-          _id: 2,
-          username: 'user',
-          email: 'user@mixtape.com',
-          password: 'password',
-          admin: false,
-          firstName: 'Normal',
-          lastName: 'User'
-        }
-      ]
-    };
-  }
+  state = {
+    employees: [
+      {
+        _id: 1,
+        username: 'admin',
+        email: 'admin@mixtape.com',
+        password: 'password',
+        admin: true,
+        firstName: 'Admin',
+        lastName: 'User'
+      },
+      {
+        _id: 2,
+        username: 'user',
+        email: 'user@mixtape.com',
+        password: 'password',
+        admin: false,
+        firstName: 'Normal',
+        lastName: 'User'
+      }
+    ]
+  };
 
   render() {
     const { employees } = this.state;
@@ -35,14 +32,14 @@ class Employees extends React.Component {
     return (
       <div>
         <h1>Employees</h1>
-        <EmployeeTable employees={ employees }/>
+        <EmployeeTable employees={employees} />
       </div>
     );
   }
 }
 
 Employees.propTypes = {
-    employees: PropTypes.arrayOf(PropTypes.object)
+  employees: PropTypes.arrayOf(PropTypes.object)
 };
 
 export default Employees;
