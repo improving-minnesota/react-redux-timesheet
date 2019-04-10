@@ -1,11 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { Provider } from 'react-redux';
-import { MemoryRouter } from 'react-router';
-
-import EmployeeDetail from './EmployeeDetail';
-import configureStore from '../store/configure-store';
+import { EmployeeDetail } from './EmployeeDetail';
 
 describe('<EmployeeDetail />', () => {
-// TODO
+  // TODO
 });
