@@ -28,7 +28,7 @@ class EmployeeForm extends React.Component {
 
     return (
       <Formik
-        initialValues={ {
+        initialValues={ employee && {
           username: employee.username || '',
           email: employee.email || '',
           firstName: employee.firstName || '',
@@ -38,6 +38,7 @@ class EmployeeForm extends React.Component {
         } }
         validate={ this.validate }
         onSubmit={ this.handleSave }
+        enableReinitialize
       >
         { ({ isValid, errors, touched, handleReset, handleSubmit }) => (
           <Form>
