@@ -44,7 +44,7 @@ const mapStateToProps = (state, props) => {
   const { match } = props;
   const { _id } = match.params;
   return {
-    project: state.projects.projects.find(project => project._id === _id)
+    project: state.projects.data.find(project => project._id === _id)
   };
 };
 

@@ -52,7 +52,7 @@ const mapStateToProps = (state, props) => {
   const { _id } = match.params;
 
   return {
-    timeunit: state.timeunits.timeunits.find(timeunit => timeunit._id === _id),
+    timeunit: state.timeunits.data.find(timeunit => timeunit._id === _id),
     projects: state.projects.projects
   };
 };

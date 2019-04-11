@@ -57,7 +57,7 @@ const mapStateToProps = (state, props) => {
 
   return {
     employees: state.employees.employees,
-    timesheet: state.timesheets.timesheets.find(timesheet => timesheet._id === _id)
+    timesheet: state.timesheets.data.find(timesheet => timesheet._id === _id)
   };
 };
 
