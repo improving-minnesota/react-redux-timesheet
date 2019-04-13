@@ -6,21 +6,28 @@ import { withRouter } from 'react-router';
 class EmployeeRow extends React.Component {
   handleClick = (event) => {
     const { employee, onDelete, onRestore } = this.props;
-
     if (employee.deleted) {
       onRestore(employee);
     } else {
       onDelete(employee);
     }
-
     event.stopPropagation();
+  };
+
+  showDetail = () => {
+    const { history, employee } = this.props;
+     if (employee.deleted) {
+       console.log('You cannot edit a deleted employee.');
+       return;
+     }
+     history.push(`/employees/detail/${employee._id}`);
   };
 
   render() {
     const { employee } = this.props;
 
     return (
-      <tr className={employee.deleted ? 'deleted' : ''}>
+      <tr className={employee.deleted ? 'deleted' : ''} onClick={this.showDetail}>
         <td>{employee.username}</td>
         <td>{employee.email}</td>
         <td>{employee.firstName}</td>
