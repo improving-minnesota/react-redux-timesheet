@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ProjectRow /> should render to match the snapshot 1`] = `
+<tr>
+  <td>
+    NAME
+  </td>
+  <td>
+    DESCRIPTION
+  </td>
+</tr>
+`;

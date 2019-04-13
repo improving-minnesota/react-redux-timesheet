@@ -15,7 +15,10 @@ describe('<ProjectRow />', () => {
     };
     wrapper = shallow(<ProjectRow project={project} />);
   })
-
+  //snapshot allows comparison between previos version of components/logic to see if anything actually changed
+  it('should render to match the snapshot', () => {
+    expect(wrapper).toMatchSnapshot();
+  });
   it('should instantiate Project Row Component', () => {
     expect(wrapper).toHaveLength(1);
   });
@@ -24,5 +27,5 @@ describe('<ProjectRow />', () => {
     expect(wrapper.find('td')).toHaveLength(2);
     expect(wrapper.find('td').at(0).text()).toEqual('NAME');
     expect(wrapper.find('td').at(1).text()).toEqual('DESCRIPTION');
-  })
+  });
 });
