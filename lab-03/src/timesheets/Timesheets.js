@@ -386,7 +386,7 @@ class Timesheets extends React.Component {
 
     return (
       <div>
-        <h1>Timesheets</h1>
+        <h1>I Timesheets'd my pants.</h1>
         <TimesheetTable timesheets={timesheets} />
       </div>
     );
