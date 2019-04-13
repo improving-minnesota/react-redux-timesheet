@@ -9,7 +9,7 @@ describe('<ProjectRow />', () => {
 
   beforeEach(() => {
     const project = {
-      name: 'Name',
+      name: 'Name1',
       description: 'Description'
     };
     wrapper = shallow(<ProjectRow project={project} />)
@@ -21,7 +21,11 @@ describe('<ProjectRow />', () => {
 
   it('should have 2 cells, render values into expected cells', () => {
     expect(wrapper.find('td')).toHaveLength(2);
-    expect(wrapper.find('td').at(0).text()).toEqual('Name');
+    expect(wrapper.find('td').at(0).text()).toEqual('Name1');
     expect(wrapper.find('td').at(1).text()).toEqual('Description');
   })
+
+  it('should render to match the snapshot', () => {
+    expect(wrapper).toMatchSnapshot();
+  });
 });
