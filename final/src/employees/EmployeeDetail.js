@@ -13,7 +13,7 @@ const url = employeeId => {
   return apiUrl;
 };
 
-class EmployeeDetail extends React.Component {
+export class EmployeeDetail extends React.Component {
   static propTypes = {
     history: PropTypes.object.isRequired
   };
