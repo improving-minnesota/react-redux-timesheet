@@ -5,22 +5,22 @@ class Projects extends React.Component {
   state = {
     projects: [
       {
-        _id: 1,
+        _id: '1a',
         name: 'Project1',
         description: 'Makin bacon pancakes'
       },
       {
-        _id: 2,
+        _id: '2b',
         name: 'Project2',
         description: 'Booping the cat'
       },
       {
-        _id: 3,
+        _id: '3e',
         name: 'Project3',
         description: 'Actual work'
       }
     ]
-  }
+  };
   render() {
     const { projects } = this.state;
     return (
@@ -28,7 +28,7 @@ class Projects extends React.Component {
         <h1>Projects</h1>
         <ProjectTable projects={projects} />
       </div>
-    )
+    );
   }
 }
 

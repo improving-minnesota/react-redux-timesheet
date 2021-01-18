@@ -3,13 +3,9 @@ import PropTypes from 'prop-types';
 import { Table } from 'react-bootstrap';
 import ProjectRow from './ProjectRow';
 
-class ProjectTable extends React.Component {
-  // TODO Implement
-  render(){
-    const { projects } = this.props;
-    
-    return (
-      <Table bordered striped>
+function ProjectTable({ projects }) {
+  return (
+    <Table bordered striped>
       <thead>
         <tr>
           <th>Name</th>
@@ -17,16 +13,12 @@ class ProjectTable extends React.Component {
         </tr>
       </thead>
       <tbody>
-        {
-          projects.map(eachProject => 
-            (<ProjectRow project= {eachProject} key= {eachProject._id}/>)
-            )
-        }
+        {projects.map(project => (
+          <ProjectRow project={project} key={project._id} />
+        ))}
       </tbody>
-      </Table>
-    )
-
-  }
+    </Table>
+  );
 }
 
 ProjectTable.defaultProps = {
